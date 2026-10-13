@@ -1,34 +1,34 @@
 {
-  "updated": "2026-10-13 19:58:37",
-  "total_alive": 17,
-  "ssr_compatible": 9,
+  "updated": "2026-10-13 20:09:49",
+  "total_alive": 19,
+  "ssr_compatible": 10,
   "regions": {
-    "🌍 其他地区": 12,
-    "🇺🇸 美国": 2,
-    "🇸🇬 新加坡": 1,
+    "🌍 其他地区": 13,
+    "🇺🇸 美国": 3,
     "🇬🇧 英国": 1,
+    "🇸🇬 新加坡": 1,
     "🇮🇳 印度": 1
   },
   "fastest": [
     {
-      "name": "trojan-985518754 #2 #1 #1",
-      "delay": 199
+      "name": "trojan-985518754 #2 #1 #1 #1",
+      "delay": 152
     },
     {
-      "name": "🇸🇬 www.v2nodes.com ss-SG-1592... #4 #2",
-      "delay": 204
+      "name": "🇨🇳_CN_中国 #3 #3 #3 #2",
+      "delay": 264
     },
     {
-      "name": "🇨🇳_CN_中国 #3 #3 #3",
-      "delay": 235
+      "name": "vless-1802375227 #2 #8 #3",
+      "delay": 290
     },
     {
-      "name": "shadowsocks-1790831308 #8 #8 #4",
-      "delay": 514
+      "name": "vless-1771373721 #4 #11 #6 #4",
+      "delay": 422
     },
     {
-      "name": "🇺🇸_US_美国 #5",
-      "delay": 739
+      "name": "vless-1790835245 #5 #6 #15 #5",
+      "delay": 443
     }
   ]
 }

@@ -1,32 +1,34 @@
 {
-  "updated": "2026-10-13 11:59:43",
-  "total_alive": 11,
-  "ssr_compatible": 5,
+  "updated": "2026-10-13 12:14:38",
+  "total_alive": 14,
+  "ssr_compatible": 9,
   "regions": {
-    "🌍 其他地区": 7,
+    "🌍 其他地区": 8,
     "🇺🇸 美国": 3,
-    "🇰🇷 韩国": 1
+    "🇹🇼 台湾": 1,
+    "🇮🇳 印度": 1,
+    "🇷🇺 俄罗斯": 1
   },
   "fastest": [
     {
-      "name": "vmess-696793009 #1",
-      "delay": 141
+      "name": "🇨🇳_CN_中国 #1",
+      "delay": 146
     },
     {
-      "name": "🇨🇳_CN_中国 #2 #2 #2 #2",
-      "delay": 176
+      "name": "vless-1751612276 #3",
+      "delay": 444
     },
     {
-      "name": "vless-1793430236 #3",
-      "delay": 230
+      "name": "shadowsocks-1790831308 #4",
+      "delay": 540
     },
     {
-      "name": "vless-1751612276 #4",
-      "delay": 447
+      "name": "台湾省桃园市+中华电信 #5",
+      "delay": 629
     },
     {
-      "name": "vless-1795983190 #5",
-      "delay": 575
+      "name": "巴西+V2CROSS.COM #6",
+      "delay": 741
     }
   ]
 }

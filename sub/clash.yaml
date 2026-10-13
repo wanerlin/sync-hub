@@ -21,7 +21,82 @@ dns:
     geoip: true
     geoip-code: CN
 proxies:
-- name: '美国+V2CROSS.COM #22'
+- alterId: 64
+  cipher: auto
+  name: 'vmess-696793009 #1'
+  network: tcp
+  port: 50002
+  server: 112.132.215.108
+  type: vmess
+  udp: true
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+- name: '🇨🇳_CN_中国 #2 #2'
+  type: vmess
+  server: 120.48.133.162
+  port: 10086
+  uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
+  alterId: 0
+  cipher: auto
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+- name: 'hysteria2-573042057 #3'
+  password: 9cfc9458e48c028ec03ff86ebc71c744
+  port: 50160
+  server: 150-230-252-217.liao.kdns.fr
+  skip-cert-verify: true
+  sni: 150-230-252-217.liao.kdns.fr
+  type: hysteria2
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 'vless-1793430236 #4'
+  network: tcp
+  port: 32134
+  reality-opts:
+    public-key: OdTELUjAUKO_qr-O-uihaAZJAhA8GyIWVI6CpozVCU4
+    short-id: 6c6c7c97
+  server: 3696b38bsg.murphyweb.sbs
+  servername: buylite.music.apple.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 5b01dc2d-6892-49b8-8289-3f73a32e00e4
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 'vless-1751612276 #5'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: ''
+  server: edge.bookmai.com
+  servername: mother-earth.fyi
+  tls: true
+  type: vless
+  udp: true
+  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
+- name: 'hysteria2-730134100 #6'
+  password: M2NbFywBXjS9Ova8SgqRrQkp
+  port: 443
+  server: de-tg.fastlanehosting.ru
+  skip-cert-verify: false
+  sni: de-tg.fastlanehosting.ru
+  type: hysteria2
+- cipher: chacha20-ietf-poly1305
+  name: 'shadowsocks-1790831308 #7'
+  password: e5c65ph
+  port: 443
+  server: 54.36.174.140
+  type: ss
+  udp: true
+- name: '巴西+V2CROSS.COM #8'
+  type: hysteria2
+  server: sweedenqfds777.qcloud.surf
+  port: 21223
+  password: 8bd04756-3beb-4348-82c9-d35453df50ce
+  sni: sweedenqfds777.qcloud.surf
+- name: '美国+V2CROSS.COM #9'
   type: vless
   server: 168.222.143.254
   port: 443
@@ -34,31 +109,119 @@ proxies:
     short-id: 2dc17935
   flow: xtls-rprx-vision
   client-fingerprint: chrome
+- name: 'hysteria2-1749857013 #10'
+  password: usqmqUKJFIlCmvkCNSY64L3k
+  port: 443
+  server: 8.209.247.109
+  skip-cert-verify: true
+  sni: ''
+  type: hysteria2
+- name: 'hysteria2-326482357 #11'
+  password: df8d55f9-fb51-442d-902a-bf8160dc051b
+  port: 11100
+  server: brb.nnpy.org
+  skip-cert-verify: true
+  sni: www.bing.com
+  type: hysteria2
+- name: '🇰🇷 韩国 KOR #4 #6 #12'
+  type: trojan
+  server: kr.tronsg.com
+  port: 443
+  udp: true
+  password: Trojan@82164024
+  tls: true
+  servername: kr.tronsg.com
+- name: 'hysteria2-1706937294 #13'
+  password: maintell
+  port: 2053
+  server: 152.70.237.123
+  skip-cert-verify: true
+  sni: 152.70.237.123
+  type: hysteria2
+- name: '北京市+聚龙无限信息技术有限公司 #15 #14'
+  type: vless
+  server: jp.sofast.live
+  port: 52683
+  udp: true
+  uuid: 399b6b23-cc40-4831-a494-61948e2df133
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - 🔯 故障转移
+  - 🌍 其他地区
   - 🇺🇸 美国
+  - 🇰🇷 韩国
   - DIRECT
 - name: ♻️ 自动选择
   type: url-test
   proxies:
-  - '美国+V2CROSS.COM #22'
+  - 'vmess-696793009 #1'
+  - '🇨🇳_CN_中国 #2 #2'
+  - 'hysteria2-573042057 #3'
+  - 'vless-1793430236 #4'
+  - 'vless-1751612276 #5'
+  - 'hysteria2-730134100 #6'
+  - 'shadowsocks-1790831308 #7'
+  - '巴西+V2CROSS.COM #8'
+  - '美国+V2CROSS.COM #9'
+  - 'hysteria2-1749857013 #10'
+  - 'hysteria2-326482357 #11'
+  - '🇰🇷 韩国 KOR #4 #6 #12'
+  - 'hysteria2-1706937294 #13'
+  - '北京市+聚龙无限信息技术有限公司 #15 #14'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🔯 故障转移
   type: fallback
   proxies:
-  - '美国+V2CROSS.COM #22'
+  - 'vmess-696793009 #1'
+  - '🇨🇳_CN_中国 #2 #2'
+  - 'hysteria2-573042057 #3'
+  - 'vless-1793430236 #4'
+  - 'vless-1751612276 #5'
+  - 'hysteria2-730134100 #6'
+  - 'shadowsocks-1790831308 #7'
+  - '巴西+V2CROSS.COM #8'
+  - '美国+V2CROSS.COM #9'
+  - 'hysteria2-1749857013 #10'
+  - 'hysteria2-326482357 #11'
+  - '🇰🇷 韩国 KOR #4 #6 #12'
+  - 'hysteria2-1706937294 #13'
+  - '北京市+聚龙无限信息技术有限公司 #15 #14'
   url: http://www.gstatic.com/generate_204
   interval: 300
+- name: 🌍 其他地区
+  type: url-test
+  proxies:
+  - 'vmess-696793009 #1'
+  - '🇨🇳_CN_中国 #2 #2'
+  - 'hysteria2-573042057 #3'
+  - 'vless-1793430236 #4'
+  - 'vless-1751612276 #5'
+  - 'hysteria2-730134100 #6'
+  - 'shadowsocks-1790831308 #7'
+  - '巴西+V2CROSS.COM #8'
+  - 'hysteria2-1749857013 #10'
+  - 'hysteria2-326482357 #11'
+  - 'hysteria2-1706937294 #13'
+  - '北京市+聚龙无限信息技术有限公司 #15 #14'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
 - name: 🇺🇸 美国
   type: url-test
   proxies:
-  - '美国+V2CROSS.COM #22'
+  - '美国+V2CROSS.COM #9'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇰🇷 韩国
+  type: url-test
+  proxies:
+  - '🇰🇷 韩国 KOR #4 #6 #12'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80

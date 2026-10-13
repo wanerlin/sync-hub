@@ -21,15 +21,15 @@ dns:
     geoip: true
     geoip-code: CN
 proxies:
-- name: '🇨🇳_CN_中国 #4 #1'
-  type: vmess
-  server: 112.132.215.108
-  port: 50002
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
+- alterId: 64
   cipher: auto
+  name: 'vmess-696793009 #1'
   network: tcp
-  tls: false
+  port: 50002
+  server: 112.132.215.108
+  type: vmess
+  udp: true
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
 - name: 'trojan-985518754 #2'
   password: HOrViv
   port: 28106
@@ -38,7 +38,7 @@ proxies:
   sni: download.windowsupdate.com
   type: trojan
   udp: true
-- name: '🇨🇳_CN_中国 #3'
+- name: '🇨🇳_CN_中国 #3 #3'
   type: vmess
   server: 120.48.133.162
   port: 10086
@@ -51,9 +51,16 @@ proxies:
     path: /
     headers:
       Host: ''
+- cipher: chacha20-ietf-poly1305
+  name: 'shadowsocks-1790831308 #4'
+  password: e5c65ph
+  port: 443
+  server: 54.36.174.140
+  type: ss
+  udp: true
 - client-fingerprint: firefox
   flow: xtls-rprx-vision
-  name: 'vless-1771373721 #4'
+  name: 'vless-1771373721 #5'
   network: raw
   port: 443
   reality-opts:
@@ -65,36 +72,9 @@ proxies:
   type: vless
   udp: true
   uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
-- cipher: chacha20-ietf-poly1305
-  name: 'shadowsocks-1790831308 #5'
-  password: e5c65ph
-  port: 443
-  server: 54.36.174.140
-  type: ss
-  udp: true
-- client-fingerprint: firefox
-  flow: xtls-rprx-vision
-  name: 'vless-1795983190 #6'
-  network: tcp
-  port: 9443
-  reality-opts:
-    public-key: ELJzJkc4SiCeCn6OF-8V9oeoJqXcD1y9WUntP3It53g
-    short-id: 649ab61e575fdbc9
-  server: 213.165.50.45
-  servername: usa.edgeses.org
-  tls: true
-  type: vless
-  udp: true
-  uuid: c3db7657-88ce-42a6-b998-1e0364b277ac
-- name: '俄罗斯+V2CROSS.COM #7'
-  type: ss
-  server: 176.32.32.108
-  port: 20119
-  cipher: aes-256-gcm
-  password: d8a115ba7ee0d990
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 'vless-1799800228 #8'
+  name: 'vless-1800494235 #6'
   network: tcp
   port: 39485
   reality-opts:
@@ -106,47 +86,20 @@ proxies:
   type: vless
   udp: true
   uuid: 25b3faeb-89b0-4dff-b0a3-0e70997dc962
-- name: '🇺🇸_US_美国 #2 #9'
-  type: vmess
-  server: guanwang.awsno.com
+- name: '俄罗斯+V2CROSS.COM #7'
+  type: ss
+  server: 176.32.32.108
+  port: 20119
+  cipher: aes-256-gcm
+  password: d8a115ba7ee0d990
+- cipher: 2022-blake3-chacha20-poly1305
+  name: 'shadowsocks-1800496404 #8'
+  password: d4M6fAj9Q07uK4HePntATUAs1KBceMzq8hGPy1AFxFA=
   port: 443
-  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
-  alterId: 0
-  cipher: auto
-  network: ws
-  tls: true
-  ws-opts:
-    path: /hls/cctv5phd.m3u8
-    headers:
-      Host: guanwang.awsno.com
-- name: '英国+桑德兰大学 #10'
-  type: vless
-  server: 157.228.128.59
-  port: 443
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-  tls: true
-  network: tcp
-  servername: addons.mozilla.org
-  reality-opts:
-    public-key: QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws
-    short-id: 06e00e7c
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-- client-fingerprint: firefox
-  flow: xtls-rprx-vision
-  name: 'vless-1795983192 #11'
-  network: tcp
-  port: 9443
-  reality-opts:
-    public-key: ELJzJkc4SiCeCn6OF-8V9oeoJqXcD1y9WUntP3It53g
-    short-id: 649ab61e575fdbc9
-  server: 213.165.50.47
-  servername: usa.edgeses.org
-  tls: true
-  type: vless
+  server: 43.114.183.117
+  type: ss
   udp: true
-  uuid: c3db7657-88ce-42a6-b998-1e0364b277ac
-- name: 'trojan-1785655561 #12'
+- name: 'trojan-1785655561 #9'
   password: Trojan@82164024
   port: 443
   server: in.tronsg.com
@@ -154,32 +107,21 @@ proxies:
   sni: in.tronsg.com
   type: trojan
   udp: true
-- alterId: 2
-  cipher: auto
-  name: 'vmess-101092 #13'
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 'vless-1797358062 #10'
   network: tcp
-  port: 30807
-  server: v10.zgtfqs.click
-  type: vmess
-  udp: true
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-- alterId: 2
-  cipher: auto
-  name: 'vmess-24350 #14'
-  network: tcp
-  port: 30807
-  server: v10.hdacd.com
-  type: vmess
-  udp: true
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-- name: '🇨🇳_CN_中国->🇺🇸_US_美国 #15'
+  port: 9443
+  reality-opts:
+    public-key: ELJzJkc4SiCeCn6OF-8V9oeoJqXcD1y9WUntP3It53g
+    short-id: 649ab61e575fdbc9
+  server: 213.165.50.45
+  servername: usa.edgeses.org
+  tls: true
   type: vless
-  server: us22.sofast.live
-  port: 58011
-  uuid: 0afc6426-606c-48e7-bd70-3c424a416842
-  tls: false
-  network: tcp
-- name: '美国+V2CROSS.COM #16'
+  udp: true
+  uuid: c3db7657-88ce-42a6-b998-1e0364b277ac
+- name: '美国+V2CROSS.COM #11'
   type: hysteria2
   server: 152.70.237.123
   port: 2053
@@ -192,76 +134,54 @@ proxy-groups:
   - ♻️ 自动选择
   - 🔯 故障转移
   - 🌍 其他地区
-  - 🇺🇸 美国
   - 🇷🇺 俄罗斯
-  - 🇬🇧 英国
+  - 🇺🇸 美国
   - DIRECT
 - name: ♻️ 自动选择
   type: url-test
   proxies:
-  - '🇨🇳_CN_中国 #4 #1'
+  - 'vmess-696793009 #1'
   - 'trojan-985518754 #2'
-  - '🇨🇳_CN_中国 #3'
-  - 'vless-1771373721 #4'
-  - 'shadowsocks-1790831308 #5'
-  - 'vless-1795983190 #6'
+  - '🇨🇳_CN_中国 #3 #3'
+  - 'shadowsocks-1790831308 #4'
+  - 'vless-1771373721 #5'
+  - 'vless-1800494235 #6'
   - '俄罗斯+V2CROSS.COM #7'
-  - 'vless-1799800228 #8'
-  - '🇺🇸_US_美国 #2 #9'
-  - '英国+桑德兰大学 #10'
-  - 'vless-1795983192 #11'
-  - 'trojan-1785655561 #12'
-  - 'vmess-101092 #13'
-  - 'vmess-24350 #14'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #15'
-  - '美国+V2CROSS.COM #16'
+  - 'shadowsocks-1800496404 #8'
+  - 'trojan-1785655561 #9'
+  - 'vless-1797358062 #10'
+  - '美国+V2CROSS.COM #11'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🔯 故障转移
   type: fallback
   proxies:
-  - '🇨🇳_CN_中国 #4 #1'
+  - 'vmess-696793009 #1'
   - 'trojan-985518754 #2'
-  - '🇨🇳_CN_中国 #3'
-  - 'vless-1771373721 #4'
-  - 'shadowsocks-1790831308 #5'
-  - 'vless-1795983190 #6'
+  - '🇨🇳_CN_中国 #3 #3'
+  - 'shadowsocks-1790831308 #4'
+  - 'vless-1771373721 #5'
+  - 'vless-1800494235 #6'
   - '俄罗斯+V2CROSS.COM #7'
-  - 'vless-1799800228 #8'
-  - '🇺🇸_US_美国 #2 #9'
-  - '英国+桑德兰大学 #10'
-  - 'vless-1795983192 #11'
-  - 'trojan-1785655561 #12'
-  - 'vmess-101092 #13'
-  - 'vmess-24350 #14'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #15'
-  - '美国+V2CROSS.COM #16'
+  - 'shadowsocks-1800496404 #8'
+  - 'trojan-1785655561 #9'
+  - 'vless-1797358062 #10'
+  - '美国+V2CROSS.COM #11'
   url: http://www.gstatic.com/generate_204
   interval: 300
 - name: 🌍 其他地区
   type: url-test
   proxies:
-  - '🇨🇳_CN_中国 #4 #1'
+  - 'vmess-696793009 #1'
   - 'trojan-985518754 #2'
-  - '🇨🇳_CN_中国 #3'
-  - 'vless-1771373721 #4'
-  - 'shadowsocks-1790831308 #5'
-  - 'vless-1795983190 #6'
-  - 'vless-1799800228 #8'
-  - 'vless-1795983192 #11'
-  - 'trojan-1785655561 #12'
-  - 'vmess-101092 #13'
-  - 'vmess-24350 #14'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇺🇸 美国
-  type: url-test
-  proxies:
-  - '🇺🇸_US_美国 #2 #9'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #15'
-  - '美国+V2CROSS.COM #16'
+  - '🇨🇳_CN_中国 #3 #3'
+  - 'shadowsocks-1790831308 #4'
+  - 'vless-1771373721 #5'
+  - 'vless-1800494235 #6'
+  - 'shadowsocks-1800496404 #8'
+  - 'trojan-1785655561 #9'
+  - 'vless-1797358062 #10'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
@@ -272,10 +192,10 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-- name: 🇬🇧 英国
+- name: 🇺🇸 美国
   type: url-test
   proxies:
-  - '英国+桑德兰大学 #10'
+  - '美国+V2CROSS.COM #11'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80

@@ -1,33 +1,36 @@
 {
-  "updated": "2026-10-13 22:09:29",
-  "total_alive": 16,
-  "ssr_compatible": 6,
+  "updated": "2026-10-13 23:09:20",
+  "total_alive": 33,
+  "ssr_compatible": 9,
   "regions": {
-    "🌍 其他地区": 12,
-    "🇺🇸 美国": 2,
-    "🇳🇱 荷兰": 1,
-    "🇩🇪 德国": 1
+    "🌍 其他地区": 20,
+    "🇬🇧 英国": 4,
+    "🇺🇸 美国": 3,
+    "🇸🇬 新加坡": 2,
+    "🇰🇷 韩国": 2,
+    "🇭🇰 香港": 1,
+    "🇳🇱 荷兰": 1
   },
   "fastest": [
     {
-      "name": "trojan-1780455677 #1",
-      "delay": 170
+      "name": "HK - zhuhai.uk #1",
+      "delay": 152
     },
     {
-      "name": "shadowsocks-1801330929 #4",
-      "delay": 443
+      "name": "SG - zhuhai.uk #2",
+      "delay": 156
     },
     {
-      "name": "vless-1799947030 #5",
-      "delay": 451
+      "name": "trojan-1780455677 #3",
+      "delay": 207
     },
     {
-      "name": "vless-1751612276 #6",
-      "delay": 593
+      "name": "🇨🇳_CN_中国 #4",
+      "delay": 222
     },
     {
-      "name": "澳大利亚+新南威尔士州悉尼Amazon数据中心 #7",
-      "delay": 744
+      "name": "TH - zhuhai.uk #6",
+      "delay": 270
     }
   ]
 }

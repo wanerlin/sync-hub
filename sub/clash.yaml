@@ -21,43 +21,18 @@ dns:
     geoip: true
     geoip-code: CN
 proxies:
-- alterId: 64
-  cipher: auto
-  name: 'vmess-696793009 #1'
-  network: tcp
-  port: 50002
+- name: '🇨🇳_CN_中国 #1'
+  type: vmess
   server: 112.132.215.108
-  type: vmess
-  udp: true
+  port: 50002
   uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-- name: '🇨🇳_CN_中国 #2 #2 #2 #2'
-  type: vmess
-  server: 120.48.133.162
-  port: 10086
-  uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
   alterId: 0
   cipher: auto
-  udp: true
-  network: ws
-  ws-opts:
-    path: /
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 'vless-1793430236 #3'
   network: tcp
-  port: 32134
-  reality-opts:
-    public-key: OdTELUjAUKO_qr-O-uihaAZJAhA8GyIWVI6CpozVCU4
-    short-id: 6c6c7c97
-  server: 3696b38bsg.murphyweb.sbs
-  servername: buylite.music.apple.com
-  tls: true
-  type: vless
-  udp: true
-  uuid: 5b01dc2d-6892-49b8-8289-3f73a32e00e4
+  tls: false
 - client-fingerprint: firefox
   flow: xtls-rprx-vision
-  name: 'vless-1751612276 #4'
+  name: 'vless-1751612276 #3'
   network: tcp
   port: 443
   reality-opts:
@@ -69,37 +44,93 @@ proxies:
   type: vless
   udp: true
   uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
-- client-fingerprint: firefox
-  flow: xtls-rprx-vision
-  name: 'vless-1795983190 #5'
-  network: tcp
-  port: 9443
-  reality-opts:
-    public-key: ELJzJkc4SiCeCn6OF-8V9oeoJqXcD1y9WUntP3It53g
-    short-id: 649ab61e575fdbc9
-  server: 213.165.50.45
-  servername: usa.edgeses.org
-  tls: true
-  type: vless
+- cipher: chacha20-ietf-poly1305
+  name: 'shadowsocks-1790831308 #4'
+  password: e5c65ph
+  port: 443
+  server: 54.36.174.140
+  type: ss
   udp: true
-  uuid: c3db7657-88ce-42a6-b998-1e0364b277ac
+- name: '台湾省桃园市+中华电信 #5'
+  type: vless
+  server: 3696b38bsg.murphyweb.sbs
+  port: 32134
+  uuid: 5b01dc2d-6892-49b8-8289-3f73a32e00e4
+  tls: true
+  network: tcp
+  servername: buylite.music.apple.com
+  reality-opts:
+    public-key: OdTELUjAUKO_qr-O-uihaAZJAhA8GyIWVI6CpozVCU4
+    short-id: 6c6c7c97
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+- name: '巴西+V2CROSS.COM #6'
+  type: hysteria2
+  server: finkawwwbroy5.qcloud.surf
+  port: 20326
+  password: f83ce3c4-07d9-4895-bd14-cb74abbcab37
+  sni: finkawwwbroy5.qcloud.surf
 - alterId: 2
   cipher: auto
-  name: 'vmess-2175489 #6'
+  name: 'vmess-101120 #7'
+  network: tcp
+  port: 30836
+  server: v36.hdacd.com
+  type: vmess
+  udp: true
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- name: '🇺🇸_US_美国 #8'
+  type: vmess
+  server: guanwang.awsno.com
+  port: 443
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
+- name: '🇮🇳 印度 IND #1 #9'
+  type: trojan
+  server: in.tronsg.com
+  port: 443
+  password: Trojan@82164024
+  sni: in.tronsg.com
+  tls: true
+- alterId: 2
+  cipher: auto
+  name: 'vmess-2175489 #10'
   network: tcp
   port: 30804
   server: v4.hdacd.com
   type: vmess
   udp: true
   uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-- cipher: chacha20-ietf-poly1305
-  name: 'shadowsocks-1790831308 #7'
-  password: e5c65ph
-  port: 443
-  server: 54.36.174.140
-  type: ss
+- alterId: 2
+  cipher: auto
+  name: 'vmess-17596 #11'
+  network: tcp
+  port: 30835
+  server: v35.hdacd.com
+  type: vmess
   udp: true
-- name: '美国+科罗拉多州NTT(美国)通信公司 #8'
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- name: '🇷🇺_RU_俄罗斯 #12'
+  type: vmess
+  server: renderer-stream-2-114.mirra.now
+  port: 443
+  uuid: 8ffa41d4-e6b5-4af5-a8a9-69e26bec75f5
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers:
+      Host: renderer-stream-2-114.mirra.now
+- name: '美国+科罗拉多州NTT(美国)通信公司 #8 #13'
   type: vless
   server: 207.56.137.51
   port: 443
@@ -112,21 +143,16 @@ proxies:
     short-id: f713561d
   flow: xtls-rprx-vision
   client-fingerprint: chrome
-- name: '🇰🇷 韩国 KOR #4 #6 #12 #11 #11'
-  type: trojan
-  server: kr.tronsg.com
-  port: 443
+- alterId: 2
+  cipher: auto
+  name: 'vmess-101103 #15'
+  network: tcp
+  port: 30829
+  server: v29.hdacd.com
+  type: vmess
   udp: true
-  password: Trojan@82164024
-  tls: true
-  servername: kr.tronsg.com
-- name: '美国+V2CROSS.COM #12'
-  type: hysteria2
-  server: 152.70.237.123
-  port: 2053
-  password: maintell
-  sni: bing.com
-- name: '🇨🇳_CN_中国->🇺🇸_US_美国 #13'
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- name: '🇨🇳_CN_中国->🇺🇸_US_美国 #18'
   type: vless
   server: us22.sofast.live
   port: 58011
@@ -141,67 +167,90 @@ proxy-groups:
   - 🔯 故障转移
   - 🌍 其他地区
   - 🇺🇸 美国
-  - 🇰🇷 韩国
+  - 🇹🇼 台湾
+  - 🇮🇳 印度
+  - 🇷🇺 俄罗斯
   - DIRECT
 - name: ♻️ 自动选择
   type: url-test
   proxies:
-  - 'vmess-696793009 #1'
-  - '🇨🇳_CN_中国 #2 #2 #2 #2'
-  - 'vless-1793430236 #3'
-  - 'vless-1751612276 #4'
-  - 'vless-1795983190 #5'
-  - 'vmess-2175489 #6'
-  - 'shadowsocks-1790831308 #7'
-  - '美国+科罗拉多州NTT(美国)通信公司 #8'
-  - '🇰🇷 韩国 KOR #4 #6 #12 #11 #11'
-  - '美国+V2CROSS.COM #12'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #13'
+  - '🇨🇳_CN_中国 #1'
+  - 'vless-1751612276 #3'
+  - 'shadowsocks-1790831308 #4'
+  - '台湾省桃园市+中华电信 #5'
+  - '巴西+V2CROSS.COM #6'
+  - 'vmess-101120 #7'
+  - '🇺🇸_US_美国 #8'
+  - '🇮🇳 印度 IND #1 #9'
+  - 'vmess-2175489 #10'
+  - 'vmess-17596 #11'
+  - '🇷🇺_RU_俄罗斯 #12'
+  - '美国+科罗拉多州NTT(美国)通信公司 #8 #13'
+  - 'vmess-101103 #15'
+  - '🇨🇳_CN_中国->🇺🇸_US_美国 #18'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🔯 故障转移
   type: fallback
   proxies:
-  - 'vmess-696793009 #1'
-  - '🇨🇳_CN_中国 #2 #2 #2 #2'
-  - 'vless-1793430236 #3'
-  - 'vless-1751612276 #4'
-  - 'vless-1795983190 #5'
-  - 'vmess-2175489 #6'
-  - 'shadowsocks-1790831308 #7'
-  - '美国+科罗拉多州NTT(美国)通信公司 #8'
-  - '🇰🇷 韩国 KOR #4 #6 #12 #11 #11'
-  - '美国+V2CROSS.COM #12'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #13'
+  - '🇨🇳_CN_中国 #1'
+  - 'vless-1751612276 #3'
+  - 'shadowsocks-1790831308 #4'
+  - '台湾省桃园市+中华电信 #5'
+  - '巴西+V2CROSS.COM #6'
+  - 'vmess-101120 #7'
+  - '🇺🇸_US_美国 #8'
+  - '🇮🇳 印度 IND #1 #9'
+  - 'vmess-2175489 #10'
+  - 'vmess-17596 #11'
+  - '🇷🇺_RU_俄罗斯 #12'
+  - '美国+科罗拉多州NTT(美国)通信公司 #8 #13'
+  - 'vmess-101103 #15'
+  - '🇨🇳_CN_中国->🇺🇸_US_美国 #18'
   url: http://www.gstatic.com/generate_204
   interval: 300
 - name: 🌍 其他地区
   type: url-test
   proxies:
-  - 'vmess-696793009 #1'
-  - '🇨🇳_CN_中国 #2 #2 #2 #2'
-  - 'vless-1793430236 #3'
-  - 'vless-1751612276 #4'
-  - 'vless-1795983190 #5'
-  - 'vmess-2175489 #6'
-  - 'shadowsocks-1790831308 #7'
+  - '🇨🇳_CN_中国 #1'
+  - 'vless-1751612276 #3'
+  - 'shadowsocks-1790831308 #4'
+  - '巴西+V2CROSS.COM #6'
+  - 'vmess-101120 #7'
+  - 'vmess-2175489 #10'
+  - 'vmess-17596 #11'
+  - 'vmess-101103 #15'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇺🇸 美国
   type: url-test
   proxies:
-  - '美国+科罗拉多州NTT(美国)通信公司 #8'
-  - '美国+V2CROSS.COM #12'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #13'
+  - '🇺🇸_US_美国 #8'
+  - '美国+科罗拉多州NTT(美国)通信公司 #8 #13'
+  - '🇨🇳_CN_中国->🇺🇸_US_美国 #18'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-- name: 🇰🇷 韩国
+- name: 🇹🇼 台湾
   type: url-test
   proxies:
-  - '🇰🇷 韩国 KOR #4 #6 #12 #11 #11'
+  - '台湾省桃园市+中华电信 #5'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇮🇳 印度
+  type: url-test
+  proxies:
+  - '🇮🇳 印度 IND #1 #9'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇷🇺 俄罗斯
+  type: url-test
+  proxies:
+  - '🇷🇺_RU_俄罗斯 #12'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80

@@ -1,33 +1,33 @@
 {
-  "updated": "2026-10-13 13:02:35",
-  "total_alive": 14,
-  "ssr_compatible": 9,
+  "updated": "2026-10-13 14:02:53",
+  "total_alive": 9,
+  "ssr_compatible": 5,
   "regions": {
-    "🌍 其他地区": 10,
+    "🌍 其他地区": 5,
     "🇺🇸 美国": 2,
     "🇮🇳 印度": 1,
-    "🇹🇼 台湾": 1
+    "🇬🇧 英国": 1
   },
   "fastest": [
     {
-      "name": "trojan-985518754 #1",
-      "delay": 173
+      "name": "🇨🇳_CN_中国 #1",
+      "delay": 144
     },
     {
-      "name": "🇨🇳_CN_中国 #2",
-      "delay": 268
+      "name": "trojan-985518754 #2",
+      "delay": 171
     },
     {
-      "name": "trojan-1792117700 #4",
-      "delay": 453
+      "name": "vless-1795983190 #3",
+      "delay": 561
     },
     {
-      "name": "vless-1751612276 #3 #5",
-      "delay": 507
+      "name": "🇮🇳 印度 IND #1 #4",
+      "delay": 815
     },
     {
-      "name": "巴西+V2CROSS.COM #6",
-      "delay": 719
+      "name": "shadowsocks-1790831308 #5",
+      "delay": 1105
     }
   ]
 }

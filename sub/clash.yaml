@@ -30,7 +30,7 @@ proxies:
   type: vmess
   udp: true
   uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-- name: 'trojan-985518754 #2'
+- name: 'trojan-985518754 #2 #2'
   password: HOrViv
   port: 28106
   server: 209.248.32.116
@@ -38,7 +38,7 @@ proxies:
   sni: download.windowsupdate.com
   type: trojan
   udp: true
-- name: '🇨🇳_CN_中国 #3 #3'
+- name: '🇨🇳_CN_中国 #3 #3 #3'
   type: vmess
   server: 120.48.133.162
   port: 10086
@@ -51,65 +51,30 @@ proxies:
     path: /
     headers:
       Host: ''
-- cipher: chacha20-ietf-poly1305
-  name: 'shadowsocks-1790831308 #4'
-  password: e5c65ph
-  port: 443
-  server: 54.36.174.140
-  type: ss
-  udp: true
 - client-fingerprint: firefox
   flow: xtls-rprx-vision
-  name: 'vless-1771373721 #5'
-  network: raw
+  name: 'vless-1790835245 #4'
+  network: tcp
   port: 443
   reality-opts:
     public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
     short-id: ''
-  server: edge.bookmai.com
+  server: 163.245.42.48
   servername: mother-earth.fyi
   tls: true
   type: vless
   udp: true
   uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 'vless-1800494235 #6'
-  network: tcp
-  port: 39485
-  reality-opts:
-    public-key: pzmFiyOtVaKJpJlXYC_hJcDw0hiPvPZ661uZn4NO0Xs
-    short-id: b9
-  server: 103.193.173.51
-  servername: www.icloud.com
-  tls: true
-  type: vless
-  udp: true
-  uuid: 25b3faeb-89b0-4dff-b0a3-0e70997dc962
-- name: '俄罗斯+V2CROSS.COM #7'
-  type: ss
-  server: 176.32.32.108
-  port: 20119
-  cipher: aes-256-gcm
-  password: d8a115ba7ee0d990
-- cipher: 2022-blake3-chacha20-poly1305
-  name: 'shadowsocks-1800496404 #8'
-  password: d4M6fAj9Q07uK4HePntATUAs1KBceMzq8hGPy1AFxFA=
+- cipher: chacha20-ietf-poly1305
+  name: 'shadowsocks-1790831308 #4 #5'
+  password: e5c65ph
   port: 443
-  server: 43.114.183.117
+  server: 54.36.174.140
   type: ss
-  udp: true
-- name: 'trojan-1785655561 #9'
-  password: Trojan@82164024
-  port: 443
-  server: in.tronsg.com
-  skip-cert-verify: true
-  sni: in.tronsg.com
-  type: trojan
   udp: true
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 'vless-1797358062 #10'
+  name: 'vless-1797358062 #10 #6'
   network: tcp
   port: 9443
   reality-opts:
@@ -121,12 +86,90 @@ proxies:
   type: vless
   udp: true
   uuid: c3db7657-88ce-42a6-b998-1e0364b277ac
-- name: '美国+V2CROSS.COM #11'
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 'vless-1771373721 #5 #7'
+  network: raw
+  port: 443
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: ''
+  server: edge.bookmai.com
+  servername: mother-earth.fyi
+  tls: true
+  type: vless
+  udp: true
+  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
+- name: '巴西+V2CROSS.COM #8'
+  type: hysteria2
+  server: sweedenqfds777.qcloud.surf
+  port: 21223
+  password: 8bd04756-3beb-4348-82c9-d35453df50ce
+  sni: 127.0.0.1
+- name: 'trojan-1785655561 #9 #9'
+  password: Trojan@82164024
+  port: 443
+  server: in.tronsg.com
+  skip-cert-verify: true
+  sni: in.tronsg.com
+  type: trojan
+  udp: true
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 'vless-1800494235 #6 #10'
+  network: tcp
+  port: 39485
+  reality-opts:
+    public-key: pzmFiyOtVaKJpJlXYC_hJcDw0hiPvPZ661uZn4NO0Xs
+    short-id: b9
+  server: 103.193.173.51
+  servername: www.icloud.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 25b3faeb-89b0-4dff-b0a3-0e70997dc962
+- alterId: 2
+  cipher: auto
+  name: 'vmess-2125910 #11'
+  network: tcp
+  port: 30804
+  server: v4.hdacd.com
+  type: vmess
+  udp: true
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- name: '🇰🇷 韩国 KOR #3 #12'
   type: hysteria2
   server: 152.70.237.123
   port: 2053
   password: maintell
-  sni: 152.70.237.123
+  sni: bing.com
+- name: '🇩🇪 德国 DEU 13 #13'
+  type: vmess
+  server: renderer-stream-2-114.mirra.now
+  port: 443
+  uuid: 8ffa41d4-e6b5-4af5-a8a9-69e26bec75f5
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers:
+      Host: renderer-stream-2-114.mirra.now
+- cipher: 2022-blake3-chacha20-poly1305
+  name: 'shadowsocks-1800496404 #8 #14'
+  password: d4M6fAj9Q07uK4HePntATUAs1KBceMzq8hGPy1AFxFA=
+  port: 443
+  server: 43.114.183.117
+  type: ss
+  udp: true
+- name: '🇨🇳_CN_中国->🇺🇸_US_美国 #15'
+  type: vless
+  server: us22.sofast.live
+  port: 58011
+  uuid: 0afc6426-606c-48e7-bd70-3c424a416842
+  tls: false
+  network: tcp
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -134,23 +177,28 @@ proxy-groups:
   - ♻️ 自动选择
   - 🔯 故障转移
   - 🌍 其他地区
-  - 🇷🇺 俄罗斯
+  - 🇰🇷 韩国
+  - 🇩🇪 德国
   - 🇺🇸 美国
   - DIRECT
 - name: ♻️ 自动选择
   type: url-test
   proxies:
   - 'vmess-696793009 #1'
-  - 'trojan-985518754 #2'
-  - '🇨🇳_CN_中国 #3 #3'
-  - 'shadowsocks-1790831308 #4'
-  - 'vless-1771373721 #5'
-  - 'vless-1800494235 #6'
-  - '俄罗斯+V2CROSS.COM #7'
-  - 'shadowsocks-1800496404 #8'
-  - 'trojan-1785655561 #9'
-  - 'vless-1797358062 #10'
-  - '美国+V2CROSS.COM #11'
+  - 'trojan-985518754 #2 #2'
+  - '🇨🇳_CN_中国 #3 #3 #3'
+  - 'vless-1790835245 #4'
+  - 'shadowsocks-1790831308 #4 #5'
+  - 'vless-1797358062 #10 #6'
+  - 'vless-1771373721 #5 #7'
+  - '巴西+V2CROSS.COM #8'
+  - 'trojan-1785655561 #9 #9'
+  - 'vless-1800494235 #6 #10'
+  - 'vmess-2125910 #11'
+  - '🇰🇷 韩国 KOR #3 #12'
+  - '🇩🇪 德国 DEU 13 #13'
+  - 'shadowsocks-1800496404 #8 #14'
+  - '🇨🇳_CN_中国->🇺🇸_US_美国 #15'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
@@ -158,44 +206,58 @@ proxy-groups:
   type: fallback
   proxies:
   - 'vmess-696793009 #1'
-  - 'trojan-985518754 #2'
-  - '🇨🇳_CN_中国 #3 #3'
-  - 'shadowsocks-1790831308 #4'
-  - 'vless-1771373721 #5'
-  - 'vless-1800494235 #6'
-  - '俄罗斯+V2CROSS.COM #7'
-  - 'shadowsocks-1800496404 #8'
-  - 'trojan-1785655561 #9'
-  - 'vless-1797358062 #10'
-  - '美国+V2CROSS.COM #11'
+  - 'trojan-985518754 #2 #2'
+  - '🇨🇳_CN_中国 #3 #3 #3'
+  - 'vless-1790835245 #4'
+  - 'shadowsocks-1790831308 #4 #5'
+  - 'vless-1797358062 #10 #6'
+  - 'vless-1771373721 #5 #7'
+  - '巴西+V2CROSS.COM #8'
+  - 'trojan-1785655561 #9 #9'
+  - 'vless-1800494235 #6 #10'
+  - 'vmess-2125910 #11'
+  - '🇰🇷 韩国 KOR #3 #12'
+  - '🇩🇪 德国 DEU 13 #13'
+  - 'shadowsocks-1800496404 #8 #14'
+  - '🇨🇳_CN_中国->🇺🇸_US_美国 #15'
   url: http://www.gstatic.com/generate_204
   interval: 300
 - name: 🌍 其他地区
   type: url-test
   proxies:
   - 'vmess-696793009 #1'
-  - 'trojan-985518754 #2'
-  - '🇨🇳_CN_中国 #3 #3'
-  - 'shadowsocks-1790831308 #4'
-  - 'vless-1771373721 #5'
-  - 'vless-1800494235 #6'
-  - 'shadowsocks-1800496404 #8'
-  - 'trojan-1785655561 #9'
-  - 'vless-1797358062 #10'
+  - 'trojan-985518754 #2 #2'
+  - '🇨🇳_CN_中国 #3 #3 #3'
+  - 'vless-1790835245 #4'
+  - 'shadowsocks-1790831308 #4 #5'
+  - 'vless-1797358062 #10 #6'
+  - 'vless-1771373721 #5 #7'
+  - '巴西+V2CROSS.COM #8'
+  - 'trojan-1785655561 #9 #9'
+  - 'vless-1800494235 #6 #10'
+  - 'vmess-2125910 #11'
+  - 'shadowsocks-1800496404 #8 #14'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-- name: 🇷🇺 俄罗斯
+- name: 🇰🇷 韩国
   type: url-test
   proxies:
-  - '俄罗斯+V2CROSS.COM #7'
+  - '🇰🇷 韩国 KOR #3 #12'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇩🇪 德国
+  type: url-test
+  proxies:
+  - '🇩🇪 德国 DEU 13 #13'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇺🇸 美国
   type: url-test
   proxies:
-  - '美国+V2CROSS.COM #11'
+  - '🇨🇳_CN_中国->🇺🇸_US_美国 #15'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80

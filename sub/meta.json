@@ -1,37 +1,36 @@
 {
-  "updated": "2026-10-14 00:10:26",
-  "total_alive": 37,
-  "ssr_compatible": 12,
+  "updated": "2026-10-14 01:08:20",
+  "total_alive": 47,
+  "ssr_compatible": 20,
   "regions": {
-    "🌍 其他地区": 24,
+    "🌍 其他地区": 26,
+    "🇰🇷 韩国": 8,
+    "🇸🇬 新加坡": 4,
     "🇬🇧 英国": 4,
-    "🇰🇷 韩国": 3,
-    "🇸🇬 新加坡": 2,
+    "🇺🇸 美国": 3,
     "🇭🇰 香港": 1,
-    "🇺🇸 美国": 1,
-    "🇳🇱 荷兰": 1,
-    "🇩🇪 德国": 1
+    "🇳🇱 荷兰": 1
   },
   "fastest": [
     {
-      "name": "🇨🇳_CN_中国 #1",
-      "delay": 113
+      "name": "trojan-1780455677 #3 #2 #1",
+      "delay": 177
     },
     {
-      "name": "trojan-1780455677 #3 #2",
-      "delay": 179
+      "name": "SG - zhuhai.uk 02 #7 #3 #2",
+      "delay": 225
     },
     {
-      "name": "SG - zhuhai.uk 02 #7 #3",
-      "delay": 297
+      "name": "🇨🇳_CN_中国 #4 #15 #3",
+      "delay": 234
     },
     {
-      "name": "SG - zhuhai.uk #2 #4",
-      "delay": 308
+      "name": "🇰🇷 韩国 KOR #4",
+      "delay": 234
     },
     {
-      "name": "vless-1751612276 #9 #5",
-      "delay": 356
+      "name": "KR - zhuhai.uk 03 #5",
+      "delay": 235
     }
   ]
 }

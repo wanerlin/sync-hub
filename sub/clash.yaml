@@ -21,7 +21,16 @@ dns:
     geoip: true
     geoip-code: CN
 proxies:
-- name: 'trojan-985518754 #1'
+- name: '🇨🇳_CN_中国 #1'
+  type: vmess
+  server: 112.132.215.108
+  port: 50002
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  cipher: auto
+  network: tcp
+  tls: false
+- name: 'trojan-985518754 #2'
   password: HOrViv
   port: 28106
   server: 209.248.32.116
@@ -29,50 +38,9 @@ proxies:
   sni: download.windowsupdate.com
   type: trojan
   udp: true
-- name: '🇨🇳_CN_中国 #2'
-  type: vmess
-  server: 120.48.133.162
-  port: 10086
-  uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
-  alterId: 0
-  cipher: auto
-  network: ws
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: ''
-- name: 'trojan-1792117700 #4'
-  password: Trojan@82164024
-  port: 443
-  server: ca.tronsg.com
-  skip-cert-verify: false
-  sni: ca.tronsg.com
-  type: trojan
-  udp: true
 - client-fingerprint: firefox
   flow: xtls-rprx-vision
-  name: 'vless-1751612276 #3 #5'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    short-id: ''
-  server: edge.bookmai.com
-  servername: mother-earth.fyi
-  tls: true
-  type: vless
-  udp: true
-  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
-- name: '巴西+V2CROSS.COM #6'
-  type: hysteria2
-  server: finkawwwbroy5.qcloud.surf
-  port: 20326
-  password: f83ce3c4-07d9-4895-bd14-cb74abbcab37
-  sni: finkawwwbroy5.qcloud.surf
-- client-fingerprint: firefox
-  flow: xtls-rprx-vision
-  name: 'vless-1795983190 #7'
+  name: 'vless-1795983190 #3'
   network: tcp
   port: 9443
   reality-opts:
@@ -84,7 +52,7 @@ proxies:
   type: vless
   udp: true
   uuid: c3db7657-88ce-42a6-b998-1e0364b277ac
-- name: '🇮🇳 印度 IND #1 #9 #8'
+- name: '🇮🇳 印度 IND #1 #4'
   type: trojan
   server: in.tronsg.com
   port: 443
@@ -92,13 +60,27 @@ proxies:
   sni: in.tronsg.com
   tls: true
 - cipher: chacha20-ietf-poly1305
-  name: 'shadowsocks-1790831308 #4 #9'
+  name: 'shadowsocks-1790831308 #5'
   password: e5c65ph
   port: 443
   server: 54.36.174.140
   type: ss
   udp: true
-- name: '🇺🇸_US_美国 #8 #10'
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 'vless-1751612276 #6'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: ''
+  server: edge.bookmai.com
+  servername: mother-earth.fyi
+  tls: true
+  type: vless
+  udp: true
+  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
+- name: '🇺🇸_US_美国 #7'
   type: vmess
   server: guanwang.awsno.com
   port: 443
@@ -111,59 +93,25 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: guanwang.awsno.com
-- name: '台湾省桃园市+中华电信 #12'
+- name: '美国+V2CROSS.COM #9'
+  type: hysteria2
+  server: 152.70.237.123
+  port: 2053
+  password: maintell
+  sni: 152.70.237.123
+- name: '英国+V2CROSS.COM #10'
   type: vless
-  server: 3696b38bsg.murphyweb.sbs
-  port: 32134
-  uuid: 5b01dc2d-6892-49b8-8289-3f73a32e00e4
-  tls: true
-  network: tcp
-  servername: buylite.music.apple.com
-  reality-opts:
-    public-key: OdTELUjAUKO_qr-O-uihaAZJAhA8GyIWVI6CpozVCU4
-    short-id: 6c6c7c97
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-- alterId: 2
-  cipher: auto
-  name: 'vmess-101120 #7 #13'
-  network: tcp
-  port: 30836
-  server: v36.hdacd.com
-  type: vmess
-  udp: true
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-- alterId: 2
-  cipher: none
-  name: 'vmess-713739033 #14'
-  network: tcp
-  port: 30807
-  server: v10.zgtfqs.click
-  type: vmess
-  udp: true
-  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-- name: '🇨🇳_CN_中国 #1 #15'
-  type: vmess
-  server: 112.132.215.108
-  port: 50002
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  cipher: auto
-  network: tcp
-  tls: false
-- name: '美国+科罗拉多州NTT(美国)通信公司 #8 #13 #16'
-  type: vless
-  server: 207.56.137.51
+  server: app-mi-27.spbstudentlife.com
   port: 443
-  uuid: 01ada9fb-fa2f-45da-a0d0-bce80cdf433b
+  uuid: 0cf8e402-e801-4aeb-9b7a-00a933f9f1c1
   tls: true
   network: tcp
-  servername: www.cloudflare.com
+  servername: assets-mi-27.spbstudentlife.com
   reality-opts:
-    public-key: WNifT0qNHWrUsvC6cuvej0rzZe6qPijopbmJyRADOF0
-    short-id: f713561d
+    public-key: kInywP138eVlHbS7wodX2Q_R1OC0JdViypEeguSvpQ0
+    short-id: 33e6fe7545082926
   flow: xtls-rprx-vision
-  client-fingerprint: chrome
+  client-fingerprint: randomized
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -173,82 +121,67 @@ proxy-groups:
   - 🌍 其他地区
   - 🇺🇸 美国
   - 🇮🇳 印度
-  - 🇹🇼 台湾
+  - 🇬🇧 英国
   - DIRECT
 - name: ♻️ 自动选择
   type: url-test
   proxies:
-  - 'trojan-985518754 #1'
-  - '🇨🇳_CN_中国 #2'
-  - 'trojan-1792117700 #4'
-  - 'vless-1751612276 #3 #5'
-  - '巴西+V2CROSS.COM #6'
-  - 'vless-1795983190 #7'
-  - '🇮🇳 印度 IND #1 #9 #8'
-  - 'shadowsocks-1790831308 #4 #9'
-  - '🇺🇸_US_美国 #8 #10'
-  - '台湾省桃园市+中华电信 #12'
-  - 'vmess-101120 #7 #13'
-  - 'vmess-713739033 #14'
-  - '🇨🇳_CN_中国 #1 #15'
-  - '美国+科罗拉多州NTT(美国)通信公司 #8 #13 #16'
+  - '🇨🇳_CN_中国 #1'
+  - 'trojan-985518754 #2'
+  - 'vless-1795983190 #3'
+  - '🇮🇳 印度 IND #1 #4'
+  - 'shadowsocks-1790831308 #5'
+  - 'vless-1751612276 #6'
+  - '🇺🇸_US_美国 #7'
+  - '美国+V2CROSS.COM #9'
+  - '英国+V2CROSS.COM #10'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🔯 故障转移
   type: fallback
   proxies:
-  - 'trojan-985518754 #1'
-  - '🇨🇳_CN_中国 #2'
-  - 'trojan-1792117700 #4'
-  - 'vless-1751612276 #3 #5'
-  - '巴西+V2CROSS.COM #6'
-  - 'vless-1795983190 #7'
-  - '🇮🇳 印度 IND #1 #9 #8'
-  - 'shadowsocks-1790831308 #4 #9'
-  - '🇺🇸_US_美国 #8 #10'
-  - '台湾省桃园市+中华电信 #12'
-  - 'vmess-101120 #7 #13'
-  - 'vmess-713739033 #14'
-  - '🇨🇳_CN_中国 #1 #15'
-  - '美国+科罗拉多州NTT(美国)通信公司 #8 #13 #16'
+  - '🇨🇳_CN_中国 #1'
+  - 'trojan-985518754 #2'
+  - 'vless-1795983190 #3'
+  - '🇮🇳 印度 IND #1 #4'
+  - 'shadowsocks-1790831308 #5'
+  - 'vless-1751612276 #6'
+  - '🇺🇸_US_美国 #7'
+  - '美国+V2CROSS.COM #9'
+  - '英国+V2CROSS.COM #10'
   url: http://www.gstatic.com/generate_204
   interval: 300
 - name: 🌍 其他地区
   type: url-test
   proxies:
-  - 'trojan-985518754 #1'
-  - '🇨🇳_CN_中国 #2'
-  - 'trojan-1792117700 #4'
-  - 'vless-1751612276 #3 #5'
-  - '巴西+V2CROSS.COM #6'
-  - 'vless-1795983190 #7'
-  - 'shadowsocks-1790831308 #4 #9'
-  - 'vmess-101120 #7 #13'
-  - 'vmess-713739033 #14'
-  - '🇨🇳_CN_中国 #1 #15'
+  - '🇨🇳_CN_中国 #1'
+  - 'trojan-985518754 #2'
+  - 'vless-1795983190 #3'
+  - 'shadowsocks-1790831308 #5'
+  - 'vless-1751612276 #6'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇺🇸 美国
   type: url-test
   proxies:
-  - '🇺🇸_US_美国 #8 #10'
-  - '美国+科罗拉多州NTT(美国)通信公司 #8 #13 #16'
+  - '🇺🇸_US_美国 #7'
+  - '美国+V2CROSS.COM #9'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇮🇳 印度
   type: url-test
   proxies:
-  - '🇮🇳 印度 IND #1 #9 #8'
+  - '🇮🇳 印度 IND #1 #4'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-- name: 🇹🇼 台湾
+- name: 🇬🇧 英国
   type: url-test
   proxies:
-  - '台湾省桃园市+中华电信 #12'
+  - '英国+V2CROSS.COM #10'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80

@@ -1,31 +1,32 @@
 {
-  "updated": "2026-10-13 11:05:03",
-  "total_alive": 17,
+  "updated": "2026-10-13 11:59:43",
+  "total_alive": 11,
+  "ssr_compatible": 5,
   "regions": {
-    "🌍 其他地区": 15,
-    "🇰🇷 韩国": 1,
-    "🇬🇧 英国": 1
+    "🌍 其他地区": 7,
+    "🇺🇸 美国": 3,
+    "🇰🇷 韩国": 1
   },
   "fastest": [
     {
       "name": "vmess-696793009 #1",
-      "delay": 204
+      "delay": 141
     },
     {
-      "name": "🇨🇳_CN_中国 #2 #2 #2",
-      "delay": 227
+      "name": "🇨🇳_CN_中国 #2 #2 #2 #2",
+      "delay": 176
     },
     {
-      "name": "hysteria2-573042057 #3",
-      "delay": 245
+      "name": "vless-1793430236 #3",
+      "delay": 230
     },
     {
-      "name": "hysteria2-1797935714 #4",
-      "delay": 401
+      "name": "vless-1751612276 #4",
+      "delay": 447
     },
     {
-      "name": "hysteria2-730134100 #5",
-      "delay": 460
+      "name": "vless-1795983190 #5",
+      "delay": 575
     }
   ]
 }

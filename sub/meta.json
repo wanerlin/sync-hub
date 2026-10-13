@@ -1,31 +1,13 @@
 {
-  "updated": "2026-10-13 09:02:03",
-  "total_alive": 15,
+  "updated": "2026-10-13 10:01:05",
+  "total_alive": 1,
   "regions": {
-    "🌍 其他地区": 13,
-    "🇺🇸 美国": 1,
-    "🇰🇷 韩国": 1
+    "🇺🇸 美国": 1
   },
   "fastest": [
     {
-      "name": "vless-1793430236 #1",
-      "delay": 220
-    },
-    {
-      "name": "🇨🇳_CN_中国 #2",
-      "delay": 235
-    },
-    {
-      "name": "🇺🇸 美国 USA #18 #3",
-      "delay": 339
-    },
-    {
-      "name": "hysteria2-730134100 #4",
-      "delay": 406
-    },
-    {
-      "name": "vless-1751612276 #5",
-      "delay": 500
+      "name": "美国+V2CROSS.COM #22",
+      "delay": 1850
     }
   ]
 }

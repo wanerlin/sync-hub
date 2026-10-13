@@ -1,32 +1,33 @@
 {
-  "updated": "2026-10-13 16:04:35",
-  "total_alive": 11,
-  "ssr_compatible": 7,
+  "updated": "2026-10-13 17:04:28",
+  "total_alive": 15,
+  "ssr_compatible": 8,
   "regions": {
-    "🌍 其他地区": 9,
-    "🇷🇺 俄罗斯": 1,
+    "🌍 其他地区": 12,
+    "🇰🇷 韩国": 1,
+    "🇩🇪 德国": 1,
     "🇺🇸 美国": 1
   },
   "fastest": [
     {
       "name": "vmess-696793009 #1",
-      "delay": 144
+      "delay": 148
     },
     {
-      "name": "trojan-985518754 #2",
-      "delay": 161
+      "name": "trojan-985518754 #2 #2",
+      "delay": 194
     },
     {
-      "name": "🇨🇳_CN_中国 #3 #3",
-      "delay": 185
+      "name": "🇨🇳_CN_中国 #3 #3 #3",
+      "delay": 195
     },
     {
-      "name": "shadowsocks-1790831308 #4",
-      "delay": 526
+      "name": "vless-1790835245 #4",
+      "delay": 429
     },
     {
-      "name": "vless-1771373721 #5",
-      "delay": 655
+      "name": "shadowsocks-1790831308 #4 #5",
+      "delay": 511
     }
   ]
 }

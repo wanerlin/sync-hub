@@ -1,33 +1,34 @@
 {
-  "updated": "2026-10-13 19:43:49",
-  "total_alive": 15,
-  "ssr_compatible": 7,
+  "updated": "2026-10-13 19:58:37",
+  "total_alive": 17,
+  "ssr_compatible": 9,
   "regions": {
     "🌍 其他地区": 12,
+    "🇺🇸 美国": 2,
     "🇸🇬 新加坡": 1,
-    "🇺🇸 美国": 1,
-    "🇬🇧 英国": 1
+    "🇬🇧 英国": 1,
+    "🇮🇳 印度": 1
   },
   "fastest": [
     {
-      "name": "trojan-985518754 #2 #1",
-      "delay": 161
+      "name": "trojan-985518754 #2 #1 #1",
+      "delay": 199
     },
     {
-      "name": "vless-1802375227 #2",
-      "delay": 208
+      "name": "🇸🇬 www.v2nodes.com ss-SG-1592... #4 #2",
+      "delay": 204
     },
     {
-      "name": "🇨🇳_CN_中国 #3 #3",
-      "delay": 242
+      "name": "🇨🇳_CN_中国 #3 #3 #3",
+      "delay": 235
     },
     {
-      "name": "🇸🇬 www.v2nodes.com ss-SG-1592... #4",
-      "delay": 298
+      "name": "shadowsocks-1790831308 #8 #8 #4",
+      "delay": 514
     },
     {
-      "name": "vmess-696793009 #1 #5",
-      "delay": 361
+      "name": "🇺🇸_US_美国 #5",
+      "delay": 739
     }
   ]
 }

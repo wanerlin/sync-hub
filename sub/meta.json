@@ -1,36 +1,36 @@
 {
-  "updated": "2026-10-14 07:09:54",
-  "total_alive": 26,
-  "ssr_compatible": 5,
+  "updated": "2026-10-14 08:10:15",
+  "total_alive": 34,
+  "ssr_compatible": 9,
   "regions": {
-    "🌍 其他地区": 19,
+    "🌍 其他地区": 26,
     "🇰🇷 韩国": 2,
+    "🇯🇵 日本": 2,
     "🇸🇬 新加坡": 1,
     "🇬🇧 英国": 1,
     "🇩🇪 德国": 1,
-    "🇺🇸 美国": 1,
-    "🇯🇵 日本": 1
+    "🇺🇸 美国": 1
   },
   "fastest": [
     {
-      "name": "SG - zhuhai.uk #1",
-      "delay": 123
+      "name": "SG - zhuhai.uk #1 #1",
+      "delay": 115
     },
     {
-      "name": "🇨🇳_CN_中国 #2",
-      "delay": 133
+      "name": "trojan-985518754 #3 #2",
+      "delay": 156
     },
     {
-      "name": "trojan-985518754 #3",
-      "delay": 175
+      "name": "vless-1797176974 #3",
+      "delay": 224
     },
     {
-      "name": "🇰🇷 韩国 KOR #4",
-      "delay": 247
+      "name": "vless-1806044630 #4",
+      "delay": 255
     },
     {
-      "name": "vless-1807273959 #5",
-      "delay": 300
+      "name": "vless-1807273959 #5 #5",
+      "delay": 260
     }
   ]
 }

@@ -21,7 +21,7 @@ dns:
     geoip: true
     geoip-code: CN
 proxies:
-- name: 'SG - zhuhai.uk #1'
+- name: 'SG - zhuhai.uk #1 #1'
   type: vless
   server: 149.104.30.138
   port: 443
@@ -33,16 +33,7 @@ proxies:
   reality-opts:
     public-key: za53zkNAm5tPgC6ZTU1oM90ofHaI9ODk-6msB-M3cWU
     short-id: 0f65424c53d491e6
-- name: '🇨🇳_CN_中国 #2'
-  type: vmess
-  server: 112.132.215.108
-  port: 50002
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 0
-  cipher: auto
-  network: tcp
-  tls: false
-- name: 'trojan-985518754 #3'
+- name: 'trojan-985518754 #3 #2'
   password: HOrViv
   port: 28106
   server: 209.248.32.116
@@ -50,17 +41,37 @@ proxies:
   sni: download.windowsupdate.com
   type: trojan
   udp: true
-- name: '🇰🇷 韩国 KOR #4'
-  type: trojan
-  server: kr.tronsg.com
-  port: 443
-  password: Trojan@82164024
-  sni: kr.tronsg.com
-  tls: true
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 'vless-1797176974 #3'
   network: tcp
+  port: 32134
+  reality-opts:
+    public-key: OdTELUjAUKO_qr-O-uihaAZJAhA8GyIWVI6CpozVCU4
+    short-id: 6c6c7c97
+  server: 3696b38bsg.murphyweb.sbs
+  servername: buylite.music.apple.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 5b01dc2d-6892-49b8-8289-3f73a32e00e4
+- client-fingerprint: safari
+  flow: xtls-rprx-vision
+  name: 'vless-1806044630 #4'
+  network: tcp
+  port: 46105
+  reality-opts:
+    public-key: Lk5nwDxC2tr3J7hT8emhUUiMX8cHyKX9TiRj_EnAiik
+    short-id: 28f5c1f8f98a
+  server: funagfrdfs.alixxplay.com
+  servername: www.lamer.com.sg
+  tls: true
+  type: vless
+  udp: true
+  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
 - client-fingerprint: ios
   flow: xtls-rprx-vision
-  name: 'vless-1807273959 #5'
+  name: 'vless-1807273959 #5 #5'
   network: tcp
   port: 57541
   reality-opts:
@@ -74,7 +85,7 @@ proxies:
   uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 'vless-1809467712 #6'
+  name: 'vless-1809467712 #6 #6'
   network: tcp
   port: 443
   reality-opts:
@@ -86,21 +97,22 @@ proxies:
   type: vless
   udp: true
   uuid: 7e68e32f-8015-4f37-9082-70e8b0b58043
-- name: 'KR - zhuhai.uk 02 #7'
-  type: vless
-  server: 141.164.43.178
-  port: 443
-  uuid: 583cc910-b57c-4dd0-a4a7-cea51a30b032
-  flow: xtls-rprx-vision
-  tls: true
-  servername: www.apple.com
-  client-fingerprint: chrome
+- client-fingerprint: chrome
+  name: 'vless-1806044633 #7'
+  network: tcp
+  port: 8888
   reality-opts:
-    public-key: GR_zPAgxF9PZ70Z9UpSmMlcd2STyoAC0fZTSHkTTCGE
-    short-id: ca193e889d958f81
+    public-key: 5CVqzPWvXM--BuEusVLOiliEsriCQn2otWxk4Ihvnxs
+    short-id: ''
+  server: zorusx861.233874.xyz
+  servername: addons.mozilla.org
+  tls: true
+  type: vless
+  udp: true
+  uuid: 2b3e3a7b-5c74-45af-a9f6-e55edf1e9cf5
 - client-fingerprint: qq
   flow: xtls-rprx-vision
-  name: 'vless-1807262411 #8'
+  name: 'vless-1807262411 #8 #8'
   network: tcp
   port: 443
   reality-opts:
@@ -112,88 +124,9 @@ proxies:
   type: vless
   udp: true
   uuid: 6338c01a-310e-42c3-bf4f-2a20e161054b
-- client-fingerprint: firefox
-  flow: xtls-rprx-vision
-  name: 'vless-1790835245 #9'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    short-id: ''
-  server: 163.245.42.48
-  servername: mother-earth.fyi
-  tls: true
-  type: vless
-  udp: true
-  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
-- name: 'VN - zhuhai.uk #10'
-  type: vless
-  server: funagfrdfs.alixxplay.com
-  port: 55688
-  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
-  flow: xtls-rprx-vision
-  tls: true
-  servername: bilibili-vn.biliimg.com
-  client-fingerprint: firefox
-  reality-opts:
-    public-key: KeV1nArisy7FO5DjqTSmn0hBnlNd38rzhbIMMpe-MBw
-    short-id: a46bb5972cf50671
-- flow: xtls-rprx-vision
-  name: 'vless-1803378667 #11'
-  network: tcp
-  port: 443
-  server: lagad17.api3-max.ru
-  servername: lagad17.api3-max.ru
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: b8254d35-1cb0-4b74-8f7f-d2bc985196a0
-- client-fingerprint: firefox
-  flow: xtls-rprx-vision
-  name: 'vless-1751612276 #12'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    short-id: ''
-  server: edge.bookmai.com
-  servername: mother-earth.fyi
-  tls: true
-  type: vless
-  udp: true
-  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
 - client-fingerprint: random
   flow: xtls-rprx-vision
-  name: 'vless-1801437230 #13'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: -ADm-o6yFYNcLgLQgHguNWDWrH9xcRwQyqLMoVuajgo
-    short-id: 8944e69f4aadde1e
-  server: 37.221.92.145
-  servername: azxcc.kovsh.lol
-  tls: true
-  type: vless
-  udp: true
-  uuid: ace33fb8-c593-4b17-8f72-f3359b6e9638
-- client-fingerprint: firefox
-  flow: xtls-rprx-vision
-  name: 'vless-1804913643 #14'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: -ADm-o6yFYNcLgLQgHguNWDWrH9xcRwQyqLMoVuajgo
-    short-id: 8944e69f4aadde1e
-  server: 37.221.92.139
-  servername: azxcc.kovsh.lol
-  tls: true
-  type: vless
-  udp: true
-  uuid: ace33fb8-c593-4b17-8f72-f3359b6e9638
-- client-fingerprint: random
-  flow: xtls-rprx-vision
-  name: 'vless-1801437222 #15'
+  name: 'vless-1801437222 #15 #9'
   network: tcp
   port: 443
   reality-opts:
@@ -207,35 +140,105 @@ proxies:
   uuid: ace33fb8-c593-4b17-8f72-f3359b6e9638
 - client-fingerprint: firefox
   flow: xtls-rprx-vision
-  name: 'vless-1797068862 #16'
+  name: 'vless-1790835245 #9 #10'
   network: tcp
   port: 443
   reality-opts:
-    public-key: III2StgFziJtisbaKDYlEF2qYwBHJZnzZH5DHdwuFQ8
-    short-id: d110331f200987ae
-  server: finaluty.loknietotop.digital
-  servername: finaluty.loknietotop.digital
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: ''
+  server: 163.245.42.48
+  servername: mother-earth.fyi
+  tls: true
+  type: vless
+  udp: true
+  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
+- client-fingerprint: random
+  flow: xtls-rprx-vision
+  name: 'vless-1801437230 #13 #11'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: -ADm-o6yFYNcLgLQgHguNWDWrH9xcRwQyqLMoVuajgo
+    short-id: 8944e69f4aadde1e
+  server: 37.221.92.145
+  servername: azxcc.kovsh.lol
+  tls: true
+  type: vless
+  udp: true
+  uuid: ace33fb8-c593-4b17-8f72-f3359b6e9638
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 'vless-1751612276 #12 #12'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: ''
+  server: edge.bookmai.com
+  servername: mother-earth.fyi
+  tls: true
+  type: vless
+  udp: true
+  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
+- name: 'VN - zhuhai.uk #10 #13'
+  type: vless
+  server: funagfrdfs.alixxplay.com
+  port: 55688
+  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+  flow: xtls-rprx-vision
+  tls: true
+  servername: bilibili-vn.biliimg.com
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: KeV1nArisy7FO5DjqTSmn0hBnlNd38rzhbIMMpe-MBw
+    short-id: a46bb5972cf50671
+- cipher: chacha20-ietf-poly1305
+  name: 'shadowsocks-1790831308 #14'
+  password: e5c65ph
+  port: 443
+  server: 54.36.174.140
+  type: ss
+  udp: true
+- name: 'KR - zhuhai.uk 02 #7 #15'
+  type: vless
+  server: 141.164.43.178
+  port: 443
+  uuid: 583cc910-b57c-4dd0-a4a7-cea51a30b032
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.apple.com
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: GR_zPAgxF9PZ70Z9UpSmMlcd2STyoAC0fZTSHkTTCGE
+    short-id: ca193e889d958f81
+- flow: xtls-rprx-vision
+  name: 'vless-1803378667 #11 #16'
+  network: tcp
+  port: 443
+  server: lagad17.api3-max.ru
+  servername: lagad17.api3-max.ru
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: b8254d35-1cb0-4b74-8f7f-d2bc985196a0
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 'vless-1804913643 #14 #17'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: -ADm-o6yFYNcLgLQgHguNWDWrH9xcRwQyqLMoVuajgo
+    short-id: 8944e69f4aadde1e
+  server: 37.221.92.139
+  servername: azxcc.kovsh.lol
   tls: true
   type: vless
   udp: true
   uuid: ace33fb8-c593-4b17-8f72-f3359b6e9638
 - client-fingerprint: random
   flow: xtls-rprx-vision
-  name: 'vless-1801437218 #17'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: wGU52D9ma5glfMZBlecIb1nVcBdG1nKsBtSXxMTttCA
-    short-id: 844a9f695e96785e
-  server: 5.161.243.170
-  servername: ajax.aspnetcdn.com
-  tls: true
-  type: vless
-  udp: true
-  uuid: a16a3e32-8d63-4dec-8c67-1361388a64ca
-- client-fingerprint: random
-  flow: xtls-rprx-vision
-  name: 'vless-1799947053 #18'
+  name: 'vless-1799947053 #18 #18'
   network: tcp
   port: 1984
   reality-opts:
@@ -249,7 +252,21 @@ proxies:
   uuid: d9eb02da-a469-44a7-a393-ba1c5fbbc8c4
 - client-fingerprint: firefox
   flow: xtls-rprx-vision
-  name: 'vless-1801437229 #19'
+  name: 'vless-1797068862 #16 #19'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: III2StgFziJtisbaKDYlEF2qYwBHJZnzZH5DHdwuFQ8
+    short-id: d110331f200987ae
+  server: finaluty.loknietotop.digital
+  servername: finaluty.loknietotop.digital
+  tls: true
+  type: vless
+  udp: true
+  uuid: ace33fb8-c593-4b17-8f72-f3359b6e9638
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 'vless-1801437229 #19 #21'
   network: tcp
   port: 443
   reality-opts:
@@ -261,13 +278,34 @@ proxies:
   type: vless
   udp: true
   uuid: ee18d188-14cc-417e-beb1-70e4add6d023
-- name: '🇩🇪 德国 DEU #20'
+- name: '🇩🇪 德国 DEU #22'
   type: hysteria2
   server: sweedenqfds777.qcloud.surf
   port: 21223
   password: 8bd04756-3beb-4348-82c9-d35453df50ce
   sni: 127.0.0.1
-- name: 'vless-1807746398 #21'
+- client-fingerprint: chrome
+  name: 'vless-1804797681 #23'
+  network: tcp
+  port: 8888
+  reality-opts:
+    public-key: vBSBoPYKiB5RZ9_jNPEdLnroJ2M7MKw0c1Rvh6-QmV4
+    short-id: ''
+  server: zordbx861.233874.xyz
+  servername: addons.mozilla.org
+  tls: true
+  type: vless
+  udp: true
+  uuid: 46509b23-fe97-45b3-9c89-bd1b2a93bd4e
+- name: '🇰🇷 韩国 KOR #4 #24'
+  type: trojan
+  server: kr.tronsg.com
+  port: 443
+  password: Trojan@82164024
+  sni: kr.tronsg.com
+  tls: true
+  network: tcp
+- name: 'vless-1807746398 #21 #25'
   network: ws
   port: 443
   server: tongue-expects-begins-old.trycloudflare.com
@@ -277,7 +315,7 @@ proxies:
   type: vless
   udp: true
   uuid: c01391fa-7bd3-4b9d-b2db-4829b75e30da
-- name: '🇺🇸_US_美国 #22'
+- name: '🇺🇸_US_美国 #22 #26'
   type: vmess
   server: guanwang.awsno.com
   port: 443
@@ -292,7 +330,7 @@ proxies:
       Host: guanwang.awsno.com
 - client-fingerprint: random
   flow: xtls-rprx-vision
-  name: 'vless-1797951321 #23'
+  name: 'vless-1797951321 #23 #27'
   network: tcp
   port: 9443
   reality-opts:
@@ -304,7 +342,7 @@ proxies:
   type: vless
   udp: true
   uuid: fe0721ac-c577-4938-b7ca-8ab5f43bb8da
-- name: 'trojan-1785655561 #24'
+- name: 'trojan-1785655561 #24 #28'
   password: Trojan@82164024
   port: 443
   server: in.tronsg.com
@@ -312,13 +350,56 @@ proxies:
   sni: in.tronsg.com
   type: trojan
   udp: true
-- name: '巴西+V2CROSS.COM #25'
+- alterId: 2
+  cipher: auto
+  name: 'vmess-673710528 #29'
+  network: tcp
+  port: 30804
+  server: v4.hdacd.com
+  type: vmess
+  udp: true
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- alterId: 2
+  cipher: auto
+  name: 'vmess-657077661 #30'
+  network: tcp
+  port: 30835
+  server: v35.hdacd.com
+  type: vmess
+  udp: true
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- alterId: 2
+  cipher: auto
+  name: 'vmess-1063236700 #31'
+  network: tcp
+  port: 30836
+  server: v36.hdacd.com
+  type: vmess
+  udp: true
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+- name: '🇨🇳_CN_中国 #2 #32'
+  type: vmess
+  server: 112.132.215.108
+  port: 50002
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 0
+  cipher: auto
+  network: tcp
+  tls: false
+- name: '巴西+V2CROSS.COM #33'
   type: hysteria2
   server: qcloudge1.exitvpn.shop
   port: 20270
   password: 8bd04756-3beb-4348-82c9-d35453df50ce
   sni: qcloudge1.exitvpn.shop
-- name: '日本+V2CROSS.COM #26'
+- name: '日本+V2CROSS.COM #34'
+  type: vless
+  server: us22.sofast.live
+  port: 58011
+  uuid: 0afc6426-606c-48e7-bd70-3c424a416842
+  tls: false
+  network: tcp
+- name: '日本+V2CROSS.COM #26 #35'
   type: vless
   server: jp.sofast.live
   port: 52683
@@ -333,140 +414,164 @@ proxy-groups:
   - 🔯 故障转移
   - 🌍 其他地区
   - 🇰🇷 韩国
+  - 🇯🇵 日本
   - 🇸🇬 新加坡
   - 🇬🇧 英国
   - 🇩🇪 德国
   - 🇺🇸 美国
-  - 🇯🇵 日本
   - DIRECT
 - name: ♻️ 自动选择
   type: url-test
   proxies:
-  - 'SG - zhuhai.uk #1'
-  - '🇨🇳_CN_中国 #2'
-  - 'trojan-985518754 #3'
-  - '🇰🇷 韩国 KOR #4'
-  - 'vless-1807273959 #5'
-  - 'vless-1809467712 #6'
-  - 'KR - zhuhai.uk 02 #7'
-  - 'vless-1807262411 #8'
-  - 'vless-1790835245 #9'
-  - 'VN - zhuhai.uk #10'
-  - 'vless-1803378667 #11'
-  - 'vless-1751612276 #12'
-  - 'vless-1801437230 #13'
-  - 'vless-1804913643 #14'
-  - 'vless-1801437222 #15'
-  - 'vless-1797068862 #16'
-  - 'vless-1801437218 #17'
-  - 'vless-1799947053 #18'
-  - 'vless-1801437229 #19'
-  - '🇩🇪 德国 DEU #20'
-  - 'vless-1807746398 #21'
-  - '🇺🇸_US_美国 #22'
-  - 'vless-1797951321 #23'
-  - 'trojan-1785655561 #24'
-  - '巴西+V2CROSS.COM #25'
-  - '日本+V2CROSS.COM #26'
+  - 'SG - zhuhai.uk #1 #1'
+  - 'trojan-985518754 #3 #2'
+  - 'vless-1797176974 #3'
+  - 'vless-1806044630 #4'
+  - 'vless-1807273959 #5 #5'
+  - 'vless-1809467712 #6 #6'
+  - 'vless-1806044633 #7'
+  - 'vless-1807262411 #8 #8'
+  - 'vless-1801437222 #15 #9'
+  - 'vless-1790835245 #9 #10'
+  - 'vless-1801437230 #13 #11'
+  - 'vless-1751612276 #12 #12'
+  - 'VN - zhuhai.uk #10 #13'
+  - 'shadowsocks-1790831308 #14'
+  - 'KR - zhuhai.uk 02 #7 #15'
+  - 'vless-1803378667 #11 #16'
+  - 'vless-1804913643 #14 #17'
+  - 'vless-1799947053 #18 #18'
+  - 'vless-1797068862 #16 #19'
+  - 'vless-1801437229 #19 #21'
+  - '🇩🇪 德国 DEU #22'
+  - 'vless-1804797681 #23'
+  - '🇰🇷 韩国 KOR #4 #24'
+  - 'vless-1807746398 #21 #25'
+  - '🇺🇸_US_美国 #22 #26'
+  - 'vless-1797951321 #23 #27'
+  - 'trojan-1785655561 #24 #28'
+  - 'vmess-673710528 #29'
+  - 'vmess-657077661 #30'
+  - 'vmess-1063236700 #31'
+  - '🇨🇳_CN_中国 #2 #32'
+  - '巴西+V2CROSS.COM #33'
+  - '日本+V2CROSS.COM #34'
+  - '日本+V2CROSS.COM #26 #35'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🔯 故障转移
   type: fallback
   proxies:
-  - 'SG - zhuhai.uk #1'
-  - '🇨🇳_CN_中国 #2'
-  - 'trojan-985518754 #3'
-  - '🇰🇷 韩国 KOR #4'
-  - 'vless-1807273959 #5'
-  - 'vless-1809467712 #6'
-  - 'KR - zhuhai.uk 02 #7'
-  - 'vless-1807262411 #8'
-  - 'vless-1790835245 #9'
-  - 'VN - zhuhai.uk #10'
-  - 'vless-1803378667 #11'
-  - 'vless-1751612276 #12'
-  - 'vless-1801437230 #13'
-  - 'vless-1804913643 #14'
-  - 'vless-1801437222 #15'
-  - 'vless-1797068862 #16'
-  - 'vless-1801437218 #17'
-  - 'vless-1799947053 #18'
-  - 'vless-1801437229 #19'
-  - '🇩🇪 德国 DEU #20'
-  - 'vless-1807746398 #21'
-  - '🇺🇸_US_美国 #22'
-  - 'vless-1797951321 #23'
-  - 'trojan-1785655561 #24'
-  - '巴西+V2CROSS.COM #25'
-  - '日本+V2CROSS.COM #26'
+  - 'SG - zhuhai.uk #1 #1'
+  - 'trojan-985518754 #3 #2'
+  - 'vless-1797176974 #3'
+  - 'vless-1806044630 #4'
+  - 'vless-1807273959 #5 #5'
+  - 'vless-1809467712 #6 #6'
+  - 'vless-1806044633 #7'
+  - 'vless-1807262411 #8 #8'
+  - 'vless-1801437222 #15 #9'
+  - 'vless-1790835245 #9 #10'
+  - 'vless-1801437230 #13 #11'
+  - 'vless-1751612276 #12 #12'
+  - 'VN - zhuhai.uk #10 #13'
+  - 'shadowsocks-1790831308 #14'
+  - 'KR - zhuhai.uk 02 #7 #15'
+  - 'vless-1803378667 #11 #16'
+  - 'vless-1804913643 #14 #17'
+  - 'vless-1799947053 #18 #18'
+  - 'vless-1797068862 #16 #19'
+  - 'vless-1801437229 #19 #21'
+  - '🇩🇪 德国 DEU #22'
+  - 'vless-1804797681 #23'
+  - '🇰🇷 韩国 KOR #4 #24'
+  - 'vless-1807746398 #21 #25'
+  - '🇺🇸_US_美国 #22 #26'
+  - 'vless-1797951321 #23 #27'
+  - 'trojan-1785655561 #24 #28'
+  - 'vmess-673710528 #29'
+  - 'vmess-657077661 #30'
+  - 'vmess-1063236700 #31'
+  - '🇨🇳_CN_中国 #2 #32'
+  - '巴西+V2CROSS.COM #33'
+  - '日本+V2CROSS.COM #34'
+  - '日本+V2CROSS.COM #26 #35'
   url: http://www.gstatic.com/generate_204
   interval: 300
 - name: 🌍 其他地区
   type: url-test
   proxies:
-  - '🇨🇳_CN_中国 #2'
-  - 'trojan-985518754 #3'
-  - 'vless-1807273959 #5'
-  - 'vless-1809467712 #6'
-  - 'vless-1807262411 #8'
-  - 'vless-1790835245 #9'
-  - 'vless-1803378667 #11'
-  - 'vless-1751612276 #12'
-  - 'vless-1801437230 #13'
-  - 'vless-1804913643 #14'
-  - 'vless-1801437222 #15'
-  - 'vless-1797068862 #16'
-  - 'vless-1801437218 #17'
-  - 'vless-1799947053 #18'
-  - 'vless-1801437229 #19'
-  - 'vless-1807746398 #21'
-  - 'vless-1797951321 #23'
-  - 'trojan-1785655561 #24'
-  - '巴西+V2CROSS.COM #25'
+  - 'trojan-985518754 #3 #2'
+  - 'vless-1797176974 #3'
+  - 'vless-1806044630 #4'
+  - 'vless-1807273959 #5 #5'
+  - 'vless-1809467712 #6 #6'
+  - 'vless-1806044633 #7'
+  - 'vless-1807262411 #8 #8'
+  - 'vless-1801437222 #15 #9'
+  - 'vless-1790835245 #9 #10'
+  - 'vless-1801437230 #13 #11'
+  - 'vless-1751612276 #12 #12'
+  - 'shadowsocks-1790831308 #14'
+  - 'vless-1803378667 #11 #16'
+  - 'vless-1804913643 #14 #17'
+  - 'vless-1799947053 #18 #18'
+  - 'vless-1797068862 #16 #19'
+  - 'vless-1801437229 #19 #21'
+  - 'vless-1804797681 #23'
+  - 'vless-1807746398 #21 #25'
+  - 'vless-1797951321 #23 #27'
+  - 'trojan-1785655561 #24 #28'
+  - 'vmess-673710528 #29'
+  - 'vmess-657077661 #30'
+  - 'vmess-1063236700 #31'
+  - '🇨🇳_CN_中国 #2 #32'
+  - '巴西+V2CROSS.COM #33'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇰🇷 韩国
   type: url-test
   proxies:
-  - '🇰🇷 韩国 KOR #4'
-  - 'KR - zhuhai.uk 02 #7'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇸🇬 新加坡
-  type: url-test
-  proxies:
-  - 'SG - zhuhai.uk #1'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇬🇧 英国
-  type: url-test
-  proxies:
-  - 'VN - zhuhai.uk #10'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇩🇪 德国
-  type: url-test
-  proxies:
-  - '🇩🇪 德国 DEU #20'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇺🇸 美国
-  type: url-test
-  proxies:
-  - '🇺🇸_US_美国 #22'
+  - 'KR - zhuhai.uk 02 #7 #15'
+  - '🇰🇷 韩国 KOR #4 #24'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇯🇵 日本
   type: url-test
   proxies:
-  - '日本+V2CROSS.COM #26'
+  - '日本+V2CROSS.COM #34'
+  - '日本+V2CROSS.COM #26 #35'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇸🇬 新加坡
+  type: url-test
+  proxies:
+  - 'SG - zhuhai.uk #1 #1'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇬🇧 英国
+  type: url-test
+  proxies:
+  - 'VN - zhuhai.uk #10 #13'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇩🇪 德国
+  type: url-test
+  proxies:
+  - '🇩🇪 德国 DEU #22'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇺🇸 美国
+  type: url-test
+  proxies:
+  - '🇺🇸_US_美国 #22 #26'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80

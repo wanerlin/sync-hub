@@ -412,13 +412,23 @@ proxy-groups:
   proxies:
   - ♻️ 自动选择
   - 🔯 故障转移
-  - 🌍 其他地区
-  - 🇰🇷 韩国
+  - 🇭🇰 香港
   - 🇯🇵 日本
-  - 🇸🇬 新加坡
-  - 🇬🇧 英国
-  - 🇩🇪 德国
+  - 🇰🇷 韩国
   - 🇺🇸 美国
+  - 🇩🇪 德国
+  - 🇨🇳 中国
+  - 🇸🇬 新加坡
+  - 🇫🇷 法国
+  - 🇨🇦 加拿大
+  - 🇳🇱 荷兰
+  - 🇵🇱 波兰
+  - 🇬🇧 英国
+  - 🇫🇮 芬兰
+  - 🇮🇹 意大利
+  - 🇸🇪 瑞典
+  - 🇦🇪 阿联酋
+  - 🇮🇳 印度
   - DIRECT
 - name: ♻️ 自动选择
   type: url-test
@@ -499,49 +509,57 @@ proxy-groups:
   - '日本+V2CROSS.COM #26 #35'
   url: http://www.gstatic.com/generate_204
   interval: 300
-- name: 🌍 其他地区
+- name: 🇭🇰 香港
   type: url-test
   proxies:
   - 'trojan-985518754 #3 #2'
-  - 'vless-1797176974 #3'
-  - 'vless-1806044630 #4'
-  - 'vless-1807273959 #5 #5'
-  - 'vless-1809467712 #6 #6'
-  - 'vless-1806044633 #7'
-  - 'vless-1807262411 #8 #8'
-  - 'vless-1801437222 #15 #9'
-  - 'vless-1790835245 #9 #10'
-  - 'vless-1801437230 #13 #11'
-  - 'vless-1751612276 #12 #12'
-  - 'shadowsocks-1790831308 #14'
-  - 'vless-1803378667 #11 #16'
-  - 'vless-1804913643 #14 #17'
-  - 'vless-1799947053 #18 #18'
-  - 'vless-1797068862 #16 #19'
-  - 'vless-1801437229 #19 #21'
-  - 'vless-1804797681 #23'
-  - 'vless-1807746398 #21 #25'
-  - 'vless-1797951321 #23 #27'
-  - 'trojan-1785655561 #24 #28'
   - 'vmess-673710528 #29'
   - 'vmess-657077661 #30'
   - 'vmess-1063236700 #31'
-  - '🇨🇳_CN_中国 #2 #32'
-  - '巴西+V2CROSS.COM #33'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇰🇷 韩国
-  type: url-test
-  proxies:
-  - 'KR - zhuhai.uk 02 #7 #15'
-  - '🇰🇷 韩国 KOR #4 #24'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇯🇵 日本
   type: url-test
   proxies:
+  - 'vless-1806044630 #4'
+  - 'vless-1807273959 #5 #5'
+  - 'VN - zhuhai.uk #10 #13'
+  - 'vless-1797951321 #23 #27'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇰🇷 韩国
+  type: url-test
+  proxies:
+  - 'vless-1809467712 #6 #6'
+  - 'KR - zhuhai.uk 02 #7 #15'
+  - '🇰🇷 韩国 KOR #4 #24'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇺🇸 美国
+  type: url-test
+  proxies:
+  - 'vless-1806044633 #7'
+  - 'vless-1807262411 #8 #8'
+  - '巴西+V2CROSS.COM #33'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇩🇪 德国
+  type: url-test
+  proxies:
+  - 'vless-1801437230 #13 #11'
+  - 'vless-1804913643 #14 #17'
+  - 'vless-1799947053 #18 #18'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇨🇳 中国
+  type: url-test
+  proxies:
+  - '🇨🇳_CN_中国 #2 #32'
   - '日本+V2CROSS.COM #34'
   - '日本+V2CROSS.COM #26 #35'
   url: http://www.gstatic.com/generate_204
@@ -551,27 +569,79 @@ proxy-groups:
   type: url-test
   proxies:
   - 'SG - zhuhai.uk #1 #1'
+  - 'vless-1797176974 #3'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇫🇷 法国
+  type: url-test
+  proxies:
+  - 'vless-1790835245 #9 #10'
+  - 'vless-1751612276 #12 #12'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇨🇦 加拿大
+  type: url-test
+  proxies:
+  - 'vless-1807746398 #21 #25'
+  - '🇺🇸_US_美国 #22 #26'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇳🇱 荷兰
+  type: url-test
+  proxies:
+  - 'vless-1801437222 #15 #9'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇵🇱 波兰
+  type: url-test
+  proxies:
+  - 'shadowsocks-1790831308 #14'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇬🇧 英国
   type: url-test
   proxies:
-  - 'VN - zhuhai.uk #10 #13'
+  - 'vless-1803378667 #11 #16'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-- name: 🇩🇪 德国
+- name: 🇫🇮 芬兰
+  type: url-test
+  proxies:
+  - 'vless-1797068862 #16 #19'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇮🇹 意大利
+  type: url-test
+  proxies:
+  - 'vless-1801437229 #19 #21'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇸🇪 瑞典
   type: url-test
   proxies:
   - '🇩🇪 德国 DEU #22'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-- name: 🇺🇸 美国
+- name: 🇦🇪 阿联酋
   type: url-test
   proxies:
-  - '🇺🇸_US_美国 #22 #26'
+  - 'vless-1804797681 #23'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇮🇳 印度
+  type: url-test
+  proxies:
+  - 'trojan-1785655561 #24 #28'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80

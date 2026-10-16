@@ -2,17 +2,25 @@ name: update-subscriptions
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    # 错峰到每 6 小时的 :30（UTC）= 北京 08:30 / 14:30 / 20:30 / 02:30
+    # 避开本地 update_sub.py 的整点任务（:00 启动，最长 25 分钟），彻底消除双写抢跑
+    - cron: '30 */6 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: update-subscriptions
+  cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -27,5 +35,16 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add sub/
-          git diff --cached --quiet && echo "无变化" || git commit -m "chore: auto update subscriptions [skip ci]"
-          git push
+          if git diff --cached --quiet; then
+            echo "无变化，跳过提交"
+            exit 0
+          fi
+          git commit -m "chore: auto update subscriptions [skip ci]"
+          # 远端可能已被本地脚本推进，先 rebase 再推，失败自动重试 3 次
+          for i in 1 2 3; do
+            git pull --rebase --autostash origin main && git push && exit 0
+            echo "第 $i 次推送失败，5 秒后重试..."
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          echo "推送连续失败，请人工检查"; exit 1

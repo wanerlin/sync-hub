@@ -1,10 +1,11 @@
 name: update-subscriptions
 
+# 【2026-10-16】停用定时触发（原 cron: 0 */6 * * *）。
+# 原因：本地 update_sub.py 每小时拉源 + sing-box 实测，质量更高；
+# Actions 侧的 scripts/update.py 不做测速，定时跑只会用低质量聚合结果覆盖本地实测成品，
+# 且每次 push 都触发一轮 Pages 构建（Pages 是本仓库的首选订阅通道，legacy 构建 push 即构建）。
+# 保留 workflow_dispatch 作为本地服务器故障时的人工应急通道。
 on:
-  schedule:
-    # 错峰到每 6 小时的 :30（UTC）= 北京 08:30 / 14:30 / 20:30 / 02:30
-    # 避开本地 update_sub.py 的整点任务（:00 启动，最长 25 分钟），彻底消除双写抢跑
-    - cron: '30 */6 * * *'
   workflow_dispatch:
 
 permissions:

@@ -39,8 +39,10 @@
 
 ## 更新机制
 
-- **本地推送**：AstrBot 侧 `update_sub.py` 定时拉源 → 去重 → sing-box 实测 → 生成成品 → 推送本仓库 `sub/`
-- **云端兜底**：GitHub Actions `update-subscriptions`（每 6 小时）拉取上游源 → 解析 → 合并去重 → 自动提交
+- **本地实测**：AstrBot 侧 `update_sub.py` 每小时拉源 → 去重 → sing-box 实测 → 生成成品
+- **推送节流**：实测每小时跑，但**每 12 小时才推一次** `sub/`（环境变量 `PUSH_INTERVAL_H` 可调，设 `0` 关闭）。本仓库 Pages 为 legacy 构建——push 即构建一轮，节流后 Pages 构建量由 28 次/天降至 2 次/天
+- **单次提交**：走 Git Data API 批量提交（blob → tree → commit → ref），一次推送只产生 1 个 commit，且 ref 更新带非快进保护（远端被抢先推进时自动重基于最新 head 重组）
+- **云端兜底**：GitHub Actions `update-subscriptions` 的定时触发已停用（该侧不做测速，定时跑会用低质量聚合结果覆盖本地实测成品），仅保留手动触发应急
 - **Pages 镜像**：每次 push 到 `main` 后，GitHub Pages 自动重建，约 1 分钟生效
 
 上游订阅源存放在仓库 Secret `SUB_SOURCES`（JSON 数组），**不落盘、不公开、不进日志**。

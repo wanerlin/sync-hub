@@ -21,18 +21,47 @@ dns:
     geoip: true
     geoip-code: CN
 proxies:
-- alterId: 64
-  cipher: auto
-  name: 'vmess-1827155985 #1'
+- client-fingerprint: ios
+  flow: xtls-rprx-vision
+  name: 'vless-1828138104 #1'
   network: tcp
-  port: 50002
-  server: 112.132.215.108
+  port: 56656
+  reality-opts:
+    public-key: QFM3jTzb5n-E9L2cfFo6GHqioGmIkjmG60l8wXA4IXc
+    short-id: aae6d935
+  server: funagfrdfs.alixxplay.com
+  servername: cdn-dynmedia-1.microsoft.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+- name: 'trojan-1827944967 #2'
+  password: HOrViv
+  port: 28106
+  server: 209.248.32.116
+  skip-cert-verify: true
+  sni: download.windowsupdate.com
+  type: trojan
+  udp: true
+- cipher: aes-256-gcm
+  name: 'shadowsocks-1828124796 #3'
+  password: BeaUf9c0AEWH40Pu
+  port: 8388
+  server: 154.36.158.197
+  type: ss
+  udp: true
+- alterId: 0
+  cipher: auto
+  name: 'vmess-1828153714 #4'
+  network: ws
+  port: 10086
+  server: 120.48.133.162
   type: vmess
   udp: true
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  uuid: 2b910c43-51e3-4b15-9be8-b658106ba35e
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 'vless-1828338861 #2'
+  name: 'vless-1828338861 #5'
   network: tcp
   port: 46105
   reality-opts:
@@ -44,93 +73,29 @@ proxies:
   type: vless
   udp: true
   uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
-- name: 'trojan-1827944967 #3 #1 #2 #1 #3'
-  password: HOrViv
-  port: 28106
-  server: 209.248.32.116
-  skip-cert-verify: true
-  sni: download.windowsupdate.com
-  type: trojan
+- cipher: aes-256-gcm
+  name: 'shadowsocks-1832002523 #6'
+  password: 6EgiUzxx9ReXjuAh
+  port: 8388
+  server: 103.115.18.181
+  type: ss
   udp: true
-- name: '马来西亚+吉隆坡Cloudflare+Warp节点 #4'
+- name: '美国+CloudFlare节点 #7'
   type: vless
-  server: 8.39.125.107
-  port: 2083
-  uuid: a6ba51de-d50a-407f-a8bb-5dc8b3073ec1
-  tls: true
+  server: www.digitalocean.com
+  port: 8080
+  uuid: 2500e602-671c-4654-a602-c518b7282167
+  tls: false
   network: ws
-  servername: frosty-clover-b8ea-df1f0206.pages.dev
-  client-fingerprint: chrome
+  servername: www.digitalocean.com
   ws-opts:
-    path: /7f0776a02fac
+    path: /
     headers:
-      Host: frosty-clover-b8ea-df1f0206.pages.dev
-- alterId: 0
-  cipher: auto
-  name: 'vmess-1828153714 #7 #4 #6 #27 #5'
-  network: ws
-  port: 10086
-  server: 120.48.133.162
-  type: vmess
-  udp: true
-  uuid: 2b910c43-51e3-4b15-9be8-b658106ba35e
-- name: '美国+惠普HP #6'
-  type: vless
-  server: 3696b38bsg.murphyweb.sbs
-  port: 32134
-  uuid: 5b01dc2d-6892-49b8-8289-3f73a32e00e4
-  tls: true
-  network: tcp
-  servername: buylite.music.apple.com
-  reality-opts:
-    public-key: OdTELUjAUKO_qr-O-uihaAZJAhA8GyIWVI6CpozVCU4
-    short-id: 6c6c7c97
-  flow: xtls-rprx-vision
-  client-fingerprint: chrome
-- client-fingerprint: ios
-  flow: xtls-rprx-vision
-  name: 'vless-1830350155 #7'
-  network: tcp
-  port: 35544
-  reality-opts:
-    public-key: HrcXRHtsitc_AVlN-_8fZuRgaP-Mqa_9JJotI9OnkVc
-    short-id: 25c79e5856c7
-  server: funagfrdfs.alixxplay.com
-  servername: iosapps.itunes.apple.com
-  tls: true
-  type: vless
-  udp: true
-  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+      Host: 2639w-throbbing-band-3840.xphnn6jp.workers.dev
+  packet-encoding: xudp
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 'vless-1831112167 #8'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: Mlc1zeT6bmVI1SikL1ZSuZv3c-RNa7qwBnOS5Wd-YwM
-    short-id: e17daa3101
-  server: 189.24.84.170
-  servername: www.sony.com
-  tls: true
-  type: vless
-  udp: true
-  uuid: d388d1ac-be49-4cb6-88a8-2eeec632efe8
-- name: '美国+CloudFlare节点 #9'
-  type: vless
-  server: 104.19.34.75
-  port: 8443
-  uuid: a6ba51de-d50a-407f-a8bb-5dc8b3073ec1
-  tls: true
-  network: ws
-  servername: frosty-clover-b8ea-df1f0206.pages.dev
-  client-fingerprint: chrome
-  ws-opts:
-    path: /7f0776a02fac
-    headers:
-      Host: frosty-clover-b8ea-df1f0206.pages.dev
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 'vless-1827154832 #12 #6 #14 #4 #10'
+  name: 'vless-1827154832 #8'
   network: tcp
   port: 443
   reality-opts:
@@ -144,21 +109,7 @@ proxies:
   uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 'vless-1828139917 #38 #9 #33 #11'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: DsPuscZooSV32qg3HfGnrGKXI36Iq3fl0BGqUEUsayM
-    short-id: '70738781'
-  server: 179.255.140.244
-  servername: www.bing.com
-  tls: true
-  type: vless
-  udp: true
-  uuid: 9f494aef-712d-4b4c-8130-f4e0902def28
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 'vless-1827154690 #6 #7 #12 #5 #12'
+  name: 'vless-1827154690 #9'
   network: tcp
   port: 443
   reality-opts:
@@ -170,63 +121,175 @@ proxies:
   type: vless
   udp: true
   uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
-- name: 'trojan-1828371110 #6 #13'
-  password: ae7eb4dwyaz25pxwgq59
-  port: 59689
-  server: 66.23.203.21
-  skip-cert-verify: true
-  sni: ''
-  type: trojan
-  udp: true
-- client-fingerprint: chrome
+- name: 'TH - zhuhai.uk #10'
+  type: vless
+  server: funagfrdfs.alixxplay.com
+  port: 56415
+  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
   flow: xtls-rprx-vision
-  name: 'vless-1829089512 #10 #14'
-  network: tcp
+  tls: true
+  servername: www.kaidee.com
+  client-fingerprint: ios
+  reality-opts:
+    public-key: EG-jzQw1RyOwAM4L9rMKondSx7cyFmPyv1OP7xXkIk4
+    short-id: cbd39bea0805e2
+- name: '巴西+V2CROSS.COM #11'
+  type: vless
+  server: 152.233.71.81
   port: 443
+  uuid: 741809be-e44e-000b-b411-bf66f0ae3860
+  tls: true
+  network: tcp
+  servername: brointelengence.com
   reality-opts:
     public-key: 6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY
     short-id: 1c3e8241a8743df9
-  server: 152.233.71.81
-  servername: brointelengence.com
-  tls: true
-  type: vless
-  udp: true
-  uuid: 741809be-e44e-000b-b411-bf66f0ae3860
-- name: '🇳🇱 www.v2nodes.com ss-NL-1596... #15'
-  type: ss
-  server: c3.nastuh.link
-  port: 443
-  cipher: chacha20-ietf-poly1305
-  password: y7KeRTzmH0vXT2kp
-- client-fingerprint: firefox
   flow: xtls-rprx-vision
-  name: 'vless-1831114346 #16'
+  client-fingerprint: chrome
+  packet-encoding: xudp
+- client-fingerprint: edge
+  flow: xtls-rprx-vision
+  name: 'vless-1830269307 #12'
   network: tcp
   port: 443
   reality-opts:
-    public-key: 7wIlBmBcwZG9nSJjhO1CnyowGOfLJWPZHDH2COpxq0Q
-    short-id: 8ac3c6d4923149e5
-  server: 195.133.80.66
-  servername: fi-pl.funtime.best
+    public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+    short-id: a8
+  server: api.videopereval.cc
+  servername: api.videopereval.cc
   tls: true
   type: vless
   udp: true
-  uuid: 57bbf2dd-0223-4bab-8866-1142dabe7b33
-- name: '🇩🇪 德国 DEU #17'
+  uuid: 082f5694-9019-4110-b67b-8125dbb9bab8
+- name: 'US - zhuhai.uk 02 #13'
+  type: vless
+  server: funagfrdfs.alixxplay.com
+  port: 34379
+  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
+  flow: xtls-rprx-vision
+  tls: true
+  servername: us1p1.xn--ghq880n3na965a.com
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: KfOrtENkHAXDFlsCluw6fv62Q-WuJXCKI98XZihtemA
+    short-id: e51285e3
+- cipher: aes-256-gcm
+  name: 'shadowsocks-1832007528 #14'
+  password: Lpq5UPVHtQYiuB9jEUNc2WkeIYCUH9DE
+  port: 18443
+  server: 194.87.196.107
+  type: ss
+  udp: true
+- name: '🇩🇪 德国 DEU #11 #15'
+  type: hysteria2
+  server: vpn-de-002.fastervpn.world
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  sni: vpn-de-002.fastervpn.world
+- name: '🇦🇪 阿联酋 ARE #16'
+  type: vless
+  server: zordbx861.233874.xyz
+  port: 8888
+  uuid: 46509b23-fe97-45b3-9c89-bd1b2a93bd4e
+  tls: true
+  network: tcp
+  servername: addons.mozilla.org
+  reality-opts:
+    public-key: vBSBoPYKiB5RZ9_jNPEdLnroJ2M7MKw0c1Rvh6-QmV4
+    short-id: ''
+  client-fingerprint: chrome
+- client-fingerprint: randomized
+  flow: xtls-rprx-vision
+  name: 'vless-1830347526 #17'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: Lcx-6dTZVRdY_HR8XDH438e1RldvuwCCLQiB-N0DWmE
+    short-id: ad6ebedaba235e01
+  server: app-ss-48.shopping-spb.com
+  servername: assets-ss-48.shopping-spb.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 05c8eabe-96af-4db2-bb2f-a24fa84344ba
+- client-fingerprint: edge
+  flow: xtls-rprx-vision
+  name: 'vless-1830269303 #18'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: fNIWMqyrYtOvMcpNDBqqZ7ZQaCcGAsh83qYirAk11Ws
+    short-id: 3b0dfb074f042a25
+  server: ru-sel-01.123ok.uk
+  servername: ru-sel-01.123ok.uk
+  tls: true
+  type: vless
+  udp: true
+  uuid: e205a26e-e5b3-0003-80a8-2c79dc9db02b
+- client-fingerprint: randomized
+  flow: xtls-rprx-vision
+  name: 'vless-1830347522 #19'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: CcMEJ-JOS4clB3gXbc6wXgzkiJQbyNpKY90I8B6AqyU
+    short-id: 4c188683e2c14a3c
+  server: 31.76.227.60
+  servername: assets-mi-29.spbstudentlife.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 05c8eabe-96af-4db2-bb2f-a24fa84344ba
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 'vless-1831112167 #20'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: Mlc1zeT6bmVI1SikL1ZSuZv3c-RNa7qwBnOS5Wd-YwM
+    short-id: e17daa3101
+  server: 189.24.84.170
+  servername: www.sony.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: d388d1ac-be49-4cb6-88a8-2eeec632efe8
+- client-fingerprint: chrome
+  name: 'vless-1828655830 #21'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: mWxcYeYE-M3iE0RBjTzG88QI9kj2wivJDoIYDu_aG3w
+    short-id: 29c2dd1e3ef7c4d4
+  server: 45.59.120.217
+  servername: strm.yandex.net
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8732f92b-ba85-48f7-92e4-ad029f1cd4e7
+- name: 'trojan-1827148420 #22'
+  password: Trojan@82164024
+  port: 443
+  server: in.tronsg.com
+  skip-cert-verify: true
+  sni: in.tronsg.com
+  type: trojan
+  udp: true
+- name: '🇩🇪 德国 DEU #23'
   type: hysteria2
   server: 3.77.57.250
   port: 443
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   sni: vpn-de-002.fastervpn.world
-- name: 'trojan-1830347525 #9 #18'
-  password: u93yPGuY2zgIsisJZKS2QzJzg
+- name: 'trojan-1827397687 #24'
+  password: Trojan@82164024
   port: 443
-  server: 201.10.90.81
-  skip-cert-verify: false
-  sni: hl-freedom-2.undef.network
+  server: kr.tronsg.com
+  skip-cert-verify: true
+  sni: kr.tronsg.com
   type: trojan
   udp: true
-- name: '🇩🇪 德国 DEU #19'
+- name: '🇩🇪 德国 DEU #25'
   type: vless
   server: 43.249.72.255
   port: 443
@@ -239,168 +302,49 @@ proxies:
     path: /
     headers:
       Host: henzoo.global.ssl.fastly.net
-- client-fingerprint: safari
-  flow: xtls-rprx-vision
-  name: 'vless-1828139011 #20'
-  network: tcp
-  port: 10444
-  reality-opts:
-    public-key: 0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo
-    short-id: 8debcf36f1cc69ff
-  server: 147.93.173.45
-  servername: video.yandex.ru
-  tls: true
+- name: '美国+V2CROSS.COM #26'
   type: vless
-  udp: true
-  uuid: 75c5f51b-d548-4eab-a26e-aa10fc3dbc7b
-- name: '🇦🇪 阿联酋 ARE #21'
-  type: vless
-  server: zordbx861.233874.xyz
-  port: 8888
-  uuid: 46509b23-fe97-45b3-9c89-bd1b2a93bd4e
+  server: nl.srv.vbuste-bot.com
+  port: 444
+  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
   tls: true
-  network: tcp
-  servername: addons.mozilla.org
+  network: grpc
+  servername: nl.srv.vbuste-bot.com
   reality-opts:
-    public-key: vBSBoPYKiB5RZ9_jNPEdLnroJ2M7MKw0c1Rvh6-QmV4
-    short-id: ''
+    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+    short-id: 4be4110078ebed4a
   client-fingerprint: chrome
-- client-fingerprint: chrome
-  name: 'vless-1828532347 #14 #22'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
-    short-id: 868419504747f6de
-  server: 84.32.100.149
-  servername: tcpde7.figurapn.ru
-  tls: true
-  type: vless
+  grpc-opts:
+    grpc-service-name: ''
+- name: 'trojan-1828371110 #27'
+  password: ae7eb4dwyaz25pxwgq59
+  port: 59689
+  server: 66.23.203.21
+  skip-cert-verify: true
+  sni: ''
+  type: trojan
   udp: true
-  uuid: 244d9eab-3311-40c7-b47f-4968dc3088a6
 - alterId: 0
   cipher: auto
-  name: 'vmess-1828446907 #7 #23'
+  name: 'vmess-1828446907 #28'
   network: ws
   port: 10086
   server: 39.108.113.127
   type: vmess
   udp: true
   uuid: 2b910c43-51e3-4b15-9be8-b658106ba35e
-- client-fingerprint: chrome
-  name: 'vless-1831086823 #11 #24'
-  network: tcp
-  port: 8888
-  reality-opts:
-    public-key: vBSBoPYKiB5RZ9_jNPEdLnroJ2M7MKw0c1Rvh6-QmV4
-    short-id: ''
-  server: 139.185.44.26
-  servername: addons.mozilla.org
-  tls: true
-  type: vless
-  udp: true
-  uuid: 46509b23-fe97-45b3-9c89-bd1b2a93bd4e
-- name: '🇩🇪 德国 DEU #11 #25'
-  type: hysteria2
-  server: vpn-de-002.fastervpn.world
-  port: 443
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  sni: vpn-de-002.fastervpn.world
-- client-fingerprint: randomized
-  flow: xtls-rprx-vision
-  name: 'vless-1830347526 #13 #26'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: Lcx-6dTZVRdY_HR8XDH438e1RldvuwCCLQiB-N0DWmE
-    short-id: ad6ebedaba235e01
-  server: app-ss-48.shopping-spb.com
-  servername: assets-ss-48.shopping-spb.com
-  tls: true
-  type: vless
-  udp: true
-  uuid: 05c8eabe-96af-4db2-bb2f-a24fa84344ba
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 'vless-1828652377 #25 #27'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
-    short-id: 868419504747f6de
-  server: 194.93.61.143
-  servername: nl10.lazeroe.com
-  tls: true
-  type: vless
-  udp: true
-  uuid: 244d9eab-3311-40c7-b47f-4968dc3088a6
-- name: '🇮🇳 印度 IND #1 #31 #26 #31 #16 #28'
-  type: trojan
-  server: in.tronsg.com
-  port: 443
-  udp: true
-  password: Trojan@82164024
-  tls: true
-  servername: in.tronsg.com
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 'vless-1828534453 #8 #29'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: mPzNFHO4pZMzFviRkIhRd7xDUz4dMHyI-flZLOrgDVg
-    short-id: f8379ce795f2e5ed
-  server: hu1.aiage.work
-  servername: hu1.aiage.work
-  tls: true
-  type: vless
-  udp: true
-  uuid: 6338c01a-310e-42c3-bf4f-2a20e161054b
-- name: '🇺🇸_US_美国#37 #17 #24 #34 #21 #30'
-  type: vmess
-  server: guanwang.awsno.com
-  port: 443
-  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
-  alterId: 0
+- alterId: 64
   cipher: auto
-  udp: true
-  tls: true
-  servername: guanwang.awsno.com
-  network: ws
-  ws-opts:
-    path: /hls/cctv5phd.m3u8
-    headers:
-      Host: guanwang.awsno.com
-- client-fingerprint: chrome
-  name: 'vless-1828655830 #20 #31'
+  name: 'vmess-1827155985 #29'
   network: tcp
-  port: 443
-  reality-opts:
-    public-key: mWxcYeYE-M3iE0RBjTzG88QI9kj2wivJDoIYDu_aG3w
-    short-id: 29c2dd1e3ef7c4d4
-  server: 45.59.120.217
-  servername: strm.yandex.net
-  tls: true
-  type: vless
+  port: 50002
+  server: 112.132.215.108
+  type: vmess
   udp: true
-  uuid: 8732f92b-ba85-48f7-92e4-ad029f1cd4e7
-- client-fingerprint: edge
-  flow: xtls-rprx-vision
-  name: 'vless-1830269303 #17 #32'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: fNIWMqyrYtOvMcpNDBqqZ7ZQaCcGAsh83qYirAk11Ws
-    short-id: 3b0dfb074f042a25
-  server: ru-sel-01.123ok.uk
-  servername: ru-sel-01.123ok.uk
-  tls: true
-  type: vless
-  udp: true
-  uuid: e205a26e-e5b3-0003-80a8-2c79dc9db02b
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
 - client-fingerprint: ios
   flow: xtls-rprx-vision
-  name: 'vless-1830269136 #23 #33'
+  name: 'vless-1830269136 #30'
   network: raw
   port: 443
   reality-opts:
@@ -413,63 +357,8 @@ proxies:
   udp: true
   uuid: 4599572f-bcfa-461e-bc73-d80e1ea65aa6
 - client-fingerprint: chrome
-  name: 'vless-1828526746 #3 #34'
-  network: tcp
-  port: 8888
-  reality-opts:
-    public-key: 5CVqzPWvXM--BuEusVLOiliEsriCQn2otWxk4Ihvnxs
-    short-id: ''
-  server: zorusx861.233874.xyz
-  servername: addons.mozilla.org
-  tls: true
-  type: vless
-  udp: true
-  uuid: 2b3e3a7b-5c74-45af-a9f6-e55edf1e9cf5
-- client-fingerprint: firefox
-  name: 'vless-1828375896 #24 #35'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
-    short-id: 868419504747f6de
-  server: 88.216.223.66
-  servername: tcpswed1.figurapn.ru
-  tls: true
-  type: vless
-  udp: true
-  uuid: 244d9eab-3311-40c7-b47f-4968dc3088a6
-- cipher: aes-256-gcm
-  name: 'shadowsocks-1828124796 #36'
-  password: BeaUf9c0AEWH40Pu
-  port: 8388
-  server: 154.36.158.197
-  type: ss
-  udp: true
-- client-fingerprint: randomized
   flow: xtls-rprx-vision
-  name: 'vless-1830347522 #18 #37'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: CcMEJ-JOS4clB3gXbc6wXgzkiJQbyNpKY90I8B6AqyU
-    short-id: 4c188683e2c14a3c
-  server: 31.76.227.60
-  servername: assets-mi-29.spbstudentlife.com
-  tls: true
-  type: vless
-  udp: true
-  uuid: 05c8eabe-96af-4db2-bb2f-a24fa84344ba
-- name: 'trojan-1827397687 #38'
-  password: Trojan@82164024
-  port: 443
-  server: kr.tronsg.com
-  skip-cert-verify: true
-  sni: kr.tronsg.com
-  type: trojan
-  udp: true
-- client-fingerprint: chrome
-  flow: xtls-rprx-vision
-  name: 'vless-1828247549 #39'
+  name: 'vless-1828247549 #31'
   network: tcp
   port: 443
   reality-opts:
@@ -481,274 +370,288 @@ proxies:
   type: vless
   udp: true
   uuid: a33cfdfd-90af-4e5b-a42e-047293c528e6
-- name: '🇨🇳_CN_中国->🇺🇸_US_美国 #36 #40'
-  type: vless
-  server: us22.sofast.live
-  port: 58011
-  uuid: 0afc6426-606c-48e7-bd70-3c424a416842
-  tls: false
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 'vless-1828139917 #32'
   network: tcp
+  port: 443
+  reality-opts:
+    public-key: DsPuscZooSV32qg3HfGnrGKXI36Iq3fl0BGqUEUsayM
+    short-id: '70738781'
+  server: 179.255.140.244
+  servername: www.bing.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 9f494aef-712d-4b4c-8130-f4e0902def28
+- client-fingerprint: safari
+  flow: xtls-rprx-vision
+  name: 'vless-1828139011 #33'
+  network: tcp
+  port: 10444
+  reality-opts:
+    public-key: 0oTkcqwLTUNLnSOP-VUWErmy6usAIg-biBE6ioZO-Vo
+    short-id: 8debcf36f1cc69ff
+  server: 147.93.173.45
+  servername: video.yandex.ru
+  tls: true
+  type: vless
+  udp: true
+  uuid: 75c5f51b-d548-4eab-a26e-aa10fc3dbc7b
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 'vless-1828657550 #34'
+  network: raw
+  port: 2062
+  reality-opts:
+    public-key: Ub1ffFeVtG2zd_t001wgmuhojSAxvaVwuo_pAapScBA
+    short-id: be61aab9c7ffd106
+  server: 103.41.7.43
+  servername: www.apple.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: d83592a3-a94f-4f7e-b105-b3deedde2a7a
+- name: 'trojan-1830347525 #35'
+  password: u93yPGuY2zgIsisJZKS2QzJzg
+  port: 443
+  server: 201.10.90.81
+  skip-cert-verify: false
+  sni: hl-freedom-2.undef.network
+  type: trojan
+  udp: true
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - 🔯 故障转移
-  - 🇨🇳 中国
-  - 🇺🇸 美国
-  - 🇩🇪 德国
-  - 🇷🇺 俄罗斯
   - 🇯🇵 日本
-  - 🇸🇬 新加坡
+  - 🇷🇺 俄罗斯
+  - 🇨🇳 中国
+  - 🇩🇪 德国
+  - 🇭🇰 香港
   - 🇫🇷 法国
   - 🇦🇪 阿联酋
+  - 🇺🇸 美国
+  - 🇸🇬 新加坡
   - 🇨🇦 加拿大
-  - 🇳🇱 荷兰
-  - 🇭🇰 香港
   - 🇫🇮 芬兰
-  - 🇵🇱 波兰
-  - 🇮🇹 意大利
   - 🇮🇳 印度
-  - 🌍 HU
-  - 🇸🇪 瑞典
   - 🇰🇷 韩国
+  - 🇮🇹 意大利
+  - 🇳🇱 荷兰
+  - 🇵🇱 波兰
   - DIRECT
 - name: ♻️ 自动选择
   type: url-test
   proxies:
-  - 'vmess-1827155985 #1'
-  - 'vless-1828338861 #2'
-  - 'trojan-1827944967 #3 #1 #2 #1 #3'
-  - '马来西亚+吉隆坡Cloudflare+Warp节点 #4'
-  - 'vmess-1828153714 #7 #4 #6 #27 #5'
-  - '美国+惠普HP #6'
-  - 'vless-1830350155 #7'
-  - 'vless-1831112167 #8'
-  - '美国+CloudFlare节点 #9'
-  - 'vless-1827154832 #12 #6 #14 #4 #10'
-  - 'vless-1828139917 #38 #9 #33 #11'
-  - 'vless-1827154690 #6 #7 #12 #5 #12'
-  - 'trojan-1828371110 #6 #13'
-  - 'vless-1829089512 #10 #14'
-  - '🇳🇱 www.v2nodes.com ss-NL-1596... #15'
-  - 'vless-1831114346 #16'
-  - '🇩🇪 德国 DEU #17'
-  - 'trojan-1830347525 #9 #18'
-  - '🇩🇪 德国 DEU #19'
-  - 'vless-1828139011 #20'
-  - '🇦🇪 阿联酋 ARE #21'
-  - 'vless-1828532347 #14 #22'
-  - 'vmess-1828446907 #7 #23'
-  - 'vless-1831086823 #11 #24'
-  - '🇩🇪 德国 DEU #11 #25'
-  - 'vless-1830347526 #13 #26'
-  - 'vless-1828652377 #25 #27'
-  - '🇮🇳 印度 IND #1 #31 #26 #31 #16 #28'
-  - 'vless-1828534453 #8 #29'
-  - '🇺🇸_US_美国#37 #17 #24 #34 #21 #30'
-  - 'vless-1828655830 #20 #31'
-  - 'vless-1830269303 #17 #32'
-  - 'vless-1830269136 #23 #33'
-  - 'vless-1828526746 #3 #34'
-  - 'vless-1828375896 #24 #35'
-  - 'shadowsocks-1828124796 #36'
-  - 'vless-1830347522 #18 #37'
-  - 'trojan-1827397687 #38'
-  - 'vless-1828247549 #39'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #36 #40'
+  - 'vless-1828138104 #1'
+  - 'trojan-1827944967 #2'
+  - 'shadowsocks-1828124796 #3'
+  - 'vmess-1828153714 #4'
+  - 'vless-1828338861 #5'
+  - 'shadowsocks-1832002523 #6'
+  - '美国+CloudFlare节点 #7'
+  - 'vless-1827154832 #8'
+  - 'vless-1827154690 #9'
+  - 'TH - zhuhai.uk #10'
+  - '巴西+V2CROSS.COM #11'
+  - 'vless-1830269307 #12'
+  - 'US - zhuhai.uk 02 #13'
+  - 'shadowsocks-1832007528 #14'
+  - '🇩🇪 德国 DEU #11 #15'
+  - '🇦🇪 阿联酋 ARE #16'
+  - 'vless-1830347526 #17'
+  - 'vless-1830269303 #18'
+  - 'vless-1830347522 #19'
+  - 'vless-1831112167 #20'
+  - 'vless-1828655830 #21'
+  - 'trojan-1827148420 #22'
+  - '🇩🇪 德国 DEU #23'
+  - 'trojan-1827397687 #24'
+  - '🇩🇪 德国 DEU #25'
+  - '美国+V2CROSS.COM #26'
+  - 'trojan-1828371110 #27'
+  - 'vmess-1828446907 #28'
+  - 'vmess-1827155985 #29'
+  - 'vless-1830269136 #30'
+  - 'vless-1828247549 #31'
+  - 'vless-1828139917 #32'
+  - 'vless-1828139011 #33'
+  - 'vless-1828657550 #34'
+  - 'trojan-1830347525 #35'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🔯 故障转移
   type: fallback
   proxies:
-  - 'vmess-1827155985 #1'
-  - 'vless-1828338861 #2'
-  - 'trojan-1827944967 #3 #1 #2 #1 #3'
-  - '马来西亚+吉隆坡Cloudflare+Warp节点 #4'
-  - 'vmess-1828153714 #7 #4 #6 #27 #5'
-  - '美国+惠普HP #6'
-  - 'vless-1830350155 #7'
-  - 'vless-1831112167 #8'
-  - '美国+CloudFlare节点 #9'
-  - 'vless-1827154832 #12 #6 #14 #4 #10'
-  - 'vless-1828139917 #38 #9 #33 #11'
-  - 'vless-1827154690 #6 #7 #12 #5 #12'
-  - 'trojan-1828371110 #6 #13'
-  - 'vless-1829089512 #10 #14'
-  - '🇳🇱 www.v2nodes.com ss-NL-1596... #15'
-  - 'vless-1831114346 #16'
-  - '🇩🇪 德国 DEU #17'
-  - 'trojan-1830347525 #9 #18'
-  - '🇩🇪 德国 DEU #19'
-  - 'vless-1828139011 #20'
-  - '🇦🇪 阿联酋 ARE #21'
-  - 'vless-1828532347 #14 #22'
-  - 'vmess-1828446907 #7 #23'
-  - 'vless-1831086823 #11 #24'
-  - '🇩🇪 德国 DEU #11 #25'
-  - 'vless-1830347526 #13 #26'
-  - 'vless-1828652377 #25 #27'
-  - '🇮🇳 印度 IND #1 #31 #26 #31 #16 #28'
-  - 'vless-1828534453 #8 #29'
-  - '🇺🇸_US_美国#37 #17 #24 #34 #21 #30'
-  - 'vless-1828655830 #20 #31'
-  - 'vless-1830269303 #17 #32'
-  - 'vless-1830269136 #23 #33'
-  - 'vless-1828526746 #3 #34'
-  - 'vless-1828375896 #24 #35'
-  - 'shadowsocks-1828124796 #36'
-  - 'vless-1830347522 #18 #37'
-  - 'trojan-1827397687 #38'
-  - 'vless-1828247549 #39'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #36 #40'
+  - 'vless-1828138104 #1'
+  - 'trojan-1827944967 #2'
+  - 'shadowsocks-1828124796 #3'
+  - 'vmess-1828153714 #4'
+  - 'vless-1828338861 #5'
+  - 'shadowsocks-1832002523 #6'
+  - '美国+CloudFlare节点 #7'
+  - 'vless-1827154832 #8'
+  - 'vless-1827154690 #9'
+  - 'TH - zhuhai.uk #10'
+  - '巴西+V2CROSS.COM #11'
+  - 'vless-1830269307 #12'
+  - 'US - zhuhai.uk 02 #13'
+  - 'shadowsocks-1832007528 #14'
+  - '🇩🇪 德国 DEU #11 #15'
+  - '🇦🇪 阿联酋 ARE #16'
+  - 'vless-1830347526 #17'
+  - 'vless-1830269303 #18'
+  - 'vless-1830347522 #19'
+  - 'vless-1831112167 #20'
+  - 'vless-1828655830 #21'
+  - 'trojan-1827148420 #22'
+  - '🇩🇪 德国 DEU #23'
+  - 'trojan-1827397687 #24'
+  - '🇩🇪 德国 DEU #25'
+  - '美国+V2CROSS.COM #26'
+  - 'trojan-1828371110 #27'
+  - 'vmess-1828446907 #28'
+  - 'vmess-1827155985 #29'
+  - 'vless-1830269136 #30'
+  - 'vless-1828247549 #31'
+  - 'vless-1828139917 #32'
+  - 'vless-1828139011 #33'
+  - 'vless-1828657550 #34'
+  - 'trojan-1830347525 #35'
   url: http://www.gstatic.com/generate_204
   interval: 300
-- name: 🇨🇳 中国
+- name: 🇯🇵 日本
   type: url-test
   proxies:
-  - 'vmess-1827155985 #1'
-  - 'vmess-1828153714 #7 #4 #6 #27 #5'
-  - 'vmess-1828446907 #7 #23'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #36 #40'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇺🇸 美国
-  type: url-test
-  proxies:
-  - '马来西亚+吉隆坡Cloudflare+Warp节点 #4'
-  - 'vless-1828139917 #38 #9 #33 #11'
-  - 'trojan-1828371110 #6 #13'
-  - 'vless-1828526746 #3 #34'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇩🇪 德国
-  type: url-test
-  proxies:
-  - 'vless-1831112167 #8'
-  - '🇩🇪 德国 DEU #17'
-  - 'vless-1828532347 #14 #22'
-  - '🇩🇪 德国 DEU #11 #25'
+  - 'vless-1828138104 #1'
+  - 'shadowsocks-1828124796 #3'
+  - 'vless-1828338861 #5'
+  - 'shadowsocks-1832002523 #6'
+  - 'TH - zhuhai.uk #10'
+  - 'US - zhuhai.uk 02 #13'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇷🇺 俄罗斯
   type: url-test
   proxies:
-  - 'vless-1830347526 #13 #26'
-  - 'vless-1830269303 #17 #32'
-  - 'vless-1830269136 #23 #33'
-  - 'vless-1830347522 #18 #37'
+  - 'vless-1830269307 #12'
+  - 'shadowsocks-1832007528 #14'
+  - 'vless-1830347526 #17'
+  - 'vless-1830269303 #18'
+  - 'vless-1830347522 #19'
+  - 'vless-1830269136 #30'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-- name: 🇯🇵 日本
+- name: 🇨🇳 中国
   type: url-test
   proxies:
-  - 'vless-1828338861 #2'
-  - 'vless-1830350155 #7'
-  - 'shadowsocks-1828124796 #36'
+  - 'vmess-1828153714 #4'
+  - 'vmess-1828446907 #28'
+  - 'vmess-1827155985 #29'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-- name: 🇸🇬 新加坡
+- name: 🇩🇪 德国
   type: url-test
   proxies:
-  - '美国+惠普HP #6'
-  - 'vless-1828139011 #20'
-  - 'vless-1828247549 #39'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇫🇷 法国
-  type: url-test
-  proxies:
-  - 'vless-1827154832 #12 #6 #14 #4 #10'
-  - 'vless-1827154690 #6 #7 #12 #5 #12'
-  - 'vless-1831114346 #16'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇦🇪 阿联酋
-  type: url-test
-  proxies:
-  - '🇦🇪 阿联酋 ARE #21'
-  - 'vless-1831086823 #11 #24'
-  - 'vless-1828655830 #20 #31'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇨🇦 加拿大
-  type: url-test
-  proxies:
-  - '美国+CloudFlare节点 #9'
-  - '🇺🇸_US_美国#37 #17 #24 #34 #21 #30'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇳🇱 荷兰
-  type: url-test
-  proxies:
-  - '🇳🇱 www.v2nodes.com ss-NL-1596... #15'
-  - 'vless-1828652377 #25 #27'
+  - '🇩🇪 德国 DEU #11 #15'
+  - 'vless-1831112167 #20'
+  - '🇩🇪 德国 DEU #23'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇭🇰 香港
   type: url-test
   proxies:
-  - 'trojan-1827944967 #3 #1 #2 #1 #3'
+  - 'trojan-1827944967 #2'
+  - 'vless-1828657550 #34'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇫🇷 法国
+  type: url-test
+  proxies:
+  - 'vless-1827154832 #8'
+  - 'vless-1827154690 #9'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇦🇪 阿联酋
+  type: url-test
+  proxies:
+  - '🇦🇪 阿联酋 ARE #16'
+  - 'vless-1828655830 #21'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇺🇸 美国
+  type: url-test
+  proxies:
+  - 'trojan-1828371110 #27'
+  - 'vless-1828139917 #32'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇸🇬 新加坡
+  type: url-test
+  proxies:
+  - 'vless-1828247549 #31'
+  - 'vless-1828139011 #33'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇨🇦 加拿大
+  type: url-test
+  proxies:
+  - '美国+CloudFlare节点 #7'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇫🇮 芬兰
   type: url-test
   proxies:
-  - 'vless-1829089512 #10 #14'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇵🇱 波兰
-  type: url-test
-  proxies:
-  - 'trojan-1830347525 #9 #18'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇮🇹 意大利
-  type: url-test
-  proxies:
-  - '🇩🇪 德国 DEU #19'
+  - '巴西+V2CROSS.COM #11'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇮🇳 印度
   type: url-test
   proxies:
-  - '🇮🇳 印度 IND #1 #31 #26 #31 #16 #28'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🌍 HU
-  type: url-test
-  proxies:
-  - 'vless-1828534453 #8 #29'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇸🇪 瑞典
-  type: url-test
-  proxies:
-  - 'vless-1828375896 #24 #35'
+  - 'trojan-1827148420 #22'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇰🇷 韩国
   type: url-test
   proxies:
-  - 'trojan-1827397687 #38'
+  - 'trojan-1827397687 #24'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇮🇹 意大利
+  type: url-test
+  proxies:
+  - '🇩🇪 德国 DEU #25'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇳🇱 荷兰
+  type: url-test
+  proxies:
+  - '美国+V2CROSS.COM #26'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇵🇱 波兰
+  type: url-test
+  proxies:
+  - 'trojan-1830347525 #35'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80

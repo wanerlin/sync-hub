@@ -1,0 +1,3739 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>帝国征服者 · 英雄酒馆</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none}
+body{
+  font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+  background:#0d0b08;
+  color:#f0e6cf;
+  overflow:hidden;
+  height:100vh;width:100vw;
+}
+/* ===== 顶部资源栏 ===== */
+#topbar{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;gap:10px;
+  padding:8px 12px;
+  background:linear-gradient(180deg,rgba(20,16,10,.95),rgba(20,16,10,.75));
+  border-bottom:2px solid #6b4a1f;
+  box-shadow:0 2px 15px rgba(0,0,0,.6);
+}
+#topbar .logo{
+  font-weight:bold;font-size:15px;color:#ffd98a;
+  text-shadow:0 0 10px #ffb347;
+  background:linear-gradient(135deg,#6b4a1f,#3a2a12);
+  border:1px solid #a87a3a;border-radius:8px;
+  padding:5px 9px;white-space:nowrap;
+}
+.res{display:flex;align-items:center;gap:5px;background:rgba(0,0,0,.4);border:1px solid #5a3f1c;border-radius:6px;padding:3px 8px;font-size:12px}
+.res .ico{font-size:14px}
+.res .num{font-weight:bold;color:#ffe9a8;min-width:32px}
+#btnMain{
+  margin-left:auto;font-weight:bold;font-size:13px;color:#3a2a0c;
+  background:linear-gradient(180deg,#ffd98a,#e0a83a);
+  border:1px solid #b8842a;border-radius:8px;padding:6px 12px;cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+#btnMain:active{transform:scale(.95)}
+
+/* ===== 场景层 ===== */
+#stage{position:fixed;inset:0;z-index:0}
+#stage .bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity .6s}
+#stage .bg.on{opacity:1}
+#stage .bg.off{opacity:0}
+#stage .overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.15),rgba(0,0,0,.55))}
+
+/* ===== 主内容区 ===== */
+#content{
+  position:fixed;top:52px;bottom:64px;left:0;right:0;z-index:20;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:16px;
+}
+/* 标签页 */
+#tabs{display:flex;gap:10px;margin-bottom:14px}
+.tab{
+  font-weight:bold;font-size:14px;padding:8px 20px;border-radius:10px;cursor:pointer;
+  background:rgba(30,22,12,.7);border:1px solid #7a5a2a;color:#c8b48a;
+  box-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+.tab.on{
+  background:linear-gradient(180deg,#8a642a,#5a3f1c);color:#ffd98a;
+  border-color:#ffd98a;box-shadow:0 0 15px rgba(255,180,60,.3);
+}
+
+/* ===== 酒馆 ===== */
+#tavern{text-align:center;width:100%;max-width:460px}
+#tavern .title{font-size:20px;font-weight:bold;color:#ffd98a;text-shadow:0 0 12px rgba(255,170,50,.6);margin-bottom:6px}
+#tavern .sub{font-size:12px;color:#c8b48a;margin-bottom:14px}
+.drawBtns{display:flex;gap:12px;justify-content:center;margin:12px 0}
+.drawBtn{
+  font-weight:bold;font-size:16px;padding:14px 26px;border-radius:12px;cursor:pointer;border:2px solid;
+  box-shadow:0 4px 15px rgba(0,0,0,.5);transition:transform .1s;
+}
+.drawBtn:active{transform:scale(.94)}
+.drawBtn.one{background:linear-gradient(180deg,#7a5fde,#4a3a9a);border-color:#a080ff;color:#fff;box-shadow:0 0 20px rgba(120,90,240,.4)}
+.drawBtn.ten{background:linear-gradient(180deg,#d92a2a,#8a1a1a);border-color:#ff6060;color:#fff;box-shadow:0 0 20px rgba(255,80,80,.4)}
+.freeTimer{font-size:12px;color:#8fd98a;margin-bottom:6px}
+.owned{font-size:12px;color:#c8b48a}
+
+/* ===== 抽卡舞台 ===== */
+#drawStage{
+  position:fixed;inset:0;z-index:100;display:none;
+  align-items:center;justify-content:center;flex-direction:column;
+  background:radial-gradient(ellipse at center,rgba(20,10,40,.85),rgba(5,2,10,.96));
+  backdrop-filter:blur(4px);
+}
+#drawStage.show{display:flex}
+#cardRow{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;max-width:640px;padding:10px}
+.cardSlot{width:120px;height:180px;perspective:800px;cursor:pointer}
+.cardInner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.4,1.2,.4,1)}
+.cardSlot.flip .cardInner{transform:rotateY(180deg)}
+.cardFace{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.6)}
+.cardBack{
+  background:linear-gradient(135deg,#2a1f4d,#17102e);
+  border:3px solid #7a5fde;display:flex;align-items:center;justify-content:center;font-size:36px;
+}
+.cardFront{transform:rotateY(180deg)}
+.cardFront .rar{position:absolute;inset:0;border-radius:10px;border:3px solid;z-index:2}
+.cardFront.legendary .rar{border-color:#ffd54a;box-shadow:inset 0 0 20px rgba(255,213,74,.6),0 0 25px rgba(255,200,60,.8)}
+.cardFront.epic .rar{border-color:#c77dff;box-shadow:inset 0 0 20px rgba(199,125,255,.5),0 0 20px rgba(180,80,255,.7)}
+.cardFront.rare .rar{border-color:#6ab4ff;box-shadow:inset 0 0 15px rgba(106,180,255,.4)}
+.cardFront .avatar{position:absolute;inset:6px;border-radius:8px;background-size:cover;background-position:center;z-index:1}
+.cardFront .nm{position:absolute;bottom:0;left:0;right:0;z-index:3;text-align:center;font-weight:bold;font-size:14px;color:#fff;padding:8px 2px 6px;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent)}
+.cardFront .cls{position:absolute;top:6px;left:6px;z-index:3;font-size:16px;background:rgba(0,0,0,.6);border-radius:6px;padding:1px 5px}
+.cardFront .rarTxt{position:absolute;top:6px;right:6px;z-index:3;font-size:9px;font-weight:bold;padding:2px 6px;border-radius:6px;background:rgba(0,0,0,.7)}
+.cardFront.legendary .rarTxt{color:#ffd54a}
+.cardFront.epic .rarTxt{color:#c77dff}
+.cardFront.rare .rarTxt{color:#6ab4ff}
+
+/* 抽卡按钮 */
+#drawCta{margin-top:16px}
+#drawCta button{
+  font-weight:bold;font-size:16px;padding:12px 34px;border-radius:10px;border:2px solid #ffd98a;cursor:pointer;
+  background:linear-gradient(180deg,#e0a83a,#a87a2a);color:#2a1a08;box-shadow:0 0 20px rgba(255,180,60,.5);
+}
+#drawCta button:disabled{opacity:.5;cursor:not-allowed}
+
+/* 粒子容器 */
+#fx{position:fixed;inset:0;z-index:110;pointer-events:none}
+
+/* ===== 英雄图鉴 ===== */
+#heroes{width:100%;max-width:560px}
+#heroes .title{font-size:18px;font-weight:bold;color:#ffd98a;text-shadow:0 0 12px rgba(255,170,50,.6);margin-bottom:10px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.heroCard{
+  background:linear-gradient(160deg,rgba(40,30,16,.9),rgba(20,14,8,.95));
+  border:2px solid #6b4a1f;border-radius:10px;padding:8px;text-align:center;cursor:pointer;
+  transition:transform .15s,box-shadow .15s;
+  position:relative;overflow:hidden;
+}
+.heroCard:active{transform:scale(.96)}
+.heroCard.lg{border-color:#ffd54a;box-shadow:0 0 15px rgba(255,200,60,.5)}
+.heroCard.ep{border-color:#c77dff;box-shadow:0 0 12px rgba(199,125,255,.4)}
+.heroCard .hAv{width:56px;height:56px;border-radius:50%;margin:0 auto 6px;background-size:cover;background-position:center;border:2px solid rgba(255,255,255,.3)}
+.heroCard.lg .hAv{box-shadow:0 0 15px rgba(255,200,60,.7)}
+.heroCard .hNm{font-weight:bold;font-size:13px;color:#ffe9a8}
+.heroCard .hCls{font-size:11px;color:#c8b48a;margin-top:2px}
+.heroCard .hStat{font-size:10px;color:#9f8f6f;margin-top:4px}
+.heroCard .have{position:absolute;top:4px;right:4px;font-size:10px;font-weight:bold;color:#8fd98a;background:rgba(0,0,0,.6);border-radius:5px;padding:1px 5px}
+.heroCard .hLv{font-size:11px;font-weight:bold;margin-top:5px;border:1px solid;border-radius:5px;padding:1px 6px;text-align:center;letter-spacing:1px}
+.heroCard .hLv small{font-size:9px;opacity:.85;font-weight:normal}
+.heroCard .hExp{font-size:9px;color:#8f8064;margin-top:2px}
+#dLv{margin:6px 0;font-size:12px;font-weight:bold;border:1px solid;border-radius:8px;padding:5px 9px;text-align:center;letter-spacing:1px}
+#dLv small{font-size:10px;opacity:.85;font-weight:normal}
+
+/* ===== 主城建造 ===== */
+.bGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:4px}
+.bCard{background:rgba(18,14,28,.85);border:1px solid #3a2f55;border-radius:12px;padding:12px;text-align:center;box-shadow:0 0 12px rgba(0,0,0,.4)}
+.bCard .bIco{font-size:34px;margin-bottom:4px}
+.bCard .bNm{font-size:14px;font-weight:bold;color:#e8dcb8}
+.bCard .bDesc{font-size:11px;color:#9f8f6f;margin-top:3px}
+.bCard .bLv{font-size:11px;color:#ffd98a;margin-top:4px;font-weight:bold}
+.bCard .bCost{font-size:10px;color:#8fd98a;margin-top:3px}
+.bCard button{width:100%;margin-top:8px;padding:7px;border:none;border-radius:8px;font-size:12px;font-weight:bold;background:linear-gradient(180deg,#c9a04a,#8f6f2a);color:#2a1f10;cursor:pointer}
+.bCard button.done{background:linear-gradient(180deg,#5a7a5a,#3a4a3a);color:#cfe8cf;cursor:default}
+.cityStat{text-align:center;font-size:12px;color:#c8b48a;margin:10px 0 4px}
+
+/* ===== 战斗 ===== */
+.battles{display:flex;flex-direction:column;gap:12px;padding:4px}
+.batCard{background:rgba(18,14,28,.88);border:1px solid #3a2f55;border-radius:12px;padding:14px}
+.batCard .batTop{display:flex;justify-content:space-between;align-items:center}
+.batCard .batNm{font-size:15px;font-weight:bold;color:#ffd98a}
+.batCard .batTier{font-size:10px;color:#9f8f6f;border:1px solid #4a3f5f;padding:1px 7px;border-radius:9px}
+.batCard .batDesc{font-size:11px;color:#9f8f6f;margin-top:6px}
+.batCard .batRew{font-size:11px;color:#8fd98a;margin-top:5px}
+.batCard button{width:100%;margin-top:10px;padding:9px;border:none;border-radius:9px;font-size:13px;font-weight:bold;background:linear-gradient(180deg,#e05a3a,#a63a22);color:#fff;cursor:pointer;letter-spacing:2px}
+.batCard button.win{background:linear-gradient(180deg,#5a8a5a,#3a6a3a);cursor:default}
+.batResult{margin-top:10px;padding:9px;border-radius:8px;font-size:12px;font-weight:bold;text-align:center}
+
+/* ===== 战斗板块标题 / Boss / AI ===== */
+.secTitle{font-size:13px;font-weight:bold;color:#ffd98a;margin:14px 4px 8px;letter-spacing:2px;border-left:3px solid #ffd98a;padding-left:8px}
+#bossBox{margin:0 4px 6px}
+.bossCard{background:linear-gradient(160deg,rgba(60,20,25,.9),rgba(30,10,15,.92));border:2px solid #d84040;border-radius:14px;padding:14px;box-shadow:0 0 18px rgba(216,64,64,.35);position:relative;overflow:hidden}
+.bossCard .bossTop{display:flex;align-items:center;gap:12px}
+.bossCard .bossIco{font-size:42px;filter:drop-shadow(0 0 10px rgba(255,60,60,.6))}
+.bossCard .bossNm{font-size:17px;font-weight:bold;color:#ff9a8a;text-shadow:0 0 10px rgba(255,80,60,.6)}
+.bossCard .bossRarity{font-size:10px;padding:2px 8px;border-radius:8px;background:rgba(0,0,0,.4);color:#ffd98a;margin-top:3px;display:inline-block}
+.bossCard .bossDesc{font-size:12px;color:#d8b8a0;margin-top:8px}
+.bossCard .bossPow{font-size:11px;color:#ffb0a0;margin-top:6px}
+.bossCard .bossTime{font-size:11px;color:#8fd98a;margin-top:4px}
+.bossCard .bossBtn{width:100%;margin-top:10px;padding:10px;border:none;border-radius:9px;font-size:14px;font-weight:bold;background:linear-gradient(180deg,#e04040,#8f2020);color:#fff;cursor:pointer;letter-spacing:2px}
+.bossCard .bossBtn.win{background:linear-gradient(180deg,#d8a030,#8f6a10);cursor:default}
+.bossCard .bossResult{margin-top:9px;padding:8px;border-radius:8px;font-size:12px;font-weight:bold;text-align:center;display:none}
+
+#aiList{display:flex;flex-direction:column;gap:10px;margin:0 4px}
+.aiCard{background:rgba(18,14,28,.88);border:1px solid #3a2f55;border-radius:12px;padding:12px}
+.aiCard .aiTop{display:flex;justify-content:space-between;align-items:center}
+.aiCard .aiNm{font-size:15px;font-weight:bold;color:#c8b4e0}
+.aiCard .aiPow{font-size:11px;color:#8fd98a}
+.aiCard .aiInfo{font-size:11px;color:#9f8f6f;margin-top:5px}
+.aiCard button{width:100%;margin-top:9px;padding:8px;border:none;border-radius:9px;font-size:12px;font-weight:bold;background:linear-gradient(180deg,#5a4a8a,#3a2a5a);color:#fff;cursor:pointer;letter-spacing:1px}
+.aiCard button.win{background:linear-gradient(180deg,#5a8a5a,#3a6a3a);cursor:default}
+.aiResult{margin-top:8px;padding:8px;border-radius:8px;font-size:12px;font-weight:bold;text-align:center;display:none}
+.aiAttack{margin-top:7px;padding:8px;border-radius:8px;font-size:11px;color:#ffb0a0;background:rgba(200,60,40,.15);display:none}
+
+/* ===== 底部导航 ===== */
+#nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:50;
+  display:flex;justify-content:space-around;align-items:center;
+  background:linear-gradient(0deg,rgba(18,14,9,.98),rgba(18,14,9,.85));
+  border-top:2px solid #6b4a1f;padding:8px 6px 10px;
+}
+.navItem{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:#c8b48a;cursor:pointer;padding:4px 14px;border-radius:8px}
+.navItem .nIco{font-size:22px}
+.navItem.on{color:#ffd98a;text-shadow:0 0 8px rgba(255,180,60,.5)}
+
+/* 英雄详情弹窗 */
+#detail{position:fixed;inset:0;z-index:130;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.7);backdrop-filter:blur(3px)}
+#detail.show{display:flex}
+#detail .box{
+  width:280px;background:linear-gradient(165deg,#2a1f45,#1a1430);
+  border:2px solid #7a5fde;border-radius:14px;padding:18px;text-align:center;
+  box-shadow:0 0 30px rgba(120,90,240,.5);
+}
+#detail .dAv{width:80px;height:80px;border-radius:50%;margin:0 auto 10px;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;font-size:42px;border:3px solid #fff}
+#detail .dNm{font-size:20px;font-weight:bold;color:#ffe9a8}
+#detail .dCls{font-size:13px;color:#c8b48a;margin:4px 0}
+#detail .dDesc{font-size:14px;color:#ffd98a;margin:6px 0;font-style:italic}
+#detail .dStat{display:flex;justify-content:space-around;margin:10px 0}
+#detail .dStat span{background:rgba(0,0,0,.4);border:1px solid #5a4a8a;border-radius:8px;padding:6px 10px;font-size:12px}
+#detail .dClose{margin-top:12px;font-weight:bold;padding:8px 24px;border-radius:8px;border:2px solid #ffd98a;background:linear-gradient(180deg,#e0a83a,#a87a2a);color:#2a1a08;cursor:pointer}
+
+/* 提示 */
+#toast{
+  position:fixed;top:56px;left:50%;transform:translateX(-50%);z-index:150;
+  background:rgba(0,0,0,.85);border:1px solid #ffd98a;color:#ffd98a;
+  padding:8px 18px;border-radius:20px;font-size:13px;font-weight:bold;
+  opacity:0;pointer-events:none;transition:opacity .3s;box-shadow:0 0 15px rgba(255,180,60,.3);
+}
+#toast.show{opacity:1}
+
+/* ==================================================================
+   《帝国征服者 · 英雄酒馆》 v2 扩展样式表
+   ================================================================== */
+
+/* ---------- 顶栏状态位 ---------- */
+.v2Stat{font-size:12px;padding:3px 8px;border-radius:8px;background:rgba(255,217,138,.12);
+  border:1px solid #6b4a1f;color:#ffd98a;white-space:nowrap}
+#v2Talent.has{background:rgba(106,255,106,.16);border-color:#3a7a3a;color:#8eff8e;animation:tpPulse 1.4s infinite}
+@keyframes tpPulse{0%,100%{box-shadow:0 0 0 rgba(106,255,106,0)}50%{box-shadow:0 0 10px rgba(106,255,106,.55)}}
+#signBtn{font-size:12px;padding:4px 9px;border-radius:8px;background:linear-gradient(135deg,#6b4a1f,#3a2a12);
+  border:1px solid #8a6a2f;color:#ffd98a;cursor:pointer;font-family:inherit}
+#signBtn.has{background:linear-gradient(135deg,#8a2f2f,#5a1a1a);border-color:#ff6b4d;color:#ffb0a0;animation:tpPulse 1.6s infinite}
+#saveDot{font-size:11px;color:#7a6a4a;white-space:nowrap;transition:.25s}
+#saveDot.flash{color:#8eff8e;text-shadow:0 0 8px rgba(106,255,106,.7)}
+
+/* ---------- 世界播报条 ---------- */
+#newsTicker{position:fixed;left:8px;right:8px;bottom:64px;z-index:45;pointer-events:none;
+  display:flex;flex-direction:column;gap:3px;align-items:flex-start}
+.newsLine{font-size:11.5px;padding:4px 10px;border-radius:16px;color:#e8d9b0;
+  background:linear-gradient(90deg,rgba(40,30,16,.92),rgba(40,30,16,.55));
+  border-left:2px solid #ffd98a;max-width:100%;
+  animation:newsIn .35s ease-out;transition:opacity .8s}
+.newsLine.fade{opacity:0}
+.newsLine b{color:#ffd98a}
+@keyframes newsIn{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+
+/* ---------- 通用弹窗 ---------- */
+#dynModal{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:220;display:none;
+  align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(3px)}
+#dynModal.show{display:flex}
+#dynModal .box{width:100%;max-width:370px;max-height:82vh;overflow-y:auto;
+  background:linear-gradient(170deg,#2a2114,#15100a);border:2px solid #6b4a1f;border-radius:16px;
+  padding:20px 16px 16px;box-shadow:0 12px 46px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,217,138,.12)}
+#dynModal .dmTitle{font-size:16px;font-weight:bold;color:#ffd98a;text-align:center;
+  text-shadow:0 0 10px rgba(255,179,71,.5);margin-bottom:14px}
+#dynModal .dmBody{font-size:13.5px;color:#e8d9b0}
+#dynModal .dmBtn{display:block;width:100%;margin-top:16px;padding:11px;border-radius:10px;cursor:pointer;
+  font-family:inherit;font-size:14px;font-weight:bold;color:#2a1f0a;
+  background:linear-gradient(135deg,#ffd98a,#d8a030);border:none;
+  box-shadow:0 4px 14px rgba(216,160,48,.35)}
+#dynModal .dmBtn:active{transform:scale(.97)}
+
+/* ---------- 章节地图 ---------- */
+.chapHead{display:flex;align-items:center;gap:8px;margin:14px 0 8px;padding:7px 11px;border-radius:10px;
+  background:linear-gradient(90deg,rgba(107,74,31,.55),transparent);border-left:3px solid #8a6a2f}
+.chapHead.done{border-left-color:#6bff6b;background:linear-gradient(90deg,rgba(40,90,40,.5),transparent)}
+.chapHead.lock{opacity:.5;border-left-color:#555}
+.chapIco{font-size:16px}
+.chapNm{font-size:13px;font-weight:bold;color:#ffd98a;flex:1}
+.chapSt{font-size:11px;color:#a89a78}
+.batCard.cleared{opacity:.55}
+.batCard.cleared button{background:#3a5a3a !important;color:#9ee89e !important}
+
+/* ---------- 天赋面板 ---------- */
+.tpHead{font-size:13px;color:#e8d9b0;margin-bottom:12px;text-align:center}
+.tpHead b{color:#8eff8e;font-size:16px}
+.tpHint{display:block;font-size:11px;color:#8b7a5a;margin-top:3px}
+.tpRow{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,217,138,.1)}
+.tpIco{font-size:20px;width:26px;text-align:center}
+.tpMain{flex:1;min-width:0}
+.tpNm{font-size:13px;color:#e8d9b0;font-weight:bold}
+.tpLv{font-size:11px;color:#a89a78;font-weight:normal}
+.tpDesc{font-size:11px;color:#8b7a5a;margin:2px 0 4px}
+.tpBar{height:5px;border-radius:3px;background:rgba(0,0,0,.5);overflow:hidden}
+.tpBar i{display:block;height:100%;border-radius:3px;transition:width .3s}
+.tpBtn{font-size:12px;padding:6px 11px;border-radius:8px;cursor:pointer;font-family:inherit;
+  background:linear-gradient(135deg,#6b4a1f,#3a2a12);border:1px solid #8a6a2f;color:#ffd98a;white-space:nowrap}
+.tpBtn:disabled{opacity:.35;cursor:not-allowed}
+.tpBtn:not(:disabled):active{transform:scale(.94)}
+.tpFoot{margin-top:12px;text-align:center;font-size:12px;color:#9ad;line-height:1.7}
+
+/* ---------- 装备面板 ---------- */
+.eqToolbar{font-size:12.5px;color:#e8d9b0;text-align:center;margin-bottom:12px;padding-bottom:10px;
+  border-bottom:1px solid rgba(255,217,138,.15)}
+.eqRow{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,217,138,.08)}
+.eqRow.empty{opacity:.45}
+.eqIco{width:34px;height:34px;border-radius:9px;border:2px solid #555;display:flex;align-items:center;
+  justify-content:center;font-size:17px;background:rgba(0,0,0,.35)}
+.eqMain{flex:1;min-width:0}
+.eqNm{font-size:13px;font-weight:bold}
+.eqSub{font-size:11px;color:#8b7a5a;margin-top:2px}
+.eqFoot{margin-top:12px;text-align:center;font-size:11px;color:#8b7a5a}
+
+/* ---------- 图鉴收集率工具条 ---------- */
+.colBar{grid-column:1/-1;display:flex;align-items:center;gap:10px;margin-bottom:10px;padding:9px 11px;
+  border-radius:11px;background:linear-gradient(90deg,rgba(107,74,31,.4),rgba(107,74,31,.08));
+  border:1px solid #6b4a1f}
+.colTxt{font-size:12px;color:#e8d9b0;white-space:nowrap}
+.colTxt b{color:#ffd98a}
+.colBarBg{flex:1;height:7px;border-radius:4px;background:rgba(0,0,0,.55);overflow:hidden;min-width:40px}
+.colBarBg i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#8a6a2f,#ffd98a);
+  transition:width .45s}
+.colBtn{font-size:12px;padding:6px 10px;border-radius:8px;cursor:pointer;font-family:inherit;
+  background:linear-gradient(135deg,#6b4a1f,#3a2a12);border:1px solid #8a6a2f;color:#ffd98a;white-space:nowrap}
+
+/* ---------- 英雄卡扩展 ---------- */
+.heroCard .hEq{font-size:10px;color:#9ad;margin-top:3px}
+.heroCard.dv{border-color:#ff9a3c !important;box-shadow:0 0 16px rgba(255,154,60,.45) !important}
+
+/* ---------- 详情页扩展 ---------- */
+.dEquipBtn{display:block;width:100%;margin-top:10px;padding:10px;border-radius:10px;cursor:pointer;
+  font-family:inherit;font-size:13.5px;font-weight:bold;color:#2a1f0a;
+  background:linear-gradient(135deg,#9ad,#5a8ac0);border:none}
+.dEqLine{margin-top:10px;padding:8px;border-radius:9px;font-size:12px;color:#e8d9b0;text-align:center;
+  background:rgba(0,0,0,.35);border:1px solid rgba(255,217,138,.15)}
+
+/* ---------- 主城功能按钮 ---------- */
+.v2Row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;justify-content:center}
+.v2BigBtn{flex:1;min-width:96px;padding:10px;border-radius:10px;cursor:pointer;font-family:inherit;
+  font-size:13px;font-weight:bold;color:#ffd98a;
+  background:linear-gradient(135deg,#3a2a12,#241a0c);border:1px solid #6b4a1f}
+.v2BigBtn.danger{color:#ffb0a0;border-color:#8a3a2a;background:linear-gradient(135deg,#3a1a12,#24100c)}
+.v2BigBtn:active{transform:scale(.96)}
+
+/* ---------- 暴击演出 ---------- */
+.critNum{position:fixed;transform:translate(-50%,-50%);font-size:25px;font-weight:900;color:#ffd54a;
+  text-shadow:0 0 12px #ff9a3c,0 0 26px #ff6b1a,2px 2px 0 #000;pointer-events:none;z-index:160;
+  animation:critPop 1.25s cubic-bezier(.2,1.6,.4,1) forwards;white-space:nowrap}
+@keyframes critPop{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.3) rotate(-14deg)}
+  22%{opacity:1;transform:translate(-50%,-50%) scale(1.4) rotate(5deg)}
+  50%{transform:translate(-50%,-50%) scale(1) rotate(0)}
+  100%{opacity:0;transform:translate(-50%,-150%) scale(.85)}}
+body.shake{animation:shakeIt .43s}
+@keyframes shakeIt{
+  0%,100%{transform:translate(0,0)}
+  12%{transform:translate(-8px,3px)}28%{transform:translate(7px,-4px)}
+  44%{transform:translate(-6px,-2px)}62%{transform:translate(5px,3px)}80%{transform:translate(-2px,1px)}}
+
+/* ---------- 小屏适配 ---------- */
+@media (max-width:420px){
+  #saveDot{display:none}
+  .v2Stat{font-size:11px;padding:2px 6px}
+  #newsTicker{bottom:60px}
+  .newsLine{font-size:10.5px}
+}
+
+/* ---------- 布局修正：顶栏第二行状态条 + 内容区滚动 ---------- */
+#v2Bar{position:fixed;top:52px;left:0;right:0;z-index:49;display:flex;align-items:center;gap:6px;
+  padding:5px 10px;white-space:nowrap;overflow-x:auto;scrollbar-width:none;
+  background:linear-gradient(180deg,rgba(20,16,10,.94),rgba(20,16,10,.55));
+  border-bottom:1px solid rgba(107,74,31,.85)}
+#v2Bar::-webkit-scrollbar{display:none}
+#content{top:88px !important;overflow-y:auto;justify-content:flex-start;scrollbar-width:none}
+#content::-webkit-scrollbar{display:none}
+#main{padding-bottom:92px}
+.v2Row{margin-bottom:6px}
+
+/* ---------- 修正2：恢复非主城页居中，仅主城页内部滚动 ---------- */
+#content{top:88px !important; overflow:visible !important; justify-content:center !important}
+#main{max-height:100%;overflow-y:auto;padding-bottom:26px;scrollbar-width:none}
+#main::-webkit-scrollbar{display:none}
+.v2Row{margin-bottom:0}
+
+/* ---------- 修正3：tabs 固定在第二行状态条下方，内容区避让 ---------- */
+#tabs{position:fixed !important;top:90px;left:0;right:0;z-index:48;
+  justify-content:center;margin:0 !important;padding:0 8px}
+#content{top:142px !important;bottom:70px !important}
+#tavern .title,#heroes .title{display:none} /* 背景图已含标题，避免重复叠字 */
+
+/* ---------- 修正4：内容区避让 tabs（终版） ---------- */
+#tabs{top:92px !important}
+#content{top:152px !important}
+
+
+/* ================= v3 打城模块 ================= */
+#war{width:100%;max-width:560px;padding-bottom:30px}
+#war .title{font-size:18px;font-weight:bold;color:#ffd98a;text-shadow:0 0 12px rgba(255,170,50,.6);margin-bottom:4px;text-align:center}
+#war .sub{font-size:12px;color:#c8b48a;margin-bottom:10px;text-align:center}
+.w3card{background:linear-gradient(160deg,rgba(38,28,16,.92),rgba(20,15,9,.95));border:1px solid #6b4a1f;border-radius:12px;padding:10px 12px;margin-bottom:10px;color:#e8dcc0}
+.w3row{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#c8b48a;margin:3px 0}
+.w3row b{color:#ffe9a8}
+.w3bar{height:8px;border-radius:4px;background:rgba(0,0,0,.5);overflow:hidden;margin:6px 0 2px;border:1px solid #5a3f1a}
+.w3bar>i{display:block;height:100%;background:linear-gradient(90deg,#c8892f,#ffd54a)}
+.cityGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cityCard{background:linear-gradient(160deg,rgba(38,28,16,.9),rgba(18,13,8,.95));border:2px solid #6b4a1f;border-radius:10px;padding:8px;text-align:center;cursor:pointer;transition:.15s}
+.cityCard:active{transform:scale(.97)}
+.cityCard.rebel{border-color:#c0392b}.cityCard.own{border-color:#4dc46a}.cityCard.gameon{border-color:#c77dff}
+.cityCard .cn{font-weight:bold;font-size:14px;color:#ffe9a8}
+.cityCard .ca{font-size:10px;color:#9f8f6f;margin:2px 0 4px}
+.cityCard .ct{font-size:10px;padding:1px 6px;border-radius:5px;display:inline-block}
+.ctRebel{background:rgba(192,57,43,.3);color:#ff8a7a;border:1px solid #c0392b}
+.ctOwn{background:rgba(77,196,106,.25);color:#8fd98a;border:1px solid #4dc46a}
+.ctGame{background:rgba(199,125,255,.25);color:#d9a8ff;border:1px solid #c77dff}
+.w3btn{display:inline-block;padding:7px 13px;border-radius:8px;font-size:12px;font-weight:bold;cursor:pointer;border:none;margin:5px 3px 0;
+  background:linear-gradient(180deg,#e8b84a,#b8842a);color:#2a1d08;font-family:inherit}
+.w3btn.g{background:linear-gradient(180deg,#4dc46a,#2c8a42);color:#0d2412}
+.w3btn.p{background:linear-gradient(180deg,#a86ee0,#6f3fb0);color:#f0e6ff}
+.w3btn.d{background:linear-gradient(180deg,#5a5a5a,#333);color:#ccc}
+.w3btn:disabled{opacity:.45}
+#warModal{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.78);padding:16px}
+#warModal.show{display:flex}
+.wmBox{width:100%;max-width:400px;max-height:82vh;overflow-y:auto;background:linear-gradient(160deg,#2a1f10,#150f08);
+  border:2px solid #7a5a24;border-radius:14px;padding:14px;color:#e8dcc0;box-shadow:0 12px 40px rgba(0,0,0,.85)}
+.wmBox::-webkit-scrollbar{width:0}
+.wmTitle{text-align:center;font-size:17px;font-weight:bold;color:#ffd98a;margin-bottom:8px}
+.wmLine{font-size:12px;color:#c8b48a;margin:4px 0;line-height:1.65}
+.wmLine b{color:#ffe9a8}
+.guardSeq{display:flex;gap:5px;justify-content:center;margin:8px 0;flex-wrap:wrap}
+.gUnit{padding:5px 9px;border-radius:7px;font-size:12px;font-weight:bold;border:1px solid #6b4a1f;background:rgba(0,0,0,.45);color:#c8b48a}
+.gUnit.hit{border-color:#4dc46a;box-shadow:0 0 10px rgba(77,196,106,.7);color:#8fd98a}
+.gUnit.miss{border-color:#c0392b;color:#ff8a7a}
+.report{background:rgba(0,0,0,.45);border:1px dashed #6b4a1f;border-radius:8px;padding:9px;font-size:12px;line-height:1.75;color:#c8b48a;margin:8px 0}
+.report b{color:#ffe9a8}
+/* tabs 塞入第 5 项后的紧凑排版 */
+#tabs .tab{padding:6px 8px;font-size:12px}
+#war{max-height:100%;overflow-y:auto;scrollbar-width:none}
+#war::-webkit-scrollbar{display:none}
+
+
+/* ================= v4 铁匠铺·神器 ================= */
+#forge{width:100%;max-width:560px;max-height:100%;overflow-y:auto;padding-bottom:30px;scrollbar-width:none}
+#forge::-webkit-scrollbar{display:none}
+#forge .title{font-size:18px;font-weight:bold;color:#ffd98a;text-shadow:0 0 12px rgba(255,170,50,.6);margin-bottom:4px;text-align:center}
+#forge .sub{font-size:12px;color:#c8b48a;margin-bottom:10px;text-align:center}
+.w4top{background:linear-gradient(160deg,rgba(38,28,16,.92),rgba(20,15,9,.95));border:1px solid #6b4a1f;border-radius:12px;padding:10px 12px;margin-bottom:10px;color:#e8dcc0}
+.w4res{display:flex;justify-content:space-around;font-size:12px;color:#c8b48a;margin-bottom:8px}
+.w4res b{color:#ffe9a8}
+.w4row{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.w4item{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(160deg,rgba(38,28,16,.92),rgba(20,15,9,.95));
+  border:2px solid #6b4a1f;border-radius:10px;padding:8px 10px;margin-bottom:8px;font-size:12px;color:#e8dcc0}
+.w4item .in{font-weight:bold;font-size:13px}
+.w4item .is{font-size:11px;color:#9f8f6f;margin-top:3px}
+.w4hero{display:flex;justify-content:space-between;align-items:center;padding:9px 11px;border:1px solid #6b4a1f;border-radius:8px;
+  margin-bottom:6px;font-size:13px;color:#e8dcc0;cursor:pointer;background:rgba(0,0,0,.32)}
+.w4hero:active{background:rgba(255,213,74,.16)}
+.w4q{background:linear-gradient(160deg,rgba(38,28,16,.92),rgba(20,15,9,.95));border:1px solid #6b4a1f;border-radius:10px;padding:8px 10px;margin-bottom:8px}
+.w4q .qn2{font-size:12px;color:#ffe9a8;font-weight:bold;display:flex;justify-content:space-between}
+.w4q .qp{font-size:11px;color:#9f8f6f;margin:4px 0 6px}
+.w4mini{padding:5px 11px;border-radius:7px;font-size:11px;font-weight:bold;border:none;cursor:pointer;
+  background:linear-gradient(180deg,#e8b84a,#b8842a);color:#2a1d08;font-family:inherit}
+.w4mini.g{background:linear-gradient(180deg,#4dc46a,#2c8a42);color:#0d2412}
+.w4mini:disabled{opacity:.38}
+.w4empty{font-size:12px;color:#8f8064;text-align:center;padding:10px}
+/* 6 个 tab 单行容纳：收紧间距 + 禁止文字折行 */
+#tabs{gap:5px;padding:0 8px}
+#tabs .tab{padding:5px 6px;font-size:11px;white-space:nowrap;flex:0 0 auto}
+#nav{gap:0}
+#nav .navItem{flex:1;min-width:0}
+#nav .navItem .nIco{font-size:15px}
+
+
+/* ================= v5 国战纪 ================= */
+#nat{width:100%;max-width:560px;max-height:100%;overflow-y:auto;padding-bottom:30px;scrollbar-width:none}
+#nat::-webkit-scrollbar{display:none}
+#nat .title{font-size:18px;font-weight:bold;color:#ffd98a;text-shadow:0 0 12px rgba(255,170,50,.6);margin-bottom:4px;text-align:center}
+#nat .sub{font-size:12px;color:#c8b48a;margin-bottom:10px;text-align:center}
+.n5card{background:linear-gradient(160deg,rgba(38,28,16,.92),rgba(20,15,9,.95));border:1px solid #6b4a1f;border-radius:12px;padding:10px 12px;margin-bottom:10px;color:#e8dcc0}
+.n5phase{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:bold;margin-bottom:6px}
+.n5row{display:flex;justify-content:space-between;font-size:12px;color:#c8b48a;margin:3px 0}
+.n5row b{color:#ffe9a8}
+.n5big{font-size:26px;font-weight:bold;color:#ffd54a;text-align:center;letter-spacing:2px;margin:6px 0;
+  text-shadow:0 0 14px rgba(255,180,60,.7);font-variant-numeric:tabular-nums}
+.n5ally{display:flex;justify-content:space-between;align-items:center;padding:8px 11px;border:1px solid #6b4a1f;border-radius:8px;
+  margin-bottom:6px;font-size:13px;color:#e8dcc0;background:rgba(0,0,0,.32)}
+.n5tgt{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(160deg,rgba(38,28,16,.92),rgba(20,15,9,.95));
+  border:2px solid #6b4a1f;border-radius:10px;padding:9px 11px;margin-bottom:8px;font-size:12px;color:#e8dcc0}
+.n5tgt .tn{font-weight:bold;font-size:14px;color:#ffe9a8}
+.n5tgt .td{font-size:11px;color:#9f8f6f;margin-top:3px}
+.n5war{animation:n5pulse 1.2s ease-in-out infinite}
+@keyframes n5pulse{0%,100%{box-shadow:0 0 0 rgba(255,80,60,0)}50%{box-shadow:0 0 16px rgba(255,80,60,.65)}}
+.n5tip{font-size:11px;color:#8f8064;text-align:center;margin-top:6px;line-height:1.6}
+
+
+/* ================= v6 英雄养成 ================= */
+#bondBox{grid-column:1/-1;margin-bottom:10px}
+.h6card{background:linear-gradient(160deg,rgba(38,28,16,.93),rgba(20,15,9,.96));border:1px solid #6b4a1f;border-radius:12px;padding:10px 12px;color:#e8dcc0}
+.h6ttl{font-size:13px;font-weight:bold;color:#ffe9a8;margin-bottom:7px;display:flex;justify-content:space-between}
+.h6bond{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:5px 8px;border-radius:7px;margin-bottom:5px;
+  border:1px solid #4a3a1c;background:rgba(0,0,0,.25);color:#8f8064}
+.h6bond.on{border-color:#c9a13a;background:linear-gradient(90deg,rgba(201,161,58,.18),rgba(0,0,0,.25));color:#ffe9a8}
+.h6bond .bd{font-size:10px;color:#9f8f6f}
+.h6head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.h6name{font-size:17px;font-weight:bold}
+.h6tag{font-size:11px;color:#c8b48a;margin-top:2px}
+.h6star{color:#ffd54a;font-size:14px;letter-spacing:1px}
+.h6sec{font-size:12px;font-weight:bold;color:#ffe9a8;margin:9px 0 5px;border-left:3px solid #c9a13a;padding-left:7px}
+.h6sk{display:flex;justify-content:space-between;align-items:center;border:1px solid #6b4a1f;border-radius:8px;padding:7px 9px;margin-bottom:6px;background:rgba(0,0,0,.3)}
+.h6sk .sn{font-size:13px;font-weight:bold;color:#9fd3ff}
+.h6sk .sd{font-size:10px;color:#9f8f6f;margin-top:2px}
+.h6sk .sl{font-size:11px;color:#ffd54a;font-weight:bold}
+.h6bar{height:7px;background:#1a1408;border-radius:4px;overflow:hidden;margin:4px 0 6px;border:1px solid #4a3a1c}
+.h6bar i{display:block;height:100%;background:linear-gradient(90deg,#e8b84a,#8fd98a)}
+.h6attr{display:flex;justify-content:space-around;font-size:11px;color:#c8b48a;margin:6px 0}
+.h6attr b{color:#ffe9a8;font-size:13px}
+.h6eq{display:flex;gap:5px}
+.h6eq div{flex:1;text-align:center;font-size:10px;border:1px solid #4a3a1c;border-radius:6px;padding:5px 2px;background:rgba(0,0,0,.28)}
+
+
+/* ================= v7 存档管理样式 ================= */
+.v7body{ font-size:14px; }
+.v7kv{ display:flex; justify-content:space-between; align-items:center;
+  padding:7px 10px; margin-bottom:6px; border-radius:8px;
+  background:rgba(255,255,255,.04); border:1px solid rgba(200,170,110,.14); }
+.v7kv span{ color:#b9a884; }
+.v7kv b{ color:#f0d79a; font-size:15px; }
+
+.v7sw{ font-size:12px; padding:3px 12px; border-radius:20px; cursor:pointer;
+  border:1px solid rgba(200,170,110,.35); background:rgba(120,100,60,.25);
+  color:#c9b78f; font-family:inherit; transition:.2s; }
+.v7sw.on{ background:linear-gradient(180deg,#5d8a4a,#3d6430); color:#e8ffd8;
+  border-color:rgba(140,220,110,.5); box-shadow:0 0 10px rgba(120,210,90,.25); }
+
+.v7grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0 8px; }
+
+.v7btn{ display:flex; align-items:center; justify-content:center; gap:5px;
+  padding:11px 8px; border-radius:9px; cursor:pointer; font-family:inherit;
+  font-size:13.5px; color:#e6d6ae; text-align:center; transition:.18s;
+  border:1px solid rgba(200,170,110,.32);
+  background:linear-gradient(180deg,rgba(90,74,44,.65),rgba(56,44,26,.75)); }
+.v7btn:hover{ transform:translateY(-1px); border-color:rgba(230,200,130,.6); color:#fff0c8; }
+.v7btn:active{ transform:translateY(0) scale(.985); }
+.v7btn.primary{ color:#fff6dc; border-color:rgba(230,190,90,.55);
+  background:linear-gradient(180deg,#8a6d2e,#5d461c); box-shadow:0 0 12px rgba(210,170,70,.2); }
+.v7btn.file{ position:relative; }
+.v7btn.wide{ width:100%; margin-bottom:8px; }
+.v7btn.danger{ color:#ffcdc4; border-color:rgba(220,110,90,.45);
+  background:linear-gradient(180deg,rgba(120,50,40,.6),rgba(70,30,24,.7)); }
+
+.v7tip{ font-size:11.5px; color:#8d8071; line-height:1.6; margin:2px 2px 8px; }
+
+.v7ta{ width:100%; box-sizing:border-box; height:64px; resize:vertical;
+  margin-bottom:8px; padding:8px 10px; border-radius:8px; font-size:12px;
+  font-family:ui-monospace,Menlo,Consolas,monospace; color:#d8c9a4;
+  background:rgba(0,0,0,.35); border:1px solid rgba(200,170,110,.22);
+  outline:none; word-break:break-all; }
+.v7ta:focus{ border-color:rgba(230,200,130,.55); }
+
+
+/* ===== v8 联机层 ===== */
+/* ===== 帝国征服者 v8 联机版样式 ===== */
+#v8Bar{
+  display:flex; align-items:center; gap:6px;
+  margin:6px 10px 0; padding:5px 8px;
+  background:linear-gradient(90deg,rgba(20,40,80,.55),rgba(10,20,45,.35));
+  border:1px solid rgba(90,160,255,.28); border-radius:9px;
+  font-size:12px; color:#cfe2ff; overflow-x:auto; white-space:nowrap;
+}
+#v8Bar .v8Stat{padding:3px 9px;border-radius:20px;background:rgba(255,255,255,.07)}
+#v8Bar .v8On{background:rgba(60,200,120,.18);color:#8ef0b8;border:1px solid rgba(60,200,120,.35)}
+#v8Bar .v8Btn{border:0;border-radius:20px;padding:4px 12px;font-size:12px;cursor:pointer;
+  background:rgba(90,160,255,.22);color:#dceaff}
+#v8Bar .v8Btn.v8Cta{background:linear-gradient(90deg,#3d7dff,#5fb0ff);color:#fff;font-weight:700}
+#v8Bar .v8Dot{margin-left:auto;font-size:11px;opacity:.6;transition:.3s}
+#v8Bar .v8Dot.v8Flash{opacity:1;color:#7df0b0;text-shadow:0 0 8px #7df0b0}
+
+#v8Modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.68);z-index:99998;padding:14px}
+#v8Modal .v8Box{width:min(560px,96vw);max-height:86vh;overflow:auto;
+  background:linear-gradient(180deg,#141e33,#0d1424);
+  border:1px solid rgba(100,170,255,.35);border-radius:14px;padding:16px;
+  box-shadow:0 18px 50px rgba(0,0,0,.6);color:#dfe9ff}
+#v8Modal .v8Title{font-size:17px;font-weight:700;margin-bottom:12px;color:#9fc8ff}
+#v8Modal .v8Close{display:block;margin:14px auto 0;border:0;border-radius:20px;
+  padding:7px 26px;background:rgba(255,255,255,.1);color:#cfe2ff;cursor:pointer}
+#v8Modal .v8body{font-size:13px;line-height:1.7}
+
+.v8fRow{display:flex;align-items:center;gap:9px;margin:9px 0}
+.v8fRow label{width:56px;font-size:13px;color:#9fc8ff;flex:none}
+.v8fRow input{flex:1;min-width:0;background:rgba(0,0,0,.35);border:1px solid rgba(100,170,255,.3);
+  border-radius:8px;padding:8px 10px;color:#e8f1ff;font-size:13px;outline:none}
+.v8fRow input:focus{border-color:#5fb0ff}
+.v8Hint{font-size:12px;color:#8aa5c8;line-height:1.65;margin:9px 0}
+.v8Err{color:#ff9d9d}
+.v8BtnRow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.v8Btn{border:0;border-radius:8px;padding:8px 15px;font-size:13px;cursor:pointer;
+  background:rgba(255,255,255,.1);color:#dceaff}
+.v8Btn.v8Cta{background:linear-gradient(90deg,#3d7dff,#5fb0ff);color:#fff;font-weight:700}
+.v8Btn.v8Danger{background:rgba(255,90,90,.22);color:#ffb3b3}
+
+.v8Tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.v8Tab{padding:4px 12px;border-radius:20px;font-size:12px;cursor:pointer;
+  background:rgba(255,255,255,.07);color:#acc6e8}
+.v8TabOn{background:rgba(90,160,255,.3);color:#fff;font-weight:700}
+.v8Total{font-size:12px;color:#8aa5c8;margin-bottom:8px}
+.v8Table{width:100%;border-collapse:collapse;font-size:12.5px}
+.v8Table th{color:#9fc8ff;font-weight:600;text-align:left;padding:5px 4px;
+  border-bottom:1px solid rgba(100,170,255,.25)}
+.v8Table td{padding:5px 4px;border-bottom:1px solid rgba(255,255,255,.06);color:#dfe9ff}
+.v8Table tr.v8Me td{background:rgba(90,160,255,.14);color:#fff;font-weight:700}
+
+.v8Card{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:9px 11px;margin:7px 0;border-radius:10px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(100,170,255,.18)}
+.v8CardL b{font-size:13.5px;color:#e8f1ff}
+.v8CardL span{display:block;font-size:11.5px;color:#8aa5c8;margin-top:3px}
+
+.v8Result{border-radius:12px;padding:14px;text-align:center;margin:6px 0}
+.v8Result.v8Win{background:linear-gradient(180deg,rgba(60,200,120,.2),rgba(60,200,120,.06));
+  border:1px solid rgba(60,200,120,.4)}
+.v8Result.v8Lose{background:linear-gradient(180deg,rgba(255,90,90,.18),rgba(255,90,90,.05));
+  border:1px solid rgba(255,90,90,.4)}
+.v8RTitle{font-size:19px;font-weight:800;margin-bottom:8px;color:#fff}
+.v8RLog{font-size:13px;color:#dfe9ff;margin-bottom:8px}
+.v8RLine{font-size:12px;color:#9fc8ff}
+.v8Gold{color:#ffd76a}
+
+.v8Who{font-size:12px;color:#9fc8ff;margin-bottom:12px;word-break:break-all}
+.v8HubGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-bottom:10px}
+.v8Hub{display:flex;flex-direction:column;align-items:center;gap:5px;padding:14px 6px;
+  border:1px solid rgba(100,170,255,.25);border-radius:12px;cursor:pointer;font-size:22px;
+  background:rgba(255,255,255,.05);color:#dceaff}
+.v8Hub span{font-size:12.5px;color:#9fc8ff}
+.v8Hub:active{background:rgba(90,160,255,.2)}
+
+</style>
+</head>
+<body>
+
+<!-- 顶部资源栏 -->
+<div id="topbar">
+  <div class="logo">🏰 帝国征服者</div>
+  <div class="res"><span class="ico">🪙</span><span class="num" id="rGold">5000</span></div>
+  <div class="res"><span class="ico">🌾</span><span class="num" id="rFood">3200</span></div>
+  <div class="res"><span class="ico">🪵</span><span class="num" id="rWood">2800</span></div>
+  <div class="res"><span class="ico">🧱</span><span class="num" id="rStone">2100</span></div>
+  <button id="btnMain" onclick="switchTab('main')">🏰 主城</button>
+</div>
+
+<!-- 场景背景 -->
+<div id="v2Bar">
+    <div class="v2Stat" id="v2Pow">⚡ 0</div>
+    <div class="v2Stat" id="v2Talent">🎯 0</div>
+    <button id="signBtn" onclick="doSign()">📅 签到</button>
+    <div id="saveDot">💾 自动存档</div>
+  </div>
+
+  <div id="v8Bar"></div>
+  <div id="stage">
+  <div class="bg off" id="bgTavern" style="background-image:url('ai_tavern.png')"></div>
+  <div class="bg off" id="bgHeroes" style="background-image:url('ai_heroes.png')"></div>
+  <div class="bg off" id="bgMain" style="background-image:url('ai_battle_v4.png')"></div>
+  <div class="overlay"></div>
+</div>
+
+<!-- 内容区 -->
+<div id="content">
+  <div id="tabs">
+    <div class="tab" data-tab="main" onclick="switchTab('main')">🏰 主城</div>
+    <div class="tab on" data-tab="tavern" onclick="switchTab('tavern')">🍺 酒馆招募</div>
+    <div class="tab" data-tab="heroes" onclick="switchTab('heroes')">⚔️ 英雄图鉴</div>
+    <div class="tab" data-tab="war" onclick="switchTab('war')">⬢ 打城</div>
+    <div class="tab" data-tab="forge" onclick="switchTab('forge')">✦ 铁匠铺</div>
+    <div class="tab" data-tab="nat" onclick="switchTab('nat')">⚔ 国战</div>
+    <div class="tab" data-tab="battle" onclick="switchTab('battle')">⚡ 战斗</div>
+  </div>
+
+  <div id="tavern">
+    <div class="title">🍺 帝国酒馆</div>
+    <div class="sub">召唤历史名将 · 铸就帝国霸业</div>
+    <div class="drawBtns">
+      <div class="drawBtn one" onclick="startDraw(1)">✨ 招募 ×1</div>
+      <div class="drawBtn ten" onclick="startDraw(10)">🔥 十连抽</div>
+    </div>
+    <div class="freeTimer">⏰ 免费招募 <span id="freeCd">00:00</span></div>
+    <div class="owned">已拥有英雄: <b id="ownedCount">0</b>/14</div>
+  </div>
+
+  <div id="heroes" style="display:none">
+    <div class="title">⚔️ 英雄图鉴</div>
+    <div class="grid" id="heroGrid"></div>
+  </div>
+
+  <div id="main" style="display:none">
+    <div class="title">🏰 帝国主城</div>
+    <div class="sub">建造建筑 · 发展国力</div>
+    <div class="bGrid" id="bGrid"></div>
+    <div class="cityStat">🏗 可建造数: <b id="bCount">0</b>/5</div>
+      <div class="v2Row">
+        <button class="v2BigBtn" onclick="openTalentPanel()">🎯 天赋树</button>
+        <button class="v2BigBtn" onclick="showStats()">📊 帝国统计</button>
+        <button class="v2BigBtn" onclick="showAchievements()">🏆 成就</button>
+        <button class="v2BigBtn danger" onclick="doReincarnate()">🌀 转生</button>
+        <button class="v2BigBtn danger" onclick="wipeSave()">🗑 重置存档</button>
+        <button class="v2BigBtn" onclick="openSavePanel()">▦ 存档管理</button>
+      </div>
+  </div>
+
+  
+  <div id="war" style="display:none">
+    <div class="title">⬢ 帝国征战</div>
+    <div class="sub">打城 · 缔约 · 争霸纪元</div>
+    <div class="secTitle">◈ 帝国纪元</div>
+    <div id="eraBox"></div>
+    <div class="secTitle">♛ 爵位与官职</div>
+    <div id="rankBox"></div>
+    <div class="secTitle">▣ 世界城池</div>
+    <div id="cityList" class="cityGrid"></div>
+  </div>
+
+  <div id="warModal" onclick="if(event.target===this)closeWar()"><div class="wmBox" id="wmBox"></div></div>
+
+  
+  <div id="forge" style="display:none">
+    <div class="title">✦ 铁匠铺</div>
+    <div class="sub">图纸锻造 · 神器升华 · 阵营任务</div>
+    <div class="secTitle">▤ 打造台</div>
+    <div id="forgeTop"></div>
+    <div class="secTitle">▤ 装备背包</div>
+    <div id="bagList"></div>
+    <div class="secTitle">◈ 阵营任务</div>
+    <div id="questBox"></div>
+  </div>
+
+  
+  <div id="nat" style="display:none">
+    <div class="title">✦ 国战纪</div>
+    <div class="sub">宣战 · 备战 · 交战 · 结算</div>
+    <div class="secTitle">◈ 战局状态</div>
+    <div id="natState"></div>
+    <div class="secTitle">▤ 备战补给</div>
+    <div id="natSupply"></div>
+    <div class="secTitle">♛ 军团祝福</div>
+    <div id="legionBox"></div>
+    <div class="secTitle">⚔ 敌对阵营</div>
+    <div id="natTargets"></div>
+  </div>
+
+  <div id="battle" style="display:none">
+    <div class="title">⚡ 远征战场</div>
+    <div class="sub">率军出征 · 征服敌国</div>
+    <div class="secTitle">🦖 限时 Boss</div>
+    <div id="bossBox"></div>
+    <div class="secTitle">🗺️ 敌对 AI 玩家</div>
+    <div id="aiList"></div>
+    <div class="secTitle">🛡️ 远征关卡</div>
+    <div class="battles" id="battleList"></div>
+  </div>
+</div>
+
+<!-- 抽卡舞台 -->
+<div id="drawStage">
+  <div id="cardRow"></div>
+  <div id="drawCta"><button id="drawBtn" onclick="revealCards()">✨ 翻 开 ✨</button></div>
+</div>
+
+<!-- 粒子特效层 -->
+<canvas id="fx"></canvas>
+
+<!-- 提示 -->
+<div id="toast"></div>
+
+<!-- 英雄详情弹窗 -->
+<div id="detail" onclick="if(event.target===this)closeDetail()">
+  <div class="box">
+    <div class="dAv" id="dAv"></div>
+    <div class="dNm" id="dNm"></div>
+    <div class="dCls" id="dCls"></div>
+    <div class="dDesc" id="dDesc"></div>
+    <div class="dLv" id="dLv"></div>
+    <div class="dStat">
+      <span>⚔攻 <b id="dAtk"></b></span>
+      <span>🛡防 <b id="dDef"></b></span>
+      <span>💪兵 <b id="dHp"></b></span>
+    </div>
+    <button class="dClose" onclick="closeDetail()">关 闭</button>
+  </div>
+</div>
+
+<div id="newsTicker"></div>
+  <div id="dynModal" onclick="if(event.target===this)closeModal()">
+    <div class="box">
+      <div class="dmTitle"></div>
+      <div class="dmBody"></div>
+      <button class="dmBtn">确 定</button>
+    </div>
+  </div>
+
+  <!-- 底部导航 -->
+<div id="nav">
+  <div class="navItem" onclick="switchTab('tavern')"><span class="nIco">🍺</span>酒馆</div>
+  <div class="navItem" onclick="switchTab('heroes')"><span class="nIco">⚔️</span>英雄</div>
+  <div class="navItem" onclick="switchTab('main')"><span class="nIco">🏰</span>主城</div>
+  <div class="navItem" onclick="switchTab('war')"><span class="nIco">⬢</span>打城</div>
+  <div class="navItem" onclick="switchTab('forge')"><span class="nIco">✦</span>铁匠铺</div>
+  <div class="navItem" onclick="switchTab('nat')"><span class="nIco">⚔</span>国战</div>
+  <div class="navItem" onclick="switchTab('battle')"><span class="nIco">⚡</span>战斗</div>
+</div>
+
+<script>
+// ============ 英雄数据(基于真实游戏) ============
+const HEROES = [
+  // 480红将
+  {id:'arthur', name:'亚瑟王', cls:'步兵', rank:'legendary', rarity:480, clsIcon:'🛡️', atk:95, def:120, hp:110, desc:'石中剑', color:'#ffd54a', avatar:''},
+  {id:'xiangyu', name:'项羽', cls:'步兵', rank:'legendary', rarity:480, clsIcon:'⚔️', atk:125, def:95, hp:100, desc:'霸王', color:'#ffd54a', avatar:''},
+  {id:'genghis', name:'铁木真', cls:'骑兵', rank:'legendary', rarity:480, clsIcon:'🐎', atk:120, def:100, hp:95, desc:'成吉思汗', color:'#ffd54a', avatar:''},
+  {id:'huangzhong', name:'黄忠', cls:'弓兵', rank:'legendary', rarity:480, clsIcon:'🏹', atk:110, def:110, hp:90, desc:'神射', color:'#ffd54a', avatar:''},
+  // 活动英雄
+  {id:'hannibal', name:'汉尼拔', cls:'步兵', rank:'epic', rarity:408, clsIcon:'🛡️', atk:100, def:85, hp:95, desc:'迦太基名将', color:'#c77dff', avatar:''},
+  {id:'fuqiding', name:'伏提庚', cls:'骑兵', rank:'epic', rarity:432, clsIcon:'🐎', atk:105, def:90, hp:90, desc:'平民战神', color:'#c77dff', avatar:''},
+  {id:'joan', name:'贞德', cls:'步兵', rank:'epic', rarity:440, clsIcon:'🛡️', atk:98, def:98, hp:92, desc:'圣女', color:'#c77dff', avatar:''},
+  // 400紫将
+  {id:'gaowen', name:'高文', cls:'骑兵', rank:'rare', rarity:400, clsIcon:'🐎', atk:88, def:80, hp:85, desc:'精英骑', color:'#6ab4ff', avatar:''},
+  {id:'pompei', name:'庞培', cls:'骑兵', rank:'rare', rarity:400, clsIcon:'🐎', atk:95, def:70, hp:80, desc:'罗马统帅', color:'#6ab4ff', avatar:''},
+  {id:'sunwu', name:'孙武', cls:'弓兵', rank:'rare', rarity:400, clsIcon:'🏹', atk:70, def:100, hp:85, desc:'孙子兵法', color:'#6ab4ff', avatar:''},
+  {id:'liguang', name:'李广', cls:'弓兵', rank:'rare', rarity:400, clsIcon:'🏹', atk:95, def:65, hp:75, desc:'飞将军', color:'#6ab4ff', avatar:''},
+  {id:'luolan', name:'罗兰德', cls:'骑兵', rank:'rare', rarity:400, clsIcon:'🐎', atk:85, def:75, hp:90, desc:'圣骑士', color:'#6ab4ff', avatar:''},
+  {id:'xibiap', name:'西庇阿', cls:'步兵', rank:'rare', rarity:400, clsIcon:'🛡️', atk:80, def:85, hp:88, desc:'非洲征服者', color:'#6ab4ff', avatar:''},
+];
+
+// 权重:480红将20%,活动20%,紫将60%
+function rollHero(){
+  const r = Math.random();
+  if(r<0.15){ const p=HEROES.filter(h=>h.rank==='legendary'); return p[Math.floor(Math.random()*p.length)]; }
+  if(r<0.30){ const p=HEROES.filter(h=>h.rank==='epic'); return p[Math.floor(Math.random()*p.length)]; }
+  const p=HEROES.filter(h=>h.rank==='rare'); return p[Math.floor(Math.random()*p.length)];
+}
+
+// ============ 状态 ============
+const state={gold:5000, food:3200, wood:2800, stone:2100, owned:{}, pending:[]};
+HEROES.forEach(h=>state.owned[h.id]=null); // null=未拥有
+let pendingCards=[], flipStage='pick', canFlip=false;
+
+// ============ 等级系统(名字颜色+特效档位) ============
+const EXP_NEED=lv=>lv*10;                  // 升级所需经验 = 当前等级×10
+const LV_CAP=80;                            // 等级上限
+const RANK = [
+  {min:1,  name:'新兵',   color:'#e8e8e8', glow:'rgba(255,255,255,.25)'},
+  {min:10, name:'精兵',   color:'#6bff6b', glow:'rgba(80,255,80,.35)'},
+  {min:20, name:'精英',   color:'#4db3ff', glow:'rgba(77,179,255,.4)'},
+  {min:30, name:'战将',   color:'#c77dff', glow:'rgba(199,125,255,.45)'},
+  {min:50, name:'统帅',   color:'#ffa04d', glow:'rgba(255,160,77,.5)'},
+  {min:80, name:'传奇',   color:'#ff5d3a', glow:'rgba(255,93,58,.6)'},
+];
+function lvInfo(lv){
+  let r=RANK[0];
+  for(const k of RANK){ if(lv>=k.min) r=k; }
+  return r;
+}
+// 当前档位升级所需经验(跨档自动续)
+function lvNeedExp(lv){ return lv>=LV_CAP?0:EXP_NEED(lv); }
+function lvHas(lv,exp){ return lv>=LV_CAP; }
+
+// ============ 音效(Web Audio 合成) ============
+let actx=null;
+function audio(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } if(actx&&actx.state==='suspended')actx.resume(); return actx; }
+function tone(freq,dur,type='sine',vol=0.2,delay=0,slide=0){
+  const a=audio(); if(!a)return;
+  const t=a.currentTime+delay;
+  const o=a.createOscillator(), g=a.createGain();
+  o.type=type; o.frequency.setValueAtTime(freq,t);
+  if(slide)o.frequency.exponentialRampToValueAtTime(slide,t+dur);
+  g.gain.setValueAtTime(0,t);
+  g.gain.linearRampToValueAtTime(vol,t+0.01);
+  g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+  o.connect(g); g.connect(a.destination);
+  o.start(t); o.stop(t+dur+0.05);
+}
+const sClick=()=>tone(600,0.08,'square',0.15);
+const sCardFlip=()=>{tone(300,0.12,'triangle',0.25,0,900);tone(1200,0.1,'sine',0.1,0.05);};
+const sGold=()=>{tone(880,0.15,'sine',0.2);tone(1320,0.2,'sine',0.15,0.06);tone(1760,0.3,'sine',0.1,0.12);};
+const sEpic=()=>{tone(660,0.15,'sine',0.2);tone(990,0.2,'sine',0.18,0.07);tone(1320,0.25,'sine',0.15,0.14);};
+const sRare=()=>{tone(520,0.12,'sine',0.2);tone(780,0.18,'sine',0.15,0.08);};
+const sBurst=()=>{for(let i=0;i<6;i++)tone(200+Math.random()*300,0.15,'sawtooth',0.1,i*0.04,80);};
+const sLevelUp=(lv)=>{
+  const r=lvInfo(lv), base=400+Math.min(r.min,80)*8;
+  tone(base,0.18,'triangle',0.25);
+  tone(base*1.5,0.22,'triangle',0.22,0.08);
+  tone(base*2,0.3,'triangle',0.18,0.16);
+  if(lv>=30) tone(base*2.5,0.4,'sine',0.2,0.26);
+  if(lv>=50){ for(let i=0;i<3;i++)tone(1200+Math.random()*400,0.12,'sawtooth',0.12,0.3+i*0.08); }
+};
+
+// ============ 粒子特效 ============
+const fx=document.getElementById('fx'), fctx=fx.getContext('2d');
+let W,H,parts=[],animId=null;
+function sizeFx(){W=fx.width=innerWidth;H=fx.height=innerHeight;}
+sizeFx(); addEventListener('resize',sizeFx);
+function burst(x,y,color,n){
+  for(let i=0;i<n;i++){
+    const ang=Math.random()*Math.PI*2, sp=2+Math.random()*7;
+    parts.push({x,y,vx:Math.cos(ang)*sp,vy:Math.sin(ang)*sp-2,life:1,dec:0.015+Math.random()*0.02,color,g:Math.random()*0.25});
+  }
+  if(!animId)loopFx();
+}
+function loopFx(){
+  fctx.clearRect(0,0,W,H);
+  parts=parts.filter(p=>p.life>0);
+  parts.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;p.vy+=p.g;p.life-=p.dec;
+    fctx.globalAlpha=Math.max(0,p.life);
+    fctx.fillStyle=p.color;
+    fctx.beginPath();fctx.arc(p.x,p.y,3,0,7);fctx.fill();
+  });
+  fctx.globalAlpha=1;
+  if(parts.length)animId=requestAnimationFrame(loopFx); else animId=null;
+}
+function confetti(cx,cy,color){
+  for(let i=0;i<40;i++){
+    const ang=Math.random()*Math.PI*2, sp=3+Math.random()*6;
+    parts.push({x:cx,y:cy,vx:Math.cos(ang)*sp,vy:Math.sin(ang)*sp-3,life:1,dec:0.01+Math.random()*0.015,color,g:0.2});
+  }
+  if(!animId)loopFx();
+}
+// 升级特效(按等级档位):白闪/绿光/蓝波/紫爆/橙焰/金虹
+function levelFx(cx,cy,lv){
+  const r=lvInfo(lv);
+  const n = lv>=50?90: lv>=30?70: lv>=20?55: lv>=10?40:25;
+  // 中心爆发
+  for(let i=0;i<n;i++){
+    const ang=Math.random()*Math.PI*2, sp=2+Math.random()*9;
+    parts.push({x:cx,y:cy,vx:Math.cos(ang)*sp,vy:Math.sin(ang)*sp-1,life:1,dec:0.012+Math.random()*0.02,color:r.color,g:0.15});
+  }
+  // 外圈光波(光环)
+  for(let i=0;i<14;i++){
+    const ang=i/14*Math.PI*2, R=70;
+    parts.push({x:cx+Math.cos(ang)*R,y:cy+Math.sin(ang)*R,vx:Math.cos(ang)*4,vy:Math.sin(ang)*4,life:0.8,dec:0.03,color:r.color,g:0});
+  }
+  // 高等级彩虹环
+  if(lv>=50){
+    const cols=['#ff5d3a','#ffa04d','#ffd54a','#6bff6b','#4db3ff','#c77dff'];
+    for(let i=0;i<24;i++){
+      const ang=i/24*Math.PI*2, R=110, c=cols[i%cols.length];
+      parts.push({x:cx+Math.cos(ang)*R,y:cy+Math.sin(ang)*R,vx:Math.cos(ang)*6,vy:Math.sin(ang)*6,life:0.9,dec:0.025,color:c,g:0.05});
+    }
+  }
+  if(!animId)loopFx();
+}
+
+// ============ 抽卡流程 ============
+function startDraw(n){
+  audio(); sClick();
+  if(n===10 && state.gold<450){ showToast('金币不足(需450)'); return; }
+  if(n===1 && state.gold<50){ showToast('金币不足(需50)'); return; }
+  state.gold-= n===10?450:50; refreshRes();
+  pendingCards=[];
+  for(let i=0;i<n;i++)pendingCards.push(rollHero());
+  flipStage='pick';
+  canFlip=true;
+  // 渲染卡背
+  const row=document.getElementById('cardRow');
+  row.innerHTML='';
+  pendingCards.forEach((h,i)=>{
+    const el=document.createElement('div');
+    el.className='cardSlot';
+    el.innerHTML=`<div class="cardInner"><div class="cardFace cardBack">♠</div>
+      <div class="cardFace cardFront ${h.rank}"><div class="rar"></div>
+      <div class="avatar" style="background:${gradient(h.color)};display:flex;align-items:center;justify-content:center;font-size:52px">${h.clsIcon}</div>
+      <div class="cls">${h.clsIcon}</div><div class="rarTxt">${h.rarity}</div>
+      <div class="nm">${h.name}</div></div></div>`;
+    row.appendChild(el);
+  });
+  document.getElementById('drawCta').style.display='block';
+  document.getElementById('drawBtn').style.display='block';
+  document.getElementById('drawStage').classList.add('show');
+}
+function gradient(c){return `radial-gradient(circle at 50% 38%,${c}55,transparent 75%),linear-gradient(160deg,#2a1f45,#141021)`;}
+
+function revealCards(){
+  if(!canFlip)return; audio(); sCardFlip();
+  canFlip=false;
+  document.getElementById('drawBtn').style.display='none';
+  const slots=document.querySelectorAll('.cardSlot');
+  let revealed=0, hasGold=false;
+  slots.forEach((slot,i)=>{
+    setTimeout(()=>{
+      slot.classList.add('flip');
+      const h=pendingCards[i];
+      if(h.rank==='legendary'){sGold();hasGold=true;}
+      else if(h.rank==='epic'){sEpic();}
+      else sRare();
+      const rect=slot.getBoundingClientRect();
+      const cx=rect.left+rect.width/2, cy=rect.top+rect.height/2;
+      const col = h.rank==='legendary'?'#ffd54a':h.rank==='epic'?'#c77dff':'#6ab4ff';
+      burst(cx,cy,col, h.rank==='legendary'?45: h.rank==='epic'?30:18);
+      if(h.rank==='legendary')confetti(cx,cy,'#ffd54a');
+      // 领取 + 升级
+      let leveled=false, newLv=1;
+      if(!state.owned[h.id]){
+        // 新获得 → 1级
+        state.owned[h.id]={lv:1, exp:0};
+      }else{
+        // 重复抽到 → 加经验,可能升级
+        const o=state.owned[h.id];
+        const gain = h.rank==='legendary'?20: h.rank==='epic'?15:10;
+        o.exp+=gain;
+        let up=false;
+        while(o.lv<LV_CAP && o.exp>=lvNeedExp(o.lv)){
+          o.exp-=lvNeedExp(o.lv); o.lv++; up=true;
+        }
+        if(up){ leveled=true; newLv=o.lv; levelFx(cx,cy,o.lv); }
+      }
+      if(leveled) sLevelUp(newLv);
+      refreshRes();
+      revealed++;
+      if(revealed===slots.length){
+        setTimeout(()=>{
+          sBurst();
+          // 显示"再来一次"并允许重置
+          const btn=document.getElementById('drawBtn');
+          btn.textContent='再来一次 ✨';
+          btn.onclick=()=>startDraw(pendingCards.length);
+          btn.style.display='block';
+          refreshHeroes();
+        },400);
+      }
+    }, 150*i + 150);
+  });
+}
+
+// ============ 刷新 UI ============
+function refreshRes(){
+  document.getElementById('rGold').textContent=state.gold;
+  document.getElementById('rFood').textContent=state.food;
+  document.getElementById('rWood').textContent=state.wood;
+  document.getElementById('rStone').textContent=state.stone;
+  document.getElementById('ownedCount').textContent=HEROES.filter(h=>state.owned[h.id]).length;
+}
+function refreshHeroes(){
+  const grid=document.getElementById('heroGrid');
+  grid.innerHTML='';
+  HEROES.forEach(h=>{
+    const o=state.owned[h.id];
+    const own=!!o;
+    let lvHtml='', nameStyle='', badge='';
+    if(own){
+      const r=lvInfo(o.lv);
+      const expStr = o.lv>=LV_CAP?'MAX':`${o.exp}/${lvNeedExp(o.lv)}`;
+      nameStyle=`style="color:${r.color}"`;
+      lvHtml=`<div class="hLv" style="color:${r.color};border-color:${r.color}55;background:${r.glow}">LV.${o.lv} <small>${r.name}</small></div>`;
+      lvHtml+=`<div class="hExp">经验 ${expStr}</div>`;
+      badge=`<div class="have" style="color:${r.color}">✓ ${o.lv}级</div>`;
+    }
+    const el=document.createElement('div');
+    el.className=`heroCard ${own?'have':''} ${h.rank==='legendary'?'lg':h.rank==='epic'?'ep':''}`;
+    el.innerHTML=`<div class="hAv" style="background:${gradient(h.color)};display:flex;align-items:center;justify-content:center;font-size:30px">${h.clsIcon}</div>
+      <div class="hNm" ${nameStyle}>${h.name}</div><div class="hCls">${h.clsIcon} ${h.cls} · ${h.rarity}</div>
+      <div class="hStat">⚔${h.atk} 🛡${h.def} 💪${h.hp}</div>${lvHtml}${badge}`;
+    el.onclick=()=>showDetail(h);
+    grid.appendChild(el);
+  });
+}
+function showDetail(h){
+  audio(); sClick();
+  const o=state.owned[h.id];
+  const own=!!o;
+  const r=own?lvInfo(o.lv):RANK[0];
+  // 等级战力加成:每级 +5%
+  const mult=own?(1+ (o.lv-1)*0.05):1;
+  const atk=Math.round(h.atk*mult), def=Math.round(h.def*mult), hp=Math.round(h.hp*mult);
+  document.getElementById('dAv').innerHTML=h.clsIcon;
+  document.getElementById('dAv').style.background=gradient(h.color);
+  document.getElementById('dAv').style.borderColor=r.color;
+  document.getElementById('dNm').textContent=h.name;
+  document.getElementById('dNm').style.color=own?r.color:'#bbb';
+  document.getElementById('dNm').style.textShadow=own?`0 0 12px ${r.glow}`:'none';
+  document.getElementById('dCls').textContent=`${h.clsIcon} ${h.cls} · ${h.rarity}资质 ${h.rank==='legendary'?'传奇':h.rank==='epic'?'史诗':'精英'}`;
+  document.getElementById('dDesc').textContent=`「${h.desc}」`;
+  document.getElementById('dAtk').textContent=atk;
+  document.getElementById('dDef').textContent=def;
+  document.getElementById('dHp').textContent=hp;
+  // 等级信息行
+  let lvLine='';
+  if(own){
+    const expStr=o.lv>=LV_CAP?'已达上限':'经验 '+o.exp+'/'+lvNeedExp(o.lv);
+    lvLine=`<div class="dLv" style="color:${r.color};border-color:${r.color}55;background:${r.glow}">等级 ${o.lv} · ${r.name} · ${expStr}</div>`;
+  } else {
+    lvLine=`<div class="dLv" style="color:#999;border-color:#555;background:rgba(255,255,255,.05)">未拥有 · 招募获得</div>`;
+  }
+  document.getElementById('dLv').innerHTML=lvLine;
+  document.getElementById('detail').classList.add('show');
+}
+function closeDetail(){ document.getElementById('detail').classList.remove('show'); }
+
+function switchTab(t){
+  audio(); sClick();
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.tab===t));
+  document.getElementById('tavern').style.display = t==='tavern'?'block':'none';
+  document.getElementById('heroes').style.display= t==='heroes'?'block':'none';
+  document.getElementById('main').style.display  = t==='main'?'block':'none';
+  document.getElementById('battle').style.display= t==='battle'?'block':'none';
+  // 场景切换(主城/战斗共用战场背景)
+  const bgMap={tavern:'bgTavern',heroes:'bgHeroes',main:'bgMain',battle:'bgMain'};
+  ['bgTavern','bgHeroes','bgMain'].forEach(b=>document.getElementById(b).className='bg off');
+  document.getElementById(bgMap[t]).className='bg on';
+  document.getElementById('heroGrid').style.display=t==='heroes'?'grid':'none';
+  // 首次进入主城/战斗时渲染
+  if(t==='main') renderBuildings();
+  if(t==='battle'){ renderBattles(); renderBoss(); renderAI(); }
+}
+function showToast(m){
+  const t=document.getElementById('toast');
+  t.textContent=m;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),1600);
+}
+
+// ============ 主城建造 ============
+const BUILDINGS=[
+  {id:'farm', name:'农田', ico:'🌾', desc:'提升粮食产出', cost:{food:200,wood:100}, max:5},
+  {id:'sawmill',name:'伐木场',ico:'🪵',desc:'提升木材产出',cost:{gold:300,stone:150},max:5},
+  {id:'mine', name:'金矿', ico:'⛏️',desc:'提升金币产出',cost:{wood:200,stone:200},max:5},
+  {id:'barracks',name:'兵营',ico:'⚔️',desc:'训练士兵',cost:{gold:500,food:300},max:3},
+  {id:'wall', name:'城墙', ico:'🧱',desc:'提升防御',cost:{stone:400,wood:200},max:10},
+];
+const city={lvl:{farm:1,sawmill:1,mine:1,barracks:1,wall:1}};
+// 建造建筑
+function build(b){
+  audio(); sClick();
+  const lv=city.lvl[b.id];
+  if(lv>=b.max){ showToast(b.name+'已满级'); return; }
+  const need=lv+1;
+  const cost=b.cost;
+  // 按等级缩放花费
+  const mult=lv;
+  const goldNeed=Math.ceil((cost.gold||0)*(1+mult*0.6));
+  const foodNeed=Math.ceil((cost.food||0)*(1+mult*0.6));
+  const woodNeed=Math.ceil((cost.wood||0)*(1+mult*0.6));
+  const stoneNeed=Math.ceil((cost.stone||0)*(1+mult*0.6));
+  if(state.gold<goldNeed||state.food<foodNeed||state.wood<woodNeed||state.stone<stoneNeed){
+    showToast('资源不足'); return;
+  }
+  state.gold-=goldNeed; state.food-=foodNeed; state.wood-=woodNeed; state.stone-=stoneNeed;
+  city.lvl[b.id]++;
+  refreshRes();
+  renderBuildings();
+  sLevelUp(lv+1);
+  showToast(b.name+'升级到 Lv.'+city.lvl[b.id]);
+}
+function renderBuildings(){
+  const grid=document.getElementById('bGrid');
+  grid.innerHTML='';
+  BUILDINGS.forEach(b=>{
+    const lv=city.lvl[b.id], maxed=lv>=b.max;
+    const mult=lv;
+    const goldNeed=Math.ceil((b.cost.gold||0)*(1+mult*0.6));
+    const foodNeed=Math.ceil((b.cost.food||0)*(1+mult*0.6));
+    const woodNeed=Math.ceil((b.cost.wood||0)*(1+mult*0.6));
+    const stoneNeed=Math.ceil((b.cost.stone||0)*(1+mult*0.6));
+    const costTxt=`🪙${goldNeed} 🌾${foodNeed} 🪵${woodNeed} 🧱${stoneNeed}`.replace(/(🪙0 🌾|0 🌾| 🪵0| 🧱0)/g,'');
+    const el=document.createElement('div');
+    el.className='bCard';
+    el.innerHTML=`<div class="bIco">${b.ico}</div>
+      <div class="bNm">${b.name}</div><div class="bDesc">${b.desc}</div>
+      <div class="bLv">Lv.${lv} / ${b.max}</div><div class="bCost">${costTxt}</div>
+      <button ${maxed?'class="done"':''}>${maxed?'已满级':'升 级'}</button>`;
+    if(!maxed){ el.querySelector('button').addEventListener('click',()=>build(b)); }
+    grid.appendChild(el);
+  });
+}
+
+// ============ 战斗 ============
+const MISSIONS=[
+  {id:1, name:'边境山贼', ico:'🥷', tier:'★', desc:'剿灭骚扰边境的山贼', pow:120, rew:{gold:300,exp:30}},
+  {id:2, name:'流寇营地', ico:'🏕️', tier:'★★', desc:'突袭流寇老巢', pow:300, rew:{gold:700,exp:60}},
+  {id:3, name:'叛军要塞', ico:'🏯', tier:'★★★', desc:'攻破叛军要塞', pow:700, rew:{gold:1500,exp:120}},
+  {id:4, name:'敌国边境', ico:'🛡️', tier:'★★★★', desc:'出征敌国边境', pow:1500, rew:{gold:3200,exp:250}},
+  {id:5, name:'帝国都城', ico:'👑', tier:'★★★★★', desc:'征服敌国都城', pow:3200, rew:{gold:8000,exp:600}},
+];
+function renderBattles(){
+  const list=document.getElementById('battleList');
+  list.innerHTML='';
+  MISSIONS.forEach(m=>{
+    const myPow=calcPower();
+    const can=myPow>=m.pow;
+    const el=document.createElement('div');
+    el.className='batCard';
+    el.innerHTML=`<div class="batTop"><span class="batNm">${m.ico} ${m.name}</span><span class="batTier">${m.tier}</span></div>
+      <div class="batDesc">${m.desc}</div>
+      <div class="batRew">💎奖励 🪙${m.rew.gold} · 经验+${m.rew.exp}</div>
+      <button ${can?'':'disabled'}>${can?'出 征':'战力不足'}</button>
+      <div class="batResult" style="display:none"></div>`;
+    const btn=el.querySelector('button');
+    btn.addEventListener('click',()=>doBattle(m,el));
+    list.appendChild(el);
+  });
+}
+// 我方战力:拥有英雄等级总和×10 + 建筑等级×5
+function calcPower(){
+  let hp=0;
+  HEROES.forEach(h=>{ if(state.owned[h.id]) hp+=state.owned[h.id].lv; });
+  let bp=0;
+  Object.values(city.lvl).forEach(l=>bp+=l);
+  return hp*10 + bp*5;
+}
+function doBattle(m,card){
+  audio(); sCardFlip();
+  const myPow=calcPower();
+  const win=myPow>=m.pow;
+  const res=card.querySelector('.batResult');
+  const btn=card.querySelector('button');
+  if(win){
+    state.gold+=m.rew.gold;
+    // 所有已拥有英雄平分经验
+    HEROES.forEach(h=>{
+      if(state.owned[h.id]){
+        const o=state.owned[h.id];
+        o.exp+=m.rew.exp;
+        while(o.lv<LV_CAP && o.exp>=lvNeedExp(o.lv)){ o.exp-=lvNeedExp(o.lv); o.lv++; }
+      }
+    });
+    refreshRes();
+    res.style.display='block';
+    res.style.background='rgba(90,138,90,.35)';
+    res.textContent='🏆 大胜!获得 🪙'+m.rew.gold+' 经验';
+    btn.textContent='已征服';
+    btn.classList.add('win');
+    sGold();
+    levelFx(innerWidth/2, innerHeight/3, 30);
+    showToast('🎉 征服 '+m.name+'!');
+  } else {
+    res.style.display='block';
+    res.style.background='rgba(200,60,40,.35)';
+    res.textContent='💥 战败,战力不足(需 '+m.pow+')';
+    sRare();
+  }
+}
+
+// ============ 随机 Boss ============
+const BOSS_POOL=[
+  {name:'赤焰魔龙', ico:'🐉', rarity:'传说', tier:5, desc:'喷吐烈焰的远古魔龙', base:1200},
+  {name:'暗影领主', ico:'👿', rarity:'史诗', tier:4, desc:'潜伏暗影的邪恶领主', base:800},
+  {name:'钢铁巨像', ico:'🗿', rarity:'史诗', tier:4, desc:'由远古金属铸成的巨像', base:900},
+  {name:'风暴女巫', ico:'🧙', rarity:'稀有', tier:3, desc:'召唤风暴的狂暴女巫', base:500},
+  {name:'巨狼之王', ico:'🐺', rarity:'稀有', tier:3, desc:'统领狼群的兽王', base:400},
+  {name:'白骨将军', ico:'💀', rarity:'稀有', tier:3, desc:'统帅亡灵军团的白骨将军', base:450},
+];
+let boss=null, bossTimer=null, bossLeft=60, bossCount=0;
+// 刷新随机 Boss
+function spawnBoss(){
+  const b=BOSS_POOL[Math.floor(Math.random()*BOSS_POOL.length)];
+  const sc = 1+ (bossCount||0)*0.3; // 每次击杀后难度递增
+  boss={...b, pow:Math.round(b.base*sc), alive:true};
+  bossLeft=60;
+  renderBoss();
+  if(bossTimer)clearInterval(bossTimer);
+  bossTimer=setInterval(()=>{
+    bossLeft--;
+    const t=document.getElementById('bossTime');
+    if(t)t.textContent=`⏳ 剩余 ${bossLeft}s`;
+    if(bossLeft<=0){ spawnBoss(); showToast('🦖 新 Boss 来袭!'); }
+  },1000);
+}
+function renderBoss(){
+  const box=document.getElementById('bossBox');
+  if(!boss){ box.innerHTML='<div class="batCard">Boss 冷却中…</div>'; return; }
+  const myPow=calcPower();
+  const can=myPow>=boss.pow;
+  box.innerHTML=`<div class="bossCard">
+    <div class="bossTop"><span class="bossIco">${boss.ico}</span>
+      <div><div class="bossNm">${boss.name}</div>
+      <span class="bossRarity">${boss.rarity} Boss</span></div></div>
+    <div class="bossDesc">${boss.desc}</div>
+    <div class="bossPow">💀 Boss 战力: ${boss.pow} (你: ${myPow})</div>
+    <div class="bossTime" id="bossTime">⏳ 剩余 ${bossLeft}s</div>
+    <button class="bossBtn ${!boss.alive?'win':''}" ${can&&boss.alive?'':'disabled'}>${boss.alive?(can?'⚔️ 讨伐 Boss':'战力不足'):'已讨伐'}</button>
+    <div class="bossResult"></div>
+  </div>`;
+  const btn=box.querySelector('.bossBtn');
+  if(boss.alive && can) btn.addEventListener('click',()=>fightBoss());
+}
+function fightBoss(){
+  audio(); sCardFlip();
+  const myPow=calcPower();
+  const win=myPow>=boss.pow;
+  const res=document.querySelector('.bossResult');
+  const btn=document.querySelector('.bossBtn');
+  if(win){
+    boss.alive=false;
+    // 奖励:金币 + 全英雄经验
+    const gold=Math.round(boss.pow*2);
+    const exp=Math.round(boss.pow*0.15);
+    state.gold+=gold;
+    HEROES.forEach(h=>{ if(state.owned[h.id]){
+      const o=state.owned[h.id];
+      o.exp+=exp;
+      while(o.lv<LV_CAP && o.exp>=lvNeedExp(o.lv)){ o.exp-=lvNeedExp(o.lv); o.lv++; }
+    }});
+    refreshRes(); refreshHeroes();
+    res.style.display='block';
+    res.style.background='rgba(216,160,48,.35)';
+    res.innerHTML=`🏆 讨伐成功!<br>获得 🪙${gold} · 全英雄经验+${exp}`;
+    btn.textContent='已讨伐'; btn.classList.add('win');
+    bossCount=(bossCount||0)+1;
+    sGold(); confetti(innerWidth/2,innerHeight/3,'#ffd54a'); confetti(innerWidth/2,innerHeight/4,'#ff9a8a');
+    levelFx(innerWidth/2,innerHeight/3,40);
+    showToast('🎉 讨伐 '+boss.name+' 成功!');
+  } else {
+    res.style.display='block'; res.style.background='rgba(200,60,40,.35)';
+    res.textContent='💥 讨伐失败,战力不足(需 '+boss.pow+')';
+    sRare();
+  }
+}
+
+// ============ 自主 AI 玩家 ============
+const AIS=[
+  {id:'a1', name:'秦昭', flag:'👑', base:300},
+  {id:'a2', name:'铁律', flag:'⚔️', base:600},
+  {id:'a3', name:'血狼', flag:'🐺', base:1000},
+  {id:'a4', name:'幽暗女帝', flag:'🌙', base:1500},
+  {id:'a5', name:'万皇', flag:'🐲', base:2200},
+];
+let aiState={};
+function initAI(){
+  AIS.forEach(a=>{
+    aiState[a.id]={pow:a.base, alive:true, territories:Math.floor(a.base/300)+1, lvl:1};
+  });
+}
+// AI 自主发展:每 15 秒随机增强一次(代表它们自己征兵/建城)
+function aiTick(){
+  Object.keys(aiState).forEach(id=>{
+    const a=aiState[id], def=AIS.find(x=>x.id===id);
+    if(!a.alive) return;
+    const grow=Math.round(a.pow*0.05 + Math.random()*a.pow*0.03);
+    a.pow+=grow;
+    if(a.pow>a.lvl*500){ a.lvl++; a.territories++; }
+    // 有概率主动进攻玩家领地
+    if(Math.random()<0.15){
+      showToast(`⚠️ ${def.name} 正进犯你的边境!`);
+    }
+  });
+  renderAI();
+}
+function renderAI(){
+  const list=document.getElementById('aiList');
+  list.innerHTML='';
+  AIS.forEach(a=>{
+    const st=aiState[a.id];
+    if(!st) return;
+    const myPow=calcPower();
+    const can=st.alive && myPow>=st.pow;
+    const el=document.createElement('div');
+    el.className='aiCard';
+    el.innerHTML=`<div class="aiTop"><span class="aiNm">${a.flag} ${a.name}</span><span class="aiPow">战力 ${st.pow}</span></div>
+      <div class="aiInfo">领土 ${st.territories} · 等级 ${st.lvl} ${st.alive?'':'· 已灭'}</div>
+      <button class="${!st.alive?'win':''}" ${can?'':'disabled'}>${st.alive?(can?'⚔️ 讨伐':'战力不足'):'已征服'}</button>
+      <div class="aiResult"></div>
+      <div class="aiAttack"></div>`;
+    const btn=el.querySelector('button');
+    if(st.alive && can) btn.addEventListener('click',()=>fightAI(a,el));
+    list.appendChild(el);
+  });
+}
+function fightAI(a,card){
+  audio(); sCardFlip();
+  const st=aiState[a.id];
+  const myPow=calcPower();
+  const win=myPow>=st.pow;
+  const res=card.querySelector('.aiResult');
+  const btn=card.querySelector('button');
+  if(win){
+    st.alive=false;
+    const gold=Math.round(st.pow*1.5);
+    const exp=Math.round(st.pow*0.12);
+    state.gold+=gold;
+    HEROES.forEach(h=>{ if(state.owned[h.id]){
+      const o=state.owned[h.id];
+      o.exp+=exp;
+      while(o.lv<LV_CAP && o.exp>=lvNeedExp(o.lv)){ o.exp-=lvNeedExp(o.lv); o.lv++; }
+    }});
+    refreshRes(); refreshHeroes();
+    res.style.display='block'; res.style.background='rgba(90,138,90,.35)';
+    res.innerHTML=`🏆 征服 ${a.name}!<br>缴获 🪙${gold} · 经验+${exp}`;
+    btn.textContent='已征服'; btn.classList.add('win');
+    sGold(); confetti(innerWidth/2,innerHeight/3,'#c77dff');
+    showToast('🎉 灭国 '+a.name+'!');
+  } else {
+    res.style.display='block'; res.style.background='rgba(200,60,40,.35)';
+    res.textContent='💥 战败,敌方战力 '+st.pow+' 高于你';
+    sRare();
+  }
+}
+
+// ============ 免费倒计时 ============
+let freeLeft=3600;
+setInterval(()=>{
+  if(freeLeft<=0){ document.getElementById('freeCd').textContent='可抽!'; }
+  else{
+    freeLeft--;
+    const m=String(Math.floor(freeLeft/60)).padStart(2,'0'), s=String(freeLeft%60).padStart(2,'0');
+    document.getElementById('freeCd').textContent=m+':'+s;
+  }
+},1000);
+
+// 初始化
+refreshHeroes();
+refreshRes();
+switchTab('tavern');
+initAI();
+spawnBoss();
+setInterval(aiTick, 15000); // AI 每 15 秒自主发展一次
+document.addEventListener('click',()=>audio(),{once:true});
+
+
+/* ============ v2 扩展包注入 ============ */
+/* ==================================================================
+   《帝国征服者 · 英雄酒馆》 v2 扩展包 —— 模块0（状态根定义）
+   必须在其它模块之前执行
+   ================================================================== */
+const V2 = {
+  dyn:     {divine:false},
+  cleared: {},
+  equip:   {},
+  ach:     {},
+  talent:  {atk:0, def:0, hp:0, crit:0},
+  reinc:   {count:0, bonus:0},
+  stat:    {battles:0, wins:0, bossKills:0, crits:0, aiKills:0, offlineTotal:0},
+  pity:    0,
+  drawTotal: 0,
+  sign:    null,
+  ticket:  0,
+  clearCount: 0
+};
+const BEST = {seenBoss:null};
+window.V2 = V2;
+window.BEST = BEST;
+
+
+/* ==================================================================
+   《帝国征服者 · 英雄酒馆》 v2 扩展包 —— 模块A
+   存档 / 离线收益 / 每日签到 / 抽卡保底 / 世界播报
+   架构：非侵入式 hook，原逻辑零破坏    婉儿 2026-10-17
+   ================================================================== */
+
+/* ============ A-1. 存档系统（localStorage 自动持久化） ============ */
+const SAVE_KEY = 'empire_conqueror_v2_save';
+let   SAVE_T = 0;
+let   SAVE_OK = true;
+
+function collectSave(){
+  return {
+    v:2, lastSave:Date.now(),
+    res:{gold:state.gold, food:state.food, wood:state.wood, stone:state.stone},
+    owned:state.owned,
+    cityLvl:city.lvl,
+    freeLeft:(typeof freeLeft!=='undefined')?freeLeft:3600,
+    bossCount:(typeof bossCount!=='undefined')?bossCount:0,
+    ai:(typeof aiState!=='undefined')?aiState:{},
+    dyn:V2.dyn,
+    cleared:V2.cleared,
+    pity:V2.pity,
+    drawTotal:V2.drawTotal,
+    talent:V2.talent,
+    equip:V2.equip,
+    sign:V2.sign,
+    reinc:V2.reinc,
+    ach:V2.ach,
+    clearCount:V2.clearCount,
+    ticket:V2.ticket||0,
+    stat:V2.stat,
+    seen:BEST.seenBoss
+  };
+}
+
+function saveGame(quiet){
+  if(!SAVE_OK) return false;
+  try{
+    localStorage.setItem(SAVE_KEY, JSON.stringify(collectSave()));
+    SAVE_T = Date.now();
+    if(!quiet) pulseSaveIcon();
+    return true;
+  }catch(e){ return false; }
+}
+
+function pulseSaveIcon(){
+  const el = document.getElementById('saveDot');
+  if(!el) return;
+  el.textContent = '💾 已保存';
+  el.classList.add('flash');
+  clearTimeout(el._t);
+  el._t = setTimeout(()=>{ el.classList.remove('flash'); el.textContent='💾 自动存档'; }, 1200);
+}
+
+function wipeSave(){
+  SAVE_OK = false;
+  try{ localStorage.removeItem(SAVE_KEY); }catch(e){}
+  showToast('🗑 存档已清除，正在重开…');
+  setTimeout(()=>location.reload(), 600);
+}
+
+/* ============ A-2. 离线收益（关掉游戏也在发展） ============ */
+const OFFLINE_CAP_H = 8;            // 最多累计 8 小时
+const OFFLINE_MIN_S = 120;          // 少于 2 分钟不结算
+
+function offlineRate(){
+  // 按主城建筑等级计算每秒产出
+  return {
+    gold:  0.15 + city.lvl.mine   * 0.35,
+    food:  0.20 + city.lvl.farm   * 0.40,
+    wood:  0.20 + city.lvl.sawmill* 0.40,
+    stone: 0.10 + city.lvl.wall   * 0.15
+  };
+}
+
+function applyOffline(d){
+  const secs = Math.min(OFFLINE_CAP_H*3600, Math.max(0, (Date.now() - (d.lastSave||d.t||Date.now()))/1000));
+  if(secs < OFFLINE_MIN_S) return;
+  const r = offlineRate();
+  const gain = {
+    gold:  Math.floor(r.gold  * secs),
+    food:  Math.floor(r.food  * secs),
+    wood:  Math.floor(r.wood  * secs),
+    stone: Math.floor(r.stone * secs)
+  };
+  state.gold += gain.gold; state.food += gain.food;
+  state.wood += gain.wood; state.stone += gain.stone;
+  V2.stat.offlineTotal = (V2.stat.offlineTotal||0) + gain.gold;
+
+  const h = Math.floor(secs/3600), m = Math.floor(secs%3600/60);
+  setTimeout(()=>{
+    popModal('🌙 离线收益结算',
+      `<div style="text-align:center;line-height:2">
+        <div style="color:#9ad;margin-bottom:8px">离开时长：<b>${h?h+' 小时 ':''}${m} 分钟</b></div>
+        <div style="font-size:17px">🪙 +${gain.gold}　🌾 +${gain.food}</div>
+        <div style="font-size:17px">🪵 +${gain.wood}　🧱 +${gain.stone}</div>
+        <div style="color:#8b7a5a;font-size:12px;margin-top:10px">帝国在你离开时仍在运转 ⚙️</div>
+      </div>`, '收 下');
+  }, 400);
+}
+
+/* ============ A-3. 读档 ============ */
+function loadGame(){
+  let d;
+  try{
+    const raw = localStorage.getItem(SAVE_KEY);
+    if(!raw) return false;
+    d = JSON.parse(raw);
+  }catch(e){ return false; }
+  if(!d || d.v!==2) return false;
+  try{
+    state.gold = d.res.gold|0; state.food = d.res.food|0;
+    state.wood = d.res.wood|0; state.stone = d.res.stone|0;
+    if(d.owned) Object.keys(d.owned).forEach(k=>{ if(d.owned[k]) state.owned[k] = d.owned[k]; });
+    if(d.cityLvl) Object.assign(city.lvl, d.cityLvl);
+    if(typeof d.freeLeft==='number') freeLeft = d.freeLeft;
+    if(typeof d.bossCount==='number') bossCount = d.bossCount;
+    if(d.ai && typeof aiState!=='undefined') Object.assign(aiState, d.ai);
+    Object.assign(V2.dyn,      d.dyn||{});
+    Object.assign(V2.talent,   d.talent||{});
+    Object.assign(V2.reinc,    d.reinc||{});
+    Object.assign(V2.stat,     d.stat||{});
+    V2.cleared    = d.cleared||{};
+    V2.equip      = d.equip||{};
+    V2.ach        = d.ach||{};
+    V2.pity       = d.pity||0;
+    V2.drawTotal  = d.drawTotal||0;
+    V2.sign       = d.sign||null;
+    V2.clearCount = d.clearCount||0;
+    V2.ticket     = d.ticket||0;
+    BEST.seenBoss = d.seen||BEST.seenBoss;
+    applyOffline(d);
+    return true;
+  }catch(e){ return false; }
+}
+
+/* ============ A-4. 每日签到 ============ */
+function todayStr(){
+  const d = new Date();
+  return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+}
+function signReward(day){
+  const table = [
+    {g:800,  d:'🪙 800 金币'},
+    {g:1200, d:'🪙 1200 金币'},
+    {g:1800, d:'🪙 1800 金币'},
+    {g:2500, d:'🪙 2500 金币'},
+    {g:3500, d:'🪙 3500 金币'},
+    {g:5000, d:'🪙 5000 金币'},
+    {g:8000, d:'🪙 8000 金币 + 🎫 保底券'}
+  ];
+  return table[Math.min(day, table.length)-1];
+}
+function checkSign(){
+  const t = todayStr();
+  if(!V2.sign){ V2.sign = {last:'', streak:0, done:false}; }
+  if(V2.sign.last === t){ V2.sign.done = true; }
+  else { V2.sign.done = false; }
+  return V2.sign;
+}
+function doSign(){
+  const s = checkSign();
+  if(s.done){ showToast('今天已经签过啦～'); return; }
+  // 判断是否连签
+  const y = new Date(Date.now()-86400000);
+  const yStr = y.getFullYear()+'-'+(y.getMonth()+1)+'-'+y.getDate();
+  s.streak = (s.last === yStr) ? s.streak+1 : 1;
+  s.streak = Math.min(s.streak, 7);
+  s.last = todayStr(); s.done = true;
+  const r = signReward(s.streak);
+  state.gold += r.g;
+  if(r.d.includes('保底券')) V2.ticket = (V2.ticket||0)+1;
+  refreshRes(); saveGame(true);
+  audio(); sGold(); confetti(innerWidth/2, innerHeight/3, '#ffd54a');
+  popModal('📅 签到成功 · 连签 '+s.streak+' 天',
+    `<div style="text-align:center;line-height:2">
+      <div style="font-size:20px;color:#ffd98a">${r.d}</div>
+      <div style="color:#8b7a5a;font-size:12px;margin-top:8px">连签 7 天可得保底券 🎫</div>
+     </div>`, '领取');
+}
+
+/* ============ A-5. 抽卡保底（10 抽必出传奇） ============ */
+const PITY_MAX = 10;
+const _rollHero_orig = rollHero;
+rollHero = function(){
+  V2.pity++;
+  V2.drawTotal++;
+  if(V2.pity >= PITY_MAX){
+    V2.pity = 0;
+    const pool = HEROES.filter(h=>h.rank==='legendary');
+    const pick = pool[Math.floor(Math.random()*pool.length)];
+    setTimeout(()=>broadcast('🎫 保底触发！传奇 <b>'+pick.name+'</b> 应召而来'),300);
+    return pick;
+  }
+  const h = _rollHero_orig();
+  if(h.rank==='legendary'){ V2.pity = 0; }
+  return h;
+};
+
+/* ============ A-6. 世界播报（滚动消息条） ============ */
+const NEWS_POOL = [
+  '⚔️ 边境斥候回报：敌方正在集结兵力',
+  '🪙 帝国金矿产量创新高，商队络绎不绝',
+  '🐎 邻国使节抵达，请求缔结盟约',
+  '🌾 秋收完成，粮仓充盈',
+  '🏯 工匠们完成了新一轮城墙加固',
+  '👑 民间传颂着你的赫赫战功',
+  '🔥 有传言说，远古魔龙正在苏醒…',
+  '🗡️ 铁匠铺连夜赶制兵刃',
+  '🌟 星象师预言：帝国将迎来盛世',
+  '🧙 流浪法师路过城下，留下一句谜语'
+];
+function broadcast(msg){
+  const bar = document.getElementById('newsTicker');
+  if(!bar) return;
+  const line = document.createElement('div');
+  line.className = 'newsLine';
+  line.innerHTML = msg;
+  bar.prepend(line);
+  while(bar.children.length > 6) bar.lastChild.remove();
+  setTimeout(()=>{ line.classList.add('fade'); }, 9000);
+  setTimeout(()=>{ line.remove(); }, 11000);
+}
+function tickNews(){
+  broadcast(NEWS_POOL[Math.floor(Math.random()*NEWS_POOL.length)]);
+}
+
+/* ============ A-7. 通用弹窗（复用 detail 样式） ============ */
+function popModal(title, bodyHtml, btnTxt){
+  const box = document.getElementById('dynModal');
+  if(!box) return;
+  box.querySelector('.dmTitle').innerHTML = title;
+  box.querySelector('.dmBody').innerHTML  = bodyHtml;
+  box.querySelector('.dmBtn').textContent = btnTxt || '确 定';
+  box.classList.add('show');
+  audio(); sClick();
+}
+function closeModal(){
+  const box = document.getElementById('dynModal');
+  if(box) box.classList.remove('show');
+}
+
+/* ============ A-8. 自动存档定时器 ============ */
+setInterval(()=>{ saveGame(true); }, 8000);
+addEventListener('beforeunload', ()=>{ saveGame(true); });
+document.addEventListener('visibilitychange', ()=>{ if(document.hidden) saveGame(true); });
+
+
+/* ==================================================================
+   《帝国征服者 · 英雄酒馆》 v2 扩展包 —— 模块B
+   装备宝物 / 天赋树 / 七章征伐 / 图鉴收集 / 成就 / 转生
+   ================================================================== */
+
+/* ============ B-1. 装备宝物系统 ============ */
+const EQUIP_SLOTS = [
+  {k:'weapon', n:'武器', ico:'⚔️'},
+  {k:'armor',  n:'护甲', ico:'🛡️'},
+  {k:'trinket',n:'饰品', ico:'💍'}
+];
+const EQUIP_TIERS = {
+  common: {n:'普通', c:'#9aa0a6', mul:1.0},
+  rare:   {n:'精良', c:'#6ab4ff', mul:1.6},
+  epic:   {n:'史诗', c:'#c77dff', mul:2.4},
+  legend: {n:'传说', c:'#ffd54a', mul:3.6}
+};
+const EQUIP_BASE = {
+  weapon: [
+    {n:'青铜短剑',  s:{atk:10,def:0, hp:0}},
+    {n:'玄铁重剑',  s:{atk:22,def:0, hp:0}},
+    {n:'破军长枪',  s:{atk:38,def:6, hp:0}},
+    {n:'龙牙巨刃',  s:{atk:60,def:10,hp:0}},
+    {n:'石中剑·真', s:{atk:92,def:18,hp:20}}
+  ],
+  armor: [
+    {n:'皮甲',      s:{atk:0, def:10,hp:15}},
+    {n:'锁子甲',    s:{atk:0, def:22,hp:32}},
+    {n:'秘银胸铠',  s:{atk:4, def:38,hp:55}},
+    {n:'龙鳞战铠',  s:{atk:8, def:58,hp:85}},
+    {n:'圣殿圣铠',  s:{atk:14,def:86,hp:130}}
+  ],
+  trinket: [
+    {n:'狼牙吊坠',  s:{atk:6, def:4, hp:8}},
+    {n:'鹰眼指环',  s:{atk:14,def:9, hp:16}},
+    {n:'贤者之石',  s:{atk:22,def:16,hp:28}},
+    {n:'命运沙漏',  s:{atk:34,def:24,hp:44}},
+    {n:'永恒之冠',  s:{atk:50,def:36,hp:70}}
+  ]
+};
+
+function rollEquip(forceTier){
+  const roll = Math.random();
+  let q;
+  if(forceTier) q = forceTier;
+  else if(roll < 0.45) q = 'common';
+  else if(roll < 0.78) q = 'rare';
+  else if(roll < 0.95) q = 'epic';
+  else q = 'legend';
+  const slot = EQUIP_SLOTS[Math.floor(Math.random()*EQUIP_SLOTS.length)].k;
+  const pool = EQUIP_BASE[slot];
+  const idx = q==='legend'?4 : q==='epic'?3 : q==='rare'?1+Math.floor(Math.random()*2) : Math.floor(Math.random()*2);
+  const proto = pool[Math.min(idx, pool.length-1)];
+  const m = EQUIP_TIERS[q].mul;
+  return {
+    uid: 'e'+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36),
+    slot, q, name: proto.n, lv:1,
+    atk: Math.round(proto.s.atk*m), def: Math.round(proto.s.def*m), hp: Math.round(proto.s.hp*m)
+  };
+}
+
+function equipStat(item){
+  // 装备强化加成：每级 +12%
+  if(!item) return {atk:0,def:0,hp:0};
+  const g = 1 + (item.lv-1)*0.12;
+  return {atk:Math.round(item.atk*g), def:Math.round(item.def*g), hp:Math.round(item.hp*g)};
+}
+
+function heroEquipBonus(heroId){
+  const bag = V2.equip[heroId] || {};
+  let atk=0, def=0, hp=0;
+  EQUIP_SLOTS.forEach(s=>{
+    const it = bag[s.k];
+    if(it){ const st = equipStat(it); atk+=st.atk; def+=st.def; hp+=st.hp; }
+  });
+  return {atk, def, hp};
+}
+
+function equipPower(){
+  let p = 0;
+  Object.keys(V2.equip).forEach(hid=>{
+    const b = heroEquipBonus(hid);
+    p += (b.atk + b.def + b.hp*0.6);
+  });
+  return Math.round(p);
+}
+
+function upgradeEquip(heroId, slotKey){
+  const it = (V2.equip[heroId]||{})[slotKey];
+  if(!it) return;
+  if(it.lv >= 10){ showToast('已达强化上限 +10'); return; }
+  const cost = Math.round(300 * it.lv * EQUIP_TIERS[it.q].mul);
+  if(state.gold < cost){ showToast('金币不足（需 '+cost+'）'); return; }
+  state.gold -= cost; it.lv++;
+  refreshRes(); saveGame(true); audio(); sLevelUp(it.lv);
+  burst(innerWidth/2, innerHeight/3, EQUIP_TIERS[it.q].c, 26);
+  showToast(it.name+' 强化至 +'+it.lv);
+  openEquipPanel(heroId);
+}
+
+/* ============ B-2. 天赋树 ============ */
+const TALENTS = [
+  {k:'atk',  n:'狂暴', ico:'🔥', desc:'每点 +6% 战力（攻击向）', max:30, color:'#ff6b4d'},
+  {k:'def',  n:'铁壁', ico:'🛡️', desc:'每点 +6% 战力（防御向）', max:30, color:'#6ab4ff'},
+  {k:'hp',   n:'长生', ico:'❤️', desc:'每点 +5% 战力（生命向）', max:30, color:'#6bff6b'},
+  {k:'crit', n:'致命', ico:'💥', desc:'每点 +2% 暴击率',        max:25, color:'#ffd54a'}
+];
+function talentPointsTotal(){
+  // 天赋点 = 所有英雄等级总和 / 8（向下取整）
+  let sum = 0;
+  HEROES.forEach(h=>{ if(state.owned[h.id]) sum += state.owned[h.id].lv; });
+  return Math.floor(sum/8) + V2.reinc.count*5;
+}
+function talentPointsUsed(){
+  return TALENTS.reduce((a,t)=>a+(V2.talent[t.k]||0), 0);
+}
+function talentFree(){ return Math.max(0, talentPointsTotal() - talentPointsUsed()); }
+function talentMult(){
+  const m = 1
+    + (V2.talent.atk||0)*0.06
+    + (V2.talent.def||0)*0.06
+    + (V2.talent.hp ||0)*0.05;
+  return m * (1 + V2.reinc.count*0.10);   // 转生永久加成
+}
+function critRate(){
+  return Math.min(0.75, 0.08 + (V2.talent.crit||0)*0.02 + (V2.reinc.count*0.02));
+}
+function learnTalent(k){
+  const t = TALENTS.find(x=>x.k===k);
+  if((V2.talent[k]||0) >= t.max){ showToast(t.n+' 已满级'); return; }
+  if(talentFree() <= 0){ showToast('天赋点不足（英雄升级可获得）'); return; }
+  V2.talent[k] = (V2.talent[k]||0)+1;
+  refreshRes(); saveGame(true);
+  audio(); sLevelUp(20);
+  burst(innerWidth/2, innerHeight/2.4, t.color, 24);
+  renderTalentPanel();
+}
+
+/* ============ B-3. 七章征伐（章节地图） ============ */
+const CHAPTER_DEFS = [
+  {n:'边境烽烟', ico:'🏕️', base:150,  desc:'剿灭骚扰边境的流寇'},
+  {n:'血色荒原', ico:'🔥', base:520,  desc:'穿越被战火焚毁的荒原'},
+  {n:'钢铁要塞', ico:'🏯', base:1300, desc:'攻破叛军的钢铁防线'},
+  {n:'幽暗密林', ico:'🌲', base:2800, desc:'肃清密林深处的异族'},
+  {n:'黄金王座', ico:'👑', base:5200, desc:'夺取敌国的黄金王座'},
+  {n:'极北冰原', ico:'❄️', base:9000, desc:'远征永冻之地的霜巨人'},
+  {n:'熔火深渊', ico:'🌋', base:16000,desc:'深入魔龙盘踞的熔火深渊'}
+];
+const CHAPTER_NAMES = ['一','二','三','四','五','六','七'];
+const MAP_MISSIONS = [];
+CHAPTER_DEFS.forEach((c, ci)=>{
+  for(let k=0;k<3;k++){
+    const pow = Math.round(c.base * (1 + k*0.85));
+    MAP_MISSIONS.push({
+      id: (ci+1)*10+k+1,
+      ch: ci+1, stage: k+1,
+      name: c.n+' · 第'+(k+1)+'战',
+      ico: c.ico,
+      tier: '★'.repeat(ci+1),
+      desc: c.desc,
+      pow,
+      rew: {gold: Math.round(pow*1.6), exp: Math.round(pow*0.18), drop: 0.5+ci*0.08}
+    });
+  }
+});
+function chapterCleared(ci){
+  return MAP_MISSIONS.filter(m=>m.ch===ci).every(m=>V2.cleared[m.id]);
+}
+function missionUnlocked(m){
+  if(m.stage > 1){
+    const prev = MAP_MISSIONS.find(x=>x.ch===m.ch && x.stage===m.stage-1);
+    if(prev && !V2.cleared[prev.id]) return false;
+  }
+  if(m.ch > 1){
+    if(!chapterCleared(m.ch-1)) return false;
+  }
+  return true;
+}
+
+/* ============ B-4. 成就系统 ============ */
+const ACHIEVEMENTS = [
+  {k:'first_blood', n:'初战告捷', ico:'🗡️', desc:'赢得第一场战斗',       rew:{gold:500}},
+  {k:'collector5',  n:'小有班底', ico:'👥', desc:'拥有 5 位英雄',        rew:{gold:1000}},
+  {k:'collector13', n:'图鉴大成', ico:'📖', desc:'集齐全部 13 位英雄',   rew:{gold:15000, ticket:1}},
+  {k:'boss10',      n:'屠龙勇士', ico:'🐉', desc:'讨伐 10 次 Boss',      rew:{gold:3000}},
+  {k:'boss50',      n:'深渊克星', ico:'💀', desc:'讨伐 50 次 Boss',      rew:{gold:12000}},
+  {k:'lv50',        n:'名将之姿', ico:'🎖️', desc:'拥有 1 位 50 级英雄',  rew:{gold:5000}},
+  {k:'lv80max',     n:'登峰造极', ico:'👑', desc:'拥有 1 位 80 级英雄',  rew:{gold:20000, ticket:1}},
+  {k:'chap1',       n:'边境平定', ico:'🏕️', desc:'通关第一章',          rew:{gold:800}},
+  {k:'chap7',       n:'一统天下', ico:'🌏', desc:'通关第七章',          rew:{gold:50000, ticket:2}},
+  {k:'equip5',      n:'神装加身', ico:'⚔️', desc:'集齐 5 件史诗以上装备', rew:{gold:4000}},
+  {k:'crit20',      n:'致命一击', ico:'💥', desc:'累计触发 20 次暴击',   rew:{gold:2500}},
+  {k:'sign7',       n:'持之以恒', ico:'📅', desc:'连续签到 7 天',        rew:{gold:6000}}
+];
+function checkAchievements(silent){
+  const got = [];
+  const own = HEROES.filter(h=>state.owned[h.id]).length;
+  const maxLv = Math.max(0, ...HEROES.filter(h=>state.owned[h.id]).map(h=>state.owned[h.id].lv));
+  const defs = {
+    first_blood: V2.stat.wins >= 1,
+    collector5:  own >= 5,
+    collector13: own >= 13,
+    boss10:      V2.stat.bossKills >= 10,
+    boss50:      V2.stat.bossKills >= 50,
+    lv50:        maxLv >= 50,
+    lv80max:     maxLv >= 80,
+    chap1:       chapterCleared(1),
+    chap7:       chapterCleared(7),
+    equip5:      Object.keys(V2.equip).reduce((a,hid)=>{
+                   return a + EQUIP_SLOTS.filter(s=>{
+                     const it=(V2.equip[hid]||{})[s.k];
+                     return it && (it.q==='epic'||it.q==='legend');
+                   }).length;
+                 }, 0) >= 5,
+    crit20:      V2.stat.crits >= 20,
+    sign7:       (V2.sign && V2.sign.streak >= 7)
+  };
+  ACHIEVEMENTS.forEach(a=>{
+    if(defs[a.k] && !V2.ach[a.k]){
+      V2.ach[a.k] = Date.now();
+      if(a.rew.gold) state.gold += a.rew.gold;
+      if(a.rew.ticket) V2.ticket = (V2.ticket||0)+1;
+      got.push(a);
+    }
+  });
+  if(got.length && !silent){
+    got.forEach((a,i)=>setTimeout(()=>{
+      popModal('🏆 达成成就 · '+a.n,
+        `<div style="text-align:center;line-height:1.9">
+          <div style="font-size:42px">${a.ico}</div>
+          <div style="color:#ffd98a;font-size:15px">${a.desc}</div>
+          <div style="color:#9ad;margin-top:8px">奖励：🪙 ${a.rew.gold||0}${a.rew.ticket?' + 🎫 保底券':''}</div>
+         </div>`, '厉 害');
+      broadcast('🏆 <b>成就达成</b>：'+a.n);
+    }, i*300));
+    audio(); sGold();
+  }
+  return got;
+}
+
+/* ============ B-5. 隐藏神将解锁（图鉴收集奖励） ============ */
+let DIVINE_UNLOCKED = false;
+function checkDivineUnlock(){
+  const own = HEROES.filter(h=>h.id!=='chiyou' && state.owned[h.id]).length;
+  if(own >= 13 && !DIVINE_UNLOCKED){
+    DIVINE_UNLOCKED = true;
+    V2.dyn.divine = true;
+    popModal('🌟 隐藏神将降临',
+      `<div style="text-align:center;line-height:1.9">
+        <div style="font-size:46px">⚡</div>
+        <div style="font-size:19px;color:#ff9a3c">战 神 · 蚩 尤</div>
+        <div style="color:#8b7a5a;font-size:12px;margin:8px 0">图鉴集齐 100%，远古战神应召而来</div>
+        <div style="color:#9ad">520 资质 · 已加入酒馆卡池</div>
+       </div>`, '召 唤');
+    confetti(innerWidth/2, innerHeight/3, '#ff9a3c');
+    audio(); sGold();
+    broadcast('🌟 <b>隐藏神将「蚩尤」</b>已加入酒馆卡池！');
+    saveGame(true);
+  }
+}
+
+/* ============ B-6. 转生系统 ============ */
+function reincPossible(){
+  return chapterCleared(7) || calcPower() >= 30000;
+}
+function doReincarnate(){
+  if(!reincPossible()){ showToast('需通关第七章 或 战力达到 30000'); return; }
+  popConfirm('🌀 确认转生？',
+    `<div style="text-align:center;line-height:1.9">
+      <div style="color:#ff9a8a">英雄等级、资源、装备将被重置</div>
+      <div style="color:#8ad">保留：图鉴收集、成就、天赋</div>
+      <div style="color:#ffd98a;margin-top:8px">永久获得：全体战力 <b>+${(V2.reinc.count+1)*10}%</b></div>
+     </div>`, ()=>{
+      V2.reinc.count++;
+      // 重置
+      HEROES.forEach(h=>{ if(h.id!=='chiyou' && state.owned[h.id]) state.owned[h.id] = {lv:1, exp:0}; });
+      state.gold = 3000; state.food = 1500; state.wood = 1500; state.stone = 1000;
+      V2.equip = {};
+      Object.keys(city.lvl).forEach(k=>{ city.lvl[k] = 1; });
+      V2.clearCount = (V2.clearCount||0)+1;
+      refreshRes(); refreshHeroes(); renderBuildings(); renderBattles();
+      saveGame(true);
+      popModal('🌀 转生成功 · 第 '+(V2.reinc.count+1)+' 世',
+        `<div style="text-align:center;line-height:1.9">
+          <div style="font-size:40px">✨</div>
+          <div>帝国浴火重生</div>
+          <div style="color:#ffd98a">全体战力永久 <b>+${V2.reinc.count*10}%</b></div>
+         </div>`, '开 始');
+      confetti(innerWidth/2, innerHeight/3, '#c77dff');
+      audio(); sLevelUp(80);
+    });
+}
+function popConfirm(title, bodyHtml, onOk){
+  const box = document.getElementById('dynModal');
+  if(!box) return;
+  box.querySelector('.dmTitle').innerHTML = title;
+  box.querySelector('.dmBody').innerHTML  = bodyHtml;
+  const btn = box.querySelector('.dmBtn');
+  btn.textContent = '确认执行';
+  btn.onclick = ()=>{ closeModal(); btn.onclick = null; if(onOk) onOk(); };
+  box.classList.add('show');
+  audio(); sClick();
+}
+
+
+/* ==================================================================
+   《帝国征服者 · 英雄酒馆》 v2 扩展包 —— 模块C（核心 hook 引擎）
+   ================================================================== */
+
+/* ============ C-0. 隐藏神将数据注入 ============ */
+HEROES.push({id:'chiyou', name:'蚩尤', cls:'步兵', rank:'divine', rarity:520,
+  clsIcon:'⚡', atk:150, def:140, hp:150, desc:'远古战神·兵主', color:'#ff9a3c', avatar:''});
+
+/* ============ C-1. 战力 hook（装备 + 天赋 + 转生） ============ */
+const _calcPower_base = calcPower;
+calcPower = function(){
+  const base = _calcPower_base();
+  return Math.round((base + equipPower()) * talentMult());
+};
+
+/* ============ C-2. 暴击演出 ============ */
+function screenShake(){
+  document.body.classList.remove('shake');
+  void document.body.offsetWidth;
+  document.body.classList.add('shake');
+  setTimeout(()=>document.body.classList.remove('shake'), 430);
+}
+function critFx(x, y, txt){
+  const el = document.createElement('div');
+  el.className = 'critNum';
+  el.textContent = txt;
+  el.style.left = x+'px'; el.style.top = y+'px';
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(), 1250);
+  burst(x, y, '#ffd54a', 42);
+  tone(1200,0.10,'square',0.25,0,320);
+  tone(420, 0.26,'sawtooth',0.20,0.06);
+  screenShake();
+}
+
+/* ============ C-3. 装备掉落（自动分配） ============ */
+function dropEquip(tag){
+  const it = rollEquip();
+  const owned = HEROES.filter(h=>state.owned[h.id]);
+  if(!owned.length) return null;
+  // 优先给空槽英雄，否则替换评分最低者
+  const score = x => x ? (x.atk + x.def + x.hp*0.5) * (1 + (x.lv-1)*0.12) : -1;
+  let best = owned[0], bestScore = 1e9, bestEmpty = false;
+  owned.forEach(h=>{
+    const cur = (V2.equip[h.id]||{})[it.slot];
+    const s = score(cur);
+    if(!cur && !bestEmpty){ bestEmpty = true; best = h; bestScore = -1; }
+    else if(s < bestScore && !bestEmpty){ bestScore = s; best = h; }
+  });
+  if(!V2.equip[best.id]) V2.equip[best.id] = {};
+  const old = V2.equip[best.id][it.slot];
+  V2.equip[best.id][it.slot] = it;
+  const t = EQUIP_TIERS[it.q];
+  const isUp = !old || score(it) > score(old);
+  if(tag){
+    broadcast((isUp?'📦':'♻️')+' '+best.name+' 获得 <b style="color:'+t.c+'">'+t.n+'·'+it.name+'</b>');
+  }
+  if(it.q==='legend' || it.q==='epic'){
+    showToast('📦 掉落 '+t.n+'·'+it.name+' → '+best.name);
+    audio(); sEpic(); burst(innerWidth/2, innerHeight/2.3, t.c, it.q==='legend'?40:26);
+  }
+  return it;
+}
+
+/* ============ C-4. 战斗重写（暴击 + 掉落 + 章节 + 存档） ============ */
+doBattle = function(m, card){
+  audio(); sCardFlip();
+  const crit  = Math.random() < critRate();
+  const myPow = calcPower();
+  const eff   = Math.round(myPow * (crit ? 1.35 : 1));
+  const win   = eff >= m.pow;
+  const res   = card.querySelector('.batResult');
+  const btn   = card.querySelector('button');
+
+  if(crit){
+    const r = card.getBoundingClientRect();
+    critFx(r.left + r.width/2, r.top + r.height/2.4, '暴击 ×1.35');
+  }
+
+  if(win){
+    const gold = Math.round(m.rew.gold * (crit ? 1.5 : 1));
+    const exp  = Math.round(m.rew.exp  * (crit ? 1.3 : 1));
+    state.gold += gold;
+    HEROES.forEach(h=>{
+      if(state.owned[h.id]){
+        const o = state.owned[h.id];
+        o.exp += exp;
+        while(o.lv < LV_CAP && o.exp >= lvNeedExp(o.lv)){ o.exp -= lvNeedExp(o.lv); o.lv++; }
+      }
+    });
+    V2.cleared[m.id] = true;
+    V2.stat.wins++;
+    if(crit) V2.stat.crits++;
+
+    let dropTxt = '';
+    if(Math.random() < (m.rew.drop || 0.5)){
+      const it = dropEquip('mission');
+      if(it) dropTxt = `<br>📦 缴获：<b style="color:${EQUIP_TIERS[it.q].c}">${EQUIP_TIERS[it.q].n}·${it.name}</b>`;
+    }
+    refreshRes();
+    res.style.display = 'block';
+    res.style.background = crit ? 'rgba(216,160,48,.4)' : 'rgba(90,138,90,.35)';
+    res.innerHTML = (crit?'💥 <b>暴击取胜!</b><br>':'🏆 大胜!<br>') + '获得 🪙'+gold+' · 经验+'+exp + dropTxt;
+    btn.textContent = '已征服'; btn.classList.add('win');
+    sGold();
+    levelFx(innerWidth/2, innerHeight/3, 30);
+    showToast((crit?'💥 暴击! ':'🎉 ')+'征服 '+m.name);
+    const ci = m.ch;
+    if(chapterCleared(ci)) broadcast('🏁 <b>第'+CHAPTER_NAMES[ci-1]+'章「'+CHAPTER_DEFS[ci-1].n+'」已平定！</b>');
+  } else {
+    res.style.display = 'block';
+    res.style.background = 'rgba(200,60,40,.35)';
+    res.textContent = '💥 战败，战力不足（需 '+m.pow+'，你 '+eff+'）';
+    sRare();
+  }
+  checkAchievements();
+  checkDivineUnlock();
+  renderBattles();
+  saveGame(true);
+};
+
+/* ============ C-5. Boss / AI 战斗包装 ============ */
+const _fightBoss_orig = fightBoss;
+fightBoss = function(){
+  const alive = boss && boss.alive;
+  const wouldWin = alive && calcPower() >= boss.pow;
+  const name = boss ? boss.name : '';
+  _fightBoss_orig();
+  if(alive && wouldWin){
+    V2.stat.bossKills++;
+    if(Math.random() < 0.9) dropEquip('boss');
+    broadcast('🐉 <b>'+name+'</b> 已被讨伐，帝国威名远扬！');
+    checkAchievements(); checkDivineUnlock(); saveGame(true);
+  }
+};
+const _fightAI_orig = fightAI;
+fightAI = function(a, card){
+  const st = aiState[a.id];
+  const wouldWin = st && st.alive && calcPower() >= st.pow;
+  _fightAI_orig(a, card);
+  if(wouldWin){
+    V2.stat.aiKills = (V2.stat.aiKills||0)+1;
+    if(Math.random() < 0.8) dropEquip('ai');
+    broadcast('⚔️ <b>'+a.name+'</b> 势力已被剿灭');
+    checkAchievements(); saveGame(true);
+  }
+};
+
+/* ============ C-6. 章节地图渲染 ============ */
+renderBattles = function(){
+  const list = document.getElementById('battleList');
+  if(!list) return;
+  list.innerHTML = '';
+  const myPow = calcPower();
+
+  CHAPTER_DEFS.forEach((c, ci)=>{
+    const chNo = ci+1;
+    const done = chapterCleared(chNo);
+    const unlocked = (chNo === 1) || chapterCleared(chNo-1);
+    const head = document.createElement('div');
+    head.className = 'chapHead' + (done?' done':'') + (unlocked?'':' lock');
+    head.innerHTML = `<span class="chapIco">${c.ico}</span>
+      <span class="chapNm">第${CHAPTER_NAMES[ci]}章 · ${c.n}</span>
+      <span class="chapSt">${done?'✅ 已平定':(unlocked?'进行中':'🔒 未解锁')}</span>`;
+    list.appendChild(head);
+    if(!unlocked) return;
+
+    MAP_MISSIONS.filter(m=>m.ch===chNo).forEach(m=>{
+      const can  = myPow >= m.pow;
+      const clr  = !!V2.cleared[m.id];
+      const el   = document.createElement('div');
+      el.className = 'batCard' + (clr?' cleared':'');
+      el.innerHTML = `<div class="batTop"><span class="batNm">${m.ico} 第${m.stage}战</span>
+        <span class="batTier">${m.tier}</span></div>
+        <div class="batDesc">${m.desc}</div>
+        <div class="batRew">💎 🪙${m.rew.gold} · 经验+${m.rew.exp} · 掉落率${Math.round((m.rew.drop||0.5)*100)}%</div>
+        <button ${can?'':'disabled'}>${clr?'已征服':(can?'出 征':'战力不足')}</button>
+        <div class="batResult" style="display:none"></div>`;
+      const btn = el.querySelector('button');
+      if(can) btn.addEventListener('click', ()=>doBattle(m, el));
+      list.appendChild(el);
+    });
+  });
+};
+
+/* ============ C-7. 天赋面板 ============ */
+function renderTalentPanel(){
+  const box = document.getElementById('talentBody');
+  if(!box) return;
+  const free = talentFree(), total = talentPointsTotal();
+  box.innerHTML = `<div class="tpHead">可用天赋点 <b>${free}</b> / 累计 ${total}
+      <span class="tpHint">（英雄每升 8 级得 1 点，转生 +5）</span></div>` +
+    TALENTS.map(t=>{
+      const cur = V2.talent[t.k]||0;
+      const pct = Math.round(cur/t.max*100);
+      return `<div class="tpRow">
+        <div class="tpIco" style="color:${t.color}">${t.ico}</div>
+        <div class="tpMain">
+          <div class="tpNm">${t.n} <span class="tpLv">${cur}/${t.max}</span></div>
+          <div class="tpDesc">${t.desc}</div>
+          <div class="tpBar"><i style="width:${pct}%;background:${t.color}"></i></div>
+        </div>
+        <button class="tpBtn" ${free>0&&cur<t.max?'':'disabled'} onclick="learnTalent('${t.k}')">+1</button>
+      </div>`;
+    }).join('') +
+    `<div class="tpFoot">当前加成：战力 ×${talentMult().toFixed(2)} · 暴击率 ${(critRate()*100).toFixed(1)}%</div>`;
+}
+function openTalentPanel(){
+  popModal('🎯 天赋树', '<div id="talentBody"></div>', '关 闭');
+  renderTalentPanel();
+}
+window.learnTalent = learnTalent;
+
+/* ============ C-8. 装备面板 ============ */
+function openEquipPanel(heroId){
+  const h = HEROES.find(x=>x.id===heroId);
+  if(!h || !state.owned[heroId]){ showToast('未拥有该英雄'); return; }
+  const bonus = heroEquipBonus(heroId);
+  const bag = V2.equip[heroId] || {};
+  let html = `<div class="eqToolbar">🎒 <b>${h.name}</b> 的装备　总加成 ⚔+${bonus.atk} 🛡+${bonus.def} ❤+${bonus.hp}</div>`;
+  EQUIP_SLOTS.forEach(s=>{
+    const it = bag[s.k];
+    if(!it){
+      html += `<div class="eqRow empty"><div class="eqIco">${s.ico}</div>
+        <div class="eqMain"><div class="eqNm">${s.n} · 空</div>
+        <div class="eqSub">战利品自动装备到此槽</div></div></div>`;
+    } else {
+      const t = EQUIP_TIERS[it.q], st = equipStat(it);
+      html += `<div class="eqRow">
+        <div class="eqIco" style="border-color:${t.c};color:${t.c}">${s.ico}</div>
+        <div class="eqMain">
+          <div class="eqNm" style="color:${t.c}">${t.n}·${it.name} <b>+${it.lv}</b></div>
+          <div class="eqSub">⚔${st.atk} 🛡${st.def} ❤${st.hp}</div>
+        </div>
+        <button class="tpBtn" ${it.lv>=10?'disabled':''} onclick="upgradeEquip('${heroId}','${s.k}')">强化</button>
+      </div>`;
+    }
+  });
+  html += `<div class="eqFoot">强化消耗金币，每级 +12% 属性（上限 +10）</div>`;
+  popModal('🎒 装备宝物', html, '关 闭');
+}
+window.upgradeEquip = upgradeEquip;
+
+/* ============ C-9. 图鉴收集率 + 工具条 ============ */
+refreshHeroes = function(){
+  const grid = document.getElementById('heroGrid');
+  if(!grid) return;
+  grid.innerHTML = '';
+  const own = HEROES.filter(h=>state.owned[h.id]).length;
+  const pct = Math.round(own / HEROES.length * 100);
+
+  // 工具条（收集率 + 天赋入口）
+  const bar = document.createElement('div');
+  bar.className = 'colBar';
+  bar.innerHTML = `<div class="colTxt">📖 图鉴收集 <b>${own}/${HEROES.length}</b> (${pct}%)</div>
+    <div class="colBarBg"><i style="width:${pct}%"></i></div>
+    <button class="colBtn" onclick="openTalentPanel()">🎯 天赋</button>`;
+  grid.appendChild(bar);
+
+  HEROES.forEach(h=>{
+    const o = state.owned[h.id];
+    const own = !!o;
+    let lvHtml = '', nameStyle = '', badge = '';
+    if(own){
+      const r = lvInfo(o.lv);
+      const expStr = o.lv>=LV_CAP ? 'MAX' : `${o.exp}/${lvNeedExp(o.lv)}`;
+      nameStyle = `style="color:${r.color}"`;
+      lvHtml = `<div class="hLv" style="color:${r.color};border-color:${r.color}55;background:${r.glow}">LV.${o.lv} <small>${r.name}</small></div>`;
+      lvHtml += `<div class="hExp">经验 ${expStr}</div>`;
+      badge = `<div class="have" style="color:${r.color}">✓ ${o.lv}级</div>`;
+    }
+    const eqCnt = Object.keys(V2.equip[h.id]||{}).length;
+    const el = document.createElement('div');
+    el.className = `heroCard ${own?'have':''} ${h.rank==='legendary'?'lg':h.rank==='epic'?'ep':''} ${h.rank==='divine'?'dv':''}`;
+    el.innerHTML = `<div class="hAv" style="background:${gradient(h.color)};display:flex;align-items:center;justify-content:center">${h.clsIcon}</div>
+      <div class="hNm" ${nameStyle}>${h.name}</div>
+      <div class="hCls">${h.clsIcon} ${h.cls} · ${h.rarity}${h.rank==='divine'?' ⚡神将':''}</div>
+      <div class="hStat">⚔${h.atk} 🛡${h.def} 💪${h.hp}</div>
+      ${own?`<div class="hEq">🎒 ${eqCnt}/3</div>`:''}${lvHtml}${badge}`;
+    el.onclick = ()=>showDetail(h);
+    grid.appendChild(el);
+  });
+};
+
+/* ============ C-10. 顶部资源栏扩展（战力 / 天赋点 / 存档） ============ */
+refreshRes = function(){
+  document.getElementById('rGold').textContent  = state.gold;
+  document.getElementById('rFood').textContent  = state.food;
+  document.getElementById('rWood').textContent  = state.wood;
+  document.getElementById('rStone').textContent = state.stone;
+  document.getElementById('ownedCount').textContent = HEROES.filter(h=>state.owned[h.id]).length;
+  const p = document.getElementById('v2Pow');
+  if(p) p.textContent = '⚡ ' + calcPower().toLocaleString();
+  const tp = document.getElementById('v2Talent');
+  if(tp){ const f = talentFree(); tp.textContent = '🎯 ' + f; tp.classList.toggle('has', f>0); }
+  const q = document.getElementById('v2Ticket');
+  if(q) q.textContent = '🎫 ' + (V2.ticket||0);
+};
+
+/* ============ C-11. 英雄详情扩展（装备按钮） ============ */
+const _showDetail_orig = showDetail;
+showDetail = function(h){
+  _showDetail_orig(h);
+  const box = document.querySelector('#detail .box');
+  if(!box) return;
+  let btn = box.querySelector('.dEquipBtn');
+  if(!btn){
+    btn = document.createElement('button');
+    btn.className = 'dEquipBtn';
+    box.insertBefore(btn, box.querySelector('.dClose'));
+  }
+  const o = state.owned[h.id];
+  if(o){
+    btn.style.display = 'block';
+    btn.textContent = '🎒 装备宝物';
+    btn.onclick = ()=>{ closeDetail(); setTimeout(()=>openEquipPanel(h.id), 200); };
+    // 装备加成展示
+    const b = heroEquipBonus(h.id);
+    let line = box.querySelector('.dEqLine');
+    if(!line){
+      line = document.createElement('div');
+      line.className = 'dEqLine';
+      box.insertBefore(line, btn);
+    }
+    line.innerHTML = `装备加成：⚔+${b.atk} 🛡+${b.def} ❤+${b.hp}　|　天赋战力 ×${talentMult().toFixed(2)}`;
+  } else {
+    btn.style.display = 'none';
+  }
+};
+
+/* ============ C-12. Boss 世界播报 ============ */
+const _spawnBoss_orig = spawnBoss;
+spawnBoss = function(){
+  _spawnBoss_orig();
+  if(boss && boss.name && Best_check(boss.name)){
+    broadcast('🦖 <b>'+boss.name+'</b>（战力 '+boss.pow+'）降临战场！');
+  }
+  const t = document.getElementById('bossTime');
+  if(t) t.textContent = '⏳ 剩余 ' + bossLeft + 's';
+};
+function Best_check(name){
+  if(BEST.seenBoss === name) return false;
+  BEST.seenBoss = name;
+  return true;
+}
+
+/* ============ C-13. 初始化 ============ */
+function v2Init(){
+  const hadSave = loadGame();
+  checkSign();
+  refreshRes();
+  refreshHeroes();
+  renderBuildings();
+  renderBattles();
+  renderBoss();
+  renderAI();
+  renderSignDot();
+
+  if(hadSave){
+    setTimeout(()=>broadcast('💾 <b>存档已载入</b> —— 帝国继续运转'), 800);
+  } else {
+    setTimeout(()=>broadcast('👑 欢迎回来，陛下！新的帝国等待开拓'), 800);
+  }
+  const s = checkSign();
+  if(!s.done){
+    setTimeout(()=>{
+      popModal('📅 每日签到',
+        `<div style="text-align:center;line-height:1.9">
+          <div style="font-size:36px">🎁</div>
+          <div>今日签到可领 <b style="color:#ffd98a">${signReward(s.streak+1).d}</b></div>
+          <div style="color:#8b7a5a;font-size:12px">连签 7 天得保底券 🎫</div>
+         </div>`, '立即签到');
+      const btn = document.querySelector('#dynModal .dmBtn');
+      if(btn) btn.onclick = ()=>{ closeModal(); doSign(); };
+    }, 1200);
+  }
+  checkDivineUnlock();
+  checkAchievements(true);
+  tickNews();
+}
+function renderSignDot(){
+  const s = checkSign();
+  const el = document.getElementById('signBtn');
+  if(!el) return;
+  el.classList.toggle('has', !s.done);
+  el.textContent = s.done ? '📅 已签到' : '📅 签到';
+}
+
+/* 定时：播报 + 成就巡检 */
+setInterval(tickNews, 14000);
+setInterval(()=>{ checkAchievements(); checkDivineUnlock(); renderSignDot(); }, 6000);
+setInterval(()=>{ refreshRes(); }, 2000);
+
+/* 启动 */
+setTimeout(v2Init, 120);
+
+
+/* ---- 隐藏神将入池（图鉴集齐后 6% 概率抽到） ---- */
+const _rollHero_v2 = rollHero;
+rollHero = function(){
+  if(V2.dyn.divine && Math.random() < 0.06){
+    const god = HEROES.find(h=>h.id==='chiyou');
+    if(god) return god;
+  }
+  return _rollHero_v2();
+};
+
+/* ==================================================================
+   v2 扩展包 —— 模块D（帝国统计 / 杂项）
+   ================================================================== */
+function showStats(){
+  let maxLv = 0, sumLv = 0, ownCnt = 0;
+  HEROES.forEach(h=>{
+    const o = state.owned[h.id];
+    if(o){ ownCnt++; maxLv = Math.max(maxLv, o.lv); sumLv += o.lv; }
+  });
+  const eqCnt  = Object.keys(V2.equip).reduce((a,k)=>a+Object.keys(V2.equip[k]||{}).length, 0);
+  const achCnt = Object.keys(V2.ach).length;
+  const cleared = Object.keys(V2.cleared).length;
+  const chapDone = CHAPTER_DEFS.filter((c,i)=>chapterCleared(i+1)).length;
+  const rows = [
+    ['⚡ 当前战力',   calcPower().toLocaleString()],
+    ['👥 拥有英雄',   ownCnt + ' / ' + HEROES.length],
+    ['🎖️ 英雄总等级', sumLv + '（最高 LV.' + maxLv + '）'],
+    ['🛡️ 建筑总等级', Object.values(city.lvl).reduce((a,b)=>a+b,0)],
+    ['🎒 装备件数',   eqCnt],
+    ['🗺️ 关卡进度',   cleared + ' / ' + MAP_MISSIONS.length + '（已平定 ' + chapDone + ' 章）'],
+    ['🦖 讨伐 Boss',  (V2.stat.bossKills||0) + ' 次'],
+    ['⚔️ 剿灭势力',   (V2.stat.aiKills||0) + ' 个'],
+    ['💥 暴击次数',   (V2.stat.crits||0) + ' 次'],
+    ['🎯 天赋加点',   talentPointsUsed() + ' / ' + talentPointsTotal()],
+    ['🏆 成就达成',   achCnt + ' / ' + ACHIEVEMENTS.length],
+    ['🌀 转生次数',   V2.reinc.count + ' 世（战力 ×' + (1+V2.reinc.count*0.10).toFixed(2) + '）'],
+    ['🪙 累计离线收益', ((V2.stat.offlineTotal||0)).toLocaleString() + ' 金币']
+  ];
+  popModal('📊 帝国统计',
+    rows.map(r=>`<div style="display:flex;justify-content:space-between;padding:5px 0;
+      border-bottom:1px solid rgba(255,217,138,.08)">
+      <span style="color:#a89a78">${r[0]}</span><b style="color:#ffd98a">${r[1]}</b></div>`).join(''),
+    '关 闭');
+}
+window.showStats = showStats;
+
+/* 键盘快捷键：S 存档 / T 天赋 / Esc 关弹窗 */
+addEventListener('keydown', e=>{
+  if(e.key === 'Escape'){ closeModal(); closeDetail(); }
+  if(e.key === 's' || e.key === 'S'){ saveGame(); showToast('💾 手动存档完成'); }
+  if(e.key === 't' || e.key === 'T'){ openTalentPanel(); }
+});
+
+/* 成就面板（英雄页可通过长按图鉴打开，此处保留入口） */
+function showAchievements(){
+  const list = ACHIEVEMENTS.map(a=>{
+    const got = !!V2.ach[a.k];
+    return `<div style="display:flex;gap:9px;align-items:center;padding:7px 0;
+      border-bottom:1px solid rgba(255,217,138,.08);opacity:${got?1:.45}">
+      <div style="font-size:19px">${a.ico}</div>
+      <div style="flex:1">
+        <div style="color:${got?'#ffd98a':'#a89a78'};font-size:13px;font-weight:bold">${a.n}</div>
+        <div style="font-size:11px;color:#8b7a5a">${a.desc}</div>
+      </div>
+      <div style="font-size:12px;color:${got?'#8eff8e':'#666'}">${got?'✓':'🔒'}</div>
+    </div>`;
+  }).join('');
+  popModal('🏆 成就殿堂', list, '关 闭');
+}
+window.showAchievements = showAchievements;
+
+
+
+/* ============ v3 打城模块 ============ */
+/* ================= v3 打城模块 ================= */
+const TITLES=[
+ {n:'平民',m:0},{n:'骑士',m:300},{n:'男爵',m:800},{n:'子爵',m:1800},
+ {n:'伯爵',m:3600},{n:'侯爵',m:7000},{n:'公爵',m:14000},{n:'大公爵',m:26000}
+];
+const OFFICES=['无','政务官','参议长','裁决官','执政官'];
+const COUNTER={'骑':'步','弓':'骑','步':'弓'};
+const CLSICON={'步':'\u25A0','骑':'\u2726','弓':'\u25CE'};
+const CITIES=[
+ {id:'kiev', name:'基辅',     area:'东欧平原', kind:'小城', enemy:'叛军', hp:18000, guard:['步','步','骑','弓','步'], gem:60,  bp:1, tax:120},
+ {id:'paris',name:'巴黎',     area:'西欧',     kind:'小城', enemy:'叛军', hp:26000, guard:['骑','步','弓','步','步'], gem:80,  bp:2, tax:180},
+ {id:'roma', name:'罗马',     area:'地中海',   kind:'首都', enemy:'叛军', hp:44000, guard:['步','骑','弓','步','步'], gem:120, bp:3, tax:280},
+ {id:'cairo',name:'开罗',     area:'北非',     kind:'大城', enemy:'阵营', hp:52000, guard:['弓','弓','步','骑','步'], gem:150, bp:3, tax:320},
+ {id:'kara', name:'哈拉和林', area:'漠北草原', kind:'大城', enemy:'玩家', hp:60000, guard:['骑','骑','步','弓','步'], gem:180, bp:4, tax:400}
+];
+const W3={merit:0,bp:0,gem:0,era:1,firstBlood:{},log:[],cs:{}};
+CITIES.forEach(function(c){ W3.cs[c.id]={owner:c.enemy,shield:0,taxT:0}; });
+
+function w3Owned(){
+  const seen={};
+  return HEROES.filter(function(h){ return state.owned&&state.owned[h.id]; }).filter(function(h){
+    if(seen[h.name]) return false; seen[h.name]=1; return true;
+  }).map(function(h){
+    const o=state.owned[h.id]; const lv=(o&&o.lv)?o.lv:1;
+    return {h:h,lv:lv,c2:String(h.cls).replace('\u5175',''),p:Math.round((h.atk+h.def+h.hp)*(1+lv*0.035))};
+  }).sort(function(a,b){ return b.p-a.p; });
+}
+function w3Title(){ let t=TITLES[0],i=0; TITLES.forEach(function(x,k){ if(W3.merit>=x.m){t=x;i=k;} }); return {t:t,idx:i,next:TITLES[i+1]||null}; }
+function w3Office(){ const ti=w3Title().idx; return ti>=6?3:(ti>=4?2:(ti>=2?1:0)); }
+function w3Score(){ let s=0; CITIES.forEach(function(c){ if(W3.cs[c.id].owner==='我') s+=c.hp/1000; }); return Math.round(s); }
+function w3Squad(){ return w3Owned().slice(0,5); }
+
+function renderWar(){ renderEra(); renderRank(); renderCities(); }
+
+function renderEra(){
+  const box=document.getElementById('eraBox'); if(!box) return;
+  const now=new Date(); const nx=new Date(now);
+  if(now.getHours()<12){ nx.setHours(12,0,0,0); } else if(now.getHours()<21){ nx.setHours(21,0,0,0); }
+  else { nx.setDate(nx.getDate()+1); nx.setHours(12,0,0,0); }
+  const left=Math.max(0,Math.floor((nx-now)/1000));
+  const hh=String(Math.floor(left/3600)).padStart(2,'0');
+  const mm=String(Math.floor(left%3600/60)).padStart(2,'0');
+  const ss=String(left%60).padStart(2,'0');
+  const sc=w3Score();
+  box.innerHTML='<div class="w3card">'
+   +'<div class="w3row"><span>纪元阶段</span><b>第 '+W3.era+' 纪元 · 攻城期</b></div>'
+   +'<div class="w3row"><span>阵营势力</span><b>汉 · 势力值 '+sc+'</b></div>'
+   +'<div class="w3row"><span>下次势力值结算</span><b>'+hh+':'+mm+':'+ss+'</b></div>'
+   +'<div class="w3row"><span>预计结算奖励</span><b>\u25C8 钻石 × '+(sc*8)+'</b></div>'
+   +'<div class="w3row"><span>库存</span><b>\u25A4 图纸 '+W3.bp+' · \u25C8 钻石 '+W3.gem+'</b></div>'
+   +'</div>';
+}
+function renderRank(){
+  const box=document.getElementById('rankBox'); if(!box) return;
+  const ti=w3Title(); const nxt=ti.next;
+  const pct=nxt?Math.min(100,Math.round((W3.merit-ti.t.m)/(nxt.m-ti.t.m)*100)):100;
+  const sq=w3Squad();
+  box.innerHTML='<div class="w3card">'
+   +'<div class="w3row"><span>当前爵位</span><b>\u265B '+ti.t.n+'</b></div>'
+   +'<div class="w3row"><span>战功</span><b>'+W3.merit+(nxt?(' / '+nxt.m):' (已封顶)')+'</b></div>'
+   +'<div class="w3bar"><i style="width:'+pct+'%"></i></div>'
+   +'<div class="w3row"><span>官职</span><b>'+(w3Office()>0?OFFICES[w3Office()]:'暂未当选')+'</b></div>'
+   +'<div class="w3row"><span>出征主力</span><b>'+(sq.length?sq.map(function(u){return u.h.name;}).join('、'):'暂无可出战英雄')+'</b></div>'
+   +'</div>';
+}
+function renderCities(){
+  const box=document.getElementById('cityList'); if(!box) return;
+  let h='';
+  CITIES.forEach(function(c){
+    const st=W3.cs[c.id]; const mine=st.owner==='我';
+    const cls=mine?'own':(c.enemy==='叛军'?'rebel':'gameon');
+    const ct=mine?'<span class="ct ctOwn">已占领 · 总督我</span>':(c.enemy==='叛军'?'<span class="ct ctRebel">叛军盘踞</span>':'<span class="ct ctGame">'+c.enemy+'所据</span>');
+    const sh=st.shield>Date.now()?('<div class="ca">免战中 '+Math.ceil((st.shield-Date.now())/1000)+'s</div>'):'';
+    h+='<div class="cityCard '+cls+'" onclick="openCity(\''+c.id+'\')">'
+      +'<div class="cn">'+c.name+'</div><div class="ca">'+c.area+' · '+c.kind+'</div>'+ct+sh+'</div>';
+  });
+  box.innerHTML=h;
+}
+function openCity(id){
+  const c=CITIES.find(function(x){return x.id===id;}); const st=W3.cs[id]; if(!c) return;
+  const mine=st.owner==='我';
+  const seq=c.guard.map(function(g){ return '<div class="gUnit">'+CLSICON[g]+g+'</div>'; }).join('');
+  let h='<div class="wmTitle">'+c.name+' · '+c.kind+'</div>'
+   +'<div class="wmLine">区域：<b>'+c.area+'</b>　所属：<b>'+(mine?'我方总督':c.enemy)+'</b></div>'
+   +'<div class="wmLine">守军兵力：<b>'+c.hp.toLocaleString()+'</b></div>'
+   +'<div class="wmLine" style="text-align:center">守将序列（骑克步 · 弓克骑 · 步克弓）</div>'
+   +'<div class="guardSeq">'+seq+'</div>'
+   +'<div class="wmLine">征收产出：<b>\u25A4 图纸 ×'+c.bp+'</b>　税收：<b>'+c.tax+'/分钟</b></div>'
+   +'<div class="wmLine">首杀奖励：<b>\u25C8 钻石 ×'+c.gem+'</b>'+(W3.firstBlood[c.area]?'（本区域已首杀）':'')+'</div>';
+  if(mine){ h+='<div class="report">此城归我方总督管辖，图纸与税收持续产出中。</div>'; }
+  else{
+    h+='<div style="text-align:center;margin-top:6px">'
+      +'<button class="w3btn p" onclick="doScout(\''+id+'\')">\u25CE 侦查</button>'
+      +'<button class="w3btn" onclick="doAttack(\''+id+'\')">\u2726 发起攻城</button></div>';
+  }
+  h+='<div style="text-align:center"><button class="w3btn d" onclick="closeWar()">关 闭</button></div>';
+  document.getElementById('wmBox').innerHTML=h;
+  document.getElementById('warModal').classList.add('show');
+}
+function closeWar(){ const m=document.getElementById('warModal'); if(m) m.classList.remove('show'); }
+function doScout(id){
+  const c=CITIES.find(function(x){return x.id===id;}); const sq=w3Squad();
+  let h='<div class="wmTitle">\u25CE 侦查报告 · '+c.name+'</div>';
+  if(!sq.length){ h+='<div class="report">暂无可用英雄，先去酒馆招募吧。</div>'; }
+  else{
+    for(let i=0;i<c.guard.length;i++){
+      const g=c.guard[i]; const u=sq[i%sq.length]; const ok=COUNTER[u.c2]===g;
+      h+='<div class="guardSeq"><div class="gUnit">'+CLSICON[g]+'守将 '+g+'</div>'
+        +'<div class="gUnit '+(ok?'hit':'miss')+'">'+u.h.name+'('+u.h.cls+') '+(ok?'克制+50%':'被制-20%')+'</div></div>';
+    }
+    let bonus=1;
+    for(let i=0;i<c.guard.length;i++){ bonus+=(COUNTER[sq[i%sq.length].c2]===c.guard[i])?0.5:-0.2; }
+    bonus=Math.max(0.4,bonus);
+    const atk=Math.round(sq.reduce(function(s,u){return s+u.p;},0)*bonus*12);
+    h+='<div class="report">预计输出：<b>'+atk.toLocaleString()+'</b>　守军：<b>'+c.hp.toLocaleString()+'</b><br>'
+      +(atk>=c.hp?'<b style="color:#8fd98a">判定：可破城 \u2714</b>':'<b style="color:#ff8a7a">判定：兵力不足，建议先练级或多招将</b>')+'</div>';
+  }
+  h+='<div style="text-align:center"><button class="w3btn" onclick="openCity(\''+id+'\')">返 回</button>'
+    +'<button class="w3btn d" onclick="closeWar()">关 闭</button></div>';
+  document.getElementById('wmBox').innerHTML=h;
+}
+function doAttack(id){
+  const c=CITIES.find(function(x){return x.id===id;}); const st=W3.cs[id]; const sq=w3Squad();
+  if(!sq.length){ alert('还没有可用英雄哦'); return; }
+  if(st.shield>Date.now()){ alert('该城仍在免战保护中'); return; }
+  let bonus=1; const seq=[];
+  for(let i=0;i<c.guard.length;i++){
+    const g=c.guard[i]; const u=sq[i%sq.length]; const ok=COUNTER[u.c2]===g;
+    bonus+=ok?0.5:-0.2; seq.push({g:g,ok:ok});
+  }
+  bonus=Math.max(0.4,bonus);
+  const atk=Math.round(sq.reduce(function(s,u){return s+u.p;},0)*bonus*12);
+  const win=atk>=c.hp;
+  const killed=win?c.hp:atk;
+  const lost=win?Math.round(c.hp*0.05):Math.round(atk*0.3);
+  const merit=Math.round(killed/90);
+  W3.merit+=merit;
+  let extra='';
+  if(win){
+    st.owner='我'; st.shield=Date.now()+30000; st.taxT=Date.now();
+    W3.bp+=c.bp;
+    if(!W3.firstBlood[c.area]){ W3.firstBlood[c.area]=1; W3.gem+=c.gem; extra='<br><b style="color:#ffd54a">\u25C8 区域首杀！额外获得钻石 ×'+c.gem+'</b>'; }
+    W3.log.unshift('攻克 '+c.name);
+  }
+  let h='<div class="wmTitle">'+(win?'\u2726 大捷':'\u2718 攻城失利')+' · '+c.name+'</div>'
+   +'<div class="wmLine" style="text-align:center">守将兵种：'+c.guard.join(' / ')+'</div>'
+   +'<div class="guardSeq">'+seq.map(function(x){ return '<div class="gUnit '+(x.ok?'hit':'miss')+'">'+CLSICON[x.g]+x.g+(x.ok?' 克':' 被克')+'</div>'; }).join('')+'</div>'
+   +'<div class="report">我军输出：<b>'+atk.toLocaleString()+'</b>　敌军兵力：<b>'+c.hp.toLocaleString()+'</b><br>'
+   +'歼敌：<b>'+killed.toLocaleString()+'</b>　我军战损：<b>'+lost.toLocaleString()+'</b><br>'
+   +'获得战功：<b>+'+merit+'</b>'+extra+'</div>';
+  if(win){
+    h+='<div class="wmLine">城池插上我方旗帜，享 <b>30 秒免战</b>，开始产出图纸与税收。</div>'
+     +'<div style="text-align:center"><button class="w3btn g" onclick="doRebuild(\''+id+'\')">\u265B 重建并申请总督</button></div>';
+  }else{
+    h+='<div class="wmLine">守军顽强，建议提升英雄等级，或按守将序列（骑克步 · 弓克骑 · 步克弓）调整出战兵种。</div>';
+  }
+  h+='<div style="text-align:center;margin-top:6px"><button class="w3btn d" onclick="closeWar()">关 闭</button></div>';
+  document.getElementById('wmBox').innerHTML=h;
+  try{ refreshRes(); }catch(e){}
+  renderWar();
+}
+function doRebuild(id){
+  const c=CITIES.find(function(x){return x.id===id;});
+  if(state.gold<800||state.wood<600){ alert('重建需要 800 金币 + 600 木材'); return; }
+  state.gold-=800; state.wood-=600;
+  W3.cs[id].shield=Date.now()+30000;
+  try{ refreshRes(); }catch(e){}
+  const h='<div class="wmTitle">\u265B 总督当选</div>'
+   +'<div class="wmLine">你花费 <b>800 金币 / 600 木材</b> 重建了 '+c.name+'，并在 5 分钟选举中凭爵位 <b>'+w3Title().t.n+'</b> 当选总督。</div>'
+   +'<div class="report">总督权益：<br>· 每 60 秒自动征收 <b>\u25A4 图纸</b> 与 <b>'+c.tax+' 资源</b><br>· 每晚 21:00 额外 2 张免费图纸<br>· 城池享 30 秒免战</div>'
+   +'<div style="text-align:center"><button class="w3btn" onclick="closeWar()">就 任</button></div>';
+  document.getElementById('wmBox').innerHTML=h;
+  renderWar();
+}
+setInterval(function(){
+  const now=Date.now(); let got=false;
+  CITIES.forEach(function(c){
+    const st=W3.cs[c.id];
+    if(st.owner==='我'&&now-st.taxT>=60000){
+      st.taxT=now; W3.bp+=1;
+      state.food+=c.tax; state.wood+=c.tax; state.gold+=Math.round(c.tax/2); got=true;
+    }
+  });
+  if(got){ try{ refreshRes(); }catch(e){} }
+  const w=document.getElementById('war');
+  if(w&&w.style.display!=='none') renderWar();
+},1000);
+
+/* 覆盖 switchTab，纳入打城页 */
+function switchTab(t){
+  try{ audio(); sClick(); }catch(e){}
+  document.querySelectorAll('.tab').forEach(function(x){ x.classList.toggle('on',x.dataset.tab===t); });
+  ['tavern','heroes','main','battle','war'].forEach(function(k){ const el=document.getElementById(k); if(el) el.style.display=(k===t?'block':'none'); });
+  const bgMap={tavern:'bgTavern',heroes:'bgHeroes',main:'bgMain',battle:'bgMain',war:'bgMain'};
+  try{
+    ['bgTavern','bgHeroes','bgMain'].forEach(function(b){ const e=document.getElementById(b); if(e) e.className='bg off'; });
+    const be=document.getElementById(bgMap[t]); if(be) be.className='bg on';
+  }catch(e){}
+  try{
+    const hg=document.getElementById('heroGrid'); if(hg) hg.style.display=(t==='heroes'?'grid':'none');
+    if(t==='main'&&typeof renderBuildings==='function') renderBuildings();
+    if(t==='battle'){ if(typeof renderBattles==='function')renderBattles(); if(typeof renderBoss==='function')renderBoss(); if(typeof renderAI==='function')renderAI(); }
+    if(t==='war') renderWar();
+  }catch(e){}
+}
+
+
+
+/* ============ v4 铁匠铺 ============ */
+/* ================= v4 铁匠铺 · 神器纪元 ================= */
+const SLOTS=[{k:'weapon',n:'武器',ic:'\u2726'},{k:'armor',n:'护甲',ic:'\u2B1F'},{k:'trinket',n:'饰品',ic:'\u25C8'}];
+const QS=[
+ {k:'common',n:'普通',c:'#c9c9c9',mul:1.0,crit:0},
+ {k:'rare',  n:'精良',c:'#6ab4ff',mul:1.5,crit:0},
+ {k:'epic',  n:'史诗',c:'#c77dff',mul:2.2,crit:0.08},
+ {k:'legend',n:'传说',c:'#ffd54a',mul:3.2,crit:0.15}
+];
+const NAMES={weapon:['铁剑','精钢刀','陨铁长枪','龙牙巨刃'],armor:['皮革甲','锁子甲','玄铁重铠','龙鳞战甲'],trinket:['铜护符','兵法残卷','将魂玉','帝国之玺']};
+const QUESTS=[
+ {k:'take', n:'攻占城池', need:1,     xi:'\u25A3', rp:{bp:2}},
+ {k:'forge',n:'锻造装备', need:3,     xi:'\u2726', rp:{gold:1500}},
+ {k:'kill', n:'歼敌累计', need:60000, xi:'\u2726', rp:{bp:3,gem:60}}
+];
+const W4={eq:{},bag:[],uid:1,q:{kill:0,forge:0,take:0},claimed:{}};
+
+function qOf(k){ let r=QS[0]; QS.forEach(function(q){ if(q.k===k) r=q; }); return r; }
+function rollQ(){ const r=Math.random()*100; let a=0; const T=[['common',52],['rare',30],['epic',14],['legend',4]];
+  for(let i=0;i<T.length;i++){ a+=T[i][1]; if(r<a) return T[i][0]; } return 'common'; }
+function mk(slotK,qk){
+  const Q=qOf(qk), qi=QS.findIndex(function(x){return x.k===qk;});
+  const s=slotK?SLOTS.filter(function(x){return x.k===slotK;})[0]:SLOTS[Math.floor(Math.random()*SLOTS.length)];
+  const it={id:W4.uid++,slot:s.k,slotN:s.n,ic:s.ic,q:Q.k,qn:Q.n,c:Q.c,crit:Q.crit,atk:0,def:0,hp:0,name:NAMES[s.k][qi]};
+  if(s.k==='weapon')  it.atk=Math.round(22*Q.mul);
+  if(s.k==='armor')   it.def=Math.round(22*Q.mul);
+  if(s.k==='trinket') it.hp =Math.round(24*Q.mul);
+  if(Q.crit>0) it.atk+=4;
+  return it;
+}
+function eqStat(it){ const a=[]; if(it.atk)a.push('攻 +'+it.atk); if(it.def)a.push('防 +'+it.def); if(it.hp)a.push('兵 +'+it.hp); return a.join('\u3000'); }
+function fmtIt(it){ return '<div style="text-align:center;font-size:15px;font-weight:bold;color:'+it.c+';margin:8px 0">'+it.ic+' 【'+it.qn+'】'+it.name+'</div>'
+  +'<div class="wmLine" style="text-align:center">'+eqStat(it)+(it.crit?'\u3000暴击 +'+Math.round(it.crit*100)+'%':'')+'</div>'; }
+
+function doForge(){
+  if(W3.bp<1){ alert('图纸不足，去攻城或当总督征收吧'); return; }
+  if(state.gold<200){ alert('金币不足（需 200）'); return; }
+  W3.bp-=1; state.gold-=200;
+  const it=mk(null,rollQ()); W4.bag.push(it); W4.q.forge++;
+  try{ refreshRes(); }catch(e){}
+  openForgeModal('<div class="wmTitle">\u2726 锻造成功</div>'+fmtIt(it)
+   +'<div class="wmLine">剩余图纸 <b>'+W3.bp+'</b>\u3000剩余金币 <b>'+state.gold+'</b></div>'
+   +'<div style="text-align:center"><button class="w3btn" onclick="closeForge()">收 下</button></div>');
+  renderForge();
+}
+function doMerge(qk){
+  const pool=W4.bag.filter(function(x){ return x.q===qk; });
+  if(pool.length<3){ alert('需要 3 件同品质装备'); return; }
+  const qi=QS.findIndex(function(x){return x.k===qk;});
+  if(qi>=QS.length-1){ alert('传说已是最高品质'); return; }
+  pool.slice(0,3).forEach(function(u){ const i=W4.bag.indexOf(u); if(i>=0) W4.bag.splice(i,1); });
+  const it=mk(null,QS[qi+1].k); W4.bag.push(it);
+  openForgeModal('<div class="wmTitle">\u2727 神器升华</div>'+fmtIt(it)
+   +'<div class="wmLine">3 件【'+qOf(qk).n+'】熔铸为一，品质跃升！</div>'
+   +'<div style="text-align:center"><button class="w3btn" onclick="closeForge()">收 下</button></div>');
+  renderForge();
+}
+function equipTo(iid){
+  const it=W4.bag.filter(function(x){return x.id===iid;})[0]; if(!it) return;
+  const sq=w3OwnedBase();
+  if(!sq.length){ alert('还没有英雄可装备，先去酒馆招募'); return; }
+  let h='<div class="wmTitle">'+it.ic+' 【'+it.qn+'】'+it.name+' 装备给谁</div><div class="wmLine" style="text-align:center">'+eqStat(it)+'</div>';
+  sq.forEach(function(u){
+    const cur=(W4.eq[u.h.id]||{})[it.slot];
+    h+='<div class="w4hero" onclick="doEquip('+iid+',\''+u.h.id+'\')"><span>'+u.h.name+' <span style="color:#9f8f6f;font-size:11px">'+u.h.cls+'</span></span>'
+     +'<span style="color:'+(cur?cur.c:'#6b5a3a')+';font-size:11px">'+(cur?('替换 '+cur.qn+cur.name):(it.slotN+'空槽'))+'</span></div>';
+  });
+  h+='<div style="text-align:center"><button class="w3btn d" onclick="closeForge()">取 消</button></div>';
+  openForgeModal(h);
+}
+function doEquip(iid,hid){
+  const idx=W4.bag.findIndex(function(x){return x.id===iid;}); if(idx<0) return;
+  const it=W4.bag.splice(idx,1)[0];
+  W4.eq[hid]=W4.eq[hid]||{};
+  const old=W4.eq[hid][it.slot];
+  if(old) W4.bag.push(old);
+  W4.eq[hid][it.slot]=it;
+  closeForge(); renderForge();
+}
+function unEquip(hid){
+  const eq=W4.eq[hid]||{};
+  SLOTS.forEach(function(s){ if(eq[s.k]){ W4.bag.push(eq[s.k]); delete eq[s.k]; } });
+  closeForge(); renderForge();
+}
+function openForgeModal(html){ document.getElementById('wmBox').innerHTML=html; document.getElementById('warModal').classList.add('show'); }
+function closeForge(){ const m=document.getElementById('warModal'); if(m) m.classList.remove('show'); }
+
+function renderForge(){
+  const t=document.getElementById('forgeTop'); if(!t) return;
+  const cnt={}; QS.forEach(function(q){ cnt[q.k]=0; }); W4.bag.forEach(function(x){ cnt[x.q]=(cnt[x.q]||0)+1; });
+  let h='<div class="w4top"><div class="w4res"><span>\u25A4 图纸 <b>'+W3.bp+'</b></span>'
+   +'<span>\u25C8 金币 <b>'+state.gold+'</b></span><span>\u25A3 装备 <b>'+W4.bag.length+'</b></span></div>'
+   +'<div class="w4row"><button class="w3btn" onclick="doForge()">\u2726 打造装备（1 图纸 + 200 金）</button></div>'
+   +'<div class="w4row" style="margin-top:7px">';
+  for(let i=0;i<3;i++){ const q=QS[i], nx=QS[i+1];
+    h+='<button class="w4mini" '+(cnt[q.k]>=3?'':'disabled')+' onclick="doMerge(\''+q.k+'\')">\u2727 3×'+q.n+'\u2192'+nx.n+'（'+cnt[q.k]+'/3）</button>';
+  }
+  h+='</div></div>';
+  t.innerHTML=h;
+
+  const b=document.getElementById('bagList');
+  let bh='';
+  if(!W4.bag.length) bh='<div class="w4empty">背包空空如也，去打造几件吧</div>';
+  else bh=W4.bag.map(function(it){
+    return '<div class="w4item" style="border-color:'+it.c+'"><div><div class="in" style="color:'+it.c+'">'+it.ic+' 【'+it.qn+'】'+it.name+'</div>'
+     +'<div class="is">'+eqStat(it)+(it.crit?'\u3000暴击 +'+Math.round(it.crit*100)+'%':'')+'</div></div>'
+     +'<button class="w4mini" onclick="equipTo('+it.id+')">装 备</button></div>';
+  }).join('');
+  const owned=Object.keys(W4.eq).filter(function(k){ return Object.keys(W4.eq[k]||{}).length; });
+  if(owned.length){
+    bh+='<div class="secTitle" style="font-size:13px">\u265B 已装备英雄</div>'+owned.map(function(hid){
+      const hero=HEROES.filter(function(x){return x.id===hid;})[0]; if(!hero) return '';
+      const eq=W4.eq[hid];
+      const list=SLOTS.map(function(s){ const it=eq[s.k]; return it?('<span style="color:'+it.c+'">'+it.ic+it.qn+it.name+'</span>'):('<span style="color:#6b5a3a">'+s.ic+s.n+'空</span>'); }).join('\u3000');
+      const bonus=SLOTS.reduce(function(a,s){ const it=eq[s.k]; return a+(it?(it.atk+it.def+it.hp):0); },0);
+      return '<div class="w4item"><div><div class="in">'+hero.name+' <span style="color:#8fd98a;font-size:11px">战力 +'+bonus+'</span></div><div class="is">'+list+'</div></div>'
+       +'<button class="w4mini" onclick="unEquip(\''+hid+'\')">卸 下</button></div>';
+    }).join('');
+  }
+  b.innerHTML=bh;
+
+  const qb=document.getElementById('questBox'); if(!qb) return;
+  qb.innerHTML=QUESTS.map(function(q){
+    const cur=Math.min(W4.q[q.k]||0,q.need), done=cur>=q.need, got=W4.claimed[q.k];
+    const rw=Object.keys(q.rp).map(function(k){ return (k==='bp'?'\u25A4 图纸×':(k==='gold'?'\u25C8 金币×':'\u25C8 钻石×'))+q.rp[k]; }).join('\u3000');
+    return '<div class="w4q"><div class="qn2"><span>'+q.xi+' '+q.n+'</span><span style="color:'+(done?'#8fd98a':'#9f8f6f')+'">'+cur.toLocaleString()+'/'+q.need.toLocaleString()+'</span></div>'
+     +'<div class="qp">奖励：'+rw+'</div>'
+     +'<button class="w4mini '+((done&&!got)?'g':'')+'" '+((done&&!got)?'':'disabled')+' onclick="claimQuest(\''+q.k+'\')">'+(got?'已领取':(done?'领 取':'进行中'))+'</button></div>';
+  }).join('');
+}
+function claimQuest(k){
+  const q=QUESTS.filter(function(x){return x.k===k;})[0]; if(!q||W4.claimed[k]) return;
+  if((W4.q[k]||0)<q.need){ alert('任务还未完成'); return; }
+  W4.claimed[k]=1;
+  if(q.rp.bp) W3.bp+=q.rp.bp;
+  if(q.rp.gold) state.gold+=q.rp.gold;
+  if(q.rp.gem) W3.gem+=q.rp.gem;
+  try{ refreshRes(); }catch(e){}
+  openForgeModal('<div class="wmTitle">\u2714 任务完成 · '+q.n+'</div>'
+   +'<div class="wmLine" style="text-align:center">奖励已发放：<b>'
+   +(Object.keys(q.rp).map(function(x){ return (x==='bp'?'图纸×':(x==='gold'?'金币×':'钻石×'))+q.rp[x]; }).join('\u3000'))+'</b></div>'
+   +'<div style="text-align:center"><button class="w3btn" onclick="closeForge()">收 下</button></div>');
+  renderForge();
+}
+
+/* ---- 装备加成接入战力 ---- */
+function w3OwnedBase(){
+  const seen={};
+  return HEROES.filter(function(h){ return state.owned&&state.owned[h.id]; }).filter(function(h){
+    if(seen[h.name]) return false; seen[h.name]=1; return true;
+  }).map(function(h){
+    const o=state.owned[h.id]; const lv=(o&&o.lv)?o.lv:1;
+    return {h:h,lv:lv,c2:String(h.cls).replace('\u5175',''),p:Math.round((h.atk+h.def+h.hp)*(1+lv*0.035))};
+  }).sort(function(a,b){ return b.p-a.p; });
+}
+function w3Owned(){
+  return w3OwnedBase().map(function(u){
+    const eq=W4.eq[u.h.id]||{}; let ea=0,ed=0,eh=0,cr=0;
+    SLOTS.forEach(function(s){ const it=eq[s.k]; if(it){ ea+=it.atk; ed+=it.def; eh+=it.hp; cr+=it.crit||0; } });
+    u.eq=eq; u.crit=cr;
+    const base=(u.h.atk+ea)+(u.h.def+ed)+(u.h.hp+eh);
+    u.p=Math.round(base*(1+u.lv*0.035)*(1+cr));
+    return u;
+  }).sort(function(a,b){ return b.p-a.p; });
+}
+/* ---- 任务进度追踪（复用攻城产生的战功/日志） ---- */
+let v4LastMerit=0, v4LastLog=0;
+setInterval(function(){
+  if(W3.merit>v4LastMerit){ W4.q.kill+=(W3.merit-v4LastMerit)*90; v4LastMerit=W3.merit; }
+  if(W3.log.length>v4LastLog){ W4.q.take+=(W3.log.length-v4LastLog); v4LastLog=W3.log.length; }
+  const f=document.getElementById('forge');
+  if(f&&f.style.display!=='none') renderForge();
+},1000);
+
+/* 覆盖 switchTab，纳入铁匠铺 */
+function switchTab(t){
+  try{ audio(); sClick(); }catch(e){}
+  document.querySelectorAll('.tab').forEach(function(x){ x.classList.toggle('on',x.dataset.tab===t); });
+  ['tavern','heroes','main','battle','war','forge'].forEach(function(k){ const el=document.getElementById(k); if(el) el.style.display=(k===t?'block':'none'); });
+  const bgMap={tavern:'bgTavern',heroes:'bgHeroes',main:'bgMain',battle:'bgMain',war:'bgMain',forge:'bgMain'};
+  try{
+    ['bgTavern','bgHeroes','bgMain'].forEach(function(b){ const e=document.getElementById(b); if(e) e.className='bg off'; });
+    const be=document.getElementById(bgMap[t]); if(be) be.className='bg on';
+  }catch(e){}
+  try{
+    const hg=document.getElementById('heroGrid'); if(hg) hg.style.display=(t==='heroes'?'grid':'none');
+    if(t==='main'&&typeof renderBuildings==='function') renderBuildings();
+    if(t==='battle'){ if(typeof renderBattles==='function')renderBattles(); if(typeof renderBoss==='function')renderBoss(); if(typeof renderAI==='function')renderAI(); }
+    if(t==='war') renderWar();
+    if(t==='forge') renderForge();
+  }catch(e){}
+}
+
+
+
+/* ============ v5 国战 ============ */
+/* ================= v5 国战纪 ================= */
+const FACTIONS=[
+ {k:'roma',  n:'罗马军团',   ratio:1.0, gem:120},
+ {k:'byz',   n:'拜占庭方阵', ratio:1.2, gem:180},
+ {k:'persia',n:'波斯铁骑',   ratio:1.4, gem:240}
+];
+const NEAR={kiev:['paris'],paris:['kiev','roma'],roma:['paris','cairo'],cairo:['roma','kara'],kara:['cairo']};
+const ALLIES=[{n:'赵子龙',i:'\u25C8'},{n:'李靖',i:'\u25C8'},{n:'霍去病',i:'\u25C8'}];
+const N5={phase:'idle',endAt:0,supply:0,side:'',kill:0,bless:0,lastMerit:0,report:'',stamp:0};
+
+function backStabList(){
+  return CITIES.filter(function(c){ return W3.cs[c.id].owner!=='我'; }).filter(function(c){
+    const nb=NEAR[c.id]||[];
+    return nb.some(function(x){ return W3.cs[x]&&W3.cs[x].owner==='我'; });
+  });
+}
+function natBoost(){
+  let b=0;
+  if(N5.phase==='war') b+=1.0;
+  b+=N5.supply*0.05;
+  b+=N5.bless*0.02;
+  if(backStabList().length) b+=0.3;
+  return b;
+}
+function natPhaseInfo(){
+  const P={ idle:{n:'休战期',c:'#9f8f6f',d:'可向敌对阵营宣战，开启国战'},
+            prepare:{n:'备战期',c:'#ffd54a',d:'投入补给可提升交战伤害'},
+            war:{n:'交战期',c:'#ff8a7a',d:'攻城伤害 +100%！全力以赴'},
+            settle:{n:'结算中',c:'#8fd98a',d:'战果统计中…'} };
+  return P[N5.phase]||P.idle;
+}
+function natFaction(){ let f=null; FACTIONS.forEach(function(x){ if(x.k===N5.side) f=x; }); return f; }
+
+function renderNat(){
+  const st=document.getElementById('natState'); if(!st) return;
+  const p=natPhaseInfo(); const f=natFaction();
+  const left=N5.endAt>Date.now()?Math.ceil((N5.endAt-Date.now())/1000):0;
+  const mm=String(Math.floor(left/60)).padStart(2,'0'), ss=String(left%60).padStart(2,'0');
+  const bst=backStabList();
+  const boost=Math.round(natBoost()*100);
+  let h='<div class="n5card'+(N5.phase==='war'?' n5war':'')+'">'
+   +'<div class="n5phase"><span style="color:'+p.c+'">\u2726 '+p.n+'</span>'
+   +'<span style="color:'+p.c+';font-size:12px">'+(N5.phase==='idle'?'—':(mm+':'+ss))+'</span></div>'
+   +'<div class="n5row"><span>'+p.d+'</span><b></b></div>'
+   +'<div class="n5row"><span>交战双方</span><b>'+(f?('汉 · 对阵 · '+f.n):'尚未宣战')+'</b></div>'
+   +'<div class="n5row"><span>我军总加成</span><b style="color:#ffd54a">+' +boost+'%</b></div>'
+   +'<div class="n5row"><span>本役歼敌</span><b>'+Math.round(N5.kill).toLocaleString()+'</b></div>'
+   +'<div class="n5row"><span>背袭可用</span><b>'+(bst.length?bst.length+' 座城池（+30%）':'无相邻据点')+'</b></div>'
+   +'</div>';
+  st.innerHTML=h;
+
+  const sp=document.getElementById('natSupply');
+  let sh='<div class="n5card"><div class="n5row"><span>投放木材换取战意</span><b>每 500 木 \u2192 +5%</b></div>'
+   +'<div class="n5row"><span>当前补给层数</span><b>'+N5.supply+' / 10（+'+N5.supply*5+'%）</b></div>'
+   +'<div style="text-align:center;margin-top:7px">'
+   +'<button class="w4mini" '+((N5.phase==='prepare'||N5.phase==='war')&&N5.supply<10&&state.wood>=500?'':'disabled')+' onclick="natSupply()">\u25A4 投入 500 木材</button>'
+   +'<button class="w4mini g" '+(N5.phase==='prepare'?'':'disabled')+' onclick="natStart()" style="margin-left:6px">\u2726 提前开战</button>'
+   +'</div>';
+  if(N5.phase==='prepare'){ sh+='<div class="n5tip">备战期倒计时中，可继续投入补给或直接开战</div>'; }
+  else if(N5.phase==='idle'){ sh+='<div class="n5tip">先向下方敌对阵营宣战，才能进入备战期</div>'; }
+  else if(N5.phase==='war'){ sh+='<div class="n5tip">交战期内攻打城池，伤害享受 +100% 基础加成</div>'; }
+  sh+='</div>';
+  sp.innerHTML=sh;
+
+  const lb=document.getElementById('legionBox');
+  let lh='<div class="n5card">';
+  ALLIES.forEach(function(a,i){
+    const ready=true;
+    lh+='<div class="n5ally"><span>'+a.i+' '+a.n+' <span style="color:#9f8f6f;font-size:11px">'+(N5.bless>i?'已祝福':'待命')+'</span></span>'
+      +'<button class="w4mini" '+(ready&&N5.bless<5&&N5.bless===i?'':'disabled')+' onclick="natBless()">接收祝福 +2%</button></div>';
+  });
+  lh+='<div class="n5row"><span>祝福层数</span><b>'+N5.bless+' / 5（+'+N5.bless*2+'%）</b></div>'
+    +'<div class="n5tip">每位盟友各可贡献 1 层战意祝福，叠满 +10%</div></div>';
+  lb.innerHTML=lh;
+
+  const tg=document.getElementById('natTargets');
+  tg.innerHTML=FACTIONS.map(function(f2){
+    const on=N5.side===f2.k;
+    return '<div class="n5tgt" style="border-color:'+(on?'#c0392b':'#6b4a1f')+'">'
+     +'<div><div class="tn">\u2726 '+f2.n+'</div>'
+     +'<div class="td">难度系数 ×'+f2.ratio+'　胜利奖励 \u25C8 钻石 ×'+f2.gem+'</div></div>'
+     +'<button class="w4mini" '+(N5.phase==='idle'?'':'disabled')+' onclick="natDeclare(\''+f2.k+'\')">'
+     + (on?'交战中':'宣 战')+'</button></div>';
+  }).join('') + '<div class="n5tip">宣战消耗 2000 金币 + 1500 木材，备战 5 分钟后自动开战</div>';
+}
+
+function natDeclare(k){
+  if(N5.phase!=='idle'){ alert('战局已在进行中'); return; }
+  if(state.gold<2000||state.wood<1500){ alert('宣战需要 2000 金币 + 1500 木材'); return; }
+  state.gold-=2000; state.wood-=1500;
+  N5.phase='prepare'; N5.endAt=Date.now()+5*60*1000; N5.side=k; N5.supply=0; N5.kill=0; N5.bless=0;
+  try{ refreshRes(); }catch(e){}
+  renderNat();
+}
+function natSupply(){
+  if(N5.supply>=10||state.wood<500){ return; }
+  state.wood-=500; N5.supply++;
+  try{ refreshRes(); }catch(e){}
+  renderNat();
+}
+function natStart(){
+  if(N5.phase!=='prepare') return;
+  N5.phase='war'; N5.endAt=Date.now()+3*60*1000;
+  renderNat();
+}
+function natBless(){
+  if(N5.bless>=5) return;
+  N5.bless++;
+  renderNat();
+}
+function natTick(){
+  const now=Date.now();
+  if(N5.lastMerit<W3.merit){ N5.kill+=(W3.merit-N5.lastMerit)*90; N5.lastMerit=W3.merit; }
+  if(N5.phase==='prepare'&&now>=N5.endAt){ N5.phase='war'; N5.endAt=now+3*60*1000; }
+  else if(N5.phase==='war'&&now>=N5.endAt){ natSettle(now); }
+  else if(N5.phase==='settle'&&now>=N5.endAt){ N5.phase='idle'; N5.side=''; N5.supply=0; N5.kill=0; N5.bless=0; }
+}
+function natSettle(now){
+  const f=natFaction()||FACTIONS[0];
+  const gem=Math.round(f.gem*(1+N5.kill/200000));
+  const bp=3+Math.floor(N5.kill/50000);
+  const merit=Math.round(N5.kill/60);
+  W3.gem+=gem; W3.bp+=bp; W3.merit+=merit;
+  N5.phase='settle'; N5.endAt=now+12000;
+  N5.report='<div class="wmTitle">\u2714 国战结算 · '+f.n+'</div>'
+   +'<div class="report">本役歼敌：<b>'+Math.round(N5.kill).toLocaleString()+'</b><br>'
+   +'获得钻石：<b>\u25C8 '+gem+'</b>\u3000图纸：<b>\u25A4 '+bp+'</b>\u3000战功：<b>+'+merit+'</b></div>'
+   +'<div class="wmLine" style="text-align:center">'+(N5.kill>80000?'<b style="color:#8fd98a">战果辉煌，阵营声望大涨！</b>':'再接再厉，下一役必将更盛。')+'</div>'
+   +'<div style="text-align:center"><button class="w3btn" onclick="closeForge()">收 下</button></div>';
+  try{ refreshRes(); }catch(e){}
+  document.getElementById('wmBox').innerHTML=N5.report;
+  document.getElementById('warModal').classList.add('show');
+  renderNat();
+}
+
+/* ---- 国战加成接入战力 ---- */
+function w3Owned(){
+  return w3OwnedBase().map(function(u){
+    const eq=W4.eq[u.h.id]||{}; let ea=0,ed=0,eh=0,cr=0;
+    SLOTS.forEach(function(s){ const it=eq[s.k]; if(it){ ea+=it.atk; ed+=it.def; eh+=it.hp; cr+=it.crit||0; } });
+    u.eq=eq; u.crit=cr;
+    const base=(u.h.atk+ea)+(u.h.def+ed)+(u.h.hp+eh);
+    u.p=Math.round(base*(1+u.lv*0.035)*(1+cr)*(1+natBoost()*0.25));
+    return u;
+  }).sort(function(a,b){ return b.p-a.p; });
+}
+setInterval(function(){
+  natTick();
+  const n=document.getElementById('nat');
+  if(n&&n.style.display!=='none') renderNat();
+},1000);
+
+/* 覆盖 switchTab，纳入国战 */
+function switchTab(t){
+  try{ audio(); sClick(); }catch(e){}
+  document.querySelectorAll('.tab').forEach(function(x){ x.classList.toggle('on',x.dataset.tab===t); });
+  ['tavern','heroes','main','battle','war','forge','nat'].forEach(function(k){ const el=document.getElementById(k); if(el) el.style.display=(k===t?'block':'none'); });
+  const bgMap={tavern:'bgTavern',heroes:'bgHeroes',main:'bgMain',battle:'bgMain',war:'bgMain',forge:'bgMain',nat:'bgMain'};
+  try{
+    ['bgTavern','bgHeroes','bgMain'].forEach(function(b){ const e=document.getElementById(b); if(e) e.className='bg off'; });
+    const be=document.getElementById(bgMap[t]); if(be) be.className='bg on';
+  }catch(e){}
+  try{
+    const hg=document.getElementById('heroGrid'); if(hg) hg.style.display=(t==='heroes'?'grid':'none');
+    if(t==='main'&&typeof renderBuildings==='function') renderBuildings();
+    if(t==='battle'){ if(typeof renderBattles==='function')renderBattles(); if(typeof renderBoss==='function')renderBoss(); if(typeof renderAI==='function')renderAI(); }
+    if(t==='war') renderWar();
+    if(t==='forge') renderForge();
+    if(t==='nat') renderNat();
+  }catch(e){}
+}
+
+
+
+/* ============ v6 英雄养成 ============ */
+/* ================= v6 英雄养成（技能 / 羁绊 / 觉醒 / 详情） ================= */
+const SPOOL=[
+ {k:'rage', n:'怒斩', d:'攻城战力',   v:0.08},
+ {k:'iron', n:'铁壁', d:'防御韧性',   v:0.06},
+ {k:'crit', n:'致命', d:'暴击锋芒',   v:0.03},
+ {k:'swift',n:'疾行', d:'机动突袭',   v:0.05},
+ {k:'rally',n:'号召', d:'统御全军（全队）', v:0.04, team:1},
+ {k:'awe',  n:'天威', d:'威压四方',   v:0.10}
+];
+const BONDS=[
+ {k:'inf3', n:'步兵方阵', t:'cls', cls:'步兵', num:3, d:'步兵英雄全属性 +12%'},
+ {k:'cav3', n:'骑兵三杰', t:'cls', cls:'骑兵', num:3, d:'骑兵英雄全属性 +12%'},
+ {k:'arc3', n:'弓手齐射', t:'cls', cls:'弓兵', num:3, d:'弓兵英雄全属性 +12%'},
+ {k:'grass',n:'草原霸主', ids:['genghis','huangzhong'], d:'铁木真 + 黄忠 → 全队 +10%'},
+ {k:'dual', n:'帝业双璧', ids:['arthur','xiangyu'],     d:'亚瑟王 + 项羽 → 全队 +10%'}
+];
+const STARCOST=[{gem:200,bp:0},{gem:400,bp:3},{gem:800,bp:6},{gem:1500,bp:12}];
+const V6={star:{},sk:{}};
+
+function heroSkills(hid){
+  let idx=0; HEROES.forEach(function(x,i){ if(x.id===hid) idx=i; });
+  return [SPOOL[idx%6], SPOOL[(idx+2)%6]];
+}
+function skLv(hid,i){ if(!V6.sk[hid]) V6.sk[hid]=[1,1]; return V6.sk[hid][i]; }
+function starOf(hid){ return V6.star[hid]||1; }
+function heroLvCap(hid){ return 30+starOf(hid)*5; }
+function skillCost(lv){ return lv; }
+
+function bondActive(b,top){
+  if(b.t==='cls') return top.filter(function(u){ return u.h.cls===b.cls; }).length>=b.num;
+  return b.ids.every(function(id){ return top.some(function(u){ return u.h.id===id; }); });
+}
+function activeBonds(){ const top=w3OwnedBase().slice(0,5); return BONDS.filter(function(b){ return bondActive(b,top); }); }
+
+/* ---- 覆盖基础战力：并入星级 / 技能 / 羁绊 ---- */
+function w3OwnedBase(){
+  const seen={};
+  const list=HEROES.filter(function(h){ return state.owned&&state.owned[h.id]; }).filter(function(h){
+    if(seen[h.name]) return false; seen[h.name]=1; return true;
+  }).map(function(h){
+    const o=state.owned[h.id]||{}; const lv=o.lv||1; const st=starOf(h.id);
+    const sks=heroSkills(h.id); let skMul=1, team=0;
+    for(let i=0;i<2;i++){ const S=sks[i], l=skLv(h.id,i);
+      if(S.team) team+=S.v*l; else skMul*=(1+S.v*l); }
+    const base=Math.round((h.atk+h.def+h.hp)*(1+lv*0.035)*(1+(st-1)*0.08)*skMul);
+    return {h:h,lv:lv,star:st,c2:String(h.cls).replace('\u5175',''),base:base,team:team,p:base};
+  }).sort(function(a,b){ return b.base-a.base; });
+
+  const top=list.slice(0,5);
+  let globalMul=1; const clsMul={};
+  BONDS.forEach(function(b){
+    if(!bondActive(b,top)) return;
+    if(b.t==='cls') clsMul[b.cls]=(clsMul[b.cls]||1)*1.12; else globalMul*=1.10;
+  });
+  const teamAll=list.reduce(function(a,x){ return a+x.team; },0);
+  return list.map(function(u){
+    let m=1+teamAll;
+    if(clsMul[u.h.cls]) m*=clsMul[u.h.cls];
+    m*=globalMul;
+    u.p=Math.round(u.base*m);
+    return u;
+  }).sort(function(a,b){ return b.p-a.p; });
+}
+
+/* ---- 最终战力：以 v6 成长为基，叠装备 + 暴击 + 国战 ---- */
+function w3Owned(){
+  return w3OwnedBase().map(function(u){
+    const eq=W4.eq[u.h.id]||{}; let gear=0,cr=0;
+    SLOTS.forEach(function(s){ const it=eq[s.k]; if(it){ gear+=(it.atk+it.def+it.hp); cr+=it.crit||0; } });
+    u.eq=eq; u.crit=cr;
+    u.p=Math.round((u.base+gear)*(1+cr)*(1+natBoost()*0.25));
+    return u;
+  }).sort(function(a,b){ return b.p-a.p; });
+}
+
+/* ---- 详情弹窗 ---- */
+function openHero(hid){
+  const h=HEROES.filter(function(x){ return x.id===hid; })[0]; if(!h) return;
+  const o=state.owned[hid]||{}; const lv=o.lv||1, st=starOf(hid);
+  const u=w3Owned().filter(function(x){ return x.h.id===hid; })[0]||{p:0};
+  const sks=heroSkills(hid);
+  const eq=W4.eq[hid]||{};
+  const cap=heroLvCap(hid);
+  const upGold=Math.round(lv*120);
+  let s='';
+  for(let i=0;i<2;i++){ const S=sks[i], l=skLv(hid,i), cost=skillCost(l);
+    s+='<div class="h6sk"><div><div class="sn">'+S.n+' <span class="sl">Lv.'+l+'</span></div>'
+      +'<div class="sd">'+S.d+' +'+(S.v*100*(S.team?1:1)).toFixed(0)+'% / 级'+(S.team?'\u3000(全队)':'')+'</div></div>'
+      +'<button class="w4mini" '+(l>=5||W3.bp<cost?'disabled':'')+' onclick="skUp(\''+hid+'\','+i+')">'
+      +(l>=5?'已满级':'升级 '+cost+'\u25A4')+'</button></div>';
+  }
+  const sc=st<5?STARCOST[st-1]:null;
+  const eqH=SLOTS.map(function(sl){ const it=eq[sl.k];
+    return '<div>'+(it?('<span style="color:'+it.c+'">'+it.ic+'<br>'+it.qn+'</span>'):('<span style="color:#6b5a3a">'+sl.ic+'<br>'+sl.n+'空</span>'))+'</div>'; }).join('');
+  const bl=BONDS.map(function(b){
+    const on=activeBonds().some(function(x){ return x.k===b.k; });
+    return '<div class="h6bond '+(on?'on':'')+'"><span>'+(on?'\u2714 ':'\u25CB ')+b.n+'</span><span class="bd">'+b.d+'</span></div>';
+  }).join('');
+  const html='<div class="h6head"><div><div class="h6name">'+h.name+'</div>'
+   +'<div class="h6tag">'+h.cls+'　档位 '+h.rarity+'　Lv.'+lv+' / '+cap+'</div></div>'
+   +'<div style="text-align:right"><div class="h6star">'+('\u2605'.repeat(st))+('\u2606'.repeat(5-st))+'</div>'
+   +'<div style="font-size:11px;color:#8fd98a">战力 '+u.p.toLocaleString()+'</div></div></div>'
+   +'<div class="h6bar"><i style="width:'+Math.min(100,Math.round(lv/cap*100))+'%"></i></div>'
+   +'<div class="h6attr"><span>攻 <b>'+h.atk+'</b></span><span>防 <b>'+h.def+'</b></span><span>兵 <b>'+h.hp+'</b></span></div>'
+   +'<div class="h6sec">\u2726 专属技能</div>'+s
+   +'<div class="h6sec">\u25C8 装备</div><div class="h6eq">'+eqH+'</div>'
+   +'<div class="h6sec">\u265B 羁绊</div>'+bl
+   +'<div class="h6sec">\u2727 觉醒</div>'
+   +'<div style="display:flex;gap:6px;justify-content:center;margin-top:4px">'
+   +'<button class="w4mini" '+(lv>=cap||state.gold<upGold?'disabled':'')+' onclick="heroLevelUp(\''+hid+'\')">升级 Lv+1（'+upGold+' 金）</button>'
+   + (sc?('<button class="w4mini g" '+(W3.gem<sc.gem||W3.bp<sc.bp?'disabled':'')+' onclick="heroStarUp(\''+hid+'\')">觉醒 \u2605+1（'+sc.gem+'\u25C8'+(sc.bp?(' + '+sc.bp+'\u25A4'):'')+'）</button>'):'<button class="w4mini" disabled>已满星</button>')
+   +'</div>'
+   +'<div style="text-align:center;margin-top:9px"><button class="w3btn d" onclick="closeForge()">关 闭</button></div>';
+  document.getElementById('wmBox').innerHTML=html;
+  document.getElementById('warModal').classList.add('show');
+}
+function skUp(hid,i){
+  const lv=skLv(hid,i); if(lv>=5){ alert('技能已满级'); return; }
+  const cost=skillCost(lv);
+  if(W3.bp<cost){ alert('图纸不足（需 '+cost+' 张）'); return; }
+  W3.bp-=cost; V6.sk[hid][i]=lv+1;
+  try{ refreshRes(); }catch(e){}
+  openHero(hid);
+}
+function heroLevelUp(hid){
+  const o=state.owned[hid]; if(!o) return;
+  const lv=o.lv||1, cap=heroLvCap(hid);
+  if(lv>=cap){ alert('已达当前星阶上限（觉醒可提升）'); return; }
+  const cost=Math.round(lv*120);
+  if(state.gold<cost){ alert('金币不足（需 '+cost+'）'); return; }
+  state.gold-=cost; o.lv=lv+1;
+  try{ refreshRes(); }catch(e){}
+  openHero(hid);
+}
+function heroStarUp(hid){
+  const st=starOf(hid); if(st>=5){ alert('已满星'); return; }
+  const c=STARCOST[st-1];
+  if(W3.gem<c.gem||W3.bp<c.bp){ alert('需要 '+c.gem+' 钻石'+(c.bp?(' + '+c.bp+' 图纸'):'')); return; }
+  W3.gem-=c.gem; W3.bp-=c.bp; V6.star[hid]=st+1;
+  try{ refreshRes(); }catch(e){}
+  openHero(hid);
+}
+
+/* ---- 羁绊面板（插入图鉴页顶部） ---- */
+function renderBond(){
+  const box=document.getElementById('bondBox'); if(!box) return;
+  const act=activeBonds(); const top=w3OwnedBase().slice(0,5);
+  box.innerHTML='<div class="h6card"><div class="h6ttl"><span>\u265B 羁绊组合</span>'
+   +'<span style="color:#8fd98a;font-size:11px">已激活 '+act.length+' / '+BONDS.length+'</span></div>'
+   +BONDS.map(function(b){
+     const on=act.some(function(x){ return x.k===b.k; });
+     return '<div class="h6bond '+(on?'on':'')+'"><span>'+(on?'\u2714 ':'\u25CB ')+b.n+'</span><span class="bd">'+b.d+'</span></div>';
+   }).join('')
+   +'<div style="font-size:10px;color:#8f8064;margin-top:6px;line-height:1.6">出战阵容（战力前 5）：'
+   +top.map(function(u){ return u.h.name; }).join('\u3000')+'</div></div>';
+}
+setTimeout(function(){
+  const grid=document.getElementById('heroGrid');
+  if(grid&&!document.getElementById('bondBox')){
+    const d=document.createElement('div'); d.id='bondBox';
+    grid.parentNode.insertBefore(d, grid);
+  }
+  renderBond();
+},700);
+/* 点击图鉴英雄卡 → 打开详情（文本匹配，零侵入） */
+document.addEventListener('click', function(e){
+  const grid=document.getElementById('heroGrid'); if(!grid||grid.style.display==='none') return;
+  let card=e.target; while(card&&card.parentNode!==grid) card=card.parentNode;
+  if(!card||card===document.body) return;
+  const txt=card.innerText||'';
+  let hit=null;
+  HEROES.forEach(function(x){ if(!hit&&state.owned&&state.owned[x.id]&&txt.indexOf(x.name)>=0) hit=x; });
+  if(hit) openHero(hit.id);
+}, true);
+
+/* 覆盖 switchTab，纳入羁绊渲染 */
+function switchTab(t){
+  try{ audio(); sClick(); }catch(e){}
+  document.querySelectorAll('.tab').forEach(function(x){ x.classList.toggle('on',x.dataset.tab===t); });
+  ['tavern','heroes','main','battle','war','forge','nat'].forEach(function(k){ const el=document.getElementById(k); if(el) el.style.display=(k===t?'block':'none'); });
+  const bgMap={tavern:'bgTavern',heroes:'bgHeroes',main:'bgMain',battle:'bgMain',war:'bgMain',forge:'bgMain',nat:'bgMain'};
+  try{
+    ['bgTavern','bgHeroes','bgMain'].forEach(function(b){ const e=document.getElementById(b); if(e) e.className='bg off'; });
+    const be=document.getElementById(bgMap[t]); if(be) be.className='bg on';
+  }catch(e){}
+  try{
+    const hg=document.getElementById('heroGrid'); if(hg) hg.style.display=(t==='heroes'?'grid':'none');
+    if(t==='main'&&typeof renderBuildings==='function') renderBuildings();
+    if(t==='battle'){ if(typeof renderBattles==='function')renderBattles(); if(typeof renderBoss==='function')renderBoss(); if(typeof renderAI==='function')renderAI(); }
+    if(t==='war') renderWar();
+    if(t==='forge') renderForge();
+    if(t==='nat') renderNat();
+    if(t==='heroes') renderBond();
+  }catch(e){}
+}
+
+
+
+/* ============ v7 存档系统 ============ */
+/* ================= v7 存档系统（全量持久化 + 导入导出） =================
+   修复：v1~v6 的 localStorage 存档只持久化 V2.* 老数据，
+        打城(W3) / 铁匠铺(W4) / 国战(N5) / 英雄养成(V6) 刷新即丢。
+   新增：导出存档文件、复制存档码、粘贴/文件导入、自动存档开关。
+*/
+const V7 = { auto: true, ver: 7 };
+try { const _p = localStorage.getItem('empire_v7_pref'); if (_p) Object.assign(V7, JSON.parse(_p)); } catch (e) {}
+
+function v7deep(o) { try { return JSON.parse(JSON.stringify(o)); } catch (e) { return null; } }
+
+/* ---------- 1. 收集：在 v2 存档基础上追加 v3~v6 全量状态 ---------- */
+var _v7_collect = collectSave;
+collectSave = function () {
+  const d = _v7_collect();
+  d.v7 = 7;
+  d.w3 = v7deep(W3);          /* 打城：功勋/图纸/钻石/纪元/首杀/战绩 */
+  d.w4 = v7deep(W4);          /* 铁匠铺：装备槽/背包/UID/任务/已领 */
+  d.n5 = v7deep(N5);          /* 国战：进行态/补给/战报 */
+  d.v6 = v7deep(V6);          /* 英雄养成：觉醒星级 + 技能等级 */
+  d.pending = v7deep(state.pending) || [];
+  return d;
+};
+
+/* ---------- 2. 恢复：读档后把扩展字段灌回活状态 ---------- */
+function v7restore(d) {
+  if (!d) return;
+  try { if (d.w3) Object.assign(W3, d.w3); } catch (e) {}
+  try {
+    if (d.w4) {
+      W4.eq = d.w4.eq || {}; W4.bag = d.w4.bag || [];
+      W4.uid = d.w4.uid || 1; W4.q = d.w4.q || { kill: 0, forge: 0, take: 0 };
+      W4.claimed = d.w4.claimed || {};
+    }
+  } catch (e) {}
+  try {
+    if (d.n5) {
+      Object.assign(N5, d.n5);
+      if (N5.phase !== 'idle') { N5.phase = 'idle'; N5.side = ''; }  /* 中断的国战不残留中间态 */
+    }
+  } catch (e) {}
+  try { if (d.v6) { V6.star = d.v6.star || {}; V6.sk = d.v6.sk || {}; } } catch (e) {}
+  try { if (d.pending) state.pending = d.pending; } catch (e) {}
+}
+
+var _v7_load = loadGame;
+loadGame = function () {
+  let d = null;
+  try { d = JSON.parse(localStorage.getItem(SAVE_KEY) || 'null'); } catch (e) {}
+  const ok = _v7_load();
+  if (ok && d && d.v7) v7restore(d);
+  return ok;
+};
+
+/* ---------- 3. 编解码（中文安全的 Base64 存档码） ---------- */
+function v7stamp() {
+  const t = new Date(), p = n => String(n).padStart(2, '0');
+  return `${t.getFullYear()}${p(t.getMonth() + 1)}${p(t.getDate())}_${p(t.getHours())}${p(t.getMinutes())}`;
+}
+function v7encode(obj) {
+  const bytes = new TextEncoder().encode(JSON.stringify(obj));
+  let bin = ''; bytes.forEach(b => bin += String.fromCharCode(b));
+  return btoa(bin);
+}
+function v7decode(str) {
+  const bin = atob(str.trim());
+  const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+  return JSON.parse(new TextDecoder().decode(bytes));
+}
+function v7size() {
+  try { return (localStorage.getItem(SAVE_KEY) || '').length; } catch (e) { return 0; }
+}
+function v7fmtSize(n) { return n < 1024 ? n + ' B' : (n / 1024).toFixed(1) + ' KB'; }
+
+/* ---------- 4. 导出 / 导入 ---------- */
+function v7saveNow() {
+  if (saveGame(false)) { pulseSaveIcon(); showToast('▤ 已保存 ' + v7fmtSize(v7size())); }
+  else showToast('✖ 保存失败（存储受限）');
+}
+
+function v7exportFile() {
+  saveGame(true);
+  const json = JSON.stringify(collectSave(), null, 1);
+  const blob = new Blob([json], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '帝国征服者_存档_' + v7stamp() + '.json';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  showToast('⬇ 存档文件已导出');
+}
+
+function v7copyCode() {
+  saveGame(true);
+  const code = v7encode(collectSave());
+  const done = () => showToast('📋 存档码已复制（' + v7fmtSize(code.length) + '）');
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(code).then(done).catch(() => v7fallbackCopy(code, done));
+  } else v7fallbackCopy(code, done);
+}
+function v7fallbackCopy(text, done) {
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    done();
+  } catch (e) { showToast('✖ 复制失败，请手动长按选中'); }
+}
+
+function v7doImport(text) {
+  let d;
+  try { d = (text.trim().charAt(0) === '{') ? JSON.parse(text.trim()) : v7decode(text); }
+  catch (e) { showToast('✖ 存档码无法解析，请检查是否完整'); return; }
+  if (!d || (!d.res && !d.owned)) { showToast('✖ 这不是有效的帝国征服者存档'); return; }
+  try {
+    localStorage.setItem(SAVE_KEY, JSON.stringify(d));
+    showToast('✔ 导入成功，正在重启帝国…');
+    setTimeout(() => location.reload(), 900);
+  } catch (e) { showToast('✖ 写入失败：存储空间不足'); }
+}
+
+function v7importFile(input) {
+  const f = input.files && input.files[0];
+  if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => { v7doImport(String(rd.result || '')); };
+  rd.onerror = () => showToast('✖ 文件读取失败');
+  rd.readAsText(f);
+  input.value = '';
+}
+
+function v7toggleAuto() { v7setAuto(!V7.auto); }
+function v7setAuto(on) {
+  V7.auto = !!on;
+  try { localStorage.setItem('empire_v7_pref', JSON.stringify({ auto: V7.auto, ver: 7 })); } catch (e) {}
+  refreshSavePanel();
+  showToast(V7.auto ? '⟳ 自动存档已开启（每 8 秒 + 切后台）' : '⏸ 自动存档已暂停');
+}
+
+/* 自动存档开关接入：SAVE_OK 是原系统的总闸 */
+function v7syncGate() { SAVE_OK = V7.auto; }
+
+/* ---------- 5. 面板 UI ---------- */
+function refreshSavePanel() {
+  const box = document.getElementById('v7SaveBody');
+  if (!box) return;
+  const last = SAVE_T ? new Date(SAVE_T).toLocaleTimeString('zh-CN', { hour12: false }) : '—';
+  box.innerHTML = `
+    <div class="v7kv"><span>💾 存档大小</span><b>${v7fmtSize(v7size())}</b></div>
+    <div class="v7kv"><span>🕒 上次保存</span><b>${last}</b></div>
+    <div class="v7kv"><span>🔄 自动存档</span>
+      <button class="v7sw ${V7.auto ? 'on' : ''}" onclick="v7toggleAuto()">${V7.auto ? '已开启' : '已暂停'}</button></div>
+    <div class="v7kv"><span>♛ 觉醒英雄</span><b>${Object.keys(V6.star || {}).length}</b></div>
+    <div class="v7kv"><span>⚔ 打城功勋</span><b>${W3.merit || 0}</b></div>
+    <div class="v7grid">
+      <button class="v7btn primary" onclick="v7saveNow()">💾 立即保存</button>
+      <button class="v7btn" onclick="v7exportFile()">⬇ 导出文件</button>
+      <button class="v7btn" onclick="v7copyCode()">📋 复制存档码</button>
+      <label class="v7btn file">⬆ 导入文件<input type="file" accept=".json,.txt,application/json" style="display:none" onchange="v7importFile(this)"></label>
+    </div>
+    <div class="v7tip">存档码适合用 QQ / 微信发给自己，换设备粘贴即可续档。</div>
+    <textarea id="v7Paste" class="v7ta" placeholder="在此粘贴存档码…"></textarea>
+    <button class="v7btn wide" onclick="v7doImport(document.getElementById('v7Paste').value)">✔ 从存档码导入</button>
+    <button class="v7btn wide danger" onclick="if(confirm('确定清空存档并重开帝国？此操作不可撤销'))wipeSave()">🗑 重置存档</button>
+  `;
+}
+
+function openSavePanel() {
+  saveGame(true);
+  popModal('▦ 存档管理',
+    '<div id="v7SaveBody" class="v7body">加载中…</div>', '关 闭');
+  refreshSavePanel();
+}
+
+/* ---------- 6. 自动存档补强：原有 8s 定时器外，再挂一次开关同步 ---------- */
+setInterval(() => { v7syncGate(); if (V7.auto) saveGame(true); }, 8000);
+addEventListener('beforeunload', () => { v7syncGate(); if (V7.auto) saveGame(true); });
+v7syncGate();
+
+
+
+/* ============ v8 联机版 ============ */
+/* ==========================================================================
+   帝国征服者 · v8 联机版（异步联机）
+   --------------------------------------------------------------------------
+   玩法：本地经营不变，云端只做四件事 ——
+     ① 账号（注册/登录）  ② 云存档（换设备续档）  ③ 全服排行榜  ④ 镜像城掠夺
+   ⚠ 掠夺打的是对方**快照**（上次存档时的国力），不是实时对战，
+      所以断线、切后台、弱网都零影响 —— 这是为免费小内存容器专门选的形态。
+
+   服务端：/game/api/*（婉儿写的 game_server.py）
+   ========================================================================== */
+
+const V8 = {
+  API  : localStorage.getItem('empire_v8_api')   || (location.origin + '/game/api'),
+  token: localStorage.getItem('empire_v8_token') || '',
+  name : localStorage.getItem('empire_v8_name')  || '',
+  uid  : parseInt(localStorage.getItem('empire_v8_uid') || '0', 10),
+  auto : localStorage.getItem('empire_v8_auto') !== '0',
+  busy : false,
+  lastPush: 0,
+};
+function v8pref(){ try{
+  localStorage.setItem('empire_v8_api', V8.API);
+  localStorage.setItem('empire_v8_token', V8.token);
+  localStorage.setItem('empire_v8_name', V8.name);
+  localStorage.setItem('empire_v8_uid', String(V8.uid));
+  localStorage.setItem('empire_v8_auto', V8.auto ? '1' : '0');
+}catch(e){} }
+
+/* ---------------- 网络层 ---------------- */
+function v8fetch(path, opt){
+  opt = opt || {};
+  const url = V8.API + path;
+  const init = { method: opt.method || 'GET', headers: {'Content-Type':'application/json'} };
+  if(opt.body) init.body = JSON.stringify(opt.body);
+  const ctl = new AbortController();
+  const tid = setTimeout(()=>ctl.abort(), opt.timeout || 12000);
+  init.signal = ctl.signal;
+  return fetch(url, init).then(r=>r.json()).finally(()=>clearTimeout(tid));
+}
+
+/* ---------------- 状态条 ---------------- */
+function v8RenderBar(){
+  const el = document.getElementById('v8Bar');
+  if(!el) return;
+  if(V8.token){
+    el.innerHTML =
+      '<div class="v8Stat v8On" title="已连上联机服务器">🌐 ' + v8esc(V8.name) + '</div>' +
+      '<button class="v8Btn" onclick="v8OpenHub()">🏛 联机大厅</button>' +
+      '<div class="v8Dot" id="v8Dot">☁ 云同步</div>';
+  }else{
+    el.innerHTML =
+      '<button class="v8Btn v8Cta" onclick="v8OpenLogin()">🌐 登录联机</button>' +
+      '<div class="v8Stat" id="v8StatTxt">单机模式</div>';
+  }
+}
+function v8esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function v8toast(msg, ms){ try{ showToast(msg); }catch(e){ console.log(msg); } }
+
+/* ---------------- 登录 / 注册 ---------------- */
+function v8OpenLogin(){
+  v8Modal('🌐 联机登录', [
+    '<div class="v8fRow"><label>服务器</label><input id="v8Api" value="' + v8esc(V8.API) + '"></div>',
+    '<div class="v8fRow"><label>昵称</label><input id="v8Name" placeholder="2-16位，中英文/数字" maxlength="16"></div>',
+    '<div class="v8fRow"><label>密码</label><input id="v8Pass" type="password" placeholder="至少4位"></div>',
+    '<div class="v8Hint" id="v8Msg">首次使用请点「注册」。存档将自动上传到云端，换设备登录即可续档。</div>',
+    '<div class="v8BtnRow">',
+    '  <button class="v8Btn v8Cta" onclick="v8DoLogin(false)">登录</button>',
+    '  <button class="v8Btn" onclick="v8DoLogin(true)">注册新账号</button>',
+    '</div>'
+  ]);
+}
+function v8DoLogin(isReg){
+  if(V8.busy) return;
+  const api = (document.getElementById('v8Api').value || '').trim().replace(/\/+$/,'');
+  const nm  = (document.getElementById('v8Name').value || '').trim();
+  const pw  = document.getElementById('v8Pass').value || '';
+  const msg = document.getElementById('v8Msg');
+  if(!nm || !pw){ msg.textContent = '⚠ 昵称和密码都要填'; msg.className = 'v8Hint v8Err'; return; }
+  V8.API = api; v8pref();
+  V8.busy = true; msg.textContent = '连接中…'; msg.className = 'v8Hint';
+  v8fetch('/' + (isReg ? 'register' : 'login'), {method:'POST', body:{name:nm, pass:pw}})
+    .then(r=>{
+      V8.busy = false;
+      if(!r.ok){ msg.textContent = '⚠ ' + (r.err || '失败'); msg.className='v8Hint v8Err'; return; }
+      V8.token = r.token; V8.uid = r.uid; V8.name = r.name; v8pref();
+      v8RenderBar();
+      v8Toast('🌐 已登录：' + r.name);
+      closeModal();
+      // 注册：把本地存档推上去；登录：若云端有档则询问是否覆盖本地
+      if(isReg){
+        v8PushState(true);
+      }else{
+        if(r.state){ v8AskPull(r.state); } else { v8PushState(true); }
+      }
+    })
+    .catch(e=>{ V8.busy=false; msg.textContent = '⚠ 连不上服务器（' + e.message + '）'; msg.className='v8Hint v8Err'; });
+}
+function v8Logout(){
+  V8.token=''; V8.uid=0; V8.name=''; v8pref(); v8RenderBar(); v8Toast('已退出联机，继续单机游玩');
+}
+
+/* ---------------- 云存档 ---------------- */
+function v8PushState(quiet){
+  if(!V8.token){ if(!quiet) v8Toast('请先登录联机'); return Promise.resolve(); }
+  let st;
+  try{ st = collectSave(); }catch(e){ if(!quiet) v8Toast('读取本地存档失败'); return Promise.resolve(); }
+  return v8fetch('/save', {method:'POST', body:{token:V8.token, state:st}})
+    .then(r=>{
+      if(!r.ok){ if(!quiet) v8Toast('☁ 上传失败：' + (r.err||'')); if(r.err && r.err.indexOf('过期')>=0) v8Logout(); return; }
+      V8.lastPush = Date.now();
+      const d = document.getElementById('v8Dot'); if(d) d.classList.add('v8Flash');
+      setTimeout(()=>{ const x=document.getElementById('v8Dot'); if(x) x.classList.remove('v8Flash'); }, 900);
+      if(!quiet) v8Toast('☁ 云存档已上传（v' + r.ver + '）');
+    })
+    .catch(e=>{ if(!quiet) v8Toast('☁ 上传失败：' + e.message); });
+}
+function v8PullState(quiet){
+  if(!V8.token){ if(!quiet) v8Toast('请先登录联机'); return; }
+  v8fetch('/load?token=' + encodeURIComponent(V8.token))
+    .then(r=>{
+      if(!r.ok){ if(!quiet) v8Toast('☁ 下载失败：'+(r.err||'')); return; }
+      if(!r.state){ if(!quiet) v8Toast('云端暂无存档'); return; }
+      try{
+        localStorage.setItem('empire_conqueror_v2_save', JSON.stringify(r.state));
+      }catch(e){ v8Toast('写入本地失败'); return; }
+      v8Toast('☁ 云端存档已载入，正在重开…');
+      setTimeout(()=>location.reload(), 900);
+    })
+    .catch(e=>{ if(!quiet) v8Toast('☁ 下载失败：'+e.message); });
+}
+function v8AskPull(cloudState){
+  const lv = cloudState.level || cloudState.lv || '?';
+  v8Modal('☁ 发现云端存档', [
+    '<div class="v8Hint">云端存档等级：<b>' + v8esc(lv) + '</b>，上传于 ' +
+      (cloudState.lastSave ? new Date(cloudState.lastSave).toLocaleString() : '未知时间') + '。<br>要用云端存档覆盖本地进度吗？</div>',
+    '<div class="v8BtnRow">',
+    '  <button class="v8Btn v8Cta" onclick="v8PullState();closeModal()">用云端存档</button>',
+    '  <button class="v8Btn" onclick="v8PushState(true);v8Toast(\'已用本地存档覆盖云端\');closeModal()">用本地存档</button>',
+    '  <button class="v8Btn" onclick="closeModal()">先不管</button>',
+    '</div>'
+  ]);
+}
+
+/* ---------------- 排行榜 ---------------- */
+function v8OpenRank(by){
+  by = by || 'power';
+  v8Modal('🏆 全服排行榜', ['<div id="v8RankBody" class="v8body">加载中…</div>']);
+  v8LoadRank(by);
+}
+function v8LoadRank(by){
+  const box = document.getElementById('v8RankBody'); if(!box) return;
+  v8fetch('/leaderboard?limit=50&by=' + by)
+    .then(r=>{
+      if(!r.ok){ box.innerHTML = '<div class="v8Err">加载失败：' + v8esc(r.err||'') + '</div>'; return; }
+      let h = '<div class="v8Tabs">';
+      [['power','⚡ 国力'],['kills','⚔ 击杀'],['cities','🏙 城池'],['level','🎖 等级']].forEach(([k,t])=>{
+        h += '<span class="v8Tab' + (k===by?' v8TabOn':'') + '" onclick="v8LoadRank(\''+k+'\')">' + t + '</span>';
+      });
+      h += '</div>';
+      h += '<div class="v8Total">全服玩家：<b>' + r.total_players + '</b> 人 ｜ 服务器：' + v8esc(r.server) + '</div>';
+      if(!r.list.length){ h += '<div class="v8Hint">还没有人上榜，快去存档抢第一 ⚡</div>'; box.innerHTML = h; return; }
+      h += '<table class="v8Table"><tr><th>#</th><th>君主</th><th>等级</th><th>国力</th><th>城池</th><th>击杀</th></tr>';
+      r.list.forEach(x=>{
+        const me = (x.uid === V8.uid) ? ' class="v8Me"' : '';
+        const crown = x.rank<=3 ? ['🥇','🥈','🥉'][x.rank-1] : x.rank;
+        h += '<tr' + me + '><td>' + crown + '</td><td>' + v8esc(x.name) + '</td><td>' + x.level +
+             '</td><td>' + x.power + '</td><td>' + x.cities + '</td><td>' + x.kills + '</td></tr>';
+      });
+      h += '</table>';
+      box.innerHTML = h;
+    })
+    .catch(e=>{ box.innerHTML = '<div class="v8Err">加载失败：' + v8esc(e.message) + '</div>'; });
+}
+
+/* ---------------- 镜像城掠夺 ---------------- */
+function v8OpenRaid(){
+  if(!V8.token){ v8OpenLogin(); return; }
+  v8Modal('⚔ 镜像城掠夺', ['<div id="v8RaidBody" class="v8body">正在侦查…</div>']);
+  v8LoadRaid();
+}
+function v8LoadRaid(){
+  const box = document.getElementById('v8RaidBody'); if(!box) return;
+  v8fetch('/raid/targets?token=' + encodeURIComponent(V8.token))
+    .then(r=>{
+      if(!r.ok){ box.innerHTML = '<div class="v8Err">' + v8esc(r.err||'') + '</div>'; return; }
+      let h = '<div class="v8Hint">以你的国力 <b>' + r.my_power + '</b> 匹配到的对手（打的是对方的存档快照，不会影响本人在线游玩）：</div>';
+      if(!r.list.length){ box.innerHTML = h + '<div class="v8Hint">暂无合适目标，过一会儿再来 →</div>'; return; }
+      r.list.forEach(t=>{
+        h += '<div class="v8Card"><div class="v8CardL"><b>' + v8esc(t.name) + '</b>' +
+             '<span>Lv.' + t.level + ' ｜ ⚡' + t.power + ' ｜ 🏙' + t.cities + ' ｜ ⚔' + t.kills + '</span></div>' +
+             '<button class="v8Btn v8Cta" onclick="v8DoRaid(' + t.uid + ',\'' + v8esc(t.name).replace(/'/g,'') + '\')">进攻</button></div>';
+      });
+      box.innerHTML = h;
+    })
+    .catch(e=>{ box.innerHTML = '<div class="v8Err">' + v8esc(e.message) + '</div>'; });
+}
+function v8DoRaid(uid, name){
+  if(V8.busy) return; V8.busy = true;
+  const box = document.getElementById('v8RaidBody');
+  box.innerHTML = '<div class="v8body">⚔ 攻打 ' + v8esc(name) + ' 中…</div>';
+  v8fetch('/raid', {method:'POST', body:{token:V8.token, target:uid}})
+    .then(r=>{
+      V8.busy = false;
+      if(!r.ok){ box.innerHTML = '<div class="v8Err">' + v8esc(r.err||'') + '</div>'; return; }
+      const x = r.result;
+      let h = '<div class="v8Result ' + (x.win?'v8Win':'v8Lose') + '">';
+      h += '<div class="v8RTitle">' + (x.win ? '🏆 大捷' : '💥 退兵') + '</div>';
+      h += '<div class="v8RLog">' + v8esc(x.log) + '</div>';
+      h += '<div class="v8RLine">胜率预估 ' + Math.round(x.win_rate*100) + '% ｜ ' +
+           (x.win ? '缴获 <b class="v8Gold">+' + x.spoil + '</b> 资源' : '损失 <b>' + x.loss + '</b> 兵力') + '</div>';
+      h += '</div>';
+      if(x.win){
+        // 把缴获资源直接补进本地经济（服务端已记击杀，本地做资源发放）
+        try{
+          if(typeof state !== 'undefined' && state.res){
+            state.res.gold  = (state.res.gold  || 0) + Math.floor(x.spoil*0.4);
+            state.res.food  = (state.res.food  || 0) + Math.floor(x.spoil*0.3);
+            state.res.wood  = (state.res.wood  || 0) + Math.floor(x.spoil*0.2);
+            state.res.stone = (state.res.stone || 0) + Math.floor(x.spoil*0.1);
+            saveGame(true);
+          }
+        }catch(e){}
+      }
+      h += '<div class="v8BtnRow"><button class="v8Btn v8Cta" onclick="v8LoadRaid()">继续侦查</button>' +
+           '<button class="v8Btn" onclick="v8PushState(true)">☁ 同步存档</button></div>';
+      box.innerHTML = h;
+    })
+    .catch(e=>{ V8.busy=false; box.innerHTML = '<div class="v8Err">' + v8esc(e.message) + '</div>'; });
+}
+
+/* ---------------- 联机大厅 ---------------- */
+function v8OpenHub(){
+  v8Modal('🏛 联机大厅', [
+    '<div class="v8Who">已登录：<b>' + v8esc(V8.name) + '</b> ｜ UID ' + V8.uid + ' ｜ 服务器 ' + v8esc(V8.API) + '</div>',
+    '<div class="v8HubGrid">',
+    '  <button class="v8Hub" onclick="closeModal();v8OpenRank()">🏆<span>排行榜</span></button>',
+    '  <button class="v8Hub" onclick="closeModal();v8OpenRaid()">⚔<span>镜像城掠夺</span></button>',
+    '  <button class="v8Hub" onclick="v8PushState()">☁<span>上传存档</span></button>',
+    '  <button class="v8Hub" onclick="v8ConfirmPull()">⬇<span>下载存档</span></button>',
+    '</div>',
+    '<div class="v8Hint">提示：登录后每次自动存档都会顺手同步到云端（' +
+      (V8.auto ? '已开启' : '已关闭') + '）。</div>',
+    '<div class="v8BtnRow">',
+    '  <button class="v8Btn" onclick="V8.auto=!V8.auto;v8pref();v8OpenHub()">' + (V8.auto?'关闭':'开启') + '自动同步</button>',
+    '  <button class="v8Btn v8Danger" onclick="v8Logout();closeModal()">退出联机</button>',
+    '</div>'
+  ]);
+}
+function v8ConfirmPull(){
+  v8Modal('⬇ 下载云端存档', [
+    '<div class="v8Hint">下载后会用云端存档<b>覆盖本地进度</b>并刷新页面，确定吗？</div>',
+    '<div class="v8BtnRow"><button class="v8Btn v8Cta" onclick="v8PullState();closeModal()">确定下载</button>' +
+    '<button class="v8Btn" onclick="closeModal()">取消</button></div>'
+  ]);
+}
+
+/* ---------------- 通用弹窗（复用游戏内 popModal 风格）---------------- */
+function v8Modal(title, lines){
+  let el = document.getElementById('v8Modal');
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'v8Modal';
+    el.onclick = e => { if(e.target === el) closeModal(); };
+    document.body.appendChild(el);
+  }
+  el.innerHTML = '<div class="v8Box"><div class="v8Title">' + title + '</div>' +
+                 '<div class="v8Content">' + lines.join('') + '</div>' +
+                 '<button class="v8Close" onclick="closeModal()">关 闭</button></div>';
+  el.style.display = 'flex';
+  // 兼容游戏内 closeModal
+  window._v8_close = true;
+}
+(function(){
+  if(typeof window.closeModal !== 'function'){
+    window.closeModal = function(){ const e=document.getElementById('v8Modal'); if(e) e.style.display='none'; };
+  }else{
+    const _old = window.closeModal;
+    window.closeModal = function(){ const e=document.getElementById('v8Modal'); if(e) e.style.display='none'; return _old.apply(this, arguments); };
+  }
+})();
+
+/* ---------------- 自动云同步：挂钩 saveGame ---------------- */
+(function(){
+  if(typeof window.saveGame === 'function'){
+    const _sg = window.saveGame;
+    window.saveGame = function(quiet){
+      const r = _sg.apply(this, arguments);
+      if(V8.token && V8.auto){
+        const now = Date.now();
+        if(now - V8.lastPush > 20000){ V8.lastPush = now; v8PushState(true); }
+      }
+      return r;
+    };
+  }
+})();
+
+/* ---------------- 启动 ---------------- */
+(function(){
+  function boot(){
+    v8RenderBar();
+    if(V8.token){
+      // 静默校验 token 是否还有效
+      v8fetch('/ping').then(()=>{}).catch(()=>{});
+    }
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+  setTimeout(boot, 800);
+})();
+
+</script>
+</body>
+</html>

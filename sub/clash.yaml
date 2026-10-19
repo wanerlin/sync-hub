@@ -43,6 +43,10 @@ proxies:
   type: vmess
   udp: true
   uuid: 4fc543d5-23ce-4556-ae2b-01685edd4397
+  ws-opts:
+    path: /
+    headers:
+      Host: 39.108.113.127
 - name: '🇭🇰 香港 HKG #3'
   type: trojan
   server: 4c2d5151.266nets.com
@@ -73,6 +77,10 @@ proxies:
   type: vmess
   udp: true
   uuid: 4fc543d5-23ce-4556-ae2b-01685edd4397
+  ws-opts:
+    path: /
+    headers:
+      Host: 120.48.133.162
 - name: '🇯🇵 日本 JPN #6'
   type: trojan
   server: 4c2d5151.266nets.com
@@ -116,7 +124,7 @@ proxies:
 - client-fingerprint: firefox
   flow: xtls-rprx-vision
   name: 'vless-1869479922 #10'
-  network: raw
+  network: tcp
   port: 443
   reality-opts:
     public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
@@ -184,7 +192,7 @@ proxies:
   password: M7v%w11Se*
   sni: tttyder.wsone.icu
   tls: true
-  network: raw
+  network: tcp
 - name: '🇨🇳_CN_中国->🇮🇪_IE_爱尔兰 #26 #33 #82 #17'
   type: vmess
   server: v4.hdacd.com
@@ -216,7 +224,6 @@ proxies:
     short-id: 2c9a2790ad5900b2
   flow: xtls-rprx-vision
   client-fingerprint: chrome
-  packet-encoding: xudp
 - name: '🇲🇾 www.v2nodes.com trojan-MY-... #20'
   type: trojan
   server: 47.250.84.25
@@ -234,10 +241,24 @@ proxies:
   cipher: auto
   network: tcp
   tls: false
+- name: 🇫🇷 147-CF-France
+  type: vless
+  server: additionally-andrews-mature-ringtones.trycloudflare.com
+  port: 443
+  uuid: 4a1c7e92-8b3f-4d55-9e21-6c0d8f3b7a10
+  network: ws
+  tls: true
+  udp: true
+  servername: additionally-andrews-mature-ringtones.trycloudflare.com
+  ws-opts:
+    path: /ws
+    headers:
+      Host: additionally-andrews-mature-ringtones.trycloudflare.com
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
+  - 🇫🇷 147-CF-France
   - ♻️ 自动选择
   - 🔯 故障转移
   - 🇭🇰 香港
@@ -277,6 +298,7 @@ proxy-groups:
   - '美国+加利福尼亚 #19'
   - '🇲🇾 www.v2nodes.com trojan-MY-... #20'
   - '4Jadi-9b9bc37778 #21'
+  - 🇫🇷 147-CF-France
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
@@ -417,7 +439,4 @@ proxy-groups:
 rules:
 - GEOIP,LAN,DIRECT,no-resolve
 - GEOIP,CN,DIRECT
-- GEOSITE,category-ads-all,🛑 广告拦截
-- GEOSITE,cn,🎯 全球直连
-- GEOSITE,geolocation-!cn,🚀 节点选择
 - MATCH,🐟 漏网之鱼

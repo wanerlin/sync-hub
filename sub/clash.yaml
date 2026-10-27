@@ -21,73 +21,23 @@ dns:
     geoip: true
     geoip-code: CN
 proxies:
-- name: '4Mohsen-99d85e0163 #1'
-  type: vless
-  server: 104.21.219.160
-  port: 443
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  tls: true
-  network: ws
-  servername: jp3.yohototo.top
-  client-fingerprint: unsafe
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
-- name: '4Jadi-52dba421fe #4 #2'
-  type: trojan
-  server: 151.101.36.244
-  port: 443
-  password: mitivpn
-  sni: ns2.firefox.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NLSus---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN
-    headers:
-      Host: mitivpn-mitivpn.ac.ir
-- client-fingerprint: firefox
-  flow: xtls-rprx-vision
-  name: 'vless-1929291555 #9 #3'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: kBVqBeTLp4F9KLA2qfqRLgiwd1oTxK3PM3GnrRzMYCA
-    short-id: e9c407d1
-  server: 144.31.166.55
-  servername: deport.ptlux.pro
-  tls: true
-  type: vless
-  udp: true
-  uuid: 2bb5176f-cc45-41b5-908c-441581dccf8a
-- name: '🇨🇳_CN_中国 #2 #1 #4'
-  type: vmess
-  server: 112.132.215.108
-  port: 50002
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  network: tcp
-  tls: false
-- name: 'trojan-1929965359 #5'
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 66.163.114.114
-  skip-cert-verify: false
-  sni: learn.findconnectwithemployersandbuildprofessionalnetwork.com
-  type: trojan
-  udp: true
-- name: 'trojan-1929965335 #6'
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 216.152.156.65
-  skip-cert-verify: false
-  sni: learn.healthcarejobshubenhancemedicalprofessionalskillstoday.com
-  type: trojan
-  udp: true
 - client-fingerprint: chrome
   flow: xtls-rprx-vision
-  name: 'vless-1926218387 #7'
+  name: 'vless-1933640062 #1'
+  network: tcp
+  port: 8443
+  reality-opts:
+    public-key: akVbcyv-ypq-YT4-bsi_ts85pkDwhAIapn5bCb_hj28
+    short-id: 85f609aa0f0bead8
+  server: my.wawojk.dpdns.org
+  servername: www.asus.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 264bee07-e004-41c7-812f-aaf2daaad2c9
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 'vless-1926218387 #7 #2'
   network: tcp
   port: 443
   reality-opts:
@@ -99,43 +49,42 @@ proxies:
   type: vless
   udp: true
   uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
-- name: 'trojan-1929965364 #8'
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 216.152.155.158
-  skip-cert-verify: false
-  sni: resources.nextjobopportunityandclaimyouridealrole.com
-  type: trojan
-  udp: true
-- name: 'trojan-1930077602 #9'
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 216.152.155.54
-  skip-cert-verify: true
-  sni: learn.nextjobopportunityandclaimyouridealrole.com
-  type: trojan
-  udp: true
-- name: '新西兰+V2CROSS.COM #20 #10'
-  type: ss
-  server: 202.50.253.81
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- client-fingerprint: chrome
-  name: 'vless-1928744992 #37 #11'
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 'vless-1934374866 #3'
   network: tcp
   port: 443
   reality-opts:
-    public-key: goey7Sc4Xm6Nvdukb_DuoUnrkPSV0p4hPWbAmk2_AHc
-    short-id: ecf1d9f7caa6ba67
-  server: 2.27.118.10
-  servername: ph-nl-s3784.cybercat.network
+    public-key: v36yrZJ-5Zikx9eh_SXaoDS2GuobOA4_WLagBVO0vxk
+    short-id: a9c3f7e2
+  server: 93.152.214.248
+  servername: us5.pc-peervax.top
   tls: true
   type: vless
   udp: true
-  uuid: d9fe2431-8351-41eb-b956-75d96dec5d4a
+  uuid: 4b1be712-774c-4b65-8491-a3339e124a70
+- name: '🇯🇵 www.v2nodes.com ss-JP-1599... #4'
+  type: ss
+  server: 154.36.158.197
+  port: 8388
+  cipher: aes-256-gcm
+  password: BeaUf9c0AEWH40Pu
 - client-fingerprint: firefox
-  name: 'vless-1864695614 #12'
+  flow: xtls-rprx-vision
+  name: 'vless-1934374875 #5'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: aZDDxJRwRH2J4FPtoIr7DmOvpQPh9sbGbvV-NpVpfms
+    short-id: 336c2cff6e3717c4
+  server: node-usa.blok-signalon.top
+  servername: node-usa.blok-signalon.top
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4b1be712-774c-4b65-8491-a3339e124a70
+- client-fingerprint: firefox
+  name: 'vless-1864695614 #12 #6'
   network: tcp
   port: 443
   reality-opts:
@@ -147,67 +96,204 @@ proxies:
   type: vless
   udp: true
   uuid: 8c264ca7-a600-4496-9d34-dc5339414055
-- name: 'trojan-1929965342 #13'
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 216.152.155.176
-  skip-cert-verify: false
-  sni: blog.nextjobopportunityandclaimyouridealrole.com
-  type: trojan
-  udp: true
-- name: '新西兰+V2CROSS.COM #12 #14'
+- name: '🇩🇪 德国 DEU #5 #7'
   type: ss
-  server: 202.50.253.45
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '🇮🇹 www.v2nodes.com ss-IT-1602... #9 #9 #15'
-  type: ss
-  server: 202.50.253.27
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '🏳 www.v2nodes.com ss- #8 #34 #16'
-  type: ss
-  server: 202.50.253.99
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- flow: xtls-rprx-vision
-  name: 'vless-1929108260 #11 #17'
+  server: 37.153.158.167
+  port: 56137
+  cipher: chacha20-ietf-poly1305
+  password: uvKNudV-N8AUCrykPiyznA
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 'vless-1934374897 #8'
   network: tcp
   port: 443
-  server: 50.7.36.29
-  servername: ekb.eg
-  skip-cert-verify: true
+  reality-opts:
+    public-key: aZDDxJRwRH2J4FPtoIr7DmOvpQPh9sbGbvV-NpVpfms
+    short-id: 336c2cff6e3717c4
+  server: 155.117.232.61
+  servername: node-usa.blok-signalon.top
   tls: true
   type: vless
   udp: true
+  uuid: 4b1be712-774c-4b65-8491-a3339e124a70
+- name: '🇦🇹 奥地利 AUT #9'
+  type: vless
+  server: 50.7.36.28
+  port: 443
   uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
-- flow: xtls-rprx-vision
-  name: 'vless-1930539319 #18'
+  tls: true
+  network: tcp
+  servername: at-new-ded.failspace.top
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+- name: '🇳🇴 挪威 NOR #8 #10'
+  type: vless
+  server: 31.76.5.2
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  tls: true
+  network: tcp
+  servername: viper-25.moriarty-web.com
+  flow: xtls-rprx-vision
+  client-fingerprint: firefox
+- name: '🇳🇴 挪威 NOR #3 #11'
+  type: vless
+  server: 31.76.5.42
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  tls: true
+  network: tcp
+  servername: norw-2.failspace.top
+  flow: xtls-rprx-vision
+  client-fingerprint: firefox
+- name: '🇮🇹_IT_意大利 (3 #12'
+  type: ss
+  server: 202.50.253.90
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '🇳🇴 挪威 NOR #5 #13'
+  type: vless
+  server: norw-1.failspace.top
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  tls: true
+  network: tcp
+  servername: norw-1.failspace.top
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+- name: '🇳🇴 挪威 NOR #2 #14'
+  type: vless
+  server: norw-2.failspace.top
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  tls: true
+  network: tcp
+  servername: norw-2.failspace.top
+  flow: xtls-rprx-vision
+  client-fingerprint: firefox
+- cipher: chacha20-ietf-poly1305
+  name: 'shadowsocks-1934448398 #15'
+  password: LzEeLj2OP0DQmpPDtVTazdGC0cHcT0Kn
+  port: 1348
+  server: dns22.m3hrzd.ir
+  type: ss
+  udp: true
+- name: '新西兰+V2CROSS.COM #16'
+  type: ss
+  server: 202.50.253.63
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '新西兰+V2CROSS.COM #17'
+  type: ss
+  server: 202.50.253.36
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '🇳🇴 挪威 NOR #18'
+  type: vless
+  server: 31.76.5.124
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  tls: true
+  network: tcp
+  servername: norway-2.failspace.top
+  flow: xtls-rprx-vision
+  client-fingerprint: firefox
+- name: '🇮🇪 爱尔兰 IRL #19'
+  type: vless
+  server: 50.7.5.165
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  tls: true
+  network: tcp
+  servername: ir-new1.failspace.top
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+- name: '🇳🇴 挪威 NOR #20'
+  type: vless
+  server: viper-23.moriarty-web.com
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  tls: true
+  network: tcp
+  servername: viper-23.moriarty-web.com
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+- name: '🇳🇴 挪威 NOR #10 #21'
+  type: vless
+  server: 31.76.5.51
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  tls: true
+  network: tcp
+  servername: norw-mori-5.failspace.top
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+- name: '🇳🇴 挪威 NOR #4 #22'
+  type: vless
+  server: norway-2.failspace.top
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  tls: true
+  network: tcp
+  servername: norway-2.failspace.top
+  flow: xtls-rprx-vision
+  client-fingerprint: firefox
+- name: '🇳🇴 挪威 NOR #7 #23'
+  type: vless
+  server: norw-mori-3.failspace.top
+  port: 443
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  tls: true
+  network: tcp
+  servername: norw-mori-3.failspace.top
+  flow: xtls-rprx-vision
+  client-fingerprint: firefox
+- name: '🇮🇱 以色列 ISR #1 #24'
+  type: trojan
+  server: 64.176.163.182
+  port: 443
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  sni: exploreeducationsectoropportunitiestodayandadvancecareers.com
+  tls: true
+  network: tcp
+- client-fingerprint: qq
+  flow: xtls-rprx-vision
+  name: 'vless-1934676054 #25'
   network: tcp
   port: 443
-  server: 108.165.15.109
-  servername: stunglacier.net
-  skip-cert-verify: false
+  reality-opts:
+    public-key: 4ubYp4HaBJgn1qXwfo0hiejncurXCckII-O_FMDXTgI
+    short-id: 3b74d85e
+  server: hk2.open-bridonyx.top
+  servername: hk2.open-bridonyx.top
   tls: true
   type: vless
   udp: true
-  uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
-- name: '新西兰+V2CROSS.COM #35 #19'
+  uuid: 4b1be712-774c-4b65-8491-a3339e124a70
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 'vless-1934374893 #26'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: sQ5tfuCzFSQ9RRoong5dDlHRupZRNjqPoNJU9-ytpDk
+    short-id: bb413f2d089a9654
+  server: 37.114.34.108
+  servername: fi1-cl3.core-mirvante.top
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4b1be712-774c-4b65-8491-a3339e124a70
+- name: '🇬🇧 英国 GBR #3 #27'
   type: ss
-  server: 202.50.253.72
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '新西兰+V2CROSS.COM #29 #20'
-  type: ss
-  server: 202.50.253.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '🇹🇼 🇨🇳 台湾 TWN #21'
+  server: 177.202.111.19
+  port: 56137
+  cipher: chacha20-ietf-poly1305
+  password: uvKNudV-N8AUCrykPiyznA
+- name: '🇹🇼 🇨🇳 台湾 TWN #21 #28'
   type: vless
   server: 59.125.69.23
   port: 443
@@ -220,63 +306,26 @@ proxies:
     path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
       Host: ty986gfazs.cainiaohub.xyz
-- name: '新西兰+V2CROSS.COM #22'
-  type: ss
-  server: 202.50.253.90
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- flow: xtls-rprx-vision
-  name: 'vless-1931254723 #23'
-  network: tcp
-  port: 443
-  server: loudarch.net
-  servername: loudarch.net
-  skip-cert-verify: false
-  tls: true
+- name: '4Sarina-a3e5479411 #29'
   type: vless
-  udp: true
-  uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
-- flow: xtls-rprx-vision
-  name: 'vless-1931254756 #24'
-  network: tcp
-  port: 443
-  server: 45.133.73.113
-  servername: loudarch.net
-  skip-cert-verify: false
+  server: 206.238.237.25
+  port: 2083
+  uuid: a6ad7987-f17e-41fa-a752-72db9a725eb2
   tls: true
-  type: vless
-  udp: true
-  uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
-- cipher: 2022-blake3-aes-256-gcm
-  name: 'shadowsocks-1931796173 #25'
-  password: U/jVh1z5NQ0cFCiCeLLxNAFBjmLBo/ECQ0dICfRFLbQ=:cZkXr9v4dFpHUetNse9xo72JumvR4N2GLz3bxiEh6Rk=
-  port: 53185
-  server: 91.107.128.44
+  network: ws
+  servername: vipfree.dr-ping.ir
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: vipfree.dr-ping.ir
+- name: '4Jadi-9c0b71b952 #30'
   type: ss
-  udp: true
-- cipher: 2022-blake3-aes-256-gcm
-  name: 'shadowsocks-1930064810 #26'
-  password: 1/kU1gF9gGRGdF5JH2jf3GeeLsItfkkOhmMP5cnPMUI=:ojXUsKiyV41J4EsaiAZFaKCW+zhuD3Tl0Z7pWkKq6eM=
-  port: 19999
-  server: 206.1.103.237
-  type: ss
-  udp: true
-- client-fingerprint: firefox
-  flow: xtls-rprx-vision
-  name: 'vless-1855698751 #27'
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: t_qv0VOfWhKZJV_giGC55-ipgHYWo44Yfvik_B8T8ik
-    short-id: 4a46213c935e2ee4
-  server: 194.135.34.223
-  servername: baltic.cendora.ru
-  tls: true
-  type: vless
-  udp: true
-  uuid: 4deb9957-e037-4ae2-8892-da357cc6f99f
-- name: '🇺🇸_US_美国 #15 #18 #28'
+  server: location8.cpanel-host10.ir
+  port: 56134
+  cipher: chacha20-ietf-poly1305
+  password: uvKNudV-N8AUCrykPiyznA
+- name: '🇺🇸_US_美国 #15 #18 #28 #31'
   type: vmess
   server: guanwang.awsno.com
   port: 443
@@ -289,151 +338,54 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: guanwang.awsno.com
-- name: '🇮🇹 www.v2nodes.com ss-IT-1602... #6 #8 #29'
-  type: ss
-  server: 202.50.253.36
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- cipher: aes-256-gcm
-  name: 'shadowsocks-1928705747 #30'
-  password: NTiHBg64fsY8u8DbGrtypD9gPGSL386p
-  port: 18443
-  server: 195.133.5.107
+- cipher: chacha20-ietf-poly1305
+  name: 'shadowsocks-1934448397 #32'
+  password: LzEeLj2OP0DQmpPDtVTazdGC0cHcT0Kn
+  port: 1349
+  server: dns22.m3hrzd.ir
   type: ss
   udp: true
-- name: 'vless-1925513726 #16 #16 #31'
-  network: ws
-  port: 443
-  server: v2.drsachi.com
+- name: '美国+Cloudinnovation数据中心 #33'
   type: vless
-  udp: true
-  uuid: 270c3fa5-0293-4d68-875c-6cdc3bdc5b84
-- name: '新西兰+V2CROSS.COM #32'
-  type: ss
-  server: 202.50.253.54
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '🇳🇱 荷兰 NLD #4 #33'
-  type: vless
-  server: swz.proxyplankton.ru
+  server: sw.golangwikito.cfd
   port: 443
-  uuid: 054362fb-e485-4a3f-9568-4c5b0f60e074
+  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
   tls: true
   network: tcp
-  servername: swz.proxyplankton.ru
-  client-fingerprint: chrome
-- name: '🇸🇬 www.v2nodes.com trojan-SG-... #13 # #34'
-  type: trojan
-  server: 43.156.36.253
-  port: 443
-  password: WvH8ooM9hom4KOOJHFJz1x5umE0aV4R0
-  sni: 43.156.36.253
-  tls: true
-  network: tcp
-- flow: xtls-rprx-vision
-  name: 'vless-1930024308 #35'
-  network: tcp
-  port: 443
-  server: softice.net
-  servername: softice.net
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
-- name: '俄罗斯+V2CROSS.COM #24 #36'
-  type: vless
-  server: 46.8.43.125
-  port: 443
-  uuid: 846cedee-2a52-4a62-a0b9-11850ead6a8b
-  tls: true
-  network: tcp
-  servername: kz-central.v8x2b.lol
+  servername: sw.golangwikito.cfd
   reality-opts:
-    public-key: ER-T5En54-sn6IXy7jU8vQVcBbOiWvznnezf3qZ273w
-    short-id: ''
-  client-fingerprint: firefox
-  packet-encoding: xudp
-- name: 'trojan-1929965331 #37'
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 216.152.156.81
-  skip-cert-verify: false
-  sni: www.healthcarejobshubenhancemedicalprofessionalskillstoday.com
-  type: trojan
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: 'shadowsocks-1926497658 #10 #17 #38'
-  password: uvKNudV-N8AUCrykPiyznA
-  port: 56137
-  server: 177.202.111.21
-  type: ss
-  udp: true
-- name: '🇮🇹 www.v2nodes.com ss-IT-1602... #18 # #39'
-  type: ss
-  server: 202.50.253.63
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- cipher: chacha20-ietf-poly1305
-  name: 'shadowsocks-1930067811 #40'
-  password: ef3UcwPZadB_8VhNR2oVaw
-  port: 2083
-  server: 5.78.56.233
-  type: ss
-  udp: true
-- client-fingerprint: safari
+    public-key: Kb8SsVPprs46BJSUNp5JvWLI-TFEiHmlBOXLQd37Glg
+    short-id: a1037b25dcef6aa7
   flow: xtls-rprx-vision
-  name: 'vless-1930539306 #41'
-  network: raw
-  port: 443
-  reality-opts:
-    public-key: 8C7evg_SSrJbxMTaUqJoylqB9HSNsmBvmUlgs_c5EiU
-    short-id: 88d9dc52ef39c8bd
-  server: node-slo05.rkitman.ru
-  servername: node-slo05.rkitman.ru
-  tls: true
-  type: vless
-  udp: true
-  uuid: d0c8aa8d-a535-432a-b521-21f0e561f643
-- cipher: chacha20-ietf-poly1305
-  name: 'shadowsocks-1926289825 #31 #10 #42'
-  password: uvKNudV-N8AUCrykPiyznA
-  port: 56137
-  server: 177.202.111.18
-  type: ss
-  udp: true
-- name: 'vless-1928873673 #6 #43'
-  network: none
-  port: 57259
-  server: 169.128.83.4
-  type: vless
-  udp: true
-  uuid: a1962f23-f8f8-412d-f2ce-3361e7b72889
-- name: 'US - zhuhai.uk 03 #44'
-  type: vless
-  server: a0688bt.us4.h1clayd.click
-  port: 443
-  uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
-  tls: true
-  servername: a0688bt.us4.h1clayd.click
   client-fingerprint: chrome
-  reality-opts:
-    public-key: 5-9YzvyXcZ4J5Z4OaVTUbxUU2InvnwT17m0XY-Jse1E
-    short-id: 257420d9d430152a
-- name: 'vless-1925771093 #1 #27 #45'
+  packet-encoding: xudp
+- name: '巴西+V2CROSS.COM #34'
+  type: ss
+  server: 177.202.111.20
+  port: 56137
+  cipher: chacha20-ietf-poly1305
+  password: uvKNudV-N8AUCrykPiyznA
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 'vless-1934374910 #35'
   network: tcp
-  port: 59746
-  server: hk013.zestapp778.com
-  servername: hk013.zestapp778.com
-  skip-cert-verify: false
+  port: 443
+  reality-opts:
+    public-key: I45spoFEwSCaxR8FIP1HnrFj5KbR3keSAGMMdgt2AHY
+    short-id: b1c5a5e2
+  server: 151.247.22.58
+  servername: usa.letsconnectpoint.com
   tls: true
   type: vless
   udp: true
-  uuid: 99fa1d27-b252-4cba-b04d-50c3d0873700
-- name: '德国+V2CROSS.COM #46'
+  uuid: 4b1be712-774c-4b65-8491-a3339e124a70
+- name: '🇹🇷 土耳其 TUR #1 #36'
+  type: ss
+  server: 177.202.111.24
+  port: 56134
+  cipher: chacha20-ietf-poly1305
+  password: uvKNudV-N8AUCrykPiyznA
+- name: '德国+V2CROSS.COM #46 #37'
   type: vless
   server: 5.253.28.240
   port: 40443
@@ -447,26 +399,32 @@ proxies:
   flow: xtls-rprx-vision
   client-fingerprint: chrome
   packet-encoding: xudp
-- name: '🇨🇳_CN_中国->🇺🇸_US_美国 #33 #33 #47'
+- name: '以色列+V2CROSS.COM #38'
   type: vless
-  server: jp.sofast.live
-  port: 52683
-  uuid: 399b6b23-cc40-4831-a494-61948e2df133
-  tls: false
-  network: tcp
-- name: '俄罗斯+V2CROSS.COM #48'
-  type: vless
-  server: 94.228.167.12
-  port: 443
-  uuid: 37ca5f34-2531-4fda-a781-20f3845fea88
+  server: de15.h1cloud.net
+  port: 25362
+  uuid: 36fb6650-8a50-42b5-9f66-06538806f32c
   tls: true
   network: tcp
-  servername: washingphonicseatable.solsticedigest.me
+  servername: www.chip.de
   reality-opts:
-    public-key: dCaQHVtwEPBeiH3ivVU9ycGJZ8uCO2JaIVjYBnfaTWY
-    short-id: c13c9bd7bd45847d
+    public-key: hFee7zTreqlv_wccK_8zxN5v23hj9u-DshByvGf-KAA
+    short-id: 23732d14a527990d
+  client-fingerprint: chrome
+- client-fingerprint: edge
   flow: xtls-rprx-vision
-  client-fingerprint: firefox
+  name: 'vless-1934374902 #39'
+  network: tcp
+  port: 443
+  reality-opts:
+    public-key: I45spoFEwSCaxR8FIP1HnrFj5KbR3keSAGMMdgt2AHY
+    short-id: b1c5a5e2
+  server: usa.letsconnectpoint.com
+  servername: usa.letsconnectpoint.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4b1be712-774c-4b65-8491-a3339e124a70
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -474,291 +432,250 @@ proxy-groups:
   - ♻️ 自动选择
   - 🔯 故障转移
   - 🇺🇸 美国
-  - 🇮🇹 意大利
-  - 🌍 其他地区
-  - 🇭🇰 香港
-  - 🇷🇺 俄罗斯
-  - 🇨🇦 加拿大
+  - 🇳🇴 挪威
   - 🇩🇪 德国
-  - 🇨🇳 中国
-  - 🇦🇹 奥地利
-  - 🇹🇷 土耳其
-  - 🇸🇬 新加坡
-  - 🇫🇷 法国
-  - 🇳🇱 荷兰
+  - 🌍 其他地区
   - 🇮🇱 以色列
+  - 🇮🇹 意大利
+  - 🇲🇾 马来西亚
+  - 🇫🇷 法国
+  - 🇯🇵 日本
+  - 🇦🇹 奥地利
+  - 🇮🇪 爱尔兰
+  - 🇭🇰 香港
   - 🇹🇼 台湾
-  - 🇨🇭 瑞士
-  - 🌍 KZ
-  - 🌍 SI
+  - 🇸🇬 新加坡
+  - 🇨🇦 加拿大
+  - 🇳🇱 荷兰
   - 🇮🇳 印度
   - DIRECT
 - name: ♻️ 自动选择
   type: url-test
   proxies:
-  - '4Mohsen-99d85e0163 #1'
-  - '4Jadi-52dba421fe #4 #2'
-  - 'vless-1929291555 #9 #3'
-  - '🇨🇳_CN_中国 #2 #1 #4'
-  - 'trojan-1929965359 #5'
-  - 'trojan-1929965335 #6'
-  - 'vless-1926218387 #7'
-  - 'trojan-1929965364 #8'
-  - 'trojan-1930077602 #9'
-  - '新西兰+V2CROSS.COM #20 #10'
-  - 'vless-1928744992 #37 #11'
-  - 'vless-1864695614 #12'
-  - 'trojan-1929965342 #13'
-  - '新西兰+V2CROSS.COM #12 #14'
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #9 #9 #15'
-  - '🏳 www.v2nodes.com ss- #8 #34 #16'
-  - 'vless-1929108260 #11 #17'
-  - 'vless-1930539319 #18'
-  - '新西兰+V2CROSS.COM #35 #19'
-  - '新西兰+V2CROSS.COM #29 #20'
-  - '🇹🇼 🇨🇳 台湾 TWN #21'
-  - '新西兰+V2CROSS.COM #22'
-  - 'vless-1931254723 #23'
-  - 'vless-1931254756 #24'
-  - 'shadowsocks-1931796173 #25'
-  - 'shadowsocks-1930064810 #26'
-  - 'vless-1855698751 #27'
-  - '🇺🇸_US_美国 #15 #18 #28'
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #6 #8 #29'
-  - 'shadowsocks-1928705747 #30'
-  - 'vless-1925513726 #16 #16 #31'
-  - '新西兰+V2CROSS.COM #32'
-  - '🇳🇱 荷兰 NLD #4 #33'
-  - '🇸🇬 www.v2nodes.com trojan-SG-... #13 # #34'
-  - 'vless-1930024308 #35'
-  - '俄罗斯+V2CROSS.COM #24 #36'
-  - 'trojan-1929965331 #37'
-  - 'shadowsocks-1926497658 #10 #17 #38'
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #18 # #39'
-  - 'shadowsocks-1930067811 #40'
-  - 'vless-1930539306 #41'
-  - 'shadowsocks-1926289825 #31 #10 #42'
-  - 'vless-1928873673 #6 #43'
-  - 'US - zhuhai.uk 03 #44'
-  - 'vless-1925771093 #1 #27 #45'
-  - '德国+V2CROSS.COM #46'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #33 #33 #47'
-  - '俄罗斯+V2CROSS.COM #48'
+  - 'vless-1933640062 #1'
+  - 'vless-1926218387 #7 #2'
+  - 'vless-1934374866 #3'
+  - '🇯🇵 www.v2nodes.com ss-JP-1599... #4'
+  - 'vless-1934374875 #5'
+  - 'vless-1864695614 #12 #6'
+  - '🇩🇪 德国 DEU #5 #7'
+  - 'vless-1934374897 #8'
+  - '🇦🇹 奥地利 AUT #9'
+  - '🇳🇴 挪威 NOR #8 #10'
+  - '🇳🇴 挪威 NOR #3 #11'
+  - '🇮🇹_IT_意大利 (3 #12'
+  - '🇳🇴 挪威 NOR #5 #13'
+  - '🇳🇴 挪威 NOR #2 #14'
+  - 'shadowsocks-1934448398 #15'
+  - '新西兰+V2CROSS.COM #16'
+  - '新西兰+V2CROSS.COM #17'
+  - '🇳🇴 挪威 NOR #18'
+  - '🇮🇪 爱尔兰 IRL #19'
+  - '🇳🇴 挪威 NOR #20'
+  - '🇳🇴 挪威 NOR #10 #21'
+  - '🇳🇴 挪威 NOR #4 #22'
+  - '🇳🇴 挪威 NOR #7 #23'
+  - '🇮🇱 以色列 ISR #1 #24'
+  - 'vless-1934676054 #25'
+  - 'vless-1934374893 #26'
+  - '🇬🇧 英国 GBR #3 #27'
+  - '🇹🇼 🇨🇳 台湾 TWN #21 #28'
+  - '4Sarina-a3e5479411 #29'
+  - '4Jadi-9c0b71b952 #30'
+  - '🇺🇸_US_美国 #15 #18 #28 #31'
+  - 'shadowsocks-1934448397 #32'
+  - '美国+Cloudinnovation数据中心 #33'
+  - '巴西+V2CROSS.COM #34'
+  - 'vless-1934374910 #35'
+  - '🇹🇷 土耳其 TUR #1 #36'
+  - '德国+V2CROSS.COM #46 #37'
+  - '以色列+V2CROSS.COM #38'
+  - 'vless-1934374902 #39'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🔯 故障转移
   type: fallback
   proxies:
-  - '4Mohsen-99d85e0163 #1'
-  - '4Jadi-52dba421fe #4 #2'
-  - 'vless-1929291555 #9 #3'
-  - '🇨🇳_CN_中国 #2 #1 #4'
-  - 'trojan-1929965359 #5'
-  - 'trojan-1929965335 #6'
-  - 'vless-1926218387 #7'
-  - 'trojan-1929965364 #8'
-  - 'trojan-1930077602 #9'
-  - '新西兰+V2CROSS.COM #20 #10'
-  - 'vless-1928744992 #37 #11'
-  - 'vless-1864695614 #12'
-  - 'trojan-1929965342 #13'
-  - '新西兰+V2CROSS.COM #12 #14'
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #9 #9 #15'
-  - '🏳 www.v2nodes.com ss- #8 #34 #16'
-  - 'vless-1929108260 #11 #17'
-  - 'vless-1930539319 #18'
-  - '新西兰+V2CROSS.COM #35 #19'
-  - '新西兰+V2CROSS.COM #29 #20'
-  - '🇹🇼 🇨🇳 台湾 TWN #21'
-  - '新西兰+V2CROSS.COM #22'
-  - 'vless-1931254723 #23'
-  - 'vless-1931254756 #24'
-  - 'shadowsocks-1931796173 #25'
-  - 'shadowsocks-1930064810 #26'
-  - 'vless-1855698751 #27'
-  - '🇺🇸_US_美国 #15 #18 #28'
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #6 #8 #29'
-  - 'shadowsocks-1928705747 #30'
-  - 'vless-1925513726 #16 #16 #31'
-  - '新西兰+V2CROSS.COM #32'
-  - '🇳🇱 荷兰 NLD #4 #33'
-  - '🇸🇬 www.v2nodes.com trojan-SG-... #13 # #34'
-  - 'vless-1930024308 #35'
-  - '俄罗斯+V2CROSS.COM #24 #36'
-  - 'trojan-1929965331 #37'
-  - 'shadowsocks-1926497658 #10 #17 #38'
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #18 # #39'
-  - 'shadowsocks-1930067811 #40'
-  - 'vless-1930539306 #41'
-  - 'shadowsocks-1926289825 #31 #10 #42'
-  - 'vless-1928873673 #6 #43'
-  - 'US - zhuhai.uk 03 #44'
-  - 'vless-1925771093 #1 #27 #45'
-  - '德国+V2CROSS.COM #46'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #33 #33 #47'
-  - '俄罗斯+V2CROSS.COM #48'
+  - 'vless-1933640062 #1'
+  - 'vless-1926218387 #7 #2'
+  - 'vless-1934374866 #3'
+  - '🇯🇵 www.v2nodes.com ss-JP-1599... #4'
+  - 'vless-1934374875 #5'
+  - 'vless-1864695614 #12 #6'
+  - '🇩🇪 德国 DEU #5 #7'
+  - 'vless-1934374897 #8'
+  - '🇦🇹 奥地利 AUT #9'
+  - '🇳🇴 挪威 NOR #8 #10'
+  - '🇳🇴 挪威 NOR #3 #11'
+  - '🇮🇹_IT_意大利 (3 #12'
+  - '🇳🇴 挪威 NOR #5 #13'
+  - '🇳🇴 挪威 NOR #2 #14'
+  - 'shadowsocks-1934448398 #15'
+  - '新西兰+V2CROSS.COM #16'
+  - '新西兰+V2CROSS.COM #17'
+  - '🇳🇴 挪威 NOR #18'
+  - '🇮🇪 爱尔兰 IRL #19'
+  - '🇳🇴 挪威 NOR #20'
+  - '🇳🇴 挪威 NOR #10 #21'
+  - '🇳🇴 挪威 NOR #4 #22'
+  - '🇳🇴 挪威 NOR #7 #23'
+  - '🇮🇱 以色列 ISR #1 #24'
+  - 'vless-1934676054 #25'
+  - 'vless-1934374893 #26'
+  - '🇬🇧 英国 GBR #3 #27'
+  - '🇹🇼 🇨🇳 台湾 TWN #21 #28'
+  - '4Sarina-a3e5479411 #29'
+  - '4Jadi-9c0b71b952 #30'
+  - '🇺🇸_US_美国 #15 #18 #28 #31'
+  - 'shadowsocks-1934448397 #32'
+  - '美国+Cloudinnovation数据中心 #33'
+  - '巴西+V2CROSS.COM #34'
+  - 'vless-1934374910 #35'
+  - '🇹🇷 土耳其 TUR #1 #36'
+  - '德国+V2CROSS.COM #46 #37'
+  - '以色列+V2CROSS.COM #38'
+  - 'vless-1934374902 #39'
   url: http://www.gstatic.com/generate_204
   interval: 300
 - name: 🇺🇸 美国
   type: url-test
   proxies:
-  - '4Jadi-52dba421fe #4 #2'
-  - 'trojan-1929965359 #5'
-  - 'trojan-1929965335 #6'
-  - 'trojan-1929965364 #8'
-  - 'vless-1930539319 #18'
-  - 'trojan-1929965331 #37'
-  - 'shadowsocks-1926497658 #10 #17 #38'
-  - 'shadowsocks-1930067811 #40'
-  - 'shadowsocks-1926289825 #31 #10 #42'
-  - 'vless-1928873673 #6 #43'
+  - 'vless-1934374866 #3'
+  - 'vless-1934374875 #5'
+  - 'vless-1934374897 #8'
+  - '🇬🇧 英国 GBR #3 #27'
+  - '巴西+V2CROSS.COM #34'
+  - 'vless-1934374910 #35'
+  - '🇹🇷 土耳其 TUR #1 #36'
+  - 'vless-1934374902 #39'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-- name: 🇮🇹 意大利
+- name: 🇳🇴 挪威
   type: url-test
   proxies:
-  - '新西兰+V2CROSS.COM #20 #10'
-  - '新西兰+V2CROSS.COM #12 #14'
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #9 #9 #15'
-  - '新西兰+V2CROSS.COM #35 #19'
-  - '新西兰+V2CROSS.COM #29 #20'
-  - '新西兰+V2CROSS.COM #22'
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #6 #8 #29'
-  - '新西兰+V2CROSS.COM #32'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🌍 其他地区
-  type: url-test
-  proxies:
-  - 'trojan-1930077602 #9'
-  - 'trojan-1929965342 #13'
-  - '🏳 www.v2nodes.com ss- #8 #34 #16'
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #18 # #39'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇭🇰 香港
-  type: url-test
-  proxies:
-  - 'vless-1931254723 #23'
-  - 'vless-1931254756 #24'
-  - 'vless-1925771093 #1 #27 #45'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇷🇺 俄罗斯
-  type: url-test
-  proxies:
-  - 'shadowsocks-1928705747 #30'
-  - 'US - zhuhai.uk 03 #44'
-  - '俄罗斯+V2CROSS.COM #48'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇨🇦 加拿大
-  type: url-test
-  proxies:
-  - '4Mohsen-99d85e0163 #1'
-  - '🇺🇸_US_美国 #15 #18 #28'
+  - '🇳🇴 挪威 NOR #8 #10'
+  - '🇳🇴 挪威 NOR #3 #11'
+  - '🇳🇴 挪威 NOR #5 #13'
+  - '🇳🇴 挪威 NOR #2 #14'
+  - '🇳🇴 挪威 NOR #20'
+  - '🇳🇴 挪威 NOR #10 #21'
+  - '🇳🇴 挪威 NOR #4 #22'
+  - '🇳🇴 挪威 NOR #7 #23'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇩🇪 德国
   type: url-test
   proxies:
-  - 'vless-1929291555 #9 #3'
-  - 'shadowsocks-1931796173 #25'
+  - '🇩🇪 德国 DEU #5 #7'
+  - 'shadowsocks-1934448398 #15'
+  - 'vless-1934374893 #26'
+  - 'shadowsocks-1934448397 #32'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-- name: 🇨🇳 中国
+- name: 🌍 其他地区
   type: url-test
   proxies:
-  - '🇨🇳_CN_中国 #2 #1 #4'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #33 #33 #47'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇦🇹 奥地利
-  type: url-test
-  proxies:
-  - 'vless-1929108260 #11 #17'
-  - 'vless-1930024308 #35'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇹🇷 土耳其
-  type: url-test
-  proxies:
-  - 'shadowsocks-1930064810 #26'
-  - 'vless-1855698751 #27'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇸🇬 新加坡
-  type: url-test
-  proxies:
-  - 'vless-1925513726 #16 #16 #31'
-  - '🇸🇬 www.v2nodes.com trojan-SG-... #13 # #34'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇫🇷 法国
-  type: url-test
-  proxies:
-  - 'vless-1926218387 #7'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇳🇱 荷兰
-  type: url-test
-  proxies:
-  - 'vless-1928744992 #37 #11'
+  - '新西兰+V2CROSS.COM #16'
+  - '🇳🇴 挪威 NOR #18'
+  - '4Jadi-9c0b71b952 #30'
+  - '以色列+V2CROSS.COM #38'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇮🇱 以色列
   type: url-test
   proxies:
-  - 'vless-1864695614 #12'
+  - 'vless-1864695614 #12 #6'
+  - '🇮🇱 以色列 ISR #1 #24'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇮🇹 意大利
+  type: url-test
+  proxies:
+  - '🇮🇹_IT_意大利 (3 #12'
+  - '新西兰+V2CROSS.COM #17'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇲🇾 马来西亚
+  type: url-test
+  proxies:
+  - 'vless-1933640062 #1'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇫🇷 法国
+  type: url-test
+  proxies:
+  - 'vless-1926218387 #7 #2'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇯🇵 日本
+  type: url-test
+  proxies:
+  - '🇯🇵 www.v2nodes.com ss-JP-1599... #4'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇦🇹 奥地利
+  type: url-test
+  proxies:
+  - '🇦🇹 奥地利 AUT #9'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇮🇪 爱尔兰
+  type: url-test
+  proxies:
+  - '🇮🇪 爱尔兰 IRL #19'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇭🇰 香港
+  type: url-test
+  proxies:
+  - 'vless-1934676054 #25'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇹🇼 台湾
   type: url-test
   proxies:
-  - '🇹🇼 🇨🇳 台湾 TWN #21'
+  - '🇹🇼 🇨🇳 台湾 TWN #21 #28'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-- name: 🇨🇭 瑞士
+- name: 🇸🇬 新加坡
   type: url-test
   proxies:
-  - '🇳🇱 荷兰 NLD #4 #33'
+  - '4Sarina-a3e5479411 #29'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-- name: 🌍 KZ
+- name: 🇨🇦 加拿大
   type: url-test
   proxies:
-  - '俄罗斯+V2CROSS.COM #24 #36'
+  - '🇺🇸_US_美国 #15 #18 #28 #31'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-- name: 🌍 SI
+- name: 🇳🇱 荷兰
   type: url-test
   proxies:
-  - 'vless-1930539306 #41'
+  - '美国+Cloudinnovation数据中心 #33'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇮🇳 印度
   type: url-test
   proxies:
-  - '德国+V2CROSS.COM #46'
+  - '德国+V2CROSS.COM #46 #37'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80

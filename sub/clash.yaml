@@ -21,151 +21,7 @@ dns:
     geoip: true
     geoip-code: CN
 proxies:
-- name: '4FreeIran-39440c16b4 #1'
-  type: trojan
-  server: 104.24.144.224
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '4Nika-c9cf18cd11 #2'
-  type: vless
-  server: 104.17.3.81
-  port: 443
-  uuid: dffb7646-1656-427a-8187-9c056a6a5fd5
-  tls: true
-  network: ws
-  servername: vff67.eu.cc
-  ws-opts:
-    path: /id-dnva
-    headers:
-      Host: vff67.eu.cc
-- name: '4Jadi-d201754ddb #3'
-  type: trojan
-  server: 198.41.216.1
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '4Kian-79aef11a08 #4'
-  type: trojan
-  server: 104.17.159.71
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '4Mohsen-fa2ae0ddbf #5'
-  type: trojan
-  server: 104.18.46.59
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '美国+CloudFlare节点 #6'
-  type: trojan
-  server: 104.17.17.238
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '4Kian-9d81901eda #7'
-  type: trojan
-  server: 104.17.135.68
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '4Nika-1ebc4a9f97 #8'
-  type: trojan
-  server: 104.18.39.55
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '4Jadi-387764916b #9'
-  type: trojan
-  server: 104.17.117.104
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '4FreeIran-a30cf81eea #10'
-  type: trojan
-  server: 172.67.94.180
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '4Mohsen-a41482cf32 #11'
-  type: trojan
-  server: 104.19.48.73
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '4FreeIran-b0cc4a0ee6 #12'
-  type: trojan
-  server: 104.18.151.172
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '美国+CloudFlare节点 #13'
+- name: '美国+CloudFlare节点 #1'
   type: trojan
   server: 172.67.203.46
   port: 443
@@ -177,7 +33,127 @@ proxies:
     path: /assignment
     headers:
       Host: www.cordweave.com
-- name: '4Sarina-82d55f86e2 #14'
+- name: '4FreeIran-39440c16b4 #1 #2'
+  type: trojan
+  server: 104.24.144.224
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '美国+CloudFlare节点 #3'
+  type: trojan
+  server: 172.66.0.172
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '🇳🇱 荷兰 NLD 18 #4'
+  type: trojan
+  server: 198.41.216.1
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '🇳🇱 荷兰 NLD 10 #5'
+  type: trojan
+  server: 172.67.74.177
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Mohsen-a41482cf32 #11 #6'
+  type: trojan
+  server: 104.19.48.73
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Jadi-387764916b #9 #7'
+  type: trojan
+  server: 104.17.117.104
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4FreeIran-a30cf81eea #10 #8'
+  type: trojan
+  server: 172.67.94.180
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Kian-9d81901eda #7 #9'
+  type: trojan
+  server: 104.17.135.68
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4FreeIran-b0cc4a0ee6 #12 #10'
+  type: trojan
+  server: 104.18.151.172
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '🇳🇱 荷兰 NLD 34 #11'
+  type: trojan
+  server: 104.16.240.177
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Sarina-82d55f86e2 #14 #12'
   type: trojan
   server: 104.17.155.44
   port: 443
@@ -189,7 +165,33 @@ proxies:
     path: /assignment
     headers:
       Host: www.cordweave.com
-- name: '4Jadi-10bd4b9557 #15'
+- name: '4Sarina-be5174743f #13'
+  type: vless
+  server: hk1.huahua.wiki
+  port: 443
+  uuid: 99a4a20a-968b-4cb4-804b-a0eaeb1269b6
+  tls: true
+  network: tcp
+  servername: www.apple.com
+  reality-opts:
+    public-key: RT5W1WQ5IscetQH2kbVVejO1fwcbHt24MjCLgpZJbCU
+    short-id: fe9d8966354dfd7d
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+- name: '4Mohsen-af557f1d65 #14'
+  type: vless
+  server: sgp.huahua.wiki
+  port: 443
+  uuid: aa83d161-1169-494a-a57e-c8d8b327f051
+  tls: true
+  network: tcp
+  servername: www.apple.com
+  reality-opts:
+    public-key: 5KO-p5u_N5i11i_DC49SsSKTW1XvTiYMhg-eMzj3HTw
+    short-id: 0417be28beffdfc1
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+- name: '4Jadi-10bd4b9557 #15 #15'
   type: vmess
   server: 39.108.113.127
   port: 10086
@@ -202,84 +204,75 @@ proxies:
     path: ''
     headers:
       Host: ''
-- name: '4Nika-ad93914f91 #16'
+- name: '🇸🇬 www.v2nodes.com vless-SG-1... #16'
   type: vless
-  server: 89.169.13.161
-  port: 443
-  uuid: 454cd459-e6b3-4695-a67a-5e48c4a5b54c
+  server: sg1.zestapp778.com
+  port: 56984
+  uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
   tls: true
   network: tcp
-  servername: nl198391278291.izzzyvpn.space
+  servername: sg1.zestapp778.com
+  client-fingerprint: chrome
+- name: '4FreeIran-fe284b24b8 #17'
+  type: trojan
+  server: 199.232.78.120
+  port: 443
+  password: MiTiVPN
+  sni: firefox.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+    headers:
+      Host: mitivpn-mitivpn-mitivpn.ac.ir
+- name: '4Kian-6dc16998f0 #18'
+  type: vless
+  server: 163.245.42.120
+  port: 443
+  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
+  tls: true
+  network: tcp
+  servername: mother-earth.fyi
   reality-opts:
-    public-key: ScuWSKQxJg4QKv3FUj39wy8ZsZlnu1WFPhMWxbpTFFk
-    short-id: b996df2f36a9ae6b
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: ''
   flow: xtls-rprx-vision
   client-fingerprint: firefox
-- name: '4Kian-a5a99744db #17'
-  type: trojan
-  server: 207.57.123.112
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '🇩🇪 德国 DEU #18'
+- name: '4Sarina-2ce606a04a #19'
   type: vless
-  server: 195.141.65.98
+  server: 163.245.42.157
   port: 443
-  uuid: 53f03acd-fec1-6685-fc8f-03baf9550cb8
-  tls: true
-  network: ws
-  servername: 148-253-210-191.sslip.io
-  client-fingerprint: chrome
-  ws-opts:
-    path: /test-ws
-    headers:
-      Host: 148-253-210-191.sslip.io
-- name: '4Mohsen-48540adf70 #19'
-  type: trojan
-  server: 38.180.225.247
-  port: 2053
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '4Kian-6f4254826c #20'
-  type: trojan
-  server: 31.76.0.15
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '4FreeIran-c82fdb86f5 #21'
-  type: vless
-  server: 5.181.158.192
-  port: 8460
-  uuid: 1c8f7130-8c1a-4949-831d-1d45b39c795b
+  uuid: b9bfa54d-bc44-4592-a6d6-89a9665d286f
   tls: true
   network: raw
-  servername: nl-ams.bystriynet.online
+  servername: mother-earth.fyi
   reality-opts:
-    public-key: 5FHR9361HdRaycDAmACmok_SvpmM2xnzYRkUBsgZARM
-    short-id: c7d4e6fb729b69c2
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: ''
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+- name: '4Mohsen-6aba02bfb9 #20'
+  type: vless
+  server: 178.236.245.59
+  port: 443
+  uuid: ca14493b-b984-4ffb-bc0e-9cb5da969e15
+  tls: true
+  network: tcp
+  servername: tau1.freerunet.online
+  reality-opts:
+    public-key: l1mx_plNc2oiWxJCcZLh3SGfFU-5QxYpgQ__Ea59WEg
+    short-id: 4a7b1c8d
   flow: xtls-rprx-vision
   client-fingerprint: firefox
-- name: '4Kian-ff3d266a2c #22'
+- name: '🇮🇹 www.v2nodes.com ss-IT-1602... #3 #21'
+  type: ss
+  server: 202.50.253.18
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '🇳🇱 荷兰 NLD 15 #22'
   type: trojan
-  server: 207.57.123.77
+  server: 153.56.171.216
   port: 443
   password: humanity
   sni: www.cordweave.com
@@ -289,9 +282,9 @@ proxies:
     path: /assignment
     headers:
       Host: www.cordweave.com
-- name: '4Sarina-db01ef08f3 #23'
+- name: '🇳🇱 荷兰 NLD 25 #23'
   type: trojan
-  server: 47.57.181.17
+  server: 89.36.137.173
   port: 443
   password: humanity
   sni: www.cordweave.com
@@ -301,7 +294,125 @@ proxies:
     path: /assignment
     headers:
       Host: www.cordweave.com
-- name: '4Kian-7289bb0a15 #8 #6 #24'
+- name: '🇳🇱 荷兰 NLD 20 #24'
+  type: trojan
+  server: 35.241.172.224
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '🇳🇱 荷兰 NLD 13 #25'
+  type: trojan
+  server: 93.86.12.49
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '🇷🇺 俄罗斯 RUS #26'
+  type: vless
+  server: 5.129.249.65
+  port: 443
+  uuid: a5212bcb-ab85-459a-bec6-9f259eeeebfa
+  tls: true
+  network: tcp
+  servername: rue.tems.bet
+  reality-opts:
+    public-key: iT-HgkPRUHl7Tm-LUWAGD-zoNoZSkVc-M9sscIIomHY
+    short-id: a62228a1c8b3378f
+  client-fingerprint: firefox
+- name: '🇳🇱 荷兰 NLD 36 #27'
+  type: trojan
+  server: 179.255.127.209
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '🇳🇱 荷兰 NLD 21 #28'
+  type: trojan
+  server: 179.255.127.92
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: 'vless-1858137112 #29'
+  network: ws
+  port: 8443
+  server: wsru1.wba-pn.ru
+  servername: wsru1.wba-pn.ru
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: f9613819-d2fe-4b3a-a2e6-40c184c6854c
+- name: '4Sarina-1278ba92a7 #27 #30'
+  type: trojan
+  server: 138.124.231.159
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Nika-1fa77825dd #29 #31'
+  type: trojan
+  server: 193.134.209.165
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '🇳🇱 荷兰 NLD #32'
+  type: trojan
+  server: 179.255.99.31
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Sarina-6b944c169b #33'
+  type: trojan
+  server: 91.239.6.47
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Kian-7289bb0a15 #8 #6 #24 #34'
   type: vless
   server: de166.mech-pro.online
   port: 443
@@ -314,7 +425,7 @@ proxies:
     short-id: 16e0f049
   flow: xtls-rprx-vision
   client-fingerprint: firefox
-- name: '4Sarina-7e115e8c61 #25'
+- name: '4Sarina-7e115e8c61 #25 #35'
   type: trojan
   server: 162.159.149.157
   port: 443
@@ -326,9 +437,9 @@ proxies:
     path: /assignment
     headers:
       Host: www.cordweave.com
-- name: '4Kian-8630ba6e41 #26'
+- name: '4FreeIran-83e833d81f #36'
   type: trojan
-  server: 54.116.249.102
+  server: 46.225.176.136
   port: 443
   password: humanity
   sni: www.cordweave.com
@@ -338,76 +449,34 @@ proxies:
     path: /assignment
     headers:
       Host: www.cordweave.com
-- name: '4Sarina-1278ba92a7 #27'
-  type: trojan
-  server: 138.124.231.159
+- name: '🇺🇸_US_美国 #37'
+  type: vmess
+  server: guanwang.awsno.com
   port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
   network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '4Sarina-15cae76ab1 #28'
-  type: trojan
-  server: 45.130.125.112
-  port: 443
-  password: humanity
-  sni: www.calmlunch.com
   tls: true
-  network: ws
   ws-opts:
-    path: /assignment
+    path: /hls/cctv5phd.m3u8
     headers:
-      Host: www.calmlunch.com
-- name: '4Nika-1fa77825dd #29'
-  type: trojan
-  server: 193.134.209.165
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '4Sarina-25c26164e2 #25 #30'
+      Host: guanwang.awsno.com
+- name: 'TW - zhuhai.uk 02 #38'
   type: vless
-  server: hk010.zestapp778.com
-  port: 31884
-  uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
+  server: 60.248.219.53
+  port: 443
+  uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
   tls: true
-  network: tcp
-  servername: hk010.zestapp778.com
+  servername: ty986gfazs.cainiaohub.xyz
+  skip-cert-verify: true
   client-fingerprint: chrome
-- name: '4Mohsen-40d9f61bfe #31'
-  type: trojan
-  server: 165.22.102.89
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
   network: ws
   ws-opts:
-    path: /assignment
+    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
     headers:
-      Host: www.cordweave.com
-- name: '4Jadi-0db2d6bd7b #32'
-  type: trojan
-  server: 45.196.235.64
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '🇳🇱 荷兰 NLD #33'
+      Host: ty986gfazs.cainiaohub.xyz
+- name: '🇳🇱 荷兰 NLD #33 #39'
   type: vless
   server: app-mi-26.spbstudentlife.com
   port: 443
@@ -420,21 +489,10 @@ proxies:
     short-id: a7856800c2deb7b2
   flow: xtls-rprx-vision
   client-fingerprint: randomized
-- name: '🇳🇱 荷兰 NLD 7 #34'
-  type: vless
-  server: 189.74.114.119
-  port: 443
-  uuid: abd5755a-8b77-4ed4-afbd-f2ccbc08e6f5
-  tls: true
-  network: grpc
-  servername: api.mediaklenov.cc
-  client-fingerprint: safari
-  grpc-opts:
-    grpc-service-name: 3e99d50d5740985d
-- name: '4Nika-66e1db37b2 #35'
+- name: '🇪🇸 西班牙 ESP #40'
   type: trojan
-  server: 213.165.34.40
-  port: 443
+  server: 185.114.72.31
+  port: 8443
   password: humanity
   sni: www.cordweave.com
   tls: true
@@ -443,32 +501,7 @@ proxies:
     path: /assignment
     headers:
       Host: www.cordweave.com
-- name: '4Jadi-7d1888dbae #36'
-  type: trojan
-  server: 87.120.126.131
-  port: 443
-  password: humanity
-  sni: www.cordweave.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /assignment
-    headers:
-      Host: www.cordweave.com
-- name: '4Jadi-0652a5e3bd #35 #37'
-  type: vless
-  server: 150.251.143.86
-  port: 443
-  uuid: c29fa587-b10d-445d-b7e3-eaa6d1bd1330
-  tls: true
-  network: tcp
-  servername: est1.srv.luckdns.fun
-  reality-opts:
-    public-key: ASRlLIMLrchtPN9Jc8hC3HPjcDU_xzZlnQj2rcdUJ1k
-    short-id: c5787235
-  flow: xtls-rprx-vision
-  client-fingerprint: firefox
-- name: '4Kian-bf966f0e29 #38'
+- name: '4Kian-bf966f0e29 #38 #41'
   type: trojan
   server: 82.118.18.179
   port: 443
@@ -480,15 +513,9 @@ proxies:
     path: /assignment
     headers:
       Host: www.cordweave.com
-- name: '🇮🇹 www.v2nodes.com ss-IT-1602... #3 #39'
-  type: ss
-  server: 202.50.253.18
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '4FreeIran-58deabb09b #40'
+- name: '4Jadi-7d1888dbae #36 #42'
   type: trojan
-  server: 103.219.195.65
+  server: 87.120.126.131
   port: 443
   password: humanity
   sni: www.cordweave.com
@@ -498,15 +525,9 @@ proxies:
     path: /assignment
     headers:
       Host: www.cordweave.com
-- name: '🇮🇹 www.v2nodes.com ss-IT-1602... #41'
-  type: ss
-  server: 202.50.253.63
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '4Kian-010885fc62 #42'
+- name: '🇧🇪 比利时 BEL #43'
   type: trojan
-  server: 68.64.180.218
+  server: 141.98.233.6
   port: 443
   password: humanity
   sni: www.cordweave.com
@@ -516,9 +537,9 @@ proxies:
     path: /assignment
     headers:
       Host: www.cordweave.com
-- name: '4Kian-ab26bb2eac #43'
+- name: '4Nika-8adbcbef80 #44'
   type: trojan
-  server: 83.228.199.3
+  server: 138.124.17.154
   port: 443
   password: humanity
   sni: www.cordweave.com
@@ -528,7 +549,214 @@ proxies:
     path: /assignment
     headers:
       Host: www.cordweave.com
-- name: '4Mohsen-c91bdf4f8a #44'
+- name: '🇳🇱 荷兰 NLD 11 #45'
+  type: trojan
+  server: 179.255.111.93
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4FreeIran-fbc598066f #46'
+  type: trojan
+  server: 207.57.132.189
+  port: 8443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '俄罗斯+V2CROSS.COM #47'
+  type: trojan
+  server: 194.55.164.118
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '🇳🇱 荷兰 NLD 4 #48'
+  type: trojan
+  server: 213.165.55.4
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Jadi-7ea8885fa2 #49'
+  type: vless
+  server: news.zoom.us
+  port: 2083
+  uuid: 36592d47-b9f5-4e8f-949e-45ac05472aab
+  tls: true
+  network: ws
+  servername: site.check-looks.space
+  ws-opts:
+    path: /
+    headers:
+      Host: site.check-looks.space
+- name: '4Sarina-0f98096068 #50'
+  type: trojan
+  server: 176.12.77.235
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '🇳🇱 荷兰 NLD 27 #51'
+  type: trojan
+  server: 194.135.119.82
+  port: 2053
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '哈萨克斯坦+V2CROSS.COM #52'
+  type: vless
+  server: 95.56.251.12
+  port: 47443
+  uuid: 1fe01c8a-ab37-4e95-bbfc-95d4a608931e
+  tls: true
+  network: tcp
+  servername: kz1.waspnest.space
+  reality-opts:
+    public-key: z1GSwCEACvO9RLcMVpcURiT8er4oeIdeSJhraw_0cGU
+    short-id: ae97223a8f799877
+  flow: xtls-rprx-vision
+  client-fingerprint: firefox
+  packet-encoding: xudp
+- name: '🇳🇱 荷兰 NLD 12 #53'
+  type: trojan
+  server: 172.104.81.253
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Nika-66e1db37b2 #35 #54'
+  type: trojan
+  server: 213.165.34.40
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '🇳🇱 荷兰 NLD 9 #55'
+  type: trojan
+  server: 212.2.227.187
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Kian-299e3d7474 #56'
+  type: trojan
+  server: 179.253.255.157
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Mohsen-d937afd7de #57'
+  type: trojan
+  server: 83.147.254.59
+  port: 2053
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Mohsen-18c4bc5ffc #58'
+  type: trojan
+  server: 129.225.185.49
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '🇺🇸 美国 USA #59'
+  type: vless
+  server: wwww.qarvian.ir
+  port: 443
+  uuid: 780aa2f6-1a02-4fa2-bcd0-fa7d469bdff7
+  tls: true
+  network: ws
+  servername: cdn.akamai.steamstatic.com
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: copy_az_channel_NUFiLTER_17i.global.ssl.fastly.net.
+- name: '🇳🇱 荷兰 NLD 7 #60'
+  type: trojan
+  server: 179.253.241.115
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Mohsen-40d9f61bfe #31 #61'
+  type: trojan
+  server: 165.22.102.89
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Mohsen-c91bdf4f8a #44 #62'
   type: trojan
   server: 5.253.29.83
   port: 443
@@ -540,7 +768,58 @@ proxies:
     path: /assignment
     headers:
       Host: www.cordweave.com
-- name: '4Sarina-5f99edf040 #45'
+- name: '4Mohsen-0b47b8a519 #63'
+  type: vless
+  server: 179.253.179.109
+  port: 62083
+  uuid: ef988d56-9c18-408e-ae1f-a144a332ebce
+  tls: true
+  network: tcp
+  servername: 177.3.220.159
+  client-fingerprint: firefox
+- name: '4Jadi-0db2d6bd7b #32 #64'
+  type: trojan
+  server: 45.196.235.64
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '🇯🇵 www.v2nodes.com ss-JP-1599... #65'
+  type: ss
+  server: 154.36.158.197
+  port: 8388
+  cipher: aes-256-gcm
+  password: BeaUf9c0AEWH40Pu
+- name: '🇸🇬 新加坡 SGP 2 #66'
+  type: trojan
+  server: 194.114.138.162
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Mohsen-ad6e4723f8 #67'
+  type: trojan
+  server: 161.118.196.58
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Sarina-5f99edf040 #45 #68'
   type: trojan
   server: 125.7.24.251
   port: 443
@@ -552,7 +831,52 @@ proxies:
     path: /assignment
     headers:
       Host: www.cordweave.com
-- name: '🇺🇸 美国 USA #18 #46'
+- name: '🇮🇹 www.v2nodes.com ss-IT-1602... #5 #69'
+  type: ss
+  server: 202.50.253.45
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '4Sarina-db01ef08f3 #23 #70'
+  type: trojan
+  server: 47.57.181.17
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Kian-010885fc62 #42 #71'
+  type: trojan
+  server: 68.64.180.218
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4Sarina-f125345c68 #72'
+  type: vless
+  server: 179.253.179.109
+  port: 57043
+  uuid: da8fab8e-4a25-4eb0-b224-88ab96c753ce
+  tls: true
+  network: tcp
+  servername: 87.121.86.24
+  client-fingerprint: firefox
+- name: '🇮🇹 www.v2nodes.com ss-IT-1602... #4 #73'
+  type: ss
+  server: 202.50.253.99
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '🇺🇸 美国 USA #18 #46 #74'
   type: vless
   server: 79.182.39.57
   port: 443
@@ -564,31 +888,75 @@ proxies:
     public-key: 5-9YzvyXcZ4J5Z4OaVTUbxUU2InvnwT17m0XY-Jse1E
     short-id: 257420d9d430152a
   client-fingerprint: firefox
-- name: '🇮🇹 意大利 ITA #3 #47'
-  type: ss
-  server: 202.50.253.99
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '🇮🇹 意大利 ITA #1 #48'
-  type: ss
-  server: 202.50.253.90
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '🇺🇸 美国 USA #3 #49'
-  type: ss
-  server: 202.50.253.81
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '🇨🇳_CN_中国->🇺🇸_US_美国 #50'
+- name: '🇳🇱 荷兰 NLD 23 #75'
+  type: trojan
+  server: 179.255.102.54
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '4FreeIran-4b27e54a62 #76'
+  type: vless
+  server: tau1.freerunet.online
+  port: 443
+  uuid: ca14493b-b984-4ffb-bc0e-9cb5da969e15
+  tls: true
+  network: tcp
+  servername: tau1.freerunet.online
+  reality-opts:
+    public-key: l1mx_plNc2oiWxJCcZLh3SGfFU-5QxYpgQ__Ea59WEg
+    short-id: 4a7b1c8d
+  flow: xtls-rprx-vision
+  client-fingerprint: chrome
+- name: '🇨🇳_CN_中国->🇺🇸_US_美国 #77'
   type: vless
   server: jp.sofast.live
   port: 52683
   uuid: 399b6b23-cc40-4831-a494-61948e2df133
   tls: false
   network: tcp
+- name: '4Kian-ff3d266a2c #22 #78'
+  type: trojan
+  server: 207.57.123.77
+  port: 443
+  password: humanity
+  sni: www.cordweave.com
+  tls: true
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.cordweave.com
+- name: '🇨🇳_CN_中国->🇺🇸_US_美国 #79'
+  type: vless
+  server: us22.sofast.live
+  port: 58011
+  uuid: 0afc6426-606c-48e7-bd70-3c424a416842
+  tls: false
+  network: tcp
+- name: '4Kian-bddda2bced #80'
+  type: vless
+  server: 46.254.19.164
+  port: 443
+  uuid: a5212bcb-ab85-459a-bec6-9f259eeeebfa
+  tls: true
+  network: tcp
+  servername: wtb.tems.bet
+  reality-opts:
+    public-key: 3qgZ9UlB-y1i9jx_zQQBgiNgFHz6fPQdP9gMMl4zXiM
+    short-id: 8937c9ed2d470352
+  client-fingerprint: chrome
+- name: '🇮🇹 意大利 ITA #81'
+  type: ss
+  server: 202.50.253.90
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -596,255 +964,432 @@ proxy-groups:
   - ♻️ 自动选择
   - 🔯 故障转移
   - 🌍 其他地区
-  - 🇮🇹 意大利
-  - 🇨🇳 中国
-  - 🇳🇱 荷兰
   - 🇺🇸 美国
   - 🇨🇦 加拿大
-  - 🇨🇭 瑞士
-  - 🌍 MD
-  - 🇩🇪 德国
-  - 🌍 SC
-  - 🇭🇰 香港
+  - 🇸🇬 新加坡
   - 🇷🇺 俄罗斯
+  - 🇳🇱 荷兰
+  - 🇨🇳 中国
+  - 🇫🇮 芬兰
+  - 🇮🇹 意大利
+  - 🇩🇪 德国
+  - 🇫🇷 法国
+  - 🇧🇪 比利时
+  - 🌍 KZ
+  - 🇯🇵 日本
+  - 🇭🇰 香港
+  - 🇪🇪 爱沙尼亚
+  - 🇹🇷 土耳其
+  - 🌍 RS
+  - 🌍 AL
+  - 🇹🇼 台湾
+  - 🇪🇸 西班牙
+  - 🌍 GE
+  - 🌍 KG
+  - 🇸🇪 瑞典
   - 🇮🇱 以色列
   - DIRECT
 - name: ♻️ 自动选择
   type: url-test
   proxies:
-  - '4FreeIran-39440c16b4 #1'
-  - '4Nika-c9cf18cd11 #2'
-  - '4Jadi-d201754ddb #3'
-  - '4Kian-79aef11a08 #4'
-  - '4Mohsen-fa2ae0ddbf #5'
-  - '美国+CloudFlare节点 #6'
-  - '4Kian-9d81901eda #7'
-  - '4Nika-1ebc4a9f97 #8'
-  - '4Jadi-387764916b #9'
-  - '4FreeIran-a30cf81eea #10'
-  - '4Mohsen-a41482cf32 #11'
-  - '4FreeIran-b0cc4a0ee6 #12'
-  - '美国+CloudFlare节点 #13'
-  - '4Sarina-82d55f86e2 #14'
-  - '4Jadi-10bd4b9557 #15'
-  - '4Nika-ad93914f91 #16'
-  - '4Kian-a5a99744db #17'
-  - '🇩🇪 德国 DEU #18'
-  - '4Mohsen-48540adf70 #19'
-  - '4Kian-6f4254826c #20'
-  - '4FreeIran-c82fdb86f5 #21'
-  - '4Kian-ff3d266a2c #22'
-  - '4Sarina-db01ef08f3 #23'
-  - '4Kian-7289bb0a15 #8 #6 #24'
-  - '4Sarina-7e115e8c61 #25'
-  - '4Kian-8630ba6e41 #26'
-  - '4Sarina-1278ba92a7 #27'
-  - '4Sarina-15cae76ab1 #28'
-  - '4Nika-1fa77825dd #29'
-  - '4Sarina-25c26164e2 #25 #30'
-  - '4Mohsen-40d9f61bfe #31'
-  - '4Jadi-0db2d6bd7b #32'
-  - '🇳🇱 荷兰 NLD #33'
-  - '🇳🇱 荷兰 NLD 7 #34'
-  - '4Nika-66e1db37b2 #35'
-  - '4Jadi-7d1888dbae #36'
-  - '4Jadi-0652a5e3bd #35 #37'
-  - '4Kian-bf966f0e29 #38'
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #3 #39'
-  - '4FreeIran-58deabb09b #40'
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #41'
-  - '4Kian-010885fc62 #42'
-  - '4Kian-ab26bb2eac #43'
-  - '4Mohsen-c91bdf4f8a #44'
-  - '4Sarina-5f99edf040 #45'
-  - '🇺🇸 美国 USA #18 #46'
-  - '🇮🇹 意大利 ITA #3 #47'
-  - '🇮🇹 意大利 ITA #1 #48'
-  - '🇺🇸 美国 USA #3 #49'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #50'
+  - '美国+CloudFlare节点 #1'
+  - '4FreeIran-39440c16b4 #1 #2'
+  - '美国+CloudFlare节点 #3'
+  - '🇳🇱 荷兰 NLD 18 #4'
+  - '🇳🇱 荷兰 NLD 10 #5'
+  - '4Mohsen-a41482cf32 #11 #6'
+  - '4Jadi-387764916b #9 #7'
+  - '4FreeIran-a30cf81eea #10 #8'
+  - '4Kian-9d81901eda #7 #9'
+  - '4FreeIran-b0cc4a0ee6 #12 #10'
+  - '🇳🇱 荷兰 NLD 34 #11'
+  - '4Sarina-82d55f86e2 #14 #12'
+  - '4Sarina-be5174743f #13'
+  - '4Mohsen-af557f1d65 #14'
+  - '4Jadi-10bd4b9557 #15 #15'
+  - '🇸🇬 www.v2nodes.com vless-SG-1... #16'
+  - '4FreeIran-fe284b24b8 #17'
+  - '4Kian-6dc16998f0 #18'
+  - '4Sarina-2ce606a04a #19'
+  - '4Mohsen-6aba02bfb9 #20'
+  - '🇮🇹 www.v2nodes.com ss-IT-1602... #3 #21'
+  - '🇳🇱 荷兰 NLD 15 #22'
+  - '🇳🇱 荷兰 NLD 25 #23'
+  - '🇳🇱 荷兰 NLD 20 #24'
+  - '🇳🇱 荷兰 NLD 13 #25'
+  - '🇷🇺 俄罗斯 RUS #26'
+  - '🇳🇱 荷兰 NLD 36 #27'
+  - '🇳🇱 荷兰 NLD 21 #28'
+  - 'vless-1858137112 #29'
+  - '4Sarina-1278ba92a7 #27 #30'
+  - '4Nika-1fa77825dd #29 #31'
+  - '🇳🇱 荷兰 NLD #32'
+  - '4Sarina-6b944c169b #33'
+  - '4Kian-7289bb0a15 #8 #6 #24 #34'
+  - '4Sarina-7e115e8c61 #25 #35'
+  - '4FreeIran-83e833d81f #36'
+  - '🇺🇸_US_美国 #37'
+  - 'TW - zhuhai.uk 02 #38'
+  - '🇳🇱 荷兰 NLD #33 #39'
+  - '🇪🇸 西班牙 ESP #40'
+  - '4Kian-bf966f0e29 #38 #41'
+  - '4Jadi-7d1888dbae #36 #42'
+  - '🇧🇪 比利时 BEL #43'
+  - '4Nika-8adbcbef80 #44'
+  - '🇳🇱 荷兰 NLD 11 #45'
+  - '4FreeIran-fbc598066f #46'
+  - '俄罗斯+V2CROSS.COM #47'
+  - '🇳🇱 荷兰 NLD 4 #48'
+  - '4Jadi-7ea8885fa2 #49'
+  - '4Sarina-0f98096068 #50'
+  - '🇳🇱 荷兰 NLD 27 #51'
+  - '哈萨克斯坦+V2CROSS.COM #52'
+  - '🇳🇱 荷兰 NLD 12 #53'
+  - '4Nika-66e1db37b2 #35 #54'
+  - '🇳🇱 荷兰 NLD 9 #55'
+  - '4Kian-299e3d7474 #56'
+  - '4Mohsen-d937afd7de #57'
+  - '4Mohsen-18c4bc5ffc #58'
+  - '🇺🇸 美国 USA #59'
+  - '🇳🇱 荷兰 NLD 7 #60'
+  - '4Mohsen-40d9f61bfe #31 #61'
+  - '4Mohsen-c91bdf4f8a #44 #62'
+  - '4Mohsen-0b47b8a519 #63'
+  - '4Jadi-0db2d6bd7b #32 #64'
+  - '🇯🇵 www.v2nodes.com ss-JP-1599... #65'
+  - '🇸🇬 新加坡 SGP 2 #66'
+  - '4Mohsen-ad6e4723f8 #67'
+  - '4Sarina-5f99edf040 #45 #68'
+  - '🇮🇹 www.v2nodes.com ss-IT-1602... #5 #69'
+  - '4Sarina-db01ef08f3 #23 #70'
+  - '4Kian-010885fc62 #42 #71'
+  - '4Sarina-f125345c68 #72'
+  - '🇮🇹 www.v2nodes.com ss-IT-1602... #4 #73'
+  - '🇺🇸 美国 USA #18 #46 #74'
+  - '🇳🇱 荷兰 NLD 23 #75'
+  - '4FreeIran-4b27e54a62 #76'
+  - '🇨🇳_CN_中国->🇺🇸_US_美国 #77'
+  - '4Kian-ff3d266a2c #22 #78'
+  - '🇨🇳_CN_中国->🇺🇸_US_美国 #79'
+  - '4Kian-bddda2bced #80'
+  - '🇮🇹 意大利 ITA #81'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🔯 故障转移
   type: fallback
   proxies:
-  - '4FreeIran-39440c16b4 #1'
-  - '4Nika-c9cf18cd11 #2'
-  - '4Jadi-d201754ddb #3'
-  - '4Kian-79aef11a08 #4'
-  - '4Mohsen-fa2ae0ddbf #5'
-  - '美国+CloudFlare节点 #6'
-  - '4Kian-9d81901eda #7'
-  - '4Nika-1ebc4a9f97 #8'
-  - '4Jadi-387764916b #9'
-  - '4FreeIran-a30cf81eea #10'
-  - '4Mohsen-a41482cf32 #11'
-  - '4FreeIran-b0cc4a0ee6 #12'
-  - '美国+CloudFlare节点 #13'
-  - '4Sarina-82d55f86e2 #14'
-  - '4Jadi-10bd4b9557 #15'
-  - '4Nika-ad93914f91 #16'
-  - '4Kian-a5a99744db #17'
-  - '🇩🇪 德国 DEU #18'
-  - '4Mohsen-48540adf70 #19'
-  - '4Kian-6f4254826c #20'
-  - '4FreeIran-c82fdb86f5 #21'
-  - '4Kian-ff3d266a2c #22'
-  - '4Sarina-db01ef08f3 #23'
-  - '4Kian-7289bb0a15 #8 #6 #24'
-  - '4Sarina-7e115e8c61 #25'
-  - '4Kian-8630ba6e41 #26'
-  - '4Sarina-1278ba92a7 #27'
-  - '4Sarina-15cae76ab1 #28'
-  - '4Nika-1fa77825dd #29'
-  - '4Sarina-25c26164e2 #25 #30'
-  - '4Mohsen-40d9f61bfe #31'
-  - '4Jadi-0db2d6bd7b #32'
-  - '🇳🇱 荷兰 NLD #33'
-  - '🇳🇱 荷兰 NLD 7 #34'
-  - '4Nika-66e1db37b2 #35'
-  - '4Jadi-7d1888dbae #36'
-  - '4Jadi-0652a5e3bd #35 #37'
-  - '4Kian-bf966f0e29 #38'
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #3 #39'
-  - '4FreeIran-58deabb09b #40'
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #41'
-  - '4Kian-010885fc62 #42'
-  - '4Kian-ab26bb2eac #43'
-  - '4Mohsen-c91bdf4f8a #44'
-  - '4Sarina-5f99edf040 #45'
-  - '🇺🇸 美国 USA #18 #46'
-  - '🇮🇹 意大利 ITA #3 #47'
-  - '🇮🇹 意大利 ITA #1 #48'
-  - '🇺🇸 美国 USA #3 #49'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #50'
+  - '美国+CloudFlare节点 #1'
+  - '4FreeIran-39440c16b4 #1 #2'
+  - '美国+CloudFlare节点 #3'
+  - '🇳🇱 荷兰 NLD 18 #4'
+  - '🇳🇱 荷兰 NLD 10 #5'
+  - '4Mohsen-a41482cf32 #11 #6'
+  - '4Jadi-387764916b #9 #7'
+  - '4FreeIran-a30cf81eea #10 #8'
+  - '4Kian-9d81901eda #7 #9'
+  - '4FreeIran-b0cc4a0ee6 #12 #10'
+  - '🇳🇱 荷兰 NLD 34 #11'
+  - '4Sarina-82d55f86e2 #14 #12'
+  - '4Sarina-be5174743f #13'
+  - '4Mohsen-af557f1d65 #14'
+  - '4Jadi-10bd4b9557 #15 #15'
+  - '🇸🇬 www.v2nodes.com vless-SG-1... #16'
+  - '4FreeIran-fe284b24b8 #17'
+  - '4Kian-6dc16998f0 #18'
+  - '4Sarina-2ce606a04a #19'
+  - '4Mohsen-6aba02bfb9 #20'
+  - '🇮🇹 www.v2nodes.com ss-IT-1602... #3 #21'
+  - '🇳🇱 荷兰 NLD 15 #22'
+  - '🇳🇱 荷兰 NLD 25 #23'
+  - '🇳🇱 荷兰 NLD 20 #24'
+  - '🇳🇱 荷兰 NLD 13 #25'
+  - '🇷🇺 俄罗斯 RUS #26'
+  - '🇳🇱 荷兰 NLD 36 #27'
+  - '🇳🇱 荷兰 NLD 21 #28'
+  - 'vless-1858137112 #29'
+  - '4Sarina-1278ba92a7 #27 #30'
+  - '4Nika-1fa77825dd #29 #31'
+  - '🇳🇱 荷兰 NLD #32'
+  - '4Sarina-6b944c169b #33'
+  - '4Kian-7289bb0a15 #8 #6 #24 #34'
+  - '4Sarina-7e115e8c61 #25 #35'
+  - '4FreeIran-83e833d81f #36'
+  - '🇺🇸_US_美国 #37'
+  - 'TW - zhuhai.uk 02 #38'
+  - '🇳🇱 荷兰 NLD #33 #39'
+  - '🇪🇸 西班牙 ESP #40'
+  - '4Kian-bf966f0e29 #38 #41'
+  - '4Jadi-7d1888dbae #36 #42'
+  - '🇧🇪 比利时 BEL #43'
+  - '4Nika-8adbcbef80 #44'
+  - '🇳🇱 荷兰 NLD 11 #45'
+  - '4FreeIran-fbc598066f #46'
+  - '俄罗斯+V2CROSS.COM #47'
+  - '🇳🇱 荷兰 NLD 4 #48'
+  - '4Jadi-7ea8885fa2 #49'
+  - '4Sarina-0f98096068 #50'
+  - '🇳🇱 荷兰 NLD 27 #51'
+  - '哈萨克斯坦+V2CROSS.COM #52'
+  - '🇳🇱 荷兰 NLD 12 #53'
+  - '4Nika-66e1db37b2 #35 #54'
+  - '🇳🇱 荷兰 NLD 9 #55'
+  - '4Kian-299e3d7474 #56'
+  - '4Mohsen-d937afd7de #57'
+  - '4Mohsen-18c4bc5ffc #58'
+  - '🇺🇸 美国 USA #59'
+  - '🇳🇱 荷兰 NLD 7 #60'
+  - '4Mohsen-40d9f61bfe #31 #61'
+  - '4Mohsen-c91bdf4f8a #44 #62'
+  - '4Mohsen-0b47b8a519 #63'
+  - '4Jadi-0db2d6bd7b #32 #64'
+  - '🇯🇵 www.v2nodes.com ss-JP-1599... #65'
+  - '🇸🇬 新加坡 SGP 2 #66'
+  - '4Mohsen-ad6e4723f8 #67'
+  - '4Sarina-5f99edf040 #45 #68'
+  - '🇮🇹 www.v2nodes.com ss-IT-1602... #5 #69'
+  - '4Sarina-db01ef08f3 #23 #70'
+  - '4Kian-010885fc62 #42 #71'
+  - '4Sarina-f125345c68 #72'
+  - '🇮🇹 www.v2nodes.com ss-IT-1602... #4 #73'
+  - '🇺🇸 美国 USA #18 #46 #74'
+  - '🇳🇱 荷兰 NLD 23 #75'
+  - '4FreeIran-4b27e54a62 #76'
+  - '🇨🇳_CN_中国->🇺🇸_US_美国 #77'
+  - '4Kian-ff3d266a2c #22 #78'
+  - '🇨🇳_CN_中国->🇺🇸_US_美国 #79'
+  - '4Kian-bddda2bced #80'
+  - '🇮🇹 意大利 ITA #81'
   url: http://www.gstatic.com/generate_204
   interval: 300
 - name: 🌍 其他地区
   type: url-test
   proxies:
-  - '4FreeIran-39440c16b4 #1'
-  - '4Nika-c9cf18cd11 #2'
-  - '4Jadi-d201754ddb #3'
-  - '4Kian-79aef11a08 #4'
-  - '4Mohsen-fa2ae0ddbf #5'
-  - '4Kian-9d81901eda #7'
-  - '4Nika-1ebc4a9f97 #8'
-  - '4Jadi-387764916b #9'
-  - '4FreeIran-a30cf81eea #10'
-  - '4Mohsen-a41482cf32 #11'
-  - '4FreeIran-b0cc4a0ee6 #12'
-  - '4Sarina-82d55f86e2 #14'
-  - '4Nika-ad93914f91 #16'
-  - '4Kian-a5a99744db #17'
-  - '4Mohsen-48540adf70 #19'
-  - '4Kian-6f4254826c #20'
-  - '4Kian-ff3d266a2c #22'
-  - '4Sarina-db01ef08f3 #23'
-  - '4Sarina-7e115e8c61 #25'
-  - '4Kian-8630ba6e41 #26'
-  - '4Sarina-1278ba92a7 #27'
-  - '4Nika-1fa77825dd #29'
-  - '4Mohsen-40d9f61bfe #31'
-  - '4Jadi-0db2d6bd7b #32'
-  - '4Nika-66e1db37b2 #35'
-  - '4Jadi-7d1888dbae #36'
-  - '4Kian-bf966f0e29 #38'
-  - '4FreeIran-58deabb09b #40'
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #41'
-  - '4Kian-010885fc62 #42'
-  - '4Kian-ab26bb2eac #43'
-  - '4Mohsen-c91bdf4f8a #44'
-  - '4Sarina-5f99edf040 #45'
-  - '🇮🇹 意大利 ITA #3 #47'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇮🇹 意大利
-  type: url-test
-  proxies:
-  - '🇮🇹 www.v2nodes.com ss-IT-1602... #3 #39'
-  - '🇮🇹 意大利 ITA #1 #48'
-  - '🇺🇸 美国 USA #3 #49'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇨🇳 中国
-  type: url-test
-  proxies:
-  - '4Jadi-10bd4b9557 #15'
-  - '🇨🇳_CN_中国->🇺🇸_US_美国 #50'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇳🇱 荷兰
-  type: url-test
-  proxies:
-  - '🇳🇱 荷兰 NLD #33'
-  - '4Jadi-0652a5e3bd #35 #37'
+  - '4FreeIran-39440c16b4 #1 #2'
+  - '4Mohsen-a41482cf32 #11 #6'
+  - '4Jadi-387764916b #9 #7'
+  - '4FreeIran-a30cf81eea #10 #8'
+  - '4Kian-9d81901eda #7 #9'
+  - '4FreeIran-b0cc4a0ee6 #12 #10'
+  - '4Sarina-82d55f86e2 #14 #12'
+  - '4Sarina-1278ba92a7 #27 #30'
+  - '4Nika-1fa77825dd #29 #31'
+  - '4Sarina-7e115e8c61 #25 #35'
+  - '4Kian-bf966f0e29 #38 #41'
+  - '4Jadi-7d1888dbae #36 #42'
+  - '4FreeIran-fbc598066f #46'
+  - '4Nika-66e1db37b2 #35 #54'
+  - '4Mohsen-18c4bc5ffc #58'
+  - '4Mohsen-40d9f61bfe #31 #61'
+  - '4Mohsen-c91bdf4f8a #44 #62'
+  - '4Jadi-0db2d6bd7b #32 #64'
+  - '4Sarina-5f99edf040 #45 #68'
+  - '4Sarina-db01ef08f3 #23 #70'
+  - '4Kian-010885fc62 #42 #71'
+  - '🇮🇹 www.v2nodes.com ss-IT-1602... #4 #73'
+  - '4Kian-ff3d266a2c #22 #78'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇺🇸 美国
   type: url-test
   proxies:
-  - '美国+CloudFlare节点 #6'
+  - '4FreeIran-fe284b24b8 #17'
+  - '🇳🇱 荷兰 NLD 36 #27'
+  - '🇳🇱 荷兰 NLD 21 #28'
+  - '🇳🇱 荷兰 NLD #32'
+  - '🇳🇱 荷兰 NLD 11 #45'
+  - '4Jadi-7ea8885fa2 #49'
+  - '4Kian-299e3d7474 #56'
+  - '🇺🇸 美国 USA #59'
+  - '🇳🇱 荷兰 NLD 7 #60'
+  - '4Mohsen-0b47b8a519 #63'
+  - '4Sarina-f125345c68 #72'
+  - '🇳🇱 荷兰 NLD 23 #75'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇨🇦 加拿大
   type: url-test
   proxies:
-  - '美国+CloudFlare节点 #13'
+  - '美国+CloudFlare节点 #1'
+  - '美国+CloudFlare节点 #3'
+  - '🇳🇱 荷兰 NLD 10 #5'
+  - '🇺🇸_US_美国 #37'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
-- name: 🇨🇭 瑞士
+- name: 🇸🇬 新加坡
   type: url-test
   proxies:
-  - '🇩🇪 德国 DEU #18'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🌍 MD
-  type: url-test
-  proxies:
-  - '4FreeIran-c82fdb86f5 #21'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇩🇪 德国
-  type: url-test
-  proxies:
-  - '4Kian-7289bb0a15 #8 #6 #24'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🌍 SC
-  type: url-test
-  proxies:
-  - '4Sarina-15cae76ab1 #28'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇭🇰 香港
-  type: url-test
-  proxies:
-  - '4Sarina-25c26164e2 #25 #30'
+  - '4Mohsen-af557f1d65 #14'
+  - '🇸🇬 www.v2nodes.com vless-SG-1... #16'
+  - '🇸🇬 新加坡 SGP 2 #66'
+  - '4Mohsen-ad6e4723f8 #67'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇷🇺 俄罗斯
   type: url-test
   proxies:
-  - '🇳🇱 荷兰 NLD 7 #34'
+  - '🇷🇺 俄罗斯 RUS #26'
+  - 'vless-1858137112 #29'
+  - '俄罗斯+V2CROSS.COM #47'
+  - '4Kian-bddda2bced #80'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇳🇱 荷兰
+  type: url-test
+  proxies:
+  - '🇳🇱 荷兰 NLD 18 #4'
+  - '🇳🇱 荷兰 NLD 34 #11'
+  - '🇳🇱 荷兰 NLD #33 #39'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇨🇳 中国
+  type: url-test
+  proxies:
+  - '4Jadi-10bd4b9557 #15 #15'
+  - '🇨🇳_CN_中国->🇺🇸_US_美国 #77'
+  - '🇨🇳_CN_中国->🇺🇸_US_美国 #79'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇫🇮 芬兰
+  type: url-test
+  proxies:
+  - '4Mohsen-6aba02bfb9 #20'
+  - '4Nika-8adbcbef80 #44'
+  - '4FreeIran-4b27e54a62 #76'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇮🇹 意大利
+  type: url-test
+  proxies:
+  - '🇮🇹 www.v2nodes.com ss-IT-1602... #3 #21'
+  - '🇮🇹 www.v2nodes.com ss-IT-1602... #5 #69'
+  - '🇮🇹 意大利 ITA #81'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇩🇪 德国
+  type: url-test
+  proxies:
+  - '4Kian-7289bb0a15 #8 #6 #24 #34'
+  - '4FreeIran-83e833d81f #36'
+  - '🇳🇱 荷兰 NLD 4 #48'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇫🇷 法国
+  type: url-test
+  proxies:
+  - '4Kian-6dc16998f0 #18'
+  - '4Sarina-2ce606a04a #19'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇧🇪 比利时
+  type: url-test
+  proxies:
+  - '🇳🇱 荷兰 NLD 20 #24'
+  - '🇧🇪 比利时 BEL #43'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🌍 KZ
+  type: url-test
+  proxies:
+  - '4Sarina-0f98096068 #50'
+  - '哈萨克斯坦+V2CROSS.COM #52'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇯🇵 日本
+  type: url-test
+  proxies:
+  - '🇳🇱 荷兰 NLD 12 #53'
+  - '🇯🇵 www.v2nodes.com ss-JP-1599... #65'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇭🇰 香港
+  type: url-test
+  proxies:
+  - '4Sarina-be5174743f #13'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇪🇪 爱沙尼亚
+  type: url-test
+  proxies:
+  - '🇳🇱 荷兰 NLD 15 #22'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇹🇷 土耳其
+  type: url-test
+  proxies:
+  - '🇳🇱 荷兰 NLD 25 #23'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🌍 RS
+  type: url-test
+  proxies:
+  - '🇳🇱 荷兰 NLD 13 #25'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🌍 AL
+  type: url-test
+  proxies:
+  - '4Sarina-6b944c169b #33'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇹🇼 台湾
+  type: url-test
+  proxies:
+  - 'TW - zhuhai.uk 02 #38'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇪🇸 西班牙
+  type: url-test
+  proxies:
+  - '🇪🇸 西班牙 ESP #40'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🌍 GE
+  type: url-test
+  proxies:
+  - '🇳🇱 荷兰 NLD 27 #51'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🌍 KG
+  type: url-test
+  proxies:
+  - '🇳🇱 荷兰 NLD 9 #55'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇸🇪 瑞典
+  type: url-test
+  proxies:
+  - '4Mohsen-d937afd7de #57'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇮🇱 以色列
   type: url-test
   proxies:
-  - '🇺🇸 美国 USA #18 #46'
+  - '🇺🇸 美国 USA #18 #46 #74'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80

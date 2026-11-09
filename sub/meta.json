@@ -1,40 +1,39 @@
 {
-  "updated": "2026-11-09 09:06:58",
-  "total_alive": 31,
-  "ssr_compatible": 14,
+  "updated": "2026-11-09 22:09:41",
+  "total_alive": 32,
+  "ssr_compatible": 11,
   "regions": {
-    "🇯🇵 日本": 5,
-    "🇺🇸 美国": 5,
+    "🇳🇱 荷兰": 10,
+    "🇮🇹 意大利": 6,
     "🌍 其他地区": 5,
-    "🇮🇹 意大利": 5,
-    "🇳🇱 荷兰": 2,
-    "🇩🇪 德国": 2,
+    "🇺🇸 美国": 3,
+    "🇯🇵 日本": 2,
     "🇨🇳 中国": 2,
-    "🇷🇺 俄罗斯": 2,
+    "🇭🇰 香港": 1,
     "🇨🇦 加拿大": 1,
-    "🇨🇭 瑞士": 1,
-    "🇦🇺 澳大利亚": 1
+    "🇷🇺 俄罗斯": 1,
+    "🇨🇭 瑞士": 1
   },
   "fastest": [
     {
-      "name": "4FreeIran-44eb3d029f #1",
-      "delay": 368
+      "name": "🇳🇱 荷兰 NLD 12 #1",
+      "delay": 3751
     },
     {
-      "name": "🇯🇵 日本 JPN #3 #2",
-      "delay": 195
+      "name": "4Sarina-25c26164e2 #2",
+      "delay": 417
     },
     {
-      "name": "日本2 @ripaojiedian #3",
-      "delay": 221
+      "name": "4Jadi-1fc7d20167 #6 #28 #10 #7 #12 #5 #3",
+      "delay": 419
     },
     {
-      "name": "日本1 @ripaojiedian #4",
-      "delay": 232
+      "name": "4Mohsen-7f57b95fd0 #4",
+      "delay": 435
     },
     {
-      "name": "4Jadi-1fc7d20167 #6 #28 #10 #7 #12 #5",
-      "delay": 328
+      "name": "4Sarina-17eaf252ef #5",
+      "delay": 657
     }
   ]
 }

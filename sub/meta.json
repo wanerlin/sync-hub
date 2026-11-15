@@ -1,40 +1,40 @@
 {
-  "updated": "2026-11-15 17:09:31",
-  "total_alive": 37,
+  "updated": "2026-11-16 06:10:28",
+  "total_alive": 41,
   "ssr_compatible": 17,
   "regions": {
-    "🇸🇬 新加坡": 8,
     "🇮🇹 意大利": 8,
     "🇺🇸 美国": 5,
-    "🇩🇪 德国": 5,
-    "🌍 其他地区": 3,
+    "🌍 其他地区": 5,
+    "🇸🇬 新加坡": 5,
+    "🇩🇪 德国": 4,
+    "🇹🇷 土耳其": 4,
     "🇯🇵 日本": 3,
-    "🇮🇷 伊朗": 1,
-    "🌍 SK": 1,
+    "🌍 NG": 3,
+    "🇮🇷 伊朗": 2,
     "🇪🇸 西班牙": 1,
-    "🌍 NG": 1,
-    "🇫🇮 芬兰": 1
+    "🌍 NE": 1
   },
   "fastest": [
     {
-      "name": "🇯🇵_JP_日本_IPV4 #1 #1",
-      "delay": 175
+      "name": "4Kian-4b175d9221 #15 #4 #5 #28 #1",
+      "delay": 291
     },
     {
-      "name": "SG - zhuhai.uk 02 #2 #2",
-      "delay": 294
+      "name": "4Jadi-1fc7d20167 #6 #28 #10 #7 #12 #5  #2",
+      "delay": 306
     },
     {
-      "name": "4Nika-aa5afce31a #3 #6 #6 #3",
-      "delay": 312
+      "name": "4Nika-aa5afce31a #3 #6 #6 #3 #3",
+      "delay": 308
     },
     {
-      "name": "美国2 @ripaojiedian #4",
-      "delay": 365
+      "name": "4Sarina-17eaf252ef #5 #2 #5 #4 #10 #4",
+      "delay": 313
     },
     {
-      "name": "4FreeIran-96e68f26d6 #5",
-      "delay": 405
+      "name": "美国2 @ripaojiedian #4 #5",
+      "delay": 346
     }
   ]
 }

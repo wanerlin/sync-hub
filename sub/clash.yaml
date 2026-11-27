@@ -27,158 +27,7 @@ proxies:
   port: 8388
   cipher: 2022-blake3-aes-256-gcm
   password: ClzJLvRzIxivCXbf5X5jnSU0pLg5ffCEUL2AZoeLg94=
-- name: '🇺🇸_US_美国_IPV4 (7 #1 #5 #5 #23 #15 #8 #2'
-  type: vless
-  server: 172.236.241.130
-  port: 443
-  uuid: 21117a67-21c2-4e2a-ba8f-bc49e23b0ae8
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: ibi0jOH5SfYhh7ycxdBrqq5oN4ajN3-dNiHKWC2VYWs
-    short-id: 51ecfe9e
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '4Nika-e223e38f4e #37 #5 #3 #9 #3'
-  type: vless
-  server: 172.235.51.71
-  port: 443
-  uuid: 3c17ead6-201a-4fba-8246-6327b911a1be
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: rzeXNEmuocvPVMnmettRsJbHQGjQGaZoH7jNw_3GUD8
-    short-id: 4bf84b30
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '🇺🇸_US_美国_IPV4 (8 #32 #19 #8 #2 #25 #2  #4'
-  type: vless
-  server: 172.236.233.130
-  port: 443
-  uuid: a663dc28-28dc-4f97-9665-6ac215c8e567
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: 4wXbhUoSy9s9bGy9PaK18XVTTw3wXkBDjEusiMHaMB4
-    short-id: '53908445'
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '4Kian-7860c010e7 #18 #31 #4 #2 #5'
-  type: vless
-  server: 172.236.238.71
-  port: 443
-  uuid: 10c27b32-441b-4e73-9987-33b66298ca50
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: pdd8WbKVyeQOAGdDTzBxRGdote46rGljB7ZSuUsTAhw
-    short-id: 2419337b
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '4Sarina-7fed7cf63d #6'
-  type: vless
-  server: 172.235.49.52
-  port: 443
-  uuid: ff5fc681-8548-4621-87d1-6b123db48f64
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: Md-qJgtcKVbuLuwCX8r-VZnfKq3z_3CtyPt3CRcqdQE
-    short-id: 270d474c
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '4Mohsen-36104dddf1 #7'
-  type: trojan
-  server: 43.156.36.253
-  port: 443
-  password: WvH8ooM9hom4KOOJHFJz1x5umE0aV4R0
-  sni: tx-hy2
-  tls: true
-  network: tcp
-- name: '4Jadi-c3ba29d362 #2 #1 #3 #8'
-  type: vless
-  server: 172.235.53.103
-  port: 443
-  uuid: 38ae2bc6-577c-4e0a-b49c-81c44a0b4383
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: YS1T3hKkZSWZBej5I1O2s3QQ-jf5JOAY24EZbp9faX8
-    short-id: 60e39a7e
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '4Mohsen-ee35d805db #36 #27 #7 #21 #9'
-  type: vless
-  server: 139.162.91.224
-  port: 443
-  uuid: ff3038b1-a2f5-428f-89cd-5d5e4efba8e7
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: wmbc3kcjbG9-A9Fi7zaHuRVPH7A7UQkKNNvqyqJtMEk
-    short-id: e5b03494
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '4Mohsen-7c10314737 #23 #5 #10'
-  type: vless
-  server: 172.233.139.212
-  port: 443
-  uuid: b21a60ef-9042-42c8-bb13-160528ea19c6
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: bRB-Z_UOQ_sk8UFczAjrpkgKIg6cVdTNGnsyC7vAoyg
-    short-id: 7a87386b
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '4Sarina-4e6982826a #11'
-  type: vless
-  server: 172.104.105.212
-  port: 443
-  uuid: e8212bb6-b962-4c68-83e6-c2dbc81829a0
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: kiBL725AePA3-FPNDKwUgMrolmGl_P8YBRAwFj-_yzM
-    short-id: cdfc4883
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '🇯🇵_JP_日本_IPV4 #44 #12'
+- name: '🇯🇵_JP_日本_IPV4 #44 #12 #2'
   type: vless
   server: 149.28.29.156
   port: 443
@@ -194,181 +43,7 @@ proxies:
     path: /ws
     headers:
       Host: itunes.apple.com
-- name: '🇺🇸_US_美国_IPV4 (5 #6 #8 #6 #30 #7 #13'
-  type: vless
-  server: 172.236.227.60
-  port: 443
-  uuid: 3c8a110d-f04d-4f0e-9579-fd00631b8830
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: BHBzo_I0M-sChoOqTyOczYBP8l1L_dkmB6u3ijAOaGo
-    short-id: 664c1530
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: 'trojan-1929965351 #14'
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 66.163.114.106
-  skip-cert-verify: false
-  sni: www.findconnectwithemployersandbuildprofessionalnetwork.com
-  type: trojan
-  udp: true
-- name: '4Nika-8256689567 #22 #15'
-  type: vless
-  server: 172.104.186.205
-  port: 443
-  uuid: eafa7d0d-db1c-4c91-8fd8-587cd218008e
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: dT50iKOzQz2utAi1tcwsU86hbaS78JeDY_xST0nP5D4
-    short-id: aea01663
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '4Jadi-abf884b5ff #18 #24 #16'
-  type: vless
-  server: 172.105.216.21
-  port: 443
-  uuid: 76f1ce49-bcea-4680-b9ef-16592269445b
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: Mjv5qe_CrvfHdVwgtyqYbqPesZ-1oko2XYg3dguzvxg
-    short-id: c29f9af4
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '新加坡5 @ripaojiedian #37 #12 #18 #37 #23 #17'
-  type: vless
-  server: 139.162.20.241
-  port: 443
-  uuid: 7f0270f9-1abc-4c4f-960d-0a23e32f1eb8
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: fG1u2AZj5pgSNWO3MBmkoY6K61xBwnuYX3_z1fSeR0o
-    short-id: 640c807d
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '🇸🇬_SG_新加坡_IPV4 #27 #18'
-  type: vless
-  server: 139.180.221.53
-  port: 443
-  uuid: 2b30d0df-6ebe-4aed-9bad-b7c554e35e1d
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: plfXwkb-ewI6iibJBTRmPnf8eqPId1BfdArMIm3_mB4
-    short-id: 2f6f6f87
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '🏳 www.v2nodes.com ss- #4 #19'
-  type: ss
-  server: 202.50.253.36
-  port: 19999
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 'JP - zhuhai.uk #38 #20'
-  type: vless
-  server: 139.162.91.247
-  port: 443
-  uuid: 8cfdacf8-e781-42f0-9872-8d1d22469de5
-  tls: true
-  servername: itunes.apple.com
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-  reality-opts:
-    public-key: _gFFckW3h8hFfllawgec9U2PDBeLJeCK_Jgk1S5tgC8
-    short-id: 536d7739
-- name: '4Jadi-b79acf0bf4 #33 #21'
-  type: vless
-  server: 139.162.91.137
-  port: 443
-  uuid: 5e6575a1-459c-4077-ac3d-92dea966ad7c
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: 4LfX16VwHkHQzoZ04o2VnO85N1o_Y8OcoJwfYdfaIGw
-    short-id: 0c0c806b
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '🇺🇸_US_美国_IPV4 (6 #1 #7 #21 #29 #22'
-  type: vless
-  server: 172.233.142.149
-  port: 443
-  uuid: 61e3954d-0d66-4b69-b6cd-9b4fc2352303
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: f9D1ZzG6vP1HgjCaCIutbykWkab8VEDuitwuwaeuBgY
-    short-id: 4206512a
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '4Sarina-6096a87434 #4 #20 #5 #5 #13 #8 #23'
-  type: vless
-  server: 172.236.231.45
-  port: 443
-  uuid: 4c4f7955-3b05-4795-b3b7-6c83b7f82b0f
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: M6kLOIYA9IagUu0eiplnPZFObYVzTc4GfPyEqKQnZWQ
-    short-id: 8353867a
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '4Kian-6c33f9463c #39 #24'
-  type: vless
-  server: 172.105.197.24
-  port: 443
-  uuid: 81f4e114-5a60-41b5-9038-8d742380c84f
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: EfNOl6-YAuW-WSg7Op-1YOqKZV9emIuLwH8YPhzc7ms
-    short-id: 772bef67
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: '4Nika-374f6c35e6 #25'
+- name: '4Nika-374f6c35e6 #25 #3'
   type: vless
   server: 172.235.32.253
   port: 443
@@ -384,39 +59,345 @@ proxies:
     path: /ws
     headers:
       Host: itunes.apple.com
-- name: '🇸🇬_SG_新加坡_IPV4 (2 #19 #6 #37 #31 #27 # #26'
+- name: '4Sarina-7fed7cf63d #6 #4'
   type: vless
-  server: 172.104.48.194
+  server: 172.235.49.52
   port: 443
-  uuid: a28d0884-193d-4591-aa64-8638ba1481ce
+  uuid: ff5fc681-8548-4621-87d1-6b123db48f64
   tls: true
   network: ws
   servername: itunes.apple.com
   reality-opts:
-    public-key: u_4r8NRmRsN5Ndbt0koyC73DLC7mCcK4wAA0YiIR4ko
-    short-id: b0af872e
+    public-key: Md-qJgtcKVbuLuwCX8r-VZnfKq3z_3CtyPt3CRcqdQE
+    short-id: 270d474c
   client-fingerprint: chrome
   ws-opts:
     path: /ws
     headers:
       Host: itunes.apple.com
-- name: '4Jadi-65b89c0908 #27'
+- name: '4Jadi-c3ba29d362 #2 #1 #3 #8 #5'
   type: vless
-  server: 149.28.152.20
+  server: 172.235.53.103
   port: 443
-  uuid: e17ca473-bd02-4fe6-873f-5866d729b0a3
+  uuid: 38ae2bc6-577c-4e0a-b49c-81c44a0b4383
   tls: true
   network: ws
   servername: itunes.apple.com
   reality-opts:
-    public-key: sli7AT0WEhYMVMARhHh-ZQMK7zHHn0cGsxw2gPhoBis
-    short-id: 107ff148
+    public-key: YS1T3hKkZSWZBej5I1O2s3QQ-jf5JOAY24EZbp9faX8
+    short-id: 60e39a7e
   client-fingerprint: chrome
   ws-opts:
     path: /ws
     headers:
       Host: itunes.apple.com
-- name: '4Jadi-b83f1b2f46 #17 #11 #31 #28'
+- name: '4Mohsen-7c10314737 #23 #5 #10 #6'
+  type: vless
+  server: 172.233.139.212
+  port: 443
+  uuid: b21a60ef-9042-42c8-bb13-160528ea19c6
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: bRB-Z_UOQ_sk8UFczAjrpkgKIg6cVdTNGnsyC7vAoyg
+    short-id: 7a87386b
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '🇺🇸_US_美国_IPV4 (5 #6 #8 #6 #30 #7 #13 #7'
+  type: vless
+  server: 172.236.227.60
+  port: 443
+  uuid: 3c8a110d-f04d-4f0e-9579-fd00631b8830
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: BHBzo_I0M-sChoOqTyOczYBP8l1L_dkmB6u3ijAOaGo
+    short-id: 664c1530
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '🇺🇸_US_美国_IPV4 (6 #1 #7 #21 #29 #22 #8'
+  type: vless
+  server: 172.233.142.149
+  port: 443
+  uuid: 61e3954d-0d66-4b69-b6cd-9b4fc2352303
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: f9D1ZzG6vP1HgjCaCIutbykWkab8VEDuitwuwaeuBgY
+    short-id: 4206512a
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '4Mohsen-36104dddf1 #7 #9'
+  type: trojan
+  server: 43.156.36.253
+  port: 443
+  password: WvH8ooM9hom4KOOJHFJz1x5umE0aV4R0
+  sni: tx-hy2
+  tls: true
+  network: tcp
+- name: '4Sarina-6096a87434 #4 #20 #5 #5 #13 #8 #10'
+  type: vless
+  server: 172.236.231.45
+  port: 443
+  uuid: 4c4f7955-3b05-4795-b3b7-6c83b7f82b0f
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: M6kLOIYA9IagUu0eiplnPZFObYVzTc4GfPyEqKQnZWQ
+    short-id: 8353867a
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '4Kian-01db735cba #11'
+  type: vless
+  server: 172.233.139.98
+  port: 443
+  uuid: 62b5a30a-89de-4da7-b1c0-08abfad0cd1d
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: ZtWVf2gAix3etGziWVZ9apsWfWb5UOepCWQqVyIGxHI
+    short-id: 4d3f31a1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '4Nika-e223e38f4e #37 #5 #3 #9 #3 #12'
+  type: vless
+  server: 172.235.51.71
+  port: 443
+  uuid: 3c17ead6-201a-4fba-8246-6327b911a1be
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: rzeXNEmuocvPVMnmettRsJbHQGjQGaZoH7jNw_3GUD8
+    short-id: 4bf84b30
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '4Nika-56f5e99d69 #13'
+  type: vless
+  server: 172.236.239.126
+  port: 443
+  uuid: 6b4861de-7316-4a5a-bc45-0cbd8bf97eab
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: SJAHlQal4h4gy7BFInw13ute3ZM49kXMWCkJj3F4tW0
+    short-id: 357a37e1
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '🇺🇸_US_美国_IPV4 (8 #32 #19 #8 #2 #25 #2  #14'
+  type: vless
+  server: 172.236.233.130
+  port: 443
+  uuid: a663dc28-28dc-4f97-9665-6ac215c8e567
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: 4wXbhUoSy9s9bGy9PaK18XVTTw3wXkBDjEusiMHaMB4
+    short-id: '53908445'
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 'trojan-1938560222 #29 #15'
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  port: 443
+  server: 66.163.114.114
+  skip-cert-verify: true
+  sni: 66.163.114.114
+  type: trojan
+  udp: true
+- name: '4FreeIran-b009e98093 #16'
+  type: vless
+  server: api.setevoypriliv.cc
+  port: 443
+  uuid: 9a0b863b-d0aa-42ab-b51a-ecbdc582ba19
+  tls: true
+  network: tcp
+  servername: api.setevoypriliv.cc
+  reality-opts:
+    public-key: r5WB5FnSCt4eeBC1FJMfkWHbzsMuabo0Rc6wuAhlZUs
+    short-id: a8
+  flow: xtls-rprx-vision
+  client-fingerprint: safari
+- name: '🇮🇹 意大利 ITA #1 #17'
+  type: ss
+  server: 202.50.253.72
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '4Jadi-616bd7df5e #18'
+  type: vless
+  server: 6bf329t.nl18.h1clayd.click
+  port: 443
+  uuid: e894c08a-fecc-46f5-bf03-c95d0274c79d
+  tls: true
+  network: tcp
+  servername: 6bf329t.nl18.h1clayd.click
+  reality-opts:
+    public-key: p35RUaaaItuoyNiCrLpGeStBUpEJMSiZ2AajdfhhmiM
+    short-id: 92aee92130b46fe2
+  flow: xtls-rprx-vision
+  client-fingerprint: firefox
+- name: 'JP - zhuhai.uk #38 #20 #19'
+  type: vless
+  server: 139.162.91.247
+  port: 443
+  uuid: 8cfdacf8-e781-42f0-9872-8d1d22469de5
+  tls: true
+  servername: itunes.apple.com
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+  reality-opts:
+    public-key: _gFFckW3h8hFfllawgec9U2PDBeLJeCK_Jgk1S5tgC8
+    short-id: 536d7739
+- name: '4Kian-6c33f9463c #39 #24 #20'
+  type: vless
+  server: 172.105.197.24
+  port: 443
+  uuid: 81f4e114-5a60-41b5-9038-8d742380c84f
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: EfNOl6-YAuW-WSg7Op-1YOqKZV9emIuLwH8YPhzc7ms
+    short-id: 772bef67
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '4FreeIran-1da215d6fe #21'
+  type: vless
+  server: 196.240.125.244
+  port: 8443
+  uuid: 0173d52e-8e1b-4681-831e-11529677b72f
+  tls: true
+  network: tcp
+  servername: api-v1-6b07048f.vmagnum.win
+  flow: xtls-rprx-vision
+  client-fingerprint: firefox
+- name: '🇺🇸_US_美国_IPV4 (7 #1 #5 #5 #23 #15 #8 # #22'
+  type: vless
+  server: 172.236.241.130
+  port: 443
+  uuid: 21117a67-21c2-4e2a-ba8f-bc49e23b0ae8
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: ibi0jOH5SfYhh7ycxdBrqq5oN4ajN3-dNiHKWC2VYWs
+    short-id: 51ecfe9e
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '4Nika-b7b73b8ffb #26 #11 #33 #23'
+  type: vless
+  server: 172.237.27.143
+  port: 443
+  uuid: f17019c8-b994-4913-b6f6-a443786349c9
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: 9CQoJIcxVVzF6ByYdoWAV80kjWNwsoyv_3Sii1bc-UI
+    short-id: 27bb3638
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '🇮🇹 意大利 ITA #2 #24'
+  type: ss
+  server: 202.50.253.99
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '🏳 www.v2nodes.com ss- #4 #19 #25'
+  type: ss
+  server: 202.50.253.36
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '4Kian-1c5ea13c57 #18 #34 #26'
+  type: vless
+  server: 172.237.14.142
+  port: 443
+  uuid: 323aa578-bddb-47ed-bdb6-5650ade5825c
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: UPeN2wAl3WQKsj-IchFF-81OnbhP1FQJ0EtcBFQn0Ak
+    short-id: 6093f81a
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '4Jadi-abf884b5ff #18 #24 #16 #27'
+  type: vless
+  server: 172.105.216.21
+  port: 443
+  uuid: 76f1ce49-bcea-4680-b9ef-16592269445b
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: Mjv5qe_CrvfHdVwgtyqYbqPesZ-1oko2XYg3dguzvxg
+    short-id: c29f9af4
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '4FreeIran-a6208bf859 #38 #28'
+  type: vless
+  server: 62.60.148.146
+  port: 443
+  uuid: 81c91c05-179f-4b87-95ca-3306677fb310
+  tls: true
+  network: ws
+  servername: g-it-2.r3vgawew123fg.pics
+  client-fingerprint: firefox
+  ws-opts:
+    path: /
+    headers:
+      Host: g-it-2.r3vgawew123fg.pics
+- name: '4Jadi-b83f1b2f46 #17 #11 #31 #28 #29'
   type: vless
   server: 172.105.203.15
   port: 443
@@ -432,43 +413,7 @@ proxies:
     path: /ws
     headers:
       Host: itunes.apple.com
-- name: 'trojan-1938560222 #29'
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 66.163.114.114
-  skip-cert-verify: true
-  sni: 66.163.114.114
-  type: trojan
-  udp: true
-- name: '4Mohsen-96dd9f6941 #30'
-  type: trojan
-  server: ukr.foldandflyhigh.com
-  port: 443
-  password: 963A4918-A630-29DA-A873-093CDF8AD784
-  sni: ukr.foldandflyhigh.com
-  tls: true
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ukr.foldandflyhigh.com
-- name: '4Jadi-450346117c #27 #27 #20 #37 #42 # #31'
-  type: vless
-  server: 172.238.18.103
-  port: 443
-  uuid: f4a4498a-c02f-4862-93ae-8f495c9cd2c0
-  tls: true
-  network: ws
-  servername: itunes.apple.com
-  reality-opts:
-    public-key: BDt3yJpYIovC6b1iJF2h8qH4LfQAoSC0u3iVa0cFeSM
-    short-id: 6ff775ae
-  client-fingerprint: chrome
-  ws-opts:
-    path: /ws
-    headers:
-      Host: itunes.apple.com
-- name: 'SG - zhuhai.uk #34 #20 #32'
+- name: 'SG - zhuhai.uk #34 #20 #32 #30'
   type: vless
   server: 172.104.186.185
   port: 443
@@ -485,39 +430,39 @@ proxies:
   reality-opts:
     public-key: xGPjO2ukRsGiMm-vAzcLcFYu5ivYe2paztFS64q3Bkw
     short-id: b29516da
-- name: '4Nika-b7b73b8ffb #26 #11 #33'
+- name: '4Jadi-b79acf0bf4 #33 #21 #31'
   type: vless
-  server: 172.237.27.143
+  server: 139.162.91.137
   port: 443
-  uuid: f17019c8-b994-4913-b6f6-a443786349c9
+  uuid: 5e6575a1-459c-4077-ac3d-92dea966ad7c
   tls: true
   network: ws
   servername: itunes.apple.com
   reality-opts:
-    public-key: 9CQoJIcxVVzF6ByYdoWAV80kjWNwsoyv_3Sii1bc-UI
-    short-id: 27bb3638
+    public-key: 4LfX16VwHkHQzoZ04o2VnO85N1o_Y8OcoJwfYdfaIGw
+    short-id: 0c0c806b
   client-fingerprint: chrome
   ws-opts:
     path: /ws
     headers:
       Host: itunes.apple.com
-- name: '4Kian-1c5ea13c57 #18 #34'
+- name: '4Kian-7860c010e7 #18 #31 #4 #2 #5 #32'
   type: vless
-  server: 172.237.14.142
+  server: 172.236.238.71
   port: 443
-  uuid: 323aa578-bddb-47ed-bdb6-5650ade5825c
+  uuid: 10c27b32-441b-4e73-9987-33b66298ca50
   tls: true
   network: ws
   servername: itunes.apple.com
   reality-opts:
-    public-key: UPeN2wAl3WQKsj-IchFF-81OnbhP1FQJ0EtcBFQn0Ak
-    short-id: 6093f81a
+    public-key: pdd8WbKVyeQOAGdDTzBxRGdote46rGljB7ZSuUsTAhw
+    short-id: 2419337b
   client-fingerprint: chrome
   ws-opts:
     path: /ws
     headers:
       Host: itunes.apple.com
-- name: '4Sarina-28f0c592fe #10 #22 #35 #13 #27 #35'
+- name: '4Sarina-28f0c592fe #10 #22 #35 #13 #27 #33'
   type: vless
   server: 139.162.101.74
   port: 443
@@ -533,72 +478,100 @@ proxies:
     path: /ws
     headers:
       Host: itunes.apple.com
-- name: '美国+Xerox #36'
+- name: '4Jadi-eca96fe176 #34'
   type: vless
-  server: 8a2e72t.nl20.h1clayd.shop
+  server: f0f0bet.fi16.h1clayd.click
   port: 443
-  uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
+  uuid: 2ccb06b6-9eac-44eb-ade7-c1e5afb8e7df
   tls: true
   network: tcp
-  servername: 8a2e72t.nl20.h1clayd.shop
+  servername: f0f0bet.fi16.h1clayd.click
   reality-opts:
-    public-key: VZS639V1i-35g7VXb9EoTYL-Srm7858sxcvFAunncmA
-    short-id: 8d0d0679f42ffd98
-  flow: xtls-rprx-vision
-  client-fingerprint: random
-- name: '爱沙尼亚+V2CROSS.COM #37'
+    public-key: GR2jS6u-CicgvYj-mnyfVpbYzkXw-WiXHr6hhqmir38
+    short-id: 795c3f4f29745c96
+  client-fingerprint: chrome
+- name: '4Jadi-450346117c #27 #27 #20 #37 #42 # #35'
   type: vless
-  server: 196.196.148.76
+  server: 172.238.18.103
   port: 443
-  uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
-  tls: true
-  network: tcp
-  servername: 8a2e72t.nl20.h1clayd.shop
-  reality-opts:
-    public-key: VZS639V1i-35g7VXb9EoTYL-Srm7858sxcvFAunncmA
-    short-id: 8d0d0679f42ffd98
-  flow: xtls-rprx-vision
-  client-fingerprint: firefox
-- name: '4FreeIran-a6208bf859 #38'
-  type: vless
-  server: 62.60.148.146
-  port: 443
-  uuid: 81c91c05-179f-4b87-95ca-3306677fb310
+  uuid: f4a4498a-c02f-4862-93ae-8f495c9cd2c0
   tls: true
   network: ws
-  servername: g-it-2.r3vgawew123fg.pics
-  client-fingerprint: firefox
-  ws-opts:
-    path: /
-    headers:
-      Host: g-it-2.r3vgawew123fg.pics
-- name: 'SG VLESS-20 free-nodes #38 #28 #36 #40 #39'
-  type: vless
-  server: 43.163.112.174
-  port: 443
-  uuid: 0dedd47d-47b9-4ed1-9c9f-cbeecad57a68
-  tls: true
-  network: tcp
-  servername: www.cloudflare.com
+  servername: itunes.apple.com
   reality-opts:
-    public-key: mXQudYHNu0pebcdk1_qn-UgcmwhjaV7y9UrYu3HX7Rg
-    short-id: 0123456789abcdef
-  flow: xtls-rprx-vision
+    public-key: BDt3yJpYIovC6b1iJF2h8qH4LfQAoSC0u3iVa0cFeSM
+    short-id: 6ff775ae
   client-fingerprint: chrome
-- name: '4Sarina-355dd3c893 #40'
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '🇸🇬_SG_新加坡_IPV4 #27 #18 #36'
   type: vless
-  server: 79.182.39.135
+  server: 139.180.221.53
   port: 443
-  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+  uuid: 2b30d0df-6ebe-4aed-9bad-b7c554e35e1d
   tls: true
-  network: grpc
-  servername: 15b171g.nl7.h1clayd.click
+  network: ws
+  servername: itunes.apple.com
   reality-opts:
-    public-key: zbz--PMjcIC4Ggr3j-ibDf0fzXRTj0lM_HzjPJyMkVE
-    short-id: 50a749f0eccb628c
-  client-fingerprint: firefox
-  grpc-opts:
-    grpc-service-name: 5b79e8a94241
+    public-key: plfXwkb-ewI6iibJBTRmPnf8eqPId1BfdArMIm3_mB4
+    short-id: 2f6f6f87
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '🇩🇪 www.v2nodes.com ss-DE-1624... #37'
+  type: ss
+  server: 47.254.167.157
+  port: 443
+  cipher: 2022-blake3-chacha20-poly1305
+  password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
+- name: '新加坡5 @ripaojiedian #37 #12 #18 #37 #23 #38'
+  type: vless
+  server: 139.162.20.241
+  port: 443
+  uuid: 7f0270f9-1abc-4c4f-960d-0a23e32f1eb8
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: fG1u2AZj5pgSNWO3MBmkoY6K61xBwnuYX3_z1fSeR0o
+    short-id: 640c807d
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 'DE - zhuhai.uk #39'
+  type: vless
+  server: free.fugui.lol
+  port: 19482
+  uuid: ead3595f-4020-4e76-a3ec-c248e1a2f2f7
+  flow: xtls-rprx-vision
+  tls: true
+  servername: swdist.apple.com
+  client-fingerprint: ios
+  reality-opts:
+    public-key: IjWYbHNrZb3UCQxsTJyekEOA3tHq42L6Jw3O8MmLYVQ
+    short-id: fa514b83
+- name: '4Mohsen-ee35d805db #36 #27 #7 #21 #9 #40'
+  type: vless
+  server: 139.162.91.224
+  port: 443
+  uuid: ff3038b1-a2f5-428f-89cd-5d5e4efba8e7
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: wmbc3kcjbG9-A9Fi7zaHuRVPH7A7UQkKNNvqyqJtMEk
+    short-id: e5b03494
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
 - name: '爱沙尼亚+V2CROSS.COM #25 #45 #23 #35 #29 # #41'
   type: vless
   server: 196.196.148.85
@@ -611,7 +584,122 @@ proxies:
     public-key: l-GzBDuNuhnjxoRlZqKvT7jAt_sbVAxhGFsAttO5kXs
     short-id: 361d0dd59c70516f
   client-fingerprint: chrome
-- name: '4FreeIran-c486c2ac48 #45 #42'
+- name: '4Sarina-4e6982826a #11 #42'
+  type: vless
+  server: 172.104.105.212
+  port: 443
+  uuid: e8212bb6-b962-4c68-83e6-c2dbc81829a0
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: kiBL725AePA3-FPNDKwUgMrolmGl_P8YBRAwFj-_yzM
+    short-id: cdfc4883
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '爱沙尼亚+V2CROSS.COM #37 #43'
+  type: vless
+  server: 196.196.148.76
+  port: 443
+  uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
+  tls: true
+  network: tcp
+  servername: 8a2e72t.nl20.h1clayd.shop
+  reality-opts:
+    public-key: VZS639V1i-35g7VXb9EoTYL-Srm7858sxcvFAunncmA
+    short-id: 8d0d0679f42ffd98
+  flow: xtls-rprx-vision
+  client-fingerprint: firefox
+- name: '🇩🇪 德国 DEU #44'
+  type: ss
+  server: 8.211.56.98
+  port: 443
+  cipher: 2022-blake3-chacha20-poly1305
+  password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
+- name: '4Nika-8256689567 #22 #15 #45'
+  type: vless
+  server: 172.104.186.205
+  port: 443
+  uuid: eafa7d0d-db1c-4c91-8fd8-587cd218008e
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: dT50iKOzQz2utAi1tcwsU86hbaS78JeDY_xST0nP5D4
+    short-id: aea01663
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '西班牙+V2CROSS.COM #44 #46'
+  type: vless
+  server: 196.245.52.187
+  port: 443
+  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+  tls: true
+  network: tcp
+  servername: 04535dt.us8.h1clayd.click
+  reality-opts:
+    public-key: UoS8qZ74hP_ECcncCz55lzvlcVss3R7VA0WYZE0YQCY
+    short-id: ba2a3dce62b99092
+  client-fingerprint: firefox
+- name: '4Jadi-65b89c0908 #27 #47'
+  type: vless
+  server: 149.28.152.20
+  port: 443
+  uuid: e17ca473-bd02-4fe6-873f-5866d729b0a3
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: sli7AT0WEhYMVMARhHh-ZQMK7zHHn0cGsxw2gPhoBis
+    short-id: 107ff148
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '🇮🇹 意大利 ITA #9 #48'
+  type: ss
+  server: 202.50.253.63
+  port: 19999
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '🇸🇬_SG_新加坡_IPV4 (2 #19 #6 #37 #31 #27 # #49'
+  type: vless
+  server: 172.104.48.194
+  port: 443
+  uuid: a28d0884-193d-4591-aa64-8638ba1481ce
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: u_4r8NRmRsN5Ndbt0koyC73DLC7mCcK4wAA0YiIR4ko
+    short-id: b0af872e
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '4Sarina-0552dc3415 #50'
+  type: vless
+  server: 13.141.37.243
+  port: 443
+  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+  tls: true
+  network: grpc
+  servername: 717252g.nl8.h1clayd.click
+  reality-opts:
+    public-key: PD8Jdlg3xB9QY--jwQjp8PFPzCS8-Oryw6-HWBcHMFU
+    short-id: d3bd772514c87d28
+  client-fingerprint: firefox
+  grpc-opts:
+    grpc-service-name: 204adda7e3da
+- name: '4FreeIran-c486c2ac48 #45 #42 #51'
   type: vless
   server: 13.141.36.10
   port: 443
@@ -625,25 +713,45 @@ proxies:
   client-fingerprint: firefox
   grpc-opts:
     grpc-service-name: 5b79e8a94241
-- name: '🇰🇷 韩国 KOR #1 #43'
-  type: ss
-  server: 211.233.33.228
-  port: 8388
-  cipher: aes-256-gcm
-  password: qpowi_vip_tunnel_2026_secure
-- name: '西班牙+V2CROSS.COM #44'
+- name: '4Sarina-355dd3c893 #40 #52'
   type: vless
-  server: 196.245.52.187
+  server: 79.182.39.135
   port: 443
   uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
   tls: true
-  network: tcp
-  servername: 04535dt.us8.h1clayd.click
+  network: grpc
+  servername: 15b171g.nl7.h1clayd.click
   reality-opts:
-    public-key: UoS8qZ74hP_ECcncCz55lzvlcVss3R7VA0WYZE0YQCY
-    short-id: ba2a3dce62b99092
+    public-key: zbz--PMjcIC4Ggr3j-ibDf0fzXRTj0lM_HzjPJyMkVE
+    short-id: 50a749f0eccb628c
   client-fingerprint: firefox
-- name: '🇩🇪 www.v2nodes.com ss-DE-1608... #45'
+  grpc-opts:
+    grpc-service-name: 5b79e8a94241
+- name: '4Nika-41ff124771 #53'
+  type: vless
+  server: 198.13.53.39
+  port: 443
+  uuid: 8f21c635-ef0a-4b05-8356-f44d463b6e34
+  tls: true
+  network: ws
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: xxPVgbxguyYuVIml6Eh6ZGcDLO1z0OWKZXfDdUGFv1k
+    short-id: 7a7cc838
+  client-fingerprint: chrome
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: '英国+伦敦南岸大学 #54'
+  type: vless
+  server: 136.148.83.70
+  port: 443
+  uuid: 00000000-0000-0001-0000-000000000000
+  tls: true
+  network: tcp
+  servername: aszbk-ru-78dc.my-fade.cloud
+- name: '🇩🇪 www.v2nodes.com ss-DE-1608... #45 #55'
   type: ss
   server: 47.254.128.109
   port: 443
@@ -655,66 +763,78 @@ proxy-groups:
   proxies:
   - ♻️ 自动选择
   - 🔯 故障转移
-  - 🇺🇸 美国
   - 🌍 其他地区
-  - 🇸🇬 新加坡
+  - 🇺🇸 美国
   - 🇯🇵 日本
-  - 🌍 NE
-  - 🇮🇹 意大利
+  - 🇸🇬 新加坡
   - 🇫🇷 法国
-  - 🇷🇴 罗马尼亚
-  - 🇰🇷 韩国
-  - 🇪🇸 西班牙
   - 🇩🇪 德国
+  - 🇷🇺 俄罗斯
+  - 🇮🇹 意大利
+  - 🇷🇴 罗马尼亚
+  - 🇹🇷 土耳其
+  - 🇹🇼 台湾
+  - 🌍 NE
+  - 🇪🇸 西班牙
   - DIRECT
 - name: ♻️ 自动选择
   type: url-test
   proxies:
   - '4Jadi-e15e82492b #24 #1 #3 #8 #16 #11  #1'
-  - '🇺🇸_US_美国_IPV4 (7 #1 #5 #5 #23 #15 #8 #2'
-  - '4Nika-e223e38f4e #37 #5 #3 #9 #3'
-  - '🇺🇸_US_美国_IPV4 (8 #32 #19 #8 #2 #25 #2  #4'
-  - '4Kian-7860c010e7 #18 #31 #4 #2 #5'
-  - '4Sarina-7fed7cf63d #6'
-  - '4Mohsen-36104dddf1 #7'
-  - '4Jadi-c3ba29d362 #2 #1 #3 #8'
-  - '4Mohsen-ee35d805db #36 #27 #7 #21 #9'
-  - '4Mohsen-7c10314737 #23 #5 #10'
-  - '4Sarina-4e6982826a #11'
-  - '🇯🇵_JP_日本_IPV4 #44 #12'
-  - '🇺🇸_US_美国_IPV4 (5 #6 #8 #6 #30 #7 #13'
-  - 'trojan-1929965351 #14'
-  - '4Nika-8256689567 #22 #15'
-  - '4Jadi-abf884b5ff #18 #24 #16'
-  - '新加坡5 @ripaojiedian #37 #12 #18 #37 #23 #17'
-  - '🇸🇬_SG_新加坡_IPV4 #27 #18'
-  - '🏳 www.v2nodes.com ss- #4 #19'
-  - 'JP - zhuhai.uk #38 #20'
-  - '4Jadi-b79acf0bf4 #33 #21'
-  - '🇺🇸_US_美国_IPV4 (6 #1 #7 #21 #29 #22'
-  - '4Sarina-6096a87434 #4 #20 #5 #5 #13 #8 #23'
-  - '4Kian-6c33f9463c #39 #24'
-  - '4Nika-374f6c35e6 #25'
-  - '🇸🇬_SG_新加坡_IPV4 (2 #19 #6 #37 #31 #27 # #26'
-  - '4Jadi-65b89c0908 #27'
-  - '4Jadi-b83f1b2f46 #17 #11 #31 #28'
-  - 'trojan-1938560222 #29'
-  - '4Mohsen-96dd9f6941 #30'
-  - '4Jadi-450346117c #27 #27 #20 #37 #42 # #31'
-  - 'SG - zhuhai.uk #34 #20 #32'
-  - '4Nika-b7b73b8ffb #26 #11 #33'
-  - '4Kian-1c5ea13c57 #18 #34'
-  - '4Sarina-28f0c592fe #10 #22 #35 #13 #27 #35'
-  - '美国+Xerox #36'
-  - '爱沙尼亚+V2CROSS.COM #37'
-  - '4FreeIran-a6208bf859 #38'
-  - 'SG VLESS-20 free-nodes #38 #28 #36 #40 #39'
-  - '4Sarina-355dd3c893 #40'
+  - '🇯🇵_JP_日本_IPV4 #44 #12 #2'
+  - '4Nika-374f6c35e6 #25 #3'
+  - '4Sarina-7fed7cf63d #6 #4'
+  - '4Jadi-c3ba29d362 #2 #1 #3 #8 #5'
+  - '4Mohsen-7c10314737 #23 #5 #10 #6'
+  - '🇺🇸_US_美国_IPV4 (5 #6 #8 #6 #30 #7 #13 #7'
+  - '🇺🇸_US_美国_IPV4 (6 #1 #7 #21 #29 #22 #8'
+  - '4Mohsen-36104dddf1 #7 #9'
+  - '4Sarina-6096a87434 #4 #20 #5 #5 #13 #8 #10'
+  - '4Kian-01db735cba #11'
+  - '4Nika-e223e38f4e #37 #5 #3 #9 #3 #12'
+  - '4Nika-56f5e99d69 #13'
+  - '🇺🇸_US_美国_IPV4 (8 #32 #19 #8 #2 #25 #2  #14'
+  - 'trojan-1938560222 #29 #15'
+  - '4FreeIran-b009e98093 #16'
+  - '🇮🇹 意大利 ITA #1 #17'
+  - '4Jadi-616bd7df5e #18'
+  - 'JP - zhuhai.uk #38 #20 #19'
+  - '4Kian-6c33f9463c #39 #24 #20'
+  - '4FreeIran-1da215d6fe #21'
+  - '🇺🇸_US_美国_IPV4 (7 #1 #5 #5 #23 #15 #8 # #22'
+  - '4Nika-b7b73b8ffb #26 #11 #33 #23'
+  - '🇮🇹 意大利 ITA #2 #24'
+  - '🏳 www.v2nodes.com ss- #4 #19 #25'
+  - '4Kian-1c5ea13c57 #18 #34 #26'
+  - '4Jadi-abf884b5ff #18 #24 #16 #27'
+  - '4FreeIran-a6208bf859 #38 #28'
+  - '4Jadi-b83f1b2f46 #17 #11 #31 #28 #29'
+  - 'SG - zhuhai.uk #34 #20 #32 #30'
+  - '4Jadi-b79acf0bf4 #33 #21 #31'
+  - '4Kian-7860c010e7 #18 #31 #4 #2 #5 #32'
+  - '4Sarina-28f0c592fe #10 #22 #35 #13 #27 #33'
+  - '4Jadi-eca96fe176 #34'
+  - '4Jadi-450346117c #27 #27 #20 #37 #42 # #35'
+  - '🇸🇬_SG_新加坡_IPV4 #27 #18 #36'
+  - '🇩🇪 www.v2nodes.com ss-DE-1624... #37'
+  - '新加坡5 @ripaojiedian #37 #12 #18 #37 #23 #38'
+  - 'DE - zhuhai.uk #39'
+  - '4Mohsen-ee35d805db #36 #27 #7 #21 #9 #40'
   - '爱沙尼亚+V2CROSS.COM #25 #45 #23 #35 #29 # #41'
-  - '4FreeIran-c486c2ac48 #45 #42'
-  - '🇰🇷 韩国 KOR #1 #43'
-  - '西班牙+V2CROSS.COM #44'
-  - '🇩🇪 www.v2nodes.com ss-DE-1608... #45'
+  - '4Sarina-4e6982826a #11 #42'
+  - '爱沙尼亚+V2CROSS.COM #37 #43'
+  - '🇩🇪 德国 DEU #44'
+  - '4Nika-8256689567 #22 #15 #45'
+  - '西班牙+V2CROSS.COM #44 #46'
+  - '4Jadi-65b89c0908 #27 #47'
+  - '🇮🇹 意大利 ITA #9 #48'
+  - '🇸🇬_SG_新加坡_IPV4 (2 #19 #6 #37 #31 #27 # #49'
+  - '4Sarina-0552dc3415 #50'
+  - '4FreeIran-c486c2ac48 #45 #42 #51'
+  - '4Sarina-355dd3c893 #40 #52'
+  - '4Nika-41ff124771 #53'
+  - '英国+伦敦南岸大学 #54'
+  - '🇩🇪 www.v2nodes.com ss-DE-1608... #45 #55'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
@@ -722,83 +842,110 @@ proxy-groups:
   type: fallback
   proxies:
   - '4Jadi-e15e82492b #24 #1 #3 #8 #16 #11  #1'
-  - '🇺🇸_US_美国_IPV4 (7 #1 #5 #5 #23 #15 #8 #2'
-  - '4Nika-e223e38f4e #37 #5 #3 #9 #3'
-  - '🇺🇸_US_美国_IPV4 (8 #32 #19 #8 #2 #25 #2  #4'
-  - '4Kian-7860c010e7 #18 #31 #4 #2 #5'
-  - '4Sarina-7fed7cf63d #6'
-  - '4Mohsen-36104dddf1 #7'
-  - '4Jadi-c3ba29d362 #2 #1 #3 #8'
-  - '4Mohsen-ee35d805db #36 #27 #7 #21 #9'
-  - '4Mohsen-7c10314737 #23 #5 #10'
-  - '4Sarina-4e6982826a #11'
-  - '🇯🇵_JP_日本_IPV4 #44 #12'
-  - '🇺🇸_US_美国_IPV4 (5 #6 #8 #6 #30 #7 #13'
-  - 'trojan-1929965351 #14'
-  - '4Nika-8256689567 #22 #15'
-  - '4Jadi-abf884b5ff #18 #24 #16'
-  - '新加坡5 @ripaojiedian #37 #12 #18 #37 #23 #17'
-  - '🇸🇬_SG_新加坡_IPV4 #27 #18'
-  - '🏳 www.v2nodes.com ss- #4 #19'
-  - 'JP - zhuhai.uk #38 #20'
-  - '4Jadi-b79acf0bf4 #33 #21'
-  - '🇺🇸_US_美国_IPV4 (6 #1 #7 #21 #29 #22'
-  - '4Sarina-6096a87434 #4 #20 #5 #5 #13 #8 #23'
-  - '4Kian-6c33f9463c #39 #24'
-  - '4Nika-374f6c35e6 #25'
-  - '🇸🇬_SG_新加坡_IPV4 (2 #19 #6 #37 #31 #27 # #26'
-  - '4Jadi-65b89c0908 #27'
-  - '4Jadi-b83f1b2f46 #17 #11 #31 #28'
-  - 'trojan-1938560222 #29'
-  - '4Mohsen-96dd9f6941 #30'
-  - '4Jadi-450346117c #27 #27 #20 #37 #42 # #31'
-  - 'SG - zhuhai.uk #34 #20 #32'
-  - '4Nika-b7b73b8ffb #26 #11 #33'
-  - '4Kian-1c5ea13c57 #18 #34'
-  - '4Sarina-28f0c592fe #10 #22 #35 #13 #27 #35'
-  - '美国+Xerox #36'
-  - '爱沙尼亚+V2CROSS.COM #37'
-  - '4FreeIran-a6208bf859 #38'
-  - 'SG VLESS-20 free-nodes #38 #28 #36 #40 #39'
-  - '4Sarina-355dd3c893 #40'
+  - '🇯🇵_JP_日本_IPV4 #44 #12 #2'
+  - '4Nika-374f6c35e6 #25 #3'
+  - '4Sarina-7fed7cf63d #6 #4'
+  - '4Jadi-c3ba29d362 #2 #1 #3 #8 #5'
+  - '4Mohsen-7c10314737 #23 #5 #10 #6'
+  - '🇺🇸_US_美国_IPV4 (5 #6 #8 #6 #30 #7 #13 #7'
+  - '🇺🇸_US_美国_IPV4 (6 #1 #7 #21 #29 #22 #8'
+  - '4Mohsen-36104dddf1 #7 #9'
+  - '4Sarina-6096a87434 #4 #20 #5 #5 #13 #8 #10'
+  - '4Kian-01db735cba #11'
+  - '4Nika-e223e38f4e #37 #5 #3 #9 #3 #12'
+  - '4Nika-56f5e99d69 #13'
+  - '🇺🇸_US_美国_IPV4 (8 #32 #19 #8 #2 #25 #2  #14'
+  - 'trojan-1938560222 #29 #15'
+  - '4FreeIran-b009e98093 #16'
+  - '🇮🇹 意大利 ITA #1 #17'
+  - '4Jadi-616bd7df5e #18'
+  - 'JP - zhuhai.uk #38 #20 #19'
+  - '4Kian-6c33f9463c #39 #24 #20'
+  - '4FreeIran-1da215d6fe #21'
+  - '🇺🇸_US_美国_IPV4 (7 #1 #5 #5 #23 #15 #8 # #22'
+  - '4Nika-b7b73b8ffb #26 #11 #33 #23'
+  - '🇮🇹 意大利 ITA #2 #24'
+  - '🏳 www.v2nodes.com ss- #4 #19 #25'
+  - '4Kian-1c5ea13c57 #18 #34 #26'
+  - '4Jadi-abf884b5ff #18 #24 #16 #27'
+  - '4FreeIran-a6208bf859 #38 #28'
+  - '4Jadi-b83f1b2f46 #17 #11 #31 #28 #29'
+  - 'SG - zhuhai.uk #34 #20 #32 #30'
+  - '4Jadi-b79acf0bf4 #33 #21 #31'
+  - '4Kian-7860c010e7 #18 #31 #4 #2 #5 #32'
+  - '4Sarina-28f0c592fe #10 #22 #35 #13 #27 #33'
+  - '4Jadi-eca96fe176 #34'
+  - '4Jadi-450346117c #27 #27 #20 #37 #42 # #35'
+  - '🇸🇬_SG_新加坡_IPV4 #27 #18 #36'
+  - '🇩🇪 www.v2nodes.com ss-DE-1624... #37'
+  - '新加坡5 @ripaojiedian #37 #12 #18 #37 #23 #38'
+  - 'DE - zhuhai.uk #39'
+  - '4Mohsen-ee35d805db #36 #27 #7 #21 #9 #40'
   - '爱沙尼亚+V2CROSS.COM #25 #45 #23 #35 #29 # #41'
-  - '4FreeIran-c486c2ac48 #45 #42'
-  - '🇰🇷 韩国 KOR #1 #43'
-  - '西班牙+V2CROSS.COM #44'
-  - '🇩🇪 www.v2nodes.com ss-DE-1608... #45'
+  - '4Sarina-4e6982826a #11 #42'
+  - '爱沙尼亚+V2CROSS.COM #37 #43'
+  - '🇩🇪 德国 DEU #44'
+  - '4Nika-8256689567 #22 #15 #45'
+  - '西班牙+V2CROSS.COM #44 #46'
+  - '4Jadi-65b89c0908 #27 #47'
+  - '🇮🇹 意大利 ITA #9 #48'
+  - '🇸🇬_SG_新加坡_IPV4 (2 #19 #6 #37 #31 #27 # #49'
+  - '4Sarina-0552dc3415 #50'
+  - '4FreeIran-c486c2ac48 #45 #42 #51'
+  - '4Sarina-355dd3c893 #40 #52'
+  - '4Nika-41ff124771 #53'
+  - '英国+伦敦南岸大学 #54'
+  - '🇩🇪 www.v2nodes.com ss-DE-1608... #45 #55'
   url: http://www.gstatic.com/generate_204
   interval: 300
-- name: 🇺🇸 美国
-  type: url-test
-  proxies:
-  - '🇺🇸_US_美国_IPV4 (7 #1 #5 #5 #23 #15 #8 #2'
-  - '4Nika-e223e38f4e #37 #5 #3 #9 #3'
-  - '🇺🇸_US_美国_IPV4 (8 #32 #19 #8 #2 #25 #2  #4'
-  - '4Kian-7860c010e7 #18 #31 #4 #2 #5'
-  - '4Sarina-7fed7cf63d #6'
-  - '4Jadi-c3ba29d362 #2 #1 #3 #8'
-  - '4Mohsen-7c10314737 #23 #5 #10'
-  - '🇺🇸_US_美国_IPV4 (5 #6 #8 #6 #30 #7 #13'
-  - 'trojan-1929965351 #14'
-  - '🇺🇸_US_美国_IPV4 (6 #1 #7 #21 #29 #22'
-  - '4Nika-374f6c35e6 #25'
-  - 'trojan-1938560222 #29'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
 - name: 🌍 其他地区
   type: url-test
   proxies:
-  - '4Mohsen-36104dddf1 #7'
-  - '4Mohsen-ee35d805db #36 #27 #7 #21 #9'
-  - '4Sarina-4e6982826a #11'
-  - '4Sarina-6096a87434 #4 #20 #5 #5 #13 #8 #23'
-  - '4Jadi-65b89c0908 #27'
-  - '4Jadi-b83f1b2f46 #17 #11 #31 #28'
-  - '4Nika-b7b73b8ffb #26 #11 #33'
-  - '4Sarina-28f0c592fe #10 #22 #35 #13 #27 #35'
-  - '4Sarina-355dd3c893 #40'
+  - '4Mohsen-36104dddf1 #7 #9'
+  - '4Sarina-6096a87434 #4 #20 #5 #5 #13 #8 #10'
+  - '4Kian-01db735cba #11'
+  - '4Nika-b7b73b8ffb #26 #11 #33 #23'
+  - '🇮🇹 意大利 ITA #2 #24'
+  - '4Jadi-b83f1b2f46 #17 #11 #31 #28 #29'
+  - '4Sarina-28f0c592fe #10 #22 #35 #13 #27 #33'
+  - '4Mohsen-ee35d805db #36 #27 #7 #21 #9 #40'
   - '爱沙尼亚+V2CROSS.COM #25 #45 #23 #35 #29 # #41'
+  - '4Sarina-4e6982826a #11 #42'
+  - '4Jadi-65b89c0908 #27 #47'
+  - '🇮🇹 意大利 ITA #9 #48'
+  - '4Sarina-355dd3c893 #40 #52'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇺🇸 美国
+  type: url-test
+  proxies:
+  - '4Nika-374f6c35e6 #25 #3'
+  - '4Sarina-7fed7cf63d #6 #4'
+  - '4Jadi-c3ba29d362 #2 #1 #3 #8 #5'
+  - '4Mohsen-7c10314737 #23 #5 #10 #6'
+  - '🇺🇸_US_美国_IPV4 (5 #6 #8 #6 #30 #7 #13 #7'
+  - '🇺🇸_US_美国_IPV4 (6 #1 #7 #21 #29 #22 #8'
+  - '4Nika-e223e38f4e #37 #5 #3 #9 #3 #12'
+  - '4Nika-56f5e99d69 #13'
+  - '🇺🇸_US_美国_IPV4 (8 #32 #19 #8 #2 #25 #2  #14'
+  - 'trojan-1938560222 #29 #15'
+  - '🇺🇸_US_美国_IPV4 (7 #1 #5 #5 #23 #15 #8 # #22'
+  - '4Kian-7860c010e7 #18 #31 #4 #2 #5 #32'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇯🇵 日本
+  type: url-test
+  proxies:
+  - '🇯🇵_JP_日本_IPV4 #44 #12 #2'
+  - 'JP - zhuhai.uk #38 #20 #19'
+  - '4Kian-6c33f9463c #39 #24 #20'
+  - '4Kian-1c5ea13c57 #18 #34 #26'
+  - '4Jadi-abf884b5ff #18 #24 #16 #27'
+  - '4Jadi-b79acf0bf4 #33 #21 #31'
+  - '4Jadi-450346117c #27 #27 #20 #37 #42 # #35'
+  - '4Nika-41ff124771 #53'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
@@ -806,76 +953,81 @@ proxy-groups:
   type: url-test
   proxies:
   - '4Jadi-e15e82492b #24 #1 #3 #8 #16 #11  #1'
-  - '4Nika-8256689567 #22 #15'
-  - '新加坡5 @ripaojiedian #37 #12 #18 #37 #23 #17'
-  - '🇸🇬_SG_新加坡_IPV4 #27 #18'
-  - '🇸🇬_SG_新加坡_IPV4 (2 #19 #6 #37 #31 #27 # #26'
-  - '4Mohsen-96dd9f6941 #30'
-  - 'SG - zhuhai.uk #34 #20 #32'
-  - 'SG VLESS-20 free-nodes #38 #28 #36 #40 #39'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇯🇵 日本
-  type: url-test
-  proxies:
-  - '🇯🇵_JP_日本_IPV4 #44 #12'
-  - '4Jadi-abf884b5ff #18 #24 #16'
-  - 'JP - zhuhai.uk #38 #20'
-  - '4Jadi-b79acf0bf4 #33 #21'
-  - '4Kian-6c33f9463c #39 #24'
-  - '4Jadi-450346117c #27 #27 #20 #37 #42 # #31'
-  - '4Kian-1c5ea13c57 #18 #34'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🌍 NE
-  type: url-test
-  proxies:
-  - '美国+Xerox #36'
-  - '爱沙尼亚+V2CROSS.COM #37'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇮🇹 意大利
-  type: url-test
-  proxies:
-  - '🏳 www.v2nodes.com ss- #4 #19'
+  - 'SG - zhuhai.uk #34 #20 #32 #30'
+  - '🇸🇬_SG_新加坡_IPV4 #27 #18 #36'
+  - '新加坡5 @ripaojiedian #37 #12 #18 #37 #23 #38'
+  - '4Nika-8256689567 #22 #15 #45'
+  - '🇸🇬_SG_新加坡_IPV4 (2 #19 #6 #37 #31 #27 # #49'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇫🇷 法国
   type: url-test
   proxies:
-  - '4FreeIran-a6208bf859 #38'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇷🇴 罗马尼亚
-  type: url-test
-  proxies:
-  - '4FreeIran-c486c2ac48 #45 #42'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇰🇷 韩国
-  type: url-test
-  proxies:
-  - '🇰🇷 韩国 KOR #1 #43'
-  url: http://www.gstatic.com/generate_204
-  interval: 300
-  tolerance: 80
-- name: 🇪🇸 西班牙
-  type: url-test
-  proxies:
-  - '西班牙+V2CROSS.COM #44'
+  - '4FreeIran-a6208bf859 #38 #28'
+  - '4Sarina-0552dc3415 #50'
+  - '英国+伦敦南岸大学 #54'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
 - name: 🇩🇪 德国
   type: url-test
   proxies:
-  - '🇩🇪 www.v2nodes.com ss-DE-1608... #45'
+  - '🇩🇪 www.v2nodes.com ss-DE-1624... #37'
+  - '🇩🇪 德国 DEU #44'
+  - '🇩🇪 www.v2nodes.com ss-DE-1608... #45 #55'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇷🇺 俄罗斯
+  type: url-test
+  proxies:
+  - '4FreeIran-b009e98093 #16'
+  - '4FreeIran-1da215d6fe #21'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇮🇹 意大利
+  type: url-test
+  proxies:
+  - '🇮🇹 意大利 ITA #1 #17'
+  - '🏳 www.v2nodes.com ss- #4 #19 #25'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇷🇴 罗马尼亚
+  type: url-test
+  proxies:
+  - '4Jadi-616bd7df5e #18'
+  - '4FreeIran-c486c2ac48 #45 #42 #51'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇹🇷 土耳其
+  type: url-test
+  proxies:
+  - '4Jadi-eca96fe176 #34'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇹🇼 台湾
+  type: url-test
+  proxies:
+  - 'DE - zhuhai.uk #39'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🌍 NE
+  type: url-test
+  proxies:
+  - '爱沙尼亚+V2CROSS.COM #37 #43'
+  url: http://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+- name: 🇪🇸 西班牙
+  type: url-test
+  proxies:
+  - '西班牙+V2CROSS.COM #44 #46'
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 80
